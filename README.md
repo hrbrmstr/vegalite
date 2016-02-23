@@ -9,6 +9,10 @@ The following functions are implemented:
 
 Current thinking is to try to use the `vega-lite` node module "headless" and let it do the transforms (et al) then get the spec back into R and convert to ggplot2.
 
+It turns out that thinking is semi-ok. `vega-lite` will compile to a full Vega spec, but it relies on `vega` to do all the heavy lifting. That's a binary install on most systems.
+
+So, I have to write a parser for the Vega expression language. ugh.
+
 ### Installation
 
 
@@ -298,7 +302,7 @@ date()
 ```
 
 ```
-## [1] "Tue Feb 23 17:11:15 2016"
+## [1] "Tue Feb 23 18:35:31 2016"
 ```
 
 ```r
