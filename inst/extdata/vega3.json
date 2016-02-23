@@ -1,0 +1,12 @@
+{
+  "data": {
+    "url": "https://vega.github.io/vega-lite/data/cars.json"
+  },
+  "mark": "point",
+  "encoding": {
+    "x": {
+      "field": "Horsepower",
+      "type": "quantitative"
+    }
+  }
+}

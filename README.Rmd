@@ -1,0 +1,53 @@
+---
+output:
+  html_document:
+    keep_md: true
+  md_document:
+    variant: markdown_github
+---
+
+`vegalite` : turn a Vega-Lite spec into a ggplot2 plot (and eventually vice-versa)
+
+The following functions are implemented:
+
+- `ggvega``
+
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/vegalite")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r}
+library(vegalite)
+
+# current verison
+packageVersion("vegalite")
+
+```
+
+### Test Results
+
+```{r}
+library(vegalite)
+library(testthat)
+library(ggplot2)
+library(jsonlite)
+
+for (spec in list.files(system.file("extdata", package="vegalite"), full.names=TRUE)) {
+  cat(toJSON(fromJSON(spec), pretty=TRUE))
+  print(ggvega(spec))
+}
+
+date()
+
+test_dir("tests/")
+```
+

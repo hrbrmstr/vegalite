@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.travis\.yml$
+^README\.*md$
+^README\.*html$
+^NOTES\.*md$
+^NOTES\.*html$
