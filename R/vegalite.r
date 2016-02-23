@@ -6,6 +6,8 @@ ggvega <- function(spec) {
 
   spec <- fromJSON(spec)
 
+  # if the data isn't local
+
   if (!is.null(spec[["data"]][["url"]])) {
     ext <- file_ext(spec$data$url)
     if (ext == "json") {
@@ -17,6 +19,8 @@ ggvega <- function(spec) {
     }
   }
 
+  # Handle case where there is no x or y var specified
+
   if (is.null(spec[["encoding"]][["x"]][["field"]])) {
     spec$data$values$x <- 1
     spec$encoding$x <- list(field="x", type="nominal")
@@ -27,10 +31,16 @@ ggvega <- function(spec) {
     spec$encoding$y <- list(field="y", type="nominal")
   }
 
+  # start the ggplot
+
   gg <- ggplot(data=spec$data$values)
+
+  # add the obvious
 
   gg <- gg + aes_string(x=spec$encoding$x$field,
                         y=spec$encoding$y$field)
+
+  # handle size encoding
 
   if (!is.null(spec[["encoding"]][["size"]])) {
 
@@ -42,9 +52,9 @@ ggvega <- function(spec) {
       gg <- gg + scale_size_discrete()
     }
 
-  } else {
-    gg <- gg + scale_size_manual(values=1)
   }
+
+  # handle color encoding
 
   if (!is.null(spec[["encoding"]][["color"]])) {
 
@@ -58,6 +68,8 @@ ggvega <- function(spec) {
 
   }
 
+  # handle shape encoding
+
   if (!is.null(spec[["encoding"]][["shape"]])) {
 
     gg <- gg + aes_string(shape=spec$encoding$shape$field)
@@ -70,6 +82,8 @@ ggvega <- function(spec) {
 
   }
 
+  # do the geom thing
+
   if (spec$mark %in% c("point", "circle", "square")) {
     if (spec$mark == "circle") {
       update_geom_defaults("point", list(shape=16))
@@ -79,12 +93,17 @@ ggvega <- function(spec) {
     gg <- gg + geom_point()
   } else if (spec$mark == "bar") {
     gg <- gg + geom_bar(fill=color)
+  } else if (spec$mark == "line") {
+
   }
+
+  # scales
 
   if (spec$encoding$x$type == "nominal") {
     gg <- gg + scale_x_discrete()
   } else if (spec$encoding$x$type == "quantitative") {
     gg <- gg + scale_x_continuous()
+  } else if (spec$encoding$x$type == "temporal") {
   }
 
   if (spec$encoding$y$type == "nominal") {
@@ -93,7 +112,11 @@ ggvega <- function(spec) {
     gg <- gg + scale_y_continuous()
   }
 
+  # theme
+
   gg <- gg + theme_bw()
+
+  # bye!
 
   gg
 

@@ -5,6 +5,9 @@ The following functions are implemented:
 
 - `ggvega`
 
+### DEVELOPMENT NOTES
+
+Current thinking is to try to use the `vega-lite` node module "headless" and let it do the transforms (et al) then get the spec back into R and convert to ggplot2.
 
 ### Installation
 
@@ -263,12 +266,39 @@ for (spec in list.files(system.file("extdata", package="vegalite"), full.names=T
 
 ![](README_files/figure-html/unnamed-chunk-4-7.png)
 
+```
+## {
+##   "description": ["Stock prices of 5 Tech Companies Over Time."],
+##   "data": {
+##     "url": ["https://vega.github.io/vega-lite/data/stocks.csv"],
+##     "formatType": ["csv"]
+##   },
+##   "mark": ["line"],
+##   "encoding": {
+##     "x": {
+##       "field": ["date"],
+##       "type": ["temporal"]
+##     },
+##     "y": {
+##       "field": ["price"],
+##       "type": ["quantitative"]
+##     },
+##     "color": {
+##       "field": ["symbol"],
+##       "type": ["nominal"]
+##     }
+##   }
+## }
+```
+
+![](README_files/figure-html/unnamed-chunk-4-8.png)
+
 ```r
 date()
 ```
 
 ```
-## [1] "Tue Feb 23 16:06:26 2016"
+## [1] "Tue Feb 23 17:11:15 2016"
 ```
 
 ```r

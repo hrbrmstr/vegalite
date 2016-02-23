@@ -1,0 +1,12 @@
+This is probably obvious, but you need Node installed
+
+You then need browserify installed:
+
+    npm install -g browserify
+
+To handle updates, you need to re-run this command line in a shell from the
+inst/js directory:
+
+    browserify in.js > vegalite-bundle.js
+
+And **rebuild the package** so the new js code is in the package.

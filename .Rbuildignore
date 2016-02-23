@@ -5,3 +5,4 @@
 ^README\.*html$
 ^NOTES\.*md$
 ^NOTES\.*html$
+^inst/js/node_modules

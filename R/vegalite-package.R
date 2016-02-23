@@ -8,4 +8,5 @@
 #' @importFrom dplyr filter summarise count group_by select
 #' @importFrom tools file_ext
 #' @import ggplot2
+#' @import V8
 NULL

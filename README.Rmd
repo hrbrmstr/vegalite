@@ -12,6 +12,9 @@ The following functions are implemented:
 
 - `ggvega`
 
+### DEVELOPMENT NOTES
+
+Current thinking is to try to use the `vega-lite` node module "headless" and let it do the transforms (et al) then get the spec back into R and convert to ggplot2.
 
 ### Installation
 

@@ -19,5 +19,6 @@ Imports:
     jsonlite,
     tools,
     viridis,
-    ggplot2
+    ggplot2,
+    V8
 RoxygenNote: 5.0.1

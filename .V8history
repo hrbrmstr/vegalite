@@ -1,0 +1,5 @@
+global.vegalite
+keys(global.vegalite)
+global.vegalite.keys()
+global.vegalite.keys()
+for(var k in global.vegalite) k;
