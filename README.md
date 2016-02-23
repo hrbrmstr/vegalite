@@ -3,7 +3,7 @@
 
 The following functions are implemented:
 
-- `ggvega``
+- `ggvega`
 
 
 ### Installation
@@ -268,7 +268,7 @@ date()
 ```
 
 ```
-## [1] "Tue Feb 23 16:04:50 2016"
+## [1] "Tue Feb 23 16:06:26 2016"
 ```
 
 ```r

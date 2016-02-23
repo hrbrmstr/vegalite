@@ -10,7 +10,7 @@ output:
 
 The following functions are implemented:
 
-- `ggvega``
+- `ggvega`
 
 
 ### Installation
@@ -20,7 +20,7 @@ devtools::install_github("hrbrmstr/vegalite")
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-options(width=120)
+options(width=120, fig.retina=2)
 ```
 
 ### Usage
