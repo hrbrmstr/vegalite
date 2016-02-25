@@ -1,123 +1,47 @@
+#' Create and (optionally) visualize a Vega-Lite spec
+#'
+#' @param description a single element character vector that provides a description of
+#'        the plot/spec.
+#' @param viewport_widgth,viewport_height height and width of the overall
+#'        visualziation viewport. This is the overall area reserved for the
+#'        plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
+#'        instead but you will want to configure both when making faceted plots.
+#' @param background plot background color. If \code{NULL} the background will be transparent.
+#' @param time_format the default time format pattern for text and labels of
+#'        axes and legends (in the form of \href{https://github.com/mbostock/d3/wiki/Time-Formatting}{D3 time format pattern}).
+#'        Default: \code{\%Y-\%m-\%d}
+#' @param number_format the default number format pattern for text and labels of
+#'        axes and legends (in the form of
+#'        \href{https://github.com/mbostock/d3/wiki/Formatting}{D3 number format pattern}).
+#'        Default: \code{s}
+#' @references \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
 #' @export
-ggvega <- function(spec) {
+vegalite <- function(description="", viewport_width=NULL, viewport_height=NULL,
+                     background=NULL, time_format=NULL, number_format=NULL) {
 
-  update_geom_defaults("point", list(shape=21, colour="steelblue", stroke=1))
-  update_geom_defaults("bar", list(width=0.5, fill="steelblue"))
+  # forward options using x
+  params <- list(
+    description = description,
+    data = list(),
+    mark = list(),
+    encoding = list(),
+    config = list()
+  )
 
-  spec <- fromJSON(spec)
-
-  # if the data isn't local
-
-  if (!is.null(spec[["data"]][["url"]])) {
-    ext <- file_ext(spec$data$url)
-    if (ext == "json") {
-      spec$data$values <- fromJSON(spec$data$url)
-    } else if (ext == "csv") {
-      spec$data$values <- read.csv(spec$data$url, stringsAsFactors=FALSE)
-    } else if (ext == "tsv") {
-      spec$data$values <- read.csv(spec$data$url, sep="\t", stringsAsFactors=FALSE)
-    }
+  if (!is.null(viewport_width) & !is.null(viewport_height)) {
+    params$config$viewport <- c(viewport_width, viewport_height)
   }
+  if (!is.null(background)) { params$config$background <- background }
+  if (!is.null(time_format)) { params$config$timeFormat <- time_format }
+  if (!is.null(number_format)) { params$config$numberFormat <- number_format }
 
-  # Handle case where there is no x or y var specified
-
-  if (is.null(spec[["encoding"]][["x"]][["field"]])) {
-    spec$data$values$x <- 1
-    spec$encoding$x <- list(field="x", type="nominal")
-  }
-
-  if (is.null(spec[["encoding"]][["y"]][["field"]])) {
-    spec$data$values$y <- 1
-    spec$encoding$y <- list(field="y", type="nominal")
-  }
-
-  # start the ggplot
-
-  gg <- ggplot(data=spec$data$values)
-
-  # add the obvious
-
-  gg <- gg + aes_string(x=spec$encoding$x$field,
-                        y=spec$encoding$y$field)
-
-  # handle size encoding
-
-  if (!is.null(spec[["encoding"]][["size"]])) {
-
-    gg <- gg + aes_string(size=spec$encoding$size$field)
-
-    if (spec$encoding$size$type == "quantitative") {
-      gg <- gg + scale_size_continuous()
-    } else if (spec$encoding$size$type == "nominal") {
-      gg <- gg + scale_size_discrete()
-    }
-
-  }
-
-  # handle color encoding
-
-  if (!is.null(spec[["encoding"]][["color"]])) {
-
-    gg <- gg + aes_string(color=spec$encoding$color$field)
-
-    if (spec$encoding$color$type == "quantitative") {
-      gg <- gg + scale_color_continuous()
-    } else if (spec$encoding$color$type == "nominal") {
-      gg <- gg + scale_color_discrete()
-    }
-
-  }
-
-  # handle shape encoding
-
-  if (!is.null(spec[["encoding"]][["shape"]])) {
-
-    gg <- gg + aes_string(shape=spec$encoding$shape$field)
-
-    if (spec$encoding$shape$type == "quantitative") {
-      gg <- gg + scale_shape_continuous()
-    } else if (spec$encoding$shape$type == "nominal") {
-      gg <- gg + scale_shape_discrete()
-    }
-
-  }
-
-  # do the geom thing
-
-  if (spec$mark %in% c("point", "circle", "square")) {
-    if (spec$mark == "circle") {
-      update_geom_defaults("point", list(shape=16))
-    } else if (spec$mark == "square") {
-      update_geom_defaults("point", list(shape=15))
-    }
-    gg <- gg + geom_point()
-  } else if (spec$mark == "bar") {
-    gg <- gg + geom_bar(fill=color)
-  } else if (spec$mark == "line") {
-
-  }
-
-  # scales
-
-  if (spec$encoding$x$type == "nominal") {
-    gg <- gg + scale_x_discrete()
-  } else if (spec$encoding$x$type == "quantitative") {
-    gg <- gg + scale_x_continuous()
-  } else if (spec$encoding$x$type == "temporal") {
-  }
-
-  if (spec$encoding$y$type == "nominal") {
-    gg <- gg + scale_y_discrete()
-  } else if (spec$encoding$y$type == "quantitative") {
-    gg <- gg + scale_y_continuous()
-  }
-
-  # theme
-
-  gg <- gg + theme_bw()
-
-  # bye!
-
-  gg
+  # create widget
+  htmlwidgets::createWidget(
+    name = 'vegalite',
+    x = params,
+    width = viewport_width,
+    height = viewport_height,
+    package = 'vegalite'
+  )
 
 }
