@@ -4,18 +4,23 @@
 \alias{encode_x}
 \title{Encode x "channel"}
 \usage{
-encode_x(vl, field, type = "auto")
+encode_x(vl, field, type = "auto", aggregate = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
 
-\item{field}{single element character vector naming the column}
+\item{field}{single element character vector naming the column. Can be \code{*} is using
+\code{aggregate}.}
 
 \item{type}{the encoded field’s type of measurement. This can be either a full type
 name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
 or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
+
+\item{aggregate}{perform aggregaton on \code{field}. See
+\href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+more info on valid operations. Leave \code{NULL} for no aggregation.}
 }
 \description{
 Vega-Lite has many "encoding channels". Each channel definition object must

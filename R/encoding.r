@@ -6,23 +6,33 @@
 #' mapped field’s transformation and properties for its scale and guide.
 #'
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
-#' @param field single element character vector naming the column
+#' @param field single element character vector naming the column. Can be \code{*} is using
+#'        \code{aggregate}.
 #' @param type the encoded field’s type of measurement. This can be either a full type
 #'        name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 #'        This property is case insensitive. If \code{auto} is used, the type will
 #'        be guessed (so you may want to actually specify it if you want consistency).
+#' @param aggregate perform aggregaton on \code{field}. See
+#'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+#'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
-encode_x <- function(vl, field, type="auto") {
+encode_x <- function(vl, field, type="auto", aggregate=NULL) {
+
   type <- tolower(type)
   if (type == "auto") type <- "quantitative"
   if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
     message('"type" is not a valid value for this spec component. Ignoring.')
     return(vl)
   }
+
   vl$x$encoding$x <- list(field=field, type=type)
+
+  if (!is.null(aggregate))  vl$x$encoding$x$aggregate <- aggregate
+
   vl
+
 }
 
 #' Encode y "channel"
@@ -39,16 +49,25 @@ encode_x <- function(vl, field, type="auto") {
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 #'        This property is case insensitive. If \code{auto} is used, the type will
 #'        be guessed (so you may want to actually specify it if you want consistency).
+#' @param aggregate perform aggregaton on \code{field}. See
+#'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+#'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @export
-encode_y <- function(vl, field, type="auto") {
+encode_y <- function(vl, field, type="auto", aggregate=NULL) {
+
   type <- tolower(type)
   if (type == "auto") type <- "quantitative"
   if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
     message('"type" is not a valid value for this spec component. Ignoring.')
     return(vl)
   }
+
   vl$x$encoding$y <- list(field=field, type=type)
+
+  if (!is.null(aggregate)) vl$x$encoding$y$aggregate <- aggregate
+
   vl
+
 }
 
 #' Encode color "channel"
@@ -60,8 +79,9 @@ encode_y <- function(vl, field, type="auto") {
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 #'        This property is case insensitive. If \code{auto} is used, the type will
 #'        be guessed (so you may want to actually specify it if you want consistency).
-#' @param value if a field is not specified, constant values for the properties
-#'        (e.g., color, size) can be also set directly with the channel definition’s value property.
+#' @param aggregate perform aggregaton on \code{field}. See
+#'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+#'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
 #' @examples
@@ -72,7 +92,7 @@ encode_y <- function(vl, field, type="auto") {
 #'   encode_color("Origin", "nominal") %>%
 #'   encode_shape("Origin", "nominal") %>%
 #'   mark_point()
-encode_color <- function(vl, field=NULL, type, value=NULL) {
+encode_color <- function(vl, field=NULL, type, value=NULL, aggregate=NULL) {
 
   if (is.null(field) & is.null(value)) {
     stop('Either "field" or "value" must be specified', call.=FALSE)
@@ -90,6 +110,8 @@ encode_color <- function(vl, field=NULL, type, value=NULL) {
     vl$x$encoding$color <- list(value=value)
   }
 
+  if (!is.null(aggregate)) vl$x$encoding$color$aggregate <- aggregate
+
   vl
 
 }
@@ -103,8 +125,9 @@ encode_color <- function(vl, field=NULL, type, value=NULL) {
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 #'        This property is case insensitive. If \code{auto} is used, the type will
 #'        be guessed (so you may want to actually specify it if you want consistency).
-#' @param value if a field is not specified, constant values for the properties
-#'        (e.g., color, size) can be also set directly with the channel definition’s value property.
+#' @param aggregate perform aggregaton on \code{field}. See
+#'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+#'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
 #' @examples
@@ -115,7 +138,7 @@ encode_color <- function(vl, field=NULL, type, value=NULL) {
 #'   encode_color("Origin", "nominal") %>%
 #'   encode_shape("Origin", "nominal") %>%
 #'   mark_point()
-encode_shape <- function(vl, field=NULL, type, value=NULL) {
+encode_shape <- function(vl, field=NULL, type, value=NULL, aggregate=NULL) {
 
   if (is.null(field) & is.null(value)) {
     stop('Either "field" or "value" must be specified', call.=FALSE)
@@ -133,6 +156,8 @@ encode_shape <- function(vl, field=NULL, type, value=NULL) {
     vl$x$encoding$shape <- list(value=value)
   }
 
+  if (!is.null(aggregate)) vl$x$encoding$shape$aggregate <- aggregate
+
   vl
 
 }
@@ -140,14 +165,16 @@ encode_shape <- function(vl, field=NULL, type, value=NULL) {
 #' Encode size "channel"
 #'
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
-#' @param field single element character vector naming the column
+#' @param field single element character vector naming the column. Can be \code{*} is using
+#'        \code{aggregate}.
 #' @param type the encoded field’s type of measurement. This can be either a full type
 #'        name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 #'        This property is case insensitive. If \code{auto} is used, the type will
 #'        be guessed (so you may want to actually specify it if you want consistency).
-#' @param value if a field is not specified, constant values for the properties
-#'        (e.g., color, size) can be also set directly with the channel definition’s value property.
+#' @param aggregate perform aggregaton on \code{field}. See
+#'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+#'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
 #' @examples
@@ -157,7 +184,7 @@ encode_shape <- function(vl, field=NULL, type, value=NULL) {
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%
 #'   encode_size("Acceleration", "quantitative") %>%
 #'   mark_point()
-encode_size <- function(vl, field=NULL, type, value=NULL) {
+encode_size <- function(vl, field=NULL, type, value=NULL, aggregate=NULL) {
 
   if (is.null(field) & is.null(value)) {
     stop('Either "field" or "value" must be specified', call.=FALSE)
@@ -175,24 +202,28 @@ encode_size <- function(vl, field=NULL, type, value=NULL) {
     vl$x$encoding$size <- list(value=value)
   }
 
+  if (!is.null(aggregate)) vl$x$encoding$size$aggregate <- aggregate
+
   vl
 
 }
 
-#' Encode shape "channel"
+#' Encode text "channel"
 #'
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
-#' @param field single element character vector naming the column
+#' @param field single element character vector naming the column. Can be \code{*} is using
+#'        \code{aggregate}.
 #' @param type the encoded field’s type of measurement. This can be either a full type
 #'        name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 #'        This property is case insensitive. If \code{auto} is used, the type will
 #'        be guessed (so you may want to actually specify it if you want consistency).
-#' @param value if a field is not specified, constant values for the properties
-#'        (e.g., color, size) can be also set directly with the channel definition’s value property.
+#' @param aggregate perform aggregaton on \code{field}. See
+#'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+#'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
-encode_shape<- function(vl, field=NULL, type, value=NULL) {
+encode_text <- function(vl, field, type, value=NULL, aggregate=NULL) {
 
   if (is.null(field) & is.null(value)) {
     stop('Either "field" or "value" must be specified', call.=FALSE)
@@ -205,31 +236,15 @@ encode_shape<- function(vl, field=NULL, type, value=NULL) {
       message('"type" is not a valid value for this spec component. Ignoring.')
       return(vl)
     }
-    vl$x$encoding$shape <- list(field=field, type=type)
+    vl$x$encoding$text <- list(field=field, type=type)
   } else {
-    vl$x$encoding$shape <- list(value=value)
+    vl$x$encoding$text <- list(value=value)
   }
 
+  if (!is.null(aggregate)) vl$x$encoding$text$aggregate <- aggregate
+
   vl
 
-}
-
-#' Encode text "channel"
-#'
-#' @param vl Vega-Lite object created by \code{\link{vegalite}}
-#' @param field single element character vector naming the column
-#' @param type the encoded field’s type of measurement. This can be either a full type
-#'        name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
-#'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
-#'        This property is case insensitive. If \code{auto} is used, the type will
-#'        be guessed (so you may want to actually specify it if you want consistency).
-#' @param value if a field is not specified, constant values for the properties
-#'        (e.g., color, size) can be also set directly with the channel definition’s value property.
-#' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
-#' @export
-encode_text <- function(vl, field, type, value) {
-  message("Not implemented yet")
-  vl
 }
 
 #' Encode detail "channel"
@@ -244,7 +259,6 @@ encode_text <- function(vl, field, type, value) {
 #' grouping data in aggregation without mapping data to a specific visual
 #' channel.
 #'
-#' @param vl Vega-Lite object created by \code{\link{vegalite}}
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
 #' @param field single element character vector naming the column
 #' @param type the encoded field’s type of measurement. This can be either a full type
@@ -263,9 +277,7 @@ encode_detail <- function(vl, field=NULL, type) {
     return(vl)
   }
 
-  if (is.null(field)) {
-    stop('"field" must be specified', call.=FALSE)
-  }
+  if (is.null(field)) { stop('"field" must be specified', call.=FALSE) }
 
   vl$x$encoding$detail <- list(field=field, type=type)
 

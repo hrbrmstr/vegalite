@@ -22,7 +22,14 @@ HTMLWidgets.widget({
     "config" : x.config
   };
 
-  if (x.hasOwnProperty("transform")) { vlSpec.transform = x.transform; }
+  if (x.hasOwnProperty("transform")) {
+    if (x.transform.hasOwnProperty("calculate")) {
+      if (!Array.isArray(x.transform.calculate)) {
+        x.transform.calculate = [ x.transform.calculate ];
+      }
+    }
+    vlSpec.transform = x.transform;
+  }
 
   vls = vlSpec;
   par = x;

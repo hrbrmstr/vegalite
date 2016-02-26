@@ -4,7 +4,7 @@
 \alias{encode_color}
 \title{Encode color "channel"}
 \usage{
-encode_color(vl, field = NULL, type, value = NULL)
+encode_color(vl, field = NULL, type, value = NULL, aggregate = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
@@ -17,8 +17,9 @@ or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
 
-\item{value}{if a field is not specified, constant values for the properties
-(e.g., color, size) can be also set directly with the channel definition’s value property.}
+\item{aggregate}{perform aggregaton on \code{field}. See
+\href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+more info on valid operations. Leave \code{NULL} for no aggregation.}
 }
 \description{
 Encode color "channel"

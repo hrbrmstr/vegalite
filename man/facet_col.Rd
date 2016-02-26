@@ -4,7 +4,7 @@
 \alias{facet_col}
 \title{Create a horizontal ribbon of panels}
 \usage{
-facet_col(vl, field, type)
+facet_col(vl, field, type, round = TRUE, padding = 16)
 }
 \description{
 Create a horizontal ribbon of panels

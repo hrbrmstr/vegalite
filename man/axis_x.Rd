@@ -4,7 +4,13 @@
 \alias{axis_x}
 \title{General axis setttings}
 \usage{
-axis_x(vl, layer, offset, orient, axisWidth, format, labelAngle)
+axis_x(vl, axisWidth = NULL, layer = NULL, offset = NULL, grid = NULL,
+  labels = TRUE, labelAngle = NULL, labelAlign = NULL,
+  labelBaseline = NULL, labelMaxLength = 25, shortTimeLabels = NULL,
+  subdivide = NULL, ticks = NULL, tickPadding = NULL, tickSize = NULL,
+  tickSizeMajor = NULL, tickSizeMinor = NULL, tickSizeEnd = NULL,
+  title = "", titleOffset = NULL, titleMaxLength = NULL,
+  characterWidth = 6, orient = NULL, format = NULL, remove = FALSE)
 }
 \description{
 General axis setttings

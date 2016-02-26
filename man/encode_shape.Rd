@@ -4,9 +4,7 @@
 \alias{encode_shape}
 \title{Encode shape "channel"}
 \usage{
-encode_shape(vl, field = NULL, type, value = NULL)
-
-encode_shape(vl, field = NULL, type, value = NULL)
+encode_shape(vl, field = NULL, type, value = NULL, aggregate = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
@@ -19,25 +17,11 @@ or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
 
-\item{value}{if a field is not specified, constant values for the properties
-(e.g., color, size) can be also set directly with the channel definition’s value property.}
-
-\item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
-
-\item{field}{single element character vector naming the column}
-
-\item{type}{the encoded field’s type of measurement. This can be either a full type
-name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
-or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
-This property is case insensitive. If \code{auto} is used, the type will
-be guessed (so you may want to actually specify it if you want consistency).}
-
-\item{value}{if a field is not specified, constant values for the properties
-(e.g., color, size) can be also set directly with the channel definition’s value property.}
+\item{aggregate}{perform aggregaton on \code{field}. See
+\href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+more info on valid operations. Leave \code{NULL} for no aggregation.}
 }
 \description{
-Encode shape "channel"
-
 Encode shape "channel"
 }
 \examples{
@@ -50,8 +34,6 @@ vegalite() \%>\%
   mark_point()
 }
 \references{
-\href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
-
 \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 }
 

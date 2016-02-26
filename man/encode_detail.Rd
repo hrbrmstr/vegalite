@@ -16,8 +16,6 @@ name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
 or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
-
-\item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
 }
 \description{
 Grouping data is another important operation in visualizing data. For

@@ -33,3 +33,24 @@ cell_size <- function(vl, width=200, height=200) {
   vl
 
 }
+
+
+#' @export
+facet_cell <- function(vl, width=200, height=200, fill=NULL, fill_opacity=NULL,
+                       stroke=NULL, stroke_opacity=NULL, stroke_width=NULL,
+                       stroke_dash=NULL, stroke_dash_offset=NULL) {
+
+  chnl <- "config"
+  if (!is.null(width))              vl$x[[chnl]]$facet$cell$width <- width
+  if (!is.null(height))             vl$x[[chnl]]$facet$cell$height <- height
+  if (!is.null(fill))               vl$x[[chnl]]$facet$cell$fill <- fill
+  if (!is.null(fill_opacity))       vl$x[[chnl]]$facet$cell$fillOpacity <- fill_opacity
+  if (!is.null(stroke))             vl$x[[chnl]]$facet$cell$stroke <- stroke
+  if (!is.null(stroke_opacity))     vl$x[[chnl]]$facet$cell$strokeOpacity <- stroke_opacity
+  if (!is.null(stroke_width))       vl$x[[chnl]]$facet$cell$strokeWidth <- stroke_width
+  if (!is.null(stroke_dash))        vl$x[[chnl]]$facet$cell$strokeDash <- stroke_dash
+  if (!is.null(stroke_dash_offset)) vl$x[[chnl]]$facet$cell$strokeDashOffset <- stroke_dash_offset
+
+  vl
+
+}

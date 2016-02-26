@@ -8,9 +8,7 @@
 #'        filtered. If \code{FALSE}, all data items are included.
 #' @export
 filter_null <- function(vl, setting=NULL) {
-  if (!is.null(setting)) {
-    vl$x$transform$filterNull <- setting
-  }
+  if (!is.null(setting)) { vl$x$transform$filterNull <- setting }
   vl
 }
 
@@ -22,8 +20,7 @@ filter_null <- function(vl, setting=NULL) {
 #'        \code{"datum"} to refer to the current data object.
 #' @export
 calculate <- function(vl, field, expr) {
-  vl$x$transform$calculate <- list(field=field,
-                                   expr=expr)
+  vl$x$transform$calculate <- c(vl$x$transform$calculate, list(field=field, expr=expr))
   vl
 }
 
