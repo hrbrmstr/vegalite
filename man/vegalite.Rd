@@ -44,9 +44,31 @@ plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
 instead but you will want to configure both when making faceted plots.}
 }
 \description{
-Create Vega-Lite specs using htmlwidget idioms
+Creation of Vega-Lite spec charts is 90\% feature complete. Sorting still
+needs to be implementd and many of the parameters to functions are only
+documented in TypeScript source code which will take a bit of time to
+wade through. All the visualizations you find in the
+\href{http://vega.github.io/vega-lite/gallery.html}{Vega-Lite Gallery} work
+(but the last one just isn't sorted).
 
 Create and (optionally) visualize a Vega-Lite spec
+}
+\details{
+Functions also exist which enable creation of widgets from a JSON spec and
+turning a \code{vegalite} package created object into a JSON spec.
+}
+\examples{
+dat <- jsonlite::fromJSON('[
+    {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+    {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+    {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+  ]')
+
+vegalite() \%>\%
+  add_data(dat) \%>\%
+  encode_x("a", "ordinal") \%>\%
+  encode_y("b", "quantitative") \%>\%
+  mark_bar()
 }
 \author{
 Bob Rudis (@hrbrmstr)

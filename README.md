@@ -1,3 +1,5 @@
+![](gallery.png)
+
 `vegalite` : Do whatever `ggvis` doesn't :-)
 
 For better examples, [take a look here](http://rud.is/projects/vegalite01.html).

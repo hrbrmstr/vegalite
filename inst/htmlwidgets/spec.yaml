@@ -1,0 +1,15 @@
+dependencies:
+- name: d3
+  src: htmlwidgets/lib/d3
+  script: ./d3.min.js
+  version: 3.5.3
+- name: vega
+  src: htmlwidgets/lib/vega
+  script: ./vega.js
+  version: 0.0.0
+- name: vega-lite
+  src: htmlwidgets/lib/vega-lite
+  script:
+    - ./vega-lite.js
+    - ./vega-embed.js
+  version: 0.0.0
