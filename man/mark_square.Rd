@@ -4,10 +4,12 @@
 \alias{mark_square}
 \title{Square mark}
 \usage{
-mark_square(vl, size = 30)
+mark_square(vl, size = 30, opacity = NULL)
 }
 \arguments{
 \item{size}{def}
+
+\item{opacity}{0.0-1.0}
 }
 \description{
 Square mark

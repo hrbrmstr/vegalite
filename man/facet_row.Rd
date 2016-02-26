@@ -4,7 +4,7 @@
 \alias{facet_row}
 \title{Create a vertical ribbon of panels}
 \usage{
-facet_row(vl, field, type, round = TRUE, padding = -16)
+facet_row(vl, field, type, round = TRUE, padding = 16)
 }
 \description{
 Create a vertical ribbon of panels

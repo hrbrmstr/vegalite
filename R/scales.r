@@ -57,7 +57,6 @@ scale_x_quantile <- function(vl, domain, range, nice, zero) {
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_ordinal <- function(vl, band_size=NULL, padding=NULL) {
-  vl$x$encoding$x$scale <- list(type="ordinal")
   if (!is.null(band_size)) vl$x$encoding$x$scale$bandSize <- band_size
   if (!is.null(padding)) vl$x$encoding$x$scale$padding <- padding
   vl

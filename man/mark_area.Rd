@@ -5,7 +5,7 @@
 \title{Area mark}
 \usage{
 mark_area(vl, orient = NULL, stack = NULL, interpolate = NULL,
-  tension = NULL)
+  tension = NULL, opacity = NULL)
 }
 \arguments{
 \item{vl}{def}
@@ -17,6 +17,8 @@ mark_area(vl, orient = NULL, stack = NULL, interpolate = NULL,
 \item{interpolate}{def}
 
 \item{tension}{def}
+
+\item{opacity}{0.0-1.0}
 }
 \description{
 Area mark

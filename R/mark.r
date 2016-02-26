@@ -4,6 +4,7 @@
 #' @param orient def
 #' @param stack def
 #' @param size def
+#' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 #' @examples
@@ -18,17 +19,19 @@
 #'   encode_x("a", "ordinal") %>%
 #'   encode_y("b", "quantitative") %>%
 #'   mark_bar()
-mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL) {
+mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL, opacity=NULL) {
   vl$x$mark <- "bar"
   if (!is.null(stack)) vl$x$config$mark$stacked <- stack
   if (!is.null(size)) vl$x$config$mark$barSize <- size
   if (!is.null(orient)) vl$x$config$mark$orient <- orient
+  if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
 
 #' Circle mark
 #'
 #' @param size def
+#' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 #' @examples
@@ -37,20 +40,23 @@ mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL) {
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%
 #'   mark_circle()
-mark_circle <- function(vl, size=30) {
+mark_circle <- function(vl, size=30, opacity=NULL) {
   vl$x$mark <- "circle"
   vl$x$config$mark$size <- size
+  if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
 
 #' Square mark
 #'
 #' @param size def
+#' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_square <- function(vl, size=30) {
+mark_square <- function(vl, size=30, opacity=NULL) {
   vl$x$mark <- "square"
   vl$x$config$mark$size <- size
+  if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
 
@@ -60,6 +66,7 @@ mark_square <- function(vl, size=30) {
 #' @param orient def
 #' @param size def
 #' @param thickness def
+#' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 #' @examples
@@ -68,11 +75,12 @@ mark_square <- function(vl, size=30) {
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Cylinders", "ordinal") %>%
 #'   mark_tick()
-mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1) {
+mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1, opacity=NULL) {
   vl$x$mark <- "tick"
   vl$x$config$mark$tickThickness <- thickness
   if (!is.null(size)) vl$x$config$mark$tickSize <- size
   if (!is.null(orient)) vl$x$config$mark$orient <- orient
+  if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
 
@@ -82,13 +90,15 @@ mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1) {
 #' @param orient def
 #' @param interpolate def
 #' @param tension def
+#' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL) {
+mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=NULL) {
   vl$x$mark <- "line"
   if (!is.null(interpolate)) vl$x$config$mark$interpolate <- interpolate
   if (!is.null(tension)) vl$x$config$mark$tension <- tension
   if (!is.null(orient)) vl$x$config$mark$orient <- orient
+  if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
 
@@ -99,14 +109,17 @@ mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL) {
 #' @param stack def
 #' @param interpolate def
 #' @param tension def
+#' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NULL) {
+mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NULL,
+                      opacity=NULL) {
   vl$x$mark <- "area"
   if (!is.null(stack)) vl$x$config$mark$stacked <- stack
   if (!is.null(interpolate)) vl$x$config$mark$interpolate <- interpolate
   if (!is.null(tension)) vl$x$config$mark$tension <- tension
   if (!is.null(orient)) vl$x$config$mark$orient <- orient
+  if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
 
@@ -116,6 +129,7 @@ mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NUL
 #' @param shape def
 #' @param size def
 #' @param tension def
+#' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 #' @examples
@@ -124,18 +138,22 @@ mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NUL
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%
 #'   mark_point()
-mark_point <- function(vl, shape="circle", size=30) {
+mark_point <- function(vl, shape="circle", size=30, opacity=NULL) {
   vl$x$mark <- "point"
   vl$x$config$mark$shape <- shape
   vl$x$config$mark$size <- size
+  if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
 
 #' Text mark
+#'
+#' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_text <- function(vl) {
+mark_text <- function(vl, opacity=NULL) {
   vl$x$mark <- "text"
+  if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
 

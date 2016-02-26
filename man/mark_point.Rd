@@ -4,7 +4,7 @@
 \alias{mark_point}
 \title{Point mark}
 \usage{
-mark_point(vl, shape = "circle", size = 30)
+mark_point(vl, shape = "circle", size = 30, opacity = NULL)
 }
 \arguments{
 \item{vl}{def}
@@ -12,6 +12,8 @@ mark_point(vl, shape = "circle", size = 30)
 \item{shape}{def}
 
 \item{size}{def}
+
+\item{opacity}{0.0-1.0}
 
 \item{tension}{def}
 }

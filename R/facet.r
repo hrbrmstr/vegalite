@@ -10,7 +10,7 @@ facet_col <- function(vl, field, type, round=TRUE, padding=16) {
 #' Create a vertical ribbon of panels
 #'
 #' @export
-facet_row <- function(vl, field, type, round=TRUE, padding=-16) {
+facet_row <- function(vl, field, type, round=TRUE, padding=16) {
   vl$x$encoding$row <- list(field=field, type=type)
   vl$x$encoding$row$scale <- list(round=round, padding=padding)
   vl

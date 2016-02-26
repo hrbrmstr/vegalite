@@ -4,7 +4,10 @@
 \alias{mark_text}
 \title{Text mark}
 \usage{
-mark_text(vl)
+mark_text(vl, opacity = NULL)
+}
+\arguments{
+\item{opacity}{0.0-1.0}
 }
 \description{
 Text mark

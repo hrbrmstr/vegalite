@@ -4,7 +4,8 @@
 \alias{mark_line}
 \title{Line mark}
 \usage{
-mark_line(vl, orient = NULL, interpolate = NULL, tension = NULL)
+mark_line(vl, orient = NULL, interpolate = NULL, tension = NULL,
+  opacity = NULL)
 }
 \arguments{
 \item{vl}{def}
@@ -14,6 +15,8 @@ mark_line(vl, orient = NULL, interpolate = NULL, tension = NULL)
 \item{interpolate}{def}
 
 \item{tension}{def}
+
+\item{opacity}{0.0-1.0}
 }
 \description{
 Line mark

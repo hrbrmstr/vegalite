@@ -4,10 +4,12 @@
 \alias{mark_circle}
 \title{Circle mark}
 \usage{
-mark_circle(vl, size = 30)
+mark_circle(vl, size = 30, opacity = NULL)
 }
 \arguments{
 \item{size}{def}
+
+\item{opacity}{0.0-1.0}
 }
 \description{
 Circle mark

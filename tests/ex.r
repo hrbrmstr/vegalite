@@ -1,7 +1,7 @@
 #' ---
 #' title: "vegalite test"
 #' author: "@hrbrmstr"
-#' date: ""
+#' date: "2016-02-26"
 #' output: hrbrmrkdn::skeleton
 #' ---
 
@@ -121,13 +121,15 @@ vegalite(viewport_height=2900) %>%
 
 #' ### log scale
 
-vegalite(viewport_height=300) %>%
-  add_data(jsonlite::fromJSON('[
+dat <- jsonlite::fromJSON('[
       {"x": 0, "y": 1}, {"x": 1, "y": 10},
       {"x": 2, "y": 100}, {"x": 3, "y": 1000},
       {"x": 4, "y": 10000}, {"x": 5, "y": 100000},
       {"x": 6, "y": 1000000}, {"x": 7, "y": 10000000}
-    ]')) %>%
+    ]')
+
+vegalite(viewport_height=300) %>%
+  add_data(dat) %>%
   encode_x("x", "quantitative") %>%
   encode_y("y", "quantitative") %>%
   mark_point() %>%
@@ -262,4 +264,94 @@ vegalite() %>%
   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
   facet_cell(stroke_width=0) %>%
   mark_bar()
+
+#' ### normalized stacked bar chart
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
+  calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
+  encode_x("age", "ordinal") %>%
+  encode_y("people", "quantitative", aggregate="sum") %>%
+  encode_color("gender", "nominal") %>%
+  scale_x_ordinal(band_size=17) %>%
+  scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
+  mark_bar(stack="normalize")
+
+#' ### normalized stacked bar chart
+
+vegalite() %>%
+  cell_size(300, 300) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
+  encode_x("date", "temporal") %>%
+  encode_y("count", "quantitative", aggregate="sum") %>%
+  encode_color("series", "nominal") %>%
+  scale_x_time(nice="month") %>%
+  scale_color_nominal(range="category20b") %>%
+  axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+  axis_y(remove=TRUE) %>%
+  timeunit_x("yearmonth") %>%
+  mark_area(stack="normalize")
+
+#' ### layered bar chart
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
+  add_filter("datum.year == 2000") %>%
+  calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
+  encode_x("age", "ordinal") %>%
+  encode_y("people", "quantitative", aggregate="sum") %>%
+  encode_color("gender", "nominal") %>%
+  scale_x_ordinal(band_size=17) %>%
+  scale_color_nominal(range=c("#e377c2","#1f77b4")) %>%
+  axis_y(title="Population") %>%
+  mark_bar(opacity=0.6, stack="none")
+
+#' ### trellis bar chart
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
+  add_filter("datum.year == 2000") %>%
+  calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
+  encode_x("age", "ordinal") %>%
+  encode_y("people", "quantitative", aggregate="sum") %>%
+  encode_color("gender", "nominal") %>%
+  facet_row("gender", "nominal") %>%
+  scale_x_ordinal(band_size=17) %>%
+  scale_color_nominal(range=c("#EA98D2","#659CCA")) %>%
+  axis_y(title="Population") %>%
+  mark_bar()
+
+#' ### trellis stacked bar chart
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
+  encode_x("yield", "quantitative", aggregate="sum") %>%
+  encode_y("variety", "nominal") %>%
+  encode_color("site", "nominal") %>%
+  facet_col("year", "ordinal") %>%
+  mark_bar()
+
+#' ### trellis histograms
+
+vegalite(viewport_height=700) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+  encode_x("Horsepower", "quantitative") %>%
+  encode_y("*", "quantitative", aggregate="count") %>%
+  encode_color("site", "nominal") %>%
+  facet_row("Origin", "nominal") %>%
+  bin_x(maxbins=15) %>%
+  mark_bar()
+
+#' ### becker's barley trellis plot
+#'
+#' **sorting has not been implemented yet**
+
+vegalite(viewport_height=1200) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
+  encode_x("yield", "quantitative", aggregate="mean") %>%
+  encode_y("variety", "ordinal") %>%
+  encode_color("year", "nominal") %>%
+  facet_row("site", "ordinal") %>%
+  scale_y_ordinal(band_size=12) %>%
+  mark_point()
 
