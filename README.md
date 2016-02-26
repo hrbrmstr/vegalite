@@ -1,8 +1,12 @@
 `vegalite` : Do whatever `ggvis` doesn't :-)
 
+For better examples, [take a look here](http://rud.is/projects/vegalite01.html).
+
 The following functions are implemented:
 
 - `add_data`:	Add data to a Vega-Lite spec
+- `add_filter`:	Add a filter
+- `calculate`:	Derive new fields
 - `cell_size`:	Add cell size to main Vega-Lite spec
 - `encode_color`:	Encode color "channel"
 - `encode_detail`:	Encode detail "channel"
@@ -11,6 +15,7 @@ The following functions are implemented:
 - `encode_text`:	Encode text "channel"
 - `encode_x`:	Encode x "channel"
 - `encode_y`:	Encode y "channel"
+- `filter_null`:	Filter 'null' values
 - `mark_area`:	Area mark
 - `mark_bar`:	Bar mark
 - `mark_circle`:	Circle mark
@@ -22,8 +27,8 @@ The following functions are implemented:
 - `renderVegalite`:	Widget render function for use in Shiny
 - `saveWidget`:	vegalite exported operators
 - `vegalite`:	Create Vega-Lite specs using htmlwidget idioms
+- `vegalite-exports`:	vegalite exported operators
 - `vegaliteOutput`:	Widget output function for use in Shiny
-
 
 ### DEVELOPMENT NOTES
 
@@ -72,27 +77,3 @@ vegalite() %>%
 ```
 
 ![](vega.png)
-
-### Test Results
-
-
-```r
-library(vegalite)
-library(testthat)
-
-date()
-```
-
-```
-## [1] "Thu Feb 25 18:35:13 2016"
-```
-
-```r
-test_dir("tests/")
-```
-
-```
-## testthat results ========================================================================================================
-## OK: 0 SKIPPED: 0 FAILED: 0
-```
-
