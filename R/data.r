@@ -25,7 +25,8 @@ add_data <- function(vl, source, format_type=NULL) {
 
   } else if (is_url(source)) {
 
-    vl$x$data <- list(url=source, formatType=format_type)
+    vl$x$data <- list(url=source)
+    if (!is.null(format_type)) vl$x$data$formatType <- format_type
 
   } else if (file.exists(source)) {
 

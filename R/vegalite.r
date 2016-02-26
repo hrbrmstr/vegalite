@@ -2,6 +2,14 @@
 #'
 #' @param description a single element character vector that provides a description of
 #'        the plot/spec.
+#' @param renderer the renderer to use for the view. One of \code{canvas} or
+#'        \code{svg} (the default)
+#' @param export if \code{TRUE} the \emph{"Export as..."} link will
+#'        be displayed with the chart.(Default: \code{FALSE}.)
+#' @param source if \code{TRUE} the \emph{"View Source"} link will be displayed
+#'        with the chart. (Default: \code{FALSE}.)
+#' @param editor if \code{TRUE} the \emph{"Open in editor"} link will be
+#'        displayed with the cahrt. (Default: \code{FALSE}.)
 #' @param viewport_widgth,viewport_height height and width of the overall
 #'        visualziation viewport. This is the overall area reserved for the
 #'        plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
@@ -16,16 +24,24 @@
 #'        Default: \code{s}
 #' @references \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
 #' @export
-vegalite <- function(description="", viewport_width=NULL, viewport_height=NULL,
+vegalite <- function(description="", renderer=c("svg", "canvas"),
+                     export=FALSE, source=FALSE, editor=FALSE,
+                     viewport_width=NULL, viewport_height=NULL,
                      background=NULL, time_format=NULL, number_format=NULL) {
 
   # forward options using x
   params <- list(
     description = description,
     data = list(),
+    hasTransform=FALSE,
+    transform = list(),
     mark = list(),
     encoding = list(),
-    config = list()
+    config = list(),
+    embed = list(renderer=renderer[1],
+                 actions=list(export=export,
+                              source=source,
+                              editor=editor))
   )
 
   if (!is.null(viewport_width) & !is.null(viewport_height)) {

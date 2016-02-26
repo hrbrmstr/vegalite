@@ -23,6 +23,14 @@ be guessed (so you may want to actually specify it if you want consistency).}
 \description{
 Encode size "channel"
 }
+\examples{
+vegalite() \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/cars.json") \%>\%
+  encode_x("Horsepower", "quantitative") \%>\%
+  encode_y("Miles_per_Gallon", "quantitative") \%>\%
+  encode_size("Acceleration", "quantitative") \%>\%
+  mark_point()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 }

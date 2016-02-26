@@ -20,7 +20,15 @@ be guessed (so you may want to actually specify it if you want consistency).}
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
 }
 \description{
-Encode detail "channel"
+Grouping data is another important operation in visualizing data. For
+aggregated plots, all encoded fields without aggregate functions are used as
+grouping fields in the aggregation (similar to fields in GROUP BY in SQL).
+For line and area marks, mapping a data field to color or shape channel will
+group the lines and stacked areas by the field.\cr
+\cr
+detail channel allows providing an additional grouping field (level) for
+grouping data in aggregation without mapping data to a specific visual
+channel.
 }
 \references{
 \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}

@@ -9,6 +9,13 @@ mark_tick(vl)
 \description{
 Tick mark
 }
+\examples{
+vegalite() \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/cars.json") \%>\%
+  encode_x("Horsepower", "quantitative") \%>\%
+  encode_y("Cylinders", "ordinal") \%>\%
+  mark_tick()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 }

@@ -50,6 +50,7 @@ encode_y <- function(vl, field, type="auto") {
   vl$x$encoding$y <- list(field=field, type=type)
   vl
 }
+
 #' Encode color "channel"
 #'
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
@@ -63,6 +64,14 @@ encode_y <- function(vl, field, type="auto") {
 #'        (e.g., color, size) can be also set directly with the channel definition’s value property.
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+#'   encode_x("Horsepower", "quantitative") %>%
+#'   encode_y("Miles_per_Gallon", "quantitative") %>%
+#'   encode_color("Origin", "nominal") %>%
+#'   encode_shape("Origin", "nominal") %>%
+#'   mark_point()
 encode_color <- function(vl, field=NULL, type, value=NULL) {
 
   if (is.null(field) & is.null(value)) {
@@ -98,6 +107,14 @@ encode_color <- function(vl, field=NULL, type, value=NULL) {
 #'        (e.g., color, size) can be also set directly with the channel definition’s value property.
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+#'   encode_x("Horsepower", "quantitative") %>%
+#'   encode_y("Miles_per_Gallon", "quantitative") %>%
+#'   encode_color("Origin", "nominal") %>%
+#'   encode_shape("Origin", "nominal") %>%
+#'   mark_point()
 encode_shape <- function(vl, field=NULL, type, value=NULL) {
 
   if (is.null(field) & is.null(value)) {
@@ -133,6 +150,13 @@ encode_shape <- function(vl, field=NULL, type, value=NULL) {
 #'        (e.g., color, size) can be also set directly with the channel definition’s value property.
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+#'   encode_x("Horsepower", "quantitative") %>%
+#'   encode_y("Miles_per_Gallon", "quantitative") %>%
+#'   encode_size("Acceleration", "quantitative") %>%
+#'   mark_point()
 encode_size <- function(vl, field=NULL, type, value=NULL) {
 
   if (is.null(field) & is.null(value)) {
@@ -209,6 +233,16 @@ encode_text <- function(vl, field, type, value) {
 }
 
 #' Encode detail "channel"
+#'
+#' Grouping data is another important operation in visualizing data. For
+#' aggregated plots, all encoded fields without aggregate functions are used as
+#' grouping fields in the aggregation (similar to fields in GROUP BY in SQL).
+#' For line and area marks, mapping a data field to color or shape channel will
+#' group the lines and stacked areas by the field.\cr
+#' \cr
+#' detail channel allows providing an additional grouping field (level) for
+#' grouping data in aggregation without mapping data to a specific visual
+#' channel.
 #'
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}

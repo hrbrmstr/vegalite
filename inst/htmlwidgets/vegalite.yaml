@@ -5,14 +5,11 @@ dependencies:
   version: 3.5.3
 - name: vega
   src: htmlwidgets/lib/vega
-  script: ./vega.min.js
-  version: 0.0.0
-- name: octicons
-  src: htmlwidgets/lib/octicons
+  script: ./vega.js
   version: 0.0.0
 - name: vega-lite
   src: htmlwidgets/lib/vega-lite
   script:
-    - ./vega-lite.min.js
+    - ./vega-lite.js
     - ./vega-embed.js
   version: 0.0.0
