@@ -33,8 +33,6 @@ vegalite <- function(description="", renderer=c("svg", "canvas"),
   params <- list(
     description = description,
     data = list(),
-    hasTransform=FALSE,
-    transform = list(),
     mark = list(),
     encoding = list(),
     config = list(),

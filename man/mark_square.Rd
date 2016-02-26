@@ -4,7 +4,10 @@
 \alias{mark_square}
 \title{Square mark}
 \usage{
-mark_square(vl)
+mark_square(vl, size = 30)
+}
+\arguments{
+\item{size}{def}
 }
 \description{
 Square mark

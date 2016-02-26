@@ -4,7 +4,7 @@
 \alias{axis_x}
 \title{General axis setttings}
 \usage{
-axis_x(layer, offset, orient)
+axis_x(vl, layer, offset, orient, axisWidth, format, labelAngle)
 }
 \description{
 General axis setttings

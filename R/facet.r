@@ -2,9 +2,7 @@
 #'
 #' @export
 facet_col <- function(vl, field, type) {
-  vl$x$facet$col <- list(field=field,
-                         type=type)
-  vl$x$hasFacetCol <- TRUE
+  vl$x$encoding$column <- list(field=field, type=type)
   vl
 }
 
@@ -12,9 +10,7 @@ facet_col <- function(vl, field, type) {
 #'
 #' @export
 facet_row <- function(vl, field, type) {
-  vl$x$facet$row <- list(field=field,
-                         type=type)
-  vl$x$hasFacetRow <- TRUE
+  vl$x$encoding$row <- list(field=field, type=type)
   vl
 }
 

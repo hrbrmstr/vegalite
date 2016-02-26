@@ -4,7 +4,7 @@
 \alias{scale_x_ordinal}
 \title{Ordinal Scale}
 \usage{
-scale_x_ordinal(vl, domain, range)
+scale_x_ordinal(vl, band_size = NULL, padding = NULL)
 }
 \description{
 Ordinal Scale

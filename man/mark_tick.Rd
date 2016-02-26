@@ -4,7 +4,16 @@
 \alias{mark_tick}
 \title{Tick mark}
 \usage{
-mark_tick(vl)
+mark_tick(vl, orient = NULL, size = NULL, thickness = 1)
+}
+\arguments{
+\item{vl}{def}
+
+\item{orient}{def}
+
+\item{size}{def}
+
+\item{thickness}{def}
 }
 \description{
 Tick mark

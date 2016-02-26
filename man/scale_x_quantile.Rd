@@ -4,7 +4,7 @@
 \alias{scale_x_quantile}
 \title{Quantile Scale}
 \usage{
-scale_x_quantile(vl, domain, range)
+scale_x_quantile(vl, domain, range, nice, zero)
 }
 \description{
 Quantile Scale

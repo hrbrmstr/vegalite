@@ -4,7 +4,7 @@
 \alias{scale_y_pow}
 \title{Power Scale}
 \usage{
-scale_y_pow(vl, domain, range)
+scale_y_pow(vl, domain, range, clamp, exp, nice, zero)
 }
 \description{
 Power Scale

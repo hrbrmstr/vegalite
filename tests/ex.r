@@ -111,12 +111,122 @@ vegalite(viewport_height=1400) %>%
 
 #' ### facet both
 
-vegalite(viewport_height=1600) %>%
-  cell_size(100, 100) %>%
+vegalite(viewport_height=2900) %>%
   add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
   encode_x("Worldwide_Gross", "quantitative") %>%
   encode_y("US_DVD_Sales", "quantitative") %>%
   facet_col("MPAA_Rating", "ordinal") %>%
   facet_row("Major_Genre", "ordinal") %>%
   mark_point()
+
+#' ### log scale
+
+vegalite(viewport_height=300) %>%
+  add_data(jsonlite::fromJSON('[
+      {"x": 0, "y": 1}, {"x": 1, "y": 10},
+      {"x": 2, "y": 100}, {"x": 3, "y": 1000},
+      {"x": 4, "y": 10000}, {"x": 5, "y": 100000},
+      {"x": 6, "y": 1000000}, {"x": 7, "y": 10000000}
+    ]')) %>%
+  encode_x("x", "quantitative") %>%
+  encode_y("y", "quantitative") %>%
+  mark_point() %>%
+  scale_y_log()
+
+#' ### aggregate bar chart
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
+  encode_x("people", "quantitative") %>%
+  aggregate_x("sum") %>%
+  encode_y("age", "ordinal") %>%
+  scale_y_ordinal(band_size=17) %>%
+  add_filter("datum.year == 2000") %>%
+  mark_bar()
+
+#' ### binned scatterplot
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
+  encode_x("IMDB_Rating", "quantitative") %>%
+  encode_y("Rotten_Tomatoes_Rating", "quantitative") %>%
+  encode_size("*", "quantitative") %>%
+  bin_x(maxbins=10) %>%
+  bin_y(maxbins=10) %>%
+  aggregate_size("count") %>%
+  mark_point()
+
+#' ### slope graph
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
+  encode_x("year", "ordinal") %>%
+  encode_y("yield", "quantitative") %>%
+  encode_color("site", "nominal") %>%
+  aggregate_y("median") %>%
+  scale_x_ordinal(band_size=50, padding=0.5) %>%
+  mark_line()
+
+#' ### histogram
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
+  encode_x("IMDB_Rating", "quantitative") %>%
+  encode_y("*", "quantitative") %>%
+  bin_x(maxbins=10) %>%
+  aggregate_y("count") %>%
+  mark_bar()
+
+#' ### stacked bar chart
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/seattle-weather.csv") %>%
+  encode_x("date", "temporal") %>%
+  encode_y("*", "quantitative") %>%
+  encode_color("weather", "nominal") %>%
+  aggregate_y("count") %>%
+  scale_color_nominal(domain=c("sun","fog","drizzle","rain","snow"),
+                      range=c("#e7ba52","#c7c7c7","#aec7e8","#1f77b4","#9467bd")) %>%
+  timeunit_x("month") %>%
+  mark_bar()
+
+#' ### horizontal stacked bar chart
+
+vegalite() %>%
+  add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
+  encode_x("yield", "quantitative") %>%
+  encode_y("variety", "nominal") %>%
+  encode_color("site", "nominal") %>%
+  aggregate_x("sum") %>%
+  mark_bar()
+
+#' ### stacked area chart
+
+vegalite() %>%
+  cell_size(300, 200) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
+  encode_x("date", "temporal") %>%
+  encode_y("count", "quantitative") %>%
+  encode_color("series", "nominal") %>%
+  aggregate_y("sum") %>%
+  scale_color_nominal(range="category20b") %>%
+  timeunit_x("yearmonth") %>%
+  scale_x_time(nice="month") %>%
+  axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+  mark_area()
+
+#' ### streamgraph!
+
+vegalite() %>%
+  cell_size(300, 200) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
+  encode_x("date", "temporal") %>%
+  encode_y("count", "quantitative") %>%
+  encode_color("series", "nominal") %>%
+  aggregate_y("sum") %>%
+  scale_color_nominal(range="category20b") %>%
+  timeunit_x("yearmonth") %>%
+  scale_x_time(nice="month") %>%
+  axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+  mark_area(interpolate="basis", stack="center")
 

@@ -4,7 +4,10 @@
 \alias{mark_circle}
 \title{Circle mark}
 \usage{
-mark_circle(vl)
+mark_circle(vl, size = 30)
+}
+\arguments{
+\item{size}{def}
 }
 \description{
 Circle mark

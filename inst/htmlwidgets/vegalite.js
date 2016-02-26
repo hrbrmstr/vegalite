@@ -10,7 +10,8 @@ HTMLWidgets.widget({
 
   renderValue: function(el, x, instance) {
 
-  if (x.data.values !== null) {
+  // if embedded data, turn R data.frame into a usable structure
+  if (x.data.hasOwnProperty("values")) {
     x.data.values = HTMLWidgets.dataframeToD3(x.data.values);
   }
 
@@ -21,9 +22,7 @@ HTMLWidgets.widget({
     "config" : x.config
   };
 
-  if (x.hasTransform) { vlSpec.transform = x.transform; }
-  if (x.hasFacetCol) { vlSpec.encoding.column = x.facet.col; }
-  if (x.hasFacetRow) { vlSpec.encoding.row = x.facet.row; }
+  if (x.hasOwnProperty("transform")) { vlSpec.transform = x.transform; }
 
   vls = vlSpec;
   par = x;

@@ -4,7 +4,7 @@
 \alias{scale_y_linear}
 \title{Linear Scale}
 \usage{
-scale_y_linear(vl, domain, range)
+scale_y_linear(vl, domain, range, clamp, nice, zero)
 }
 \description{
 Linear Scale

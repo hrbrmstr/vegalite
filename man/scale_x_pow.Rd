@@ -4,7 +4,7 @@
 \alias{scale_x_pow}
 \title{Quantitative Scale}
 \usage{
-scale_x_pow(vl, domain, range)
+scale_x_pow(vl, domain, range, clamp, exp, nice, zero)
 }
 \description{
 Quantitative Scale

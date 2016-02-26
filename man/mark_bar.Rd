@@ -4,7 +4,16 @@
 \alias{mark_bar}
 \title{Bar mark}
 \usage{
-mark_bar(vl)
+mark_bar(vl, orient = NULL, stack = NULL, size = NULL)
+}
+\arguments{
+\item{vl}{def}
+
+\item{orient}{def}
+
+\item{stack}{def}
+
+\item{size}{def}
 }
 \description{
 Bar mark

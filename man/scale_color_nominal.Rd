@@ -4,7 +4,7 @@
 \alias{scale_color_nominal}
 \title{Nominal Color Scale}
 \usage{
-scale_color_nominal(vl, range)
+scale_color_nominal(vl, domain = NULL, range = NULL)
 }
 \description{
 Nominal Color Scale

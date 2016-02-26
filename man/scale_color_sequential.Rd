@@ -4,7 +4,7 @@
 \alias{scale_color_sequential}
 \title{Sequential Color Scale}
 \usage{
-scale_color_sequential(vl, range)
+scale_color_sequential(vl, domain, range)
 }
 \description{
 Sequential Color Scale

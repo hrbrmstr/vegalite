@@ -10,7 +10,6 @@
 filter_null <- function(vl, setting=NULL) {
   if (!is.null(setting)) {
     vl$x$transform$filterNull <- setting
-    vl$x$hasTransform <- TRUE
   }
   vl
 }
@@ -25,7 +24,6 @@ filter_null <- function(vl, setting=NULL) {
 calculate <- function(vl, field, expr) {
   vl$x$transform$calculate <- list(field=field,
                                    expr=expr)
-  vl$x$hasTransform <- TRUE
   vl
 }
 
@@ -39,6 +37,5 @@ calculate <- function(vl, field, expr) {
 #' @export
 add_filter <- function(vl, expr) {
   vl$x$transform$filter <- expr
-  vl$x$hasTransform <- TRUE
   vl
 }

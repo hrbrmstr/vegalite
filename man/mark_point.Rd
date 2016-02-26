@@ -4,7 +4,16 @@
 \alias{mark_point}
 \title{Point mark}
 \usage{
-mark_point(vl)
+mark_point(vl, shape = "circle", size = 30)
+}
+\arguments{
+\item{vl}{def}
+
+\item{shape}{def}
+
+\item{size}{def}
+
+\item{tension}{def}
 }
 \description{
 Point mark

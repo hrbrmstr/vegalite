@@ -4,7 +4,7 @@
 \alias{scale_x_log}
 \title{Log Scale}
 \usage{
-scale_x_log(vl, domain, range)
+scale_x_log(vl, domain, range, clamp, nice, zero)
 }
 \description{
 Log Scale

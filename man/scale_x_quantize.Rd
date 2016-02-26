@@ -4,7 +4,7 @@
 \alias{scale_x_quantize}
 \title{Quantize Scale}
 \usage{
-scale_x_quantize(vl, domain, range)
+scale_x_quantize(vl, domain, rang, nice, zeroe)
 }
 \description{
 Quantize Scale

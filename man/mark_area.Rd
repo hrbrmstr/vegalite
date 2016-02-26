@@ -4,7 +4,19 @@
 \alias{mark_area}
 \title{Area mark}
 \usage{
-mark_area(vl)
+mark_area(vl, orient = NULL, stack = NULL, interpolate = NULL,
+  tension = NULL)
+}
+\arguments{
+\item{vl}{def}
+
+\item{orient}{def}
+
+\item{stack}{def}
+
+\item{interpolate}{def}
+
+\item{tension}{def}
 }
 \description{
 Area mark
