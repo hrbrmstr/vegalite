@@ -1,3 +1,5 @@
+#' Create a horizontal ribbon of panels
+#'
 #' @export
 facet_col <- function(vl, field, type) {
   vl$x$facet$col <- list(field=field,
@@ -6,6 +8,8 @@ facet_col <- function(vl, field, type) {
   vl
 }
 
+#' Create a vertical ribbon of panels
+#'
 #' @export
 facet_row <- function(vl, field, type) {
   vl$x$facet$row <- list(field=field,
