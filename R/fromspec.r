@@ -58,6 +58,7 @@ from_spec <- function(spec, width=NULL, height=NULL,
 #'       tedious and best saved for a rainy day.
 #' @param vl a Vega-Lite object
 #' @return JSON spec
+#' @export
 #' @examples
 #' dat <- jsonlite::fromJSON('[
 #'     {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
