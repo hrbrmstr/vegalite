@@ -12,7 +12,7 @@ wade through. All the visualizations you find in the
 (but the last one just isn't sorted).
 
 Functions also exist which enable creation of widgets from a JSON spec and
-turning a `vegalite} package created object into a JSON spec.
+turning a `vegalite` package created object into a JSON spec.
 
 You start by calling `vegalite()` which allows you to setup core
 configuration options, including whether you want to display links to
