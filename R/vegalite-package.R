@@ -5,41 +5,76 @@
 #' documented in TypeScript source code which will take a bit of time to
 #' wade through. All the visualizations you find in the
 #' \href{http://vega.github.io/vega-lite/gallery.html}{Vega-Lite Gallery} work
-#' (but the last one just isn't sorted).
-#'
+#' (but the last one just isn't sorted).\cr
+#' \cr
 #' Functions also exist which enable creation of widgets from a JSON spec and
 #' turning a \code{vegalite} package created object into a JSON spec.
 #'
-#' @name vegalite
+#' You start by calling \code{vegalite()} which allows you to setup core
+#' configuration options, including whether you want to display links to
+#' show the source and export the visualization. You can also set the background
+#' here and the \code{viewport_width} and \code{viewport_height}. Those are
+#' very important as they control the height and width of the widget and also
+#' the overall area for the chart. This does \emph{not} set the height/width
+#' of the actual chart. That is done with \code{cell_size()}.
+#'
+#' Once you instantiate the widget, you need to \code{add_data()} which can
+#' be \code{data.frame}, local CSV, TSV or JSON file (that convert to
+#' \code{data.frame}s) or a non-realive URL (wich will not be read and
+#' converted but will remain a URL in the Vega-Lite spec.
+#'
+#' You then need to \code{encode_x()} & \code{encode_y()} variables that
+#' map to columns in the data spec and choose one \code{mark_...()} to
+#' represent the encoding.
+#'
+#' Here's a sample, basic Vega-Lite widget:
+#'
+#' \preformatted{
+#'   dat <- jsonlite::fromJSON('[
+#'       {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+#'       {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+#'       {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+#'     ]')
+#'
+#'   vegalite() %>%
+#'     add_data(dat) %>%
+#'     encode_x("a", "ordinal") %>%
+#'     encode_y("b", "quantitative") %>%
+#'     mark_bar()
+#'   }
+#'
+#' That is the minimum set of requirements for a basic Vega-Lite spec and
+#' will create a basic widget.
+#'
+#' You can also convert that R widget object \code{to_spec()} which will return
+#' the JSON for the Vega-Lite spec (allowing you to use it outside of R).
+#'
+#' If you already have a Vega-Lite JSON spec that has embedded data or a
+#' non-realtive URL, you can create a widget from it via \code{from_spec()}
+#' by passing in the full JSON spec or a URL to a full JSON spec.
+#'
+#' @name vegalite-package
 #' @docType package
 #' @author Bob Rudis (@@hrbrmstr)
-#' @importFrom jsonlite fromJSON toJSON
-#' @export
-NULL
-
-#' vegalite exported operators
-#'
-#' The following functions are imported and then re-exported
-#' from the vegalite package to enable use of the magrittr
-#' pipe operator with no additional library calls.
-#'
-#' @name vegalite-exports
 NULL
 
 #' @importFrom magrittr %>%
 #' @name %>%
+#' @rdname pipe
+#' @title magrittr forward-pipe operator
 #' @export
-#' @rdname vegalite-exports
 NULL
 
 #' @importFrom htmlwidgets JS
 #' @name JS
+#' @rdname JS
+#' @title Mark character strings as literal JavaScript code
 #' @export
-#' @rdname vegalite-exports
 NULL
 
 #' @importFrom htmlwidgets saveWidget
 #' @name saveWidget
+#' @rdname saveWidget
+#' @title Save a widget to an HTML file
 #' @export
-#' @rdname vegalite-exports
 NULL

@@ -1,5 +1,20 @@
 #' Quantitative Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_linear <- function(vl, domain, range, clamp, nice, zero) {
@@ -9,6 +24,21 @@ scale_x_linear <- function(vl, domain, range, clamp, nice, zero) {
 
 #' Quantitative Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_pow <- function(vl, domain, range, clamp, exp, nice, zero) {
@@ -18,6 +48,21 @@ scale_x_pow <- function(vl, domain, range, clamp, exp, nice, zero) {
 
 #' Sqrt Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_sqrt <- function(vl, domain, range, clamp, nice, zero) {
@@ -27,6 +72,21 @@ scale_x_sqrt <- function(vl, domain, range, clamp, nice, zero) {
 
 #' Log Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_log <- function(vl, domain, range, clamp, nice, zero) {
@@ -36,6 +96,21 @@ scale_x_log <- function(vl, domain, range, clamp, nice, zero) {
 
 #' Quantize Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_quantize <- function(vl, domain, rang, nice, zeroe) {
@@ -45,6 +120,21 @@ scale_x_quantize <- function(vl, domain, rang, nice, zeroe) {
 
 #' Quantile Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_quantile <- function(vl, domain, range, nice, zero) {
@@ -54,6 +144,21 @@ scale_x_quantile <- function(vl, domain, range, nice, zero) {
 
 #' Ordinal Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_ordinal <- function(vl, band_size=NULL, padding=NULL) {
@@ -64,6 +169,21 @@ scale_x_ordinal <- function(vl, band_size=NULL, padding=NULL) {
 
 #' Threshold Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_threshold <- function(vl, domain, range, nice, zero) {
@@ -73,6 +193,21 @@ scale_x_threshold <- function(vl, domain, range, nice, zero) {
 
 #' Temporal Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_x_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL) {
@@ -85,6 +220,21 @@ scale_x_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL) {
 
 #' Linear Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_linear <- function(vl, domain, range, clamp, nice, zero) {
@@ -94,6 +244,21 @@ scale_y_linear <- function(vl, domain, range, clamp, nice, zero) {
 
 #' Power Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_pow <- function(vl, domain, range, clamp, exp, nice, zero) {
@@ -103,6 +268,21 @@ scale_y_pow <- function(vl, domain, range, clamp, exp, nice, zero) {
 
 #' Sqrt Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_sqrt <- function(vl, domain, range, clamp, nice, zero) {
@@ -112,6 +292,21 @@ scale_y_sqrt <- function(vl, domain, range, clamp, nice, zero) {
 
 #' Log Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_log <- function(vl, domain, range, clamp, nice, zero) {
@@ -121,6 +316,21 @@ scale_y_log <- function(vl, domain, range, clamp, nice, zero) {
 
 #' Quantize Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_quantize <- function(vl, domain, range, nice, zero) {
@@ -130,6 +340,21 @@ scale_y_quantize <- function(vl, domain, range, nice, zero) {
 
 #' Quantile Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_quantile <- function(vl, domain, range, nice, zero) {
@@ -150,6 +375,18 @@ scale_y_ordinal <- function(vl, band_size=NULL, padding=NULL) {
 
 #' Threshold Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
+#' @param zero If true, ensures that a zero baseline value is included in the
+#'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_threshold <- function(vl, domain, range, nice, zero) {
@@ -159,6 +396,19 @@ scale_y_threshold <- function(vl, domain, range, nice, zero) {
 
 #' Temporal Scale
 #'
+#' @param vl Vega-Lite object
+#' @param domain Custom domain values. For quantitative data, this can take the
+#'        form of a two-element array with minimum and maximum values.
+#' @param range The range of the scale represents the set of output visual values.
+#'        Vega-Lite automatically determines appropriate range based on the scale’s
+#'        channel and type, but range property can be provided to customize range
+#'        values.
+#' @param clamp if true, values that exceed the data domain are clamped to either
+#'        the minimum or maximum range value. Default value: derived from scale
+#'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param nice If true, modifies the scale domain to use a more human-friendly
+#'        number range (e.g., 7 instead of 6.96). Default value: true only for
+#'        quantitative x and y scales and false otherwise.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL) {

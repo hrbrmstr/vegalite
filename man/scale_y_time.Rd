@@ -6,6 +6,25 @@
 \usage{
 scale_y_time(vl, domain = NULL, range = NULL, clamp = NULL, nice = NULL)
 }
+\arguments{
+\item{vl}{Vega-Lite object}
+
+\item{domain}{Custom domain values. For quantitative data, this can take the
+form of a two-element array with minimum and maximum values.}
+
+\item{range}{The range of the scale represents the set of output visual values.
+Vega-Lite automatically determines appropriate range based on the scale’s
+channel and type, but range property can be provided to customize range
+values.}
+
+\item{clamp}{if true, values that exceed the data domain are clamped to either
+the minimum or maximum range value. Default value: derived from scale
+config (true by default) Supported Types: only linear, pow, sqrt, and log}
+
+\item{nice}{If true, modifies the scale domain to use a more human-friendly
+number range (e.g., 7 instead of 6.96). Default value: true only for
+quantitative x and y scales and false otherwise.}
+}
 \description{
 Temporal Scale
 }

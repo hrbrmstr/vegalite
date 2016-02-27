@@ -6,6 +6,24 @@
 \usage{
 scale_y_threshold(vl, domain, range, nice, zero)
 }
+\arguments{
+\item{vl}{Vega-Lite object}
+
+\item{domain}{Custom domain values. For quantitative data, this can take the
+form of a two-element array with minimum and maximum values.}
+
+\item{range}{The range of the scale represents the set of output visual values.
+Vega-Lite automatically determines appropriate range based on the scale’s
+channel and type, but range property can be provided to customize range
+values.}
+
+\item{nice}{If true, modifies the scale domain to use a more human-friendly
+number range (e.g., 7 instead of 6.96). Default value: true only for
+quantitative x and y scales and false otherwise.}
+
+\item{zero}{If true, ensures that a zero baseline value is included in the
+scale domain. Default value: true if the quantitative field is not binned.}
+}
 \description{
 Threshold Scale
 }

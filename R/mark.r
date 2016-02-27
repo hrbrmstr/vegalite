@@ -16,7 +16,6 @@
 #'        produces layered bar and area chart.
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
-#'        Default value: 30
 #' @param opacity \code{0.0}-\code{1.0}
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
@@ -32,7 +31,7 @@
 #'   encode_x("a", "ordinal") %>%
 #'   encode_y("b", "quantitative") %>%
 #'   mark_bar()
-mark_bar <- function(vl, orient=NULL, stack=NULL, size=30, opacity=NULL) {
+mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL, opacity=NULL) {
   vl$x$mark <- "bar"
   if (!is.null(stack)) vl$x$config$mark$stacked <- stack
   if (!is.null(size)) vl$x$config$mark$barSize <- size
@@ -48,7 +47,6 @@ mark_bar <- function(vl, orient=NULL, stack=NULL, size=30, opacity=NULL) {
 #'
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
-#'        Default value: 30
 #' @param opacity \code{0.0}-\code{1.0}
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
@@ -58,7 +56,7 @@ mark_bar <- function(vl, orient=NULL, stack=NULL, size=30, opacity=NULL) {
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%
 #'   mark_circle()
-mark_circle <- function(vl, size=30, opacity=NULL) {
+mark_circle <- function(vl, size=NULL, opacity=NULL) {
   vl$x$mark <- "circle"
   vl$x$config$mark$size <- size
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
@@ -72,11 +70,10 @@ mark_circle <- function(vl, size=30, opacity=NULL) {
 #'
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
-#'        Default value: 30
 #' @param opacity \code{0.0}-\code{1.0}
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_square <- function(vl, size=30, opacity=NULL) {
+mark_square <- function(vl, size=NULL, opacity=NULL) {
   vl$x$mark <- "square"
   vl$x$config$mark$size <- size
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
@@ -95,7 +92,6 @@ mark_square <- function(vl, size=30, opacity=NULL) {
 #'        x-axis is placed on the top, row”s y-axis is placed on the right.
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
-#'        Default value: 30
 #' @param thickness Thickness of the tick mark. Default value: 1
 #' @param opacity \code{0.0}-\code{1.0}
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
@@ -192,7 +188,6 @@ mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NUL
 #'        Default value: \code{circle}.
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
-#'        Default value: 30.
 #' @param tension Depending on the interpolation type, sets the tension parameter.
 #'        (See D3’s line interpolation.)
 #' @param opacity \code{0.0}-\code{1.0}
@@ -204,7 +199,7 @@ mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NUL
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%
 #'   mark_point()
-mark_point <- function(vl, shape="circle", size=30, opacity=NULL) {
+mark_point <- function(vl, shape="circle", size=NULL, opacity=NULL) {
   vl$x$mark <- "point"
   vl$x$config$mark$shape <- shape
   vl$x$config$mark$size <- size

@@ -4,7 +4,7 @@
 \alias{mark_point}
 \title{Point mark}
 \usage{
-mark_point(vl, shape = "circle", size = 30, opacity = NULL)
+mark_point(vl, shape = "circle", size = NULL, opacity = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
@@ -14,8 +14,7 @@ mark_point(vl, shape = "circle", size = 30, opacity = NULL)
 Default value: \code{circle}.}
 
 \item{size}{The pixel area each the point. For example: in the case of circles,
-the radius is determined in part by the square root of the size value.
-Default value: 30.}
+the radius is determined in part by the square root of the size value.}
 
 \item{opacity}{\code{0.0}-\code{1.0}}
 

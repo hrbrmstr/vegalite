@@ -4,7 +4,7 @@
 \alias{mark_bar}
 \title{Bar mark}
 \usage{
-mark_bar(vl, orient = NULL, stack = NULL, size = 30, opacity = NULL)
+mark_bar(vl, orient = NULL, stack = NULL, size = NULL, opacity = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
@@ -22,8 +22,7 @@ with center baseline (for streamgraph). \code{none} - No-stacking. This will
 produces layered bar and area chart.}
 
 \item{size}{The pixel area each the point. For example: in the case of circles,
-the radius is determined in part by the square root of the size value.
-Default value: 30}
+the radius is determined in part by the square root of the size value.}
 
 \item{opacity}{\code{0.0}-\code{1.0}}
 }

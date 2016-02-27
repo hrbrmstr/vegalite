@@ -15,8 +15,7 @@ x axis is placed on the bottom, y axis is placed on the left, column”s
 x-axis is placed on the top, row”s y-axis is placed on the right.}
 
 \item{size}{The pixel area each the point. For example: in the case of circles,
-the radius is determined in part by the square root of the size value.
-Default value: 30}
+the radius is determined in part by the square root of the size value.}
 
 \item{thickness}{Thickness of the tick mark. Default value: 1}
 

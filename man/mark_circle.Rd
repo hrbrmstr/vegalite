@@ -4,12 +4,11 @@
 \alias{mark_circle}
 \title{Circle mark}
 \usage{
-mark_circle(vl, size = 30, opacity = NULL)
+mark_circle(vl, size = NULL, opacity = NULL)
 }
 \arguments{
 \item{size}{The pixel area each the point. For example: in the case of circles,
-the radius is determined in part by the square root of the size value.
-Default value: 30}
+the radius is determined in part by the square root of the size value.}
 
 \item{opacity}{\code{0.0}-\code{1.0}}
 }
