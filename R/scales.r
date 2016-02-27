@@ -17,8 +17,13 @@
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_x_linear <- function(vl, domain, range, clamp, nice, zero) {
-  vl$x$encoding$x$scale <- list(type="linear")
+scale_x_linear <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
+  # vl$x$encoding$x$scale <- list(type="linear")
+  if (!is.null(domain)) vl$x$encoding$x$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$x$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$x$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$x$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$x$scale$zero <- zero
   vl
 }
 
@@ -34,6 +39,7 @@ scale_x_linear <- function(vl, domain, range, clamp, nice, zero) {
 #' @param clamp if true, values that exceed the data domain are clamped to either
 #'        the minimum or maximum range value. Default value: derived from scale
 #'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param exp exponent
 #' @param nice If true, modifies the scale domain to use a more human-friendly
 #'        number range (e.g., 7 instead of 6.96). Default value: true only for
 #'        quantitative x and y scales and false otherwise.
@@ -41,8 +47,15 @@ scale_x_linear <- function(vl, domain, range, clamp, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_x_pow <- function(vl, domain, range, clamp, exp, nice, zero) {
+scale_x_pow <- function(vl, domain=NULL, range=NULL, clamp=NULL, exp=NULL,
+                        nice=NULL, zero=NULL) {
   vl$x$encoding$x$scale <- list(type="pow")
+  if (!is.null(domain)) vl$x$encoding$x$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$x$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$x$scale$clamp <- clamp
+  if (!is.null(clamp)) vl$x$encoding$x$scale$exp <- exp
+  if (!is.null(nice)) vl$x$encoding$x$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$x$scale$zero <- zero
   vl
 }
 
@@ -65,8 +78,13 @@ scale_x_pow <- function(vl, domain, range, clamp, exp, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_x_sqrt <- function(vl, domain, range, clamp, nice, zero) {
+scale_x_sqrt <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$x$scale <- list(type="sqrt")
+  if (!is.null(domain)) vl$x$encoding$x$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$x$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$x$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$x$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$x$scale$zero <- zero
   vl
 }
 
@@ -89,8 +107,13 @@ scale_x_sqrt <- function(vl, domain, range, clamp, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_x_log <- function(vl, domain, range, clamp, nice, zero) {
+scale_x_log <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$x$scale <- list(type="log")
+  if (!is.null(domain)) vl$x$encoding$x$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$x$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$x$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$x$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$x$scale$zero <- zero
   vl
 }
 
@@ -113,8 +136,13 @@ scale_x_log <- function(vl, domain, range, clamp, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_x_quantize <- function(vl, domain, rang, nice, zeroe) {
+scale_x_quantize <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$x$scale <- list(type="quantize")
+  if (!is.null(domain)) vl$x$encoding$x$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$x$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$x$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$x$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$x$scale$zero <- zero
   vl
 }
 
@@ -137,8 +165,13 @@ scale_x_quantize <- function(vl, domain, rang, nice, zeroe) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_x_quantile <- function(vl, domain, range, nice, zero) {
+scale_x_quantile <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$x$scale <- list(type="quantile")
+  if (!is.null(domain)) vl$x$encoding$x$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$x$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$x$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$x$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$x$scale$zero <- zero
   vl
 }
 
@@ -186,8 +219,13 @@ scale_x_ordinal <- function(vl, band_size=NULL, padding=NULL) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_x_threshold <- function(vl, domain, range, nice, zero) {
+scale_x_threshold <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$x$scale <- list(type="threshold")
+  if (!is.null(domain)) vl$x$encoding$x$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$x$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$x$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$x$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$x$scale$zero <- zero
   vl
 }
 
@@ -210,11 +248,13 @@ scale_x_threshold <- function(vl, domain, range, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_x_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL) {
+scale_x_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
+  # vl$x$encoding$x$scale <- list(type="temporal")
   if (!is.null(domain)) vl$x$encoding$x$scale$domain <- domain
   if (!is.null(range)) vl$x$encoding$x$scale$range <- range
   if (!is.null(clamp)) vl$x$encoding$x$scale$clamp <- clamp
   if (!is.null(nice)) vl$x$encoding$x$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$x$scale$zero <- zero
   vl
 }
 
@@ -230,6 +270,7 @@ scale_x_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL) {
 #' @param clamp if true, values that exceed the data domain are clamped to either
 #'        the minimum or maximum range value. Default value: derived from scale
 #'        config (true by default) Supported Types: only linear, pow, sqrt, and log
+#' @param exp exponent
 #' @param nice If true, modifies the scale domain to use a more human-friendly
 #'        number range (e.g., 7 instead of 6.96). Default value: true only for
 #'        quantitative x and y scales and false otherwise.
@@ -237,8 +278,13 @@ scale_x_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_linear <- function(vl, domain, range, clamp, nice, zero) {
-  vl$x$encoding$y$scale <- list(type="linear")
+scale_y_linear <- function(vl,  domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
+  # vl$x$encoding$y$scale <- list(type="linear")
+  if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$y$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$y$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$y$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$y$scale$zero <- zero
   vl
 }
 
@@ -261,8 +307,15 @@ scale_y_linear <- function(vl, domain, range, clamp, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_pow <- function(vl, domain, range, clamp, exp, nice, zero) {
+scale_y_pow <- function(vl, domain=NULL, range=NULL, clamp=NULL, exp=NULL,
+                        nice=NULL, zero=NULL) {
   vl$x$encoding$y$scale <- list(type="pow")
+  if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$y$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$y$scale$clamp <- clamp
+  if (!is.null(exp)) vl$x$encoding$y$scale$exp <- exp
+  if (!is.null(nice)) vl$x$encoding$y$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$y$scale$zero <- zero
   vl
 }
 
@@ -285,8 +338,13 @@ scale_y_pow <- function(vl, domain, range, clamp, exp, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_sqrt <- function(vl, domain, range, clamp, nice, zero) {
+scale_y_sqrt <- function(vl,  domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$y$scale <- list(type="sqrt")
+  if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$y$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$y$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$y$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$y$scale$zero <- zero
   vl
 }
 
@@ -309,8 +367,13 @@ scale_y_sqrt <- function(vl, domain, range, clamp, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_log <- function(vl, domain, range, clamp, nice, zero) {
+scale_y_log <- function(vl,  domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$y$scale <- list(type="log")
+  if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$y$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$y$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$y$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$y$scale$zero <- zero
   vl
 }
 
@@ -333,8 +396,13 @@ scale_y_log <- function(vl, domain, range, clamp, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_quantize <- function(vl, domain, range, nice, zero) {
+scale_y_quantize <- function(vl,  domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$y$scale <- list(type="quantize")
+  if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$y$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$y$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$y$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$y$scale$zero <- zero
   vl
 }
 
@@ -357,8 +425,13 @@ scale_y_quantize <- function(vl, domain, range, nice, zero) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_quantile <- function(vl, domain, range, nice, zero) {
-  vl$x$encoding$y$scale <- list(type="quantlze")
+scale_y_quantile <- function(vl,  domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
+  vl$x$encoding$y$scale <- list(type="quantile")
+  if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$y$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$y$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$y$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$y$scale$zero <- zero
   vl
 }
 
@@ -367,7 +440,7 @@ scale_y_quantile <- function(vl, domain, range, nice, zero) {
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_y_ordinal <- function(vl, band_size=NULL, padding=NULL) {
-  vl$x$encoding$y$scale <- list(type="ordinal")
+  # vl$x$encoding$y$scale <- list(type="ordinal")
   if (!is.null(band_size)) vl$x$encoding$y$scale$bandSize <- band_size
   if (!is.null(padding)) vl$x$encoding$y$scale$padding <- padding
   vl
@@ -389,8 +462,13 @@ scale_y_ordinal <- function(vl, band_size=NULL, padding=NULL) {
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_threshold <- function(vl, domain, range, nice, zero) {
+scale_y_threshold <- function(vl,  domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$y$scale <- list(type="threshold")
+  if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$y$scale$range <- range
+  if (!is.null(clamp)) vl$x$encoding$y$scale$clamp <- clamp
+  if (!is.null(nice)) vl$x$encoding$y$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$y$scale$zero <- zero
   vl
 }
 
@@ -411,12 +489,13 @@ scale_y_threshold <- function(vl, domain, range, nice, zero) {
 #'        quantitative x and y scales and false otherwise.
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL) {
-  vl$x$encoding$y$scale <- list(type="time")
+scale_y_time <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
+  # vl$x$encoding$y$scale <- list(type="time")
   if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
   if (!is.null(range)) vl$x$encoding$y$scale$range <- range
   if (!is.null(clamp)) vl$x$encoding$y$scale$clamp <- clamp
   if (!is.null(nice)) vl$x$encoding$y$scale$nice <- nice
+  if (!is.null(zero)) vl$x$encoding$y$scale$zero <- zero
   vl
 }
 
@@ -435,6 +514,8 @@ scale_color_nominal <- function(vl, domain=NULL, range=NULL) {
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_color_sequential <- function(vl, domain, range) {
+  if (!is.null(domain)) vl$x$encoding$color$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$color$scale$range <- range
   vl
 }
 
@@ -443,6 +524,8 @@ scale_color_sequential <- function(vl, domain, range) {
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_shape <- function(vl, range) {
+  if (!is.null(domain)) vl$x$encoding$color$scale$domain <- domain
+  if (!is.null(range)) vl$x$encoding$color$scale$range <- range
   vl
 }
 

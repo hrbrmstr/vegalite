@@ -4,7 +4,8 @@
 \alias{scale_y_linear}
 \title{Linear Scale}
 \usage{
-scale_y_linear(vl, domain, range, clamp, nice, zero)
+scale_y_linear(vl, domain = NULL, range = NULL, clamp = NULL,
+  nice = NULL, zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
@@ -27,6 +28,8 @@ quantitative x and y scales and false otherwise.}
 
 \item{zero}{If true, ensures that a zero baseline value is included in the
 scale domain. Default value: true if the quantitative field is not binned.}
+
+\item{exp}{exponent}
 }
 \description{
 Linear Scale

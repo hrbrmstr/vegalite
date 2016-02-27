@@ -4,7 +4,8 @@
 \alias{scale_x_pow}
 \title{Quantitative Scale}
 \usage{
-scale_x_pow(vl, domain, range, clamp, exp, nice, zero)
+scale_x_pow(vl, domain = NULL, range = NULL, clamp = NULL, exp = NULL,
+  nice = NULL, zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
@@ -20,6 +21,8 @@ values.}
 \item{clamp}{if true, values that exceed the data domain are clamped to either
 the minimum or maximum range value. Default value: derived from scale
 config (true by default) Supported Types: only linear, pow, sqrt, and log}
+
+\item{exp}{exponent}
 
 \item{nice}{If true, modifies the scale domain to use a more human-friendly
 number range (e.g., 7 instead of 6.96). Default value: true only for

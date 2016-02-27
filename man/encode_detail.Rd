@@ -4,7 +4,7 @@
 \alias{encode_detail}
 \title{Encode detail "channel"}
 \usage{
-encode_detail(vl, field = NULL, type)
+encode_detail(vl, field = NULL, type, aggregate = NULL, sort = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
@@ -16,6 +16,13 @@ name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
 or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
+
+\item{aggregate}{perform aggregaton on \code{field}. See
+\href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+more info on valid operations. Leave \code{NULL} for no aggregation.}
+
+\item{sort}{either one of \code{ascending}, \code{descending} or (for ordinal scales)
+the result of a call to \code{\link{sort_def}}}
 }
 \description{
 Grouping data is another important operation in visualizing data. For

@@ -4,7 +4,8 @@
 \alias{scale_y_sqrt}
 \title{Sqrt Scale}
 \usage{
-scale_y_sqrt(vl, domain, range, clamp, nice, zero)
+scale_y_sqrt(vl, domain = NULL, range = NULL, clamp = NULL, nice = NULL,
+  zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

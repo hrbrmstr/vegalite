@@ -4,7 +4,8 @@
 \alias{scale_y_time}
 \title{Temporal Scale}
 \usage{
-scale_y_time(vl, domain = NULL, range = NULL, clamp = NULL, nice = NULL)
+scale_y_time(vl, domain = NULL, range = NULL, clamp = NULL, nice = NULL,
+  zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

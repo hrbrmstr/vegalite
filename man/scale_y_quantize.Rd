@@ -4,7 +4,8 @@
 \alias{scale_y_quantize}
 \title{Quantize Scale}
 \usage{
-scale_y_quantize(vl, domain, range, nice, zero)
+scale_y_quantize(vl, domain = NULL, range = NULL, clamp = NULL,
+  nice = NULL, zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
@@ -17,16 +18,16 @@ Vega-Lite automatically determines appropriate range based on the scale’s
 channel and type, but range property can be provided to customize range
 values.}
 
+\item{clamp}{if true, values that exceed the data domain are clamped to either
+the minimum or maximum range value. Default value: derived from scale
+config (true by default) Supported Types: only linear, pow, sqrt, and log}
+
 \item{nice}{If true, modifies the scale domain to use a more human-friendly
 number range (e.g., 7 instead of 6.96). Default value: true only for
 quantitative x and y scales and false otherwise.}
 
 \item{zero}{If true, ensures that a zero baseline value is included in the
 scale domain. Default value: true if the quantitative field is not binned.}
-
-\item{clamp}{if true, values that exceed the data domain are clamped to either
-the minimum or maximum range value. Default value: derived from scale
-config (true by default) Supported Types: only linear, pow, sqrt, and log}
 }
 \description{
 Quantize Scale

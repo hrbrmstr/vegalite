@@ -1,6 +1,6 @@
 #' Create Vega-Lite specs using htmlwidget idioms
 #'
-#' Creation of Vega-Lite spec charts is 93\% feature complete. Sorting still
+#' Creation of Vega-Lite spec charts is 98\% feature complete. Sorting still
 #' needs to be implementd and many of the parameters to functions are only
 #' documented in TypeScript source code which will take a bit of time to
 #' wade through. All the visualizations you find in the

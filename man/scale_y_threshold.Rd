@@ -4,7 +4,8 @@
 \alias{scale_y_threshold}
 \title{Threshold Scale}
 \usage{
-scale_y_threshold(vl, domain, range, nice, zero)
+scale_y_threshold(vl, domain = NULL, range = NULL, clamp = NULL,
+  nice = NULL, zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

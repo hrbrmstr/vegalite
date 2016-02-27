@@ -1,7 +1,7 @@
 #' ---
 #' title: "vegalite test"
 #' author: "@hrbrmstr"
-#' date: "2016-02-26"
+#' date: "2016-02-27"
 #' output: hrbrmrkdn::skeleton
 #' ---
 
@@ -343,15 +343,56 @@ vegalite(viewport_height=700) %>%
   mark_bar()
 
 #' ### becker's barley trellis plot
-#'
-#' **sorting has not been implemented yet**
 
 vegalite(viewport_height=1200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
   encode_x("yield", "quantitative", aggregate="mean") %>%
-  encode_y("variety", "ordinal") %>%
+  encode_y("variety", "ordinal", sort=sort_def("yield", "mean")) %>%
   encode_color("year", "nominal") %>%
   facet_row("site", "ordinal") %>%
   scale_y_ordinal(band_size=12) %>%
+  mark_point()
+
+#' ### sorting line order
+
+vegalite() %>%
+  cell_size(300, 300) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/driving.json") %>%
+  encode_x("miles", "quantitative") %>%
+  encode_y("gas", "quantitative") %>%
+  encode_path("year", "temporal") %>%
+  scale_x_linear(zero=FALSE) %>%
+  scale_y_linear(zero=FALSE) %>%
+  mark_line()
+
+#' ### sort layer scatterplot
+
+vegalite() %>%
+  cell_size(200, 200) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+  encode_x("Horsepower", "quantitative") %>%
+  encode_y("Miles_per_Gallon", "quantitative") %>%
+  encode_color("Origin", "nominal") %>%
+  encode_order("Origin", "ordinal", sort="descending") %>%
+  mark_point()
+
+#' ### detail lines
+
+vegalite() %>%
+  cell_size(200, 200) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") %>%
+  encode_x("date", "temporal") %>%
+  encode_y("price", "quantitative") %>%
+  encode_detail("symbol", "nominal") %>%
+  mark_line()
+
+#' ### detail points
+
+vegalite() %>%
+  cell_size(200, 200) %>%
+  add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+  encode_x("Horsepower", "quantitative", aggregate="mean") %>%
+  encode_y("Displacement", "quantitative", aggregate="mean") %>%
+  encode_detail("Origin", "nominal") %>%
   mark_point()
 

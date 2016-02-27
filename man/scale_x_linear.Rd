@@ -4,7 +4,8 @@
 \alias{scale_x_linear}
 \title{Quantitative Scale}
 \usage{
-scale_x_linear(vl, domain, range, clamp, nice, zero)
+scale_x_linear(vl, domain = NULL, range = NULL, clamp = NULL,
+  nice = NULL, zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

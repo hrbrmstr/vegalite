@@ -4,7 +4,8 @@
 \alias{encode_size}
 \title{Encode size "channel"}
 \usage{
-encode_size(vl, field = NULL, type, value = NULL, aggregate = NULL)
+encode_size(vl, field = NULL, type, value = NULL, aggregate = NULL,
+  sort = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
@@ -21,6 +22,9 @@ be guessed (so you may want to actually specify it if you want consistency).}
 \item{aggregate}{perform aggregaton on \code{field}. See
 \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
 more info on valid operations. Leave \code{NULL} for no aggregation.}
+
+\item{sort}{either one of \code{ascending}, \code{descending} or (for ordinal scales)
+the result of a call to \code{\link{sort_def}}}
 }
 \description{
 Encode size "channel"

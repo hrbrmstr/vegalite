@@ -72,7 +72,7 @@ from_spec <- function(spec, width=NULL, height=NULL,
 #'
 #' to_spec(chart)
 to_spec <- function(vl, pretty=TRUE) {
-  jsonlite::toJSON(vl$x, pretty=FALSE, auto_unbox=TRUE)
+  jsonlite::toJSON(vl$x, pretty=pretty, auto_unbox=TRUE)
 }
 
 #' Scaffold HTML/JavaScript/CSS code from \code{vegalite}

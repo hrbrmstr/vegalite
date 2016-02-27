@@ -4,7 +4,8 @@
 \alias{scale_y_log}
 \title{Log Scale}
 \usage{
-scale_y_log(vl, domain, range, clamp, nice, zero)
+scale_y_log(vl, domain = NULL, range = NULL, clamp = NULL, nice = NULL,
+  zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

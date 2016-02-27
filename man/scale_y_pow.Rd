@@ -4,7 +4,8 @@
 \alias{scale_y_pow}
 \title{Power Scale}
 \usage{
-scale_y_pow(vl, domain, range, clamp, exp, nice, zero)
+scale_y_pow(vl, domain = NULL, range = NULL, clamp = NULL, exp = NULL,
+  nice = NULL, zero = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
