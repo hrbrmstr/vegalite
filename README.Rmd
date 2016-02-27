@@ -16,8 +16,7 @@ There's also a [blog post](http://rud.is/b/2016/02/27/create-vega-lite-specs-wid
 Creation of Vega-Lite spec charts is 98% feature complete. Sorting still
 needs to be implementd and many of the parameters to functions are only
 documented in TypeScript source code which will take a bit of time to
-wade through. All the visualizations you find in the [Vega-Lite Gallery](http://vega.github.io/vega-lite/gallery.html) work
-(but the last one just isn't sorted).
+wade through. All the visualizations you find in the [Vega-Lite Gallery](http://vega.github.io/vega-lite/gallery.html) work.
 
 Functions also exist which enable creation of widgets from a JSON spec and
 turning a `vegalite` package created object into a JSON spec.
