@@ -168,6 +168,7 @@ vegalite() %&gt;%
   }
 }</code></pre>
 <p>If you already have a Vega-Lite JSON spec that has embedded data or a non-realtive URL, you can create a widget from it via <code>from_spec()</code> by passing in the full JSON spec or a URL to a full JSON spec.</p>
+<p>If you’re good with HTML (etc) and want a more lightweight embedding options, you can also use <code>embed_spec</code> which will scaffold a minimum <code>div</code> + <code>script</code> source and embed a spec from a <code>vegalite</code> object.</p>
 <div id="installation" class="section level3">
 <h3>Installation</h3>
 <pre class="r"><code>devtools::install_github(&quot;hrbrmstr/vegalite&quot;)</code></pre>
@@ -178,7 +179,7 @@ vegalite() %&gt;%
 
 # current verison
 packageVersion(&quot;vegalite&quot;)</code></pre>
-<pre><code>## [1] '0.2.0'</code></pre>
+<pre><code>## [1] '0.2.5'</code></pre>
 <pre class="r"><code>library(vegalite)
 
 vegalite() %&gt;% 

@@ -1,7 +1,7 @@
 Package: vegalite
 Type: Package
 Title: Encode Visualizations with the 'Grammar of Graphics'-like 'Vega-Lite' Spec
-Version: 0.2.0
+Version: 0.2.5
 Date: 2016-02-27
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
@@ -18,5 +18,6 @@ Imports:
     jsonlite,
     htmlwidgets,
     htmltools,
-    magrittr
+    magrittr,
+    digest
 RoxygenNote: 5.0.1

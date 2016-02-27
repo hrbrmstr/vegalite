@@ -74,3 +74,44 @@ from_spec <- function(spec, width=NULL, height=NULL,
 to_spec <- function(vl, pretty=TRUE) {
   jsonlite::toJSON(vl$x, pretty=FALSE, auto_unbox=TRUE)
 }
+
+#' Scaffold HTML/JavaScript/CSS code from \code{vegalite}
+#'
+#' Create minimal necessary HTML/JavaScript/CSS code to embed a
+#' Vega-Lite spec into a web page. This assumes you have the necessary
+#' boilerplate javascript & HTML page shell defined as you see in
+#' \href{http://vega.github.io/vega-lite/tutorials/getting_started.html#embed}{the Vega-Lite core example}.
+#'
+#' If you are generating more than one object to embed into a single web page,
+#' you will need to ensure each \code{element_id} is unique. Each Vega-Lite
+#' \code{div} is classed with \code{vldiv} so you can provide both a central style
+#' (say, \code{display:inline-block; margin-auto;}) and targeted ones that use the
+#' \code{div} \code{id}.
+#'
+#' @param vl a Vega-Lite object
+#' @param element_id if you don't specify one, an id will be generated. This should
+#'        be descriptive, but short, and valid javascript & CSS identifier syntax as
+#'        is is appended to variable names.
+#' @export
+embed_spec <- function(vl, element_id=generate_id()) {
+
+  template <- '<center><div id="%s" class="vldiv"></div></center>
+
+<script>
+var spec_%s = JSON.parse(\'%s\');
+
+var embedSpec_%s = { "mode": "vega-lite", "spec": spec_%s, "renderer": spec_%s.embed.renderer, "actions": spec_%s.embed.actions };
+
+vg.embed("#%s", embedSpec_%s, function(error, result) {});
+</script>'
+
+  sprintf(template,
+          element_id, element_id, to_spec(vl, pretty=FALSE),
+          element_id, element_id, element_id, element_id, element_id, element_id)
+
+}
+
+#' @importFrom digest sha1
+generate_id <- function() {
+  sprintf("vl%s", substr(digest::sha1(Sys.time()), 1, 8))
+}
