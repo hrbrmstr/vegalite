@@ -1,11 +1,12 @@
 Package: vegalite
 Type: Package
 Title: Encode Visualizations with the 'Grammar of Graphics'-like 'Vega-Lite' Spec
-Version: 0.1.0
-Date: 2016-02-23
+Version: 0.2.0
+Date: 2016-02-27
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
-Description: VEGA-LITE BA-BY! (this will be more descriptive when we're close to CRAN)
+Description: 'Vega-Lite' provides a higher-level grammar for visual analysis, akin
+    to 'ggplot' or 'Tableau', that generates complete 'Vega' specifications.
 URL: http://github.com/hrbrmstr/vegalite
 BugReports: https://github.com/hrbrmstr/vegalite/issues
 License: AGPL + file LICENSE

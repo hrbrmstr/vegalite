@@ -24,15 +24,13 @@ HTMLWidgets.widget({
 
   if (x.hasOwnProperty("transform")) {
     if (x.transform.hasOwnProperty("calculate")) {
-      if (!Array.isArray(x.transform.calculate)) {
-        x.transform.calculate = [ x.transform.calculate ];
-      }
+      x.transform.calculate = HTMLWidgets.dataframeToD3(x.transform.calculate);
     }
     vlSpec.transform = x.transform;
   }
 
-  vls = vlSpec;
-  par = x;
+  //vls = vlSpec;
+  //par = x;
 
   var embedSpec = {
     "mode": "vega-lite",

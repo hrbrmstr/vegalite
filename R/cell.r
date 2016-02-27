@@ -23,7 +23,8 @@
 #'        the height is determined by the bandSize and the cardinality of the y-scale. If the
 #'        plot does not have a field on y, the height is scale config’s bandSize.)
 #'        Default value: \code{200}
-#' @references \href{http://vega.github.io/vega-lite/docs/config.html#cell-config}{Vega-Lite Cell spec}
+#' @references
+#'   \href{http://vega.github.io/vega-lite/docs/config.html#cell-config}{Vega-Lite Cell spec}
 #' @export
 cell_size <- function(vl, width=200, height=200) {
 
@@ -34,7 +35,28 @@ cell_size <- function(vl, width=200, height=200) {
 
 }
 
-
+#' Facet cell aesthetics
+#'
+#' At its core, a Vega-Lite specification describes a single plot. When a facet
+#' channel is added, the visualization is faceted into a trellis plot, which
+#' contains multiple plots. Each plot in either a single plot or a trellis plot
+#' is called a cell. Cell configuration allows us to customize each individual
+#' single plot and each plot in a trellis plot.
+#'
+#' @param width,height width and height property of the cell configuration determine
+#'        the width of a visualization with a continuous x-scale and the height of
+#'        a visualization with a continuous y-scale respectively. Visit the
+#'        URL in the References section for more information.
+#' @param fill fill color
+#' @param fill_opacity \code{0.0}-\code{1.0}
+#' @param stroke storke color
+#' @param stroke_opacity \code{0.0}-\code{1.0}
+#' @param stroke_width stroke of the width in pixels
+#' @param stroke_dash an array of alternating stroke, space lengths for creating
+#'        dashed or dotted lines.
+#' @param the offset (in pixels) into which to begin drawing with the stroke dash array.
+#' @references
+#'   \href{http://vega.github.io/vega-lite/docs/config.html#facet-config}{Vega-Lite Facet spec}
 #' @export
 facet_cell <- function(vl, width=200, height=200, fill=NULL, fill_opacity=NULL,
                        stroke=NULL, stroke_opacity=NULL, stroke_width=NULL,
@@ -54,3 +76,24 @@ facet_cell <- function(vl, width=200, height=200, fill=NULL, fill_opacity=NULL,
   vl
 
 }
+
+#' Facet grid aesthetics
+#'
+#' @param vl Vega-Lite object
+#' @param grid_color color of the grid between facets.
+#' @param grid_opacity \code{0.0}-\code{1.0}
+#' @param grid_offset offset for grid between facets.
+#' @references
+#'   \href{http://vega.github.io/vega-lite/docs/config.html#facet-config}{Vega-Lite Facet spec}
+#' @export
+facet_grid <- function(vl, grid_color=NULL, grid_opacity=NULL, grid_offset=NULL) {
+
+  chnl <- "config"
+  if (!is.null(grid_color))   vl$x[[chnl]]$facet$grid$gridColor <- grid_color
+  if (!is.null(grid_opacity)) vl$x[[chnl]]$facet$grid$gridOpacity <- grid_opacity
+  if (!is.null(grid_offset))  vl$x[[chnl]]$facet$grid$gridOffset <- grid_offset
+
+  vl
+
+}
+

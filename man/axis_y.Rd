@@ -2,7 +2,7 @@
 % Please edit documentation in R/axis.r
 \name{axis_y}
 \alias{axis_y}
-\title{General axis setttings}
+\title{General axis setttings (y-axis)}
 \usage{
 axis_y(vl, axisWidth = NULL, layer = NULL, offset = NULL, grid = NULL,
   labels = TRUE, labelAngle = NULL, labelAlign = NULL,
@@ -12,8 +12,28 @@ axis_y(vl, axisWidth = NULL, layer = NULL, offset = NULL, grid = NULL,
   title = "", titleOffset = NULL, titleMaxLength = NULL,
   characterWidth = 6, orient = NULL, format = NULL, remove = FALSE)
 }
+\arguments{
+\item{vl}{Vega-Lite object}
+
+\item{axisWidth, layer, offset, grid, labels, labelAngle, labelAlign, labelBaseline}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+
+\item{labelMaxLength, shortTimeLabels, subdivide, ticks, tickPadding, tickSize}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+
+\item{tickSizeMajor, tickSizeMinor, tickSizeEnd, title, titleOffset, titleMaxLength}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+
+\item{characterWidth, orient, format, remove}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+}
 \description{
-General axis setttings
+Axes provide axis lines, ticks and labels to convey how a spatial range represents
+a data range. Simply put, axes visualize scales. \cr
+\cr
+By default, Vega-Lite automatically creates axes for x, y, row, and column channels
+when they are encoded. Axis can be customized via the axis property of a channel
+definition.
 }
 \references{
 \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}

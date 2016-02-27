@@ -22,7 +22,7 @@ the radius is determined in part by the square root of the size value.}
 \item{opacity}{\code{0.0}-\code{1.0}}
 }
 \description{
-The tick mark represents each data point as a short line. This is a useful
+A tick mark represents each data point as a short line. This is a useful
 mark for displaying the distribution of values in a field.
 }
 \examples{

@@ -11,7 +11,7 @@ calculate(vl, field, expr)
 
 \item{field}{the field name in which to store the computed value.}
 
-\item{expr}{a tring containing an expression for the formula. Use the variable
+\item{expr}{a string containing an expression for the formula. Use the variable
 \code{"datum"} to refer to the current data object.}
 }
 \description{

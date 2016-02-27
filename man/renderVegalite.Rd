@@ -6,6 +6,13 @@
 \usage{
 renderVegalite(expr, env = parent.frame(), quoted = FALSE)
 }
+\arguments{
+\item{expr}{expr to render}
+
+\item{env}{evaluation environemnt}
+
+\item{quoted}{quote expression?}
+}
 \description{
 Widget render function for use in Shiny
 }

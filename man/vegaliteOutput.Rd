@@ -6,6 +6,11 @@
 \usage{
 vegaliteOutput(outputId, width = "100\%", height = "400px")
 }
+\arguments{
+\item{outputId}{widget output id}
+
+\item{width, height}{widget height/width}
+}
 \description{
 Widget output function for use in Shiny
 }

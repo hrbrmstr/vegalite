@@ -91,6 +91,7 @@ to_spec(vl)
     }
   }
 }
+
 }
 
 If you already have a Vega-Lite JSON spec that has embedded data or a

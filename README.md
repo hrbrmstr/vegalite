@@ -4,19 +4,91 @@
 
 For better examples, [take a look here](http://rud.is/projects/vegalite01.html).
 
-### Current Status
+Creation of Vega-Lite spec charts is 93% feature complete. Sorting still
+needs to be implementd and many of the parameters to functions are only
+documented in TypeScript source code which will take a bit of time to
+wade through. All the visualizations you find in the
+\href{http://vega.github.io/vega-lite/gallery.html}{Vega-Lite Gallery} work
+(but the last one just isn't sorted).
 
-This is ~90% feature complete to building Vega-Lite specs from piped R function calls. Many of the functions have extensive help. This is still a work in progress :-)
+Functions also exist which enable creation of widgets from a JSON spec and
+turning a `vegalite} package created object into a JSON spec.
 
-### Dev notes
+You start by calling `vegalite()` which allows you to setup core
+configuration options, including whether you want to display links to
+show the source and export the visualization. You can also set the background
+here and the `viewport_width` and `viewport_height`. Those are
+very important as they control the height and width of the widget and also
+the overall area for the chart. This does _not_ set the height/width
+of the actual chart. That is done with `cell_size()`.
 
-#### For `ggvega`
+Once you instantiate the widget, you need to `add_data()` which can
+be `data.frame`, local CSV, TSV or JSON file (that convert to
+`data.frame`s) or a non-realive URL (wich will not be read and
+converted but will remain a URL in the Vega-Lite spec.
 
-Current thinking is to try to use the `vega-lite` node module "headless" and let it do the transforms (et al) then get the spec back into R and convert to ggplot2.
+You then need to `encode_x()` & `encode_y()` variables that
+map to columns in the data spec and choose one `mark_...()` to
+represent the encoding.
 
-It turns out that thinking is semi-ok. `vega-lite` will compile to a full Vega spec, but it relies on `vega` to do all the heavy lifting. That's a binary install on most systems.
+Here's a sample, basic Vega-Lite widget:
 
-So, I have to write a parser for the Vega expression language. ugh.
+    dat <- jsonlite::fromJSON('[
+        {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+        {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+        {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+      ]')
+
+    vegalite() %>%
+      add_data(dat) %>%
+      encode_x("a", "ordinal") %>%
+      encode_y("b", "quantitative") %>%
+      mark_bar() -> vl
+
+     vl
+
+That is the minimum set of requirements for a basic Vega-Lite spec and
+will create a basic widget.
+
+You can also convert that R widget object `to_spec()` which will return
+the JSON for the Vega-Lite spec (allowing you to use it outside of R).
+
+    to_spec(vl)
+
+    {
+      "description": "",
+      "data": {
+        "values": [
+          { "a": "A", "b": 28 }, { "a": "B", "b": 55 }, { "a": "C", "b": 43 },
+          { "a": "D", "b": 91 }, { "a": "E", "b": 81 }, { "a": "F", "b": 53 },
+          { "a": "G", "b": 19 }, { "a": "H", "b": 87 }, { "a": "I", "b": 52 }
+        ]
+      },
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "a",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "b",
+          "type": "quantitative"
+        }
+      },
+      "config": [],
+      "embed": {
+        "renderer": "svg",
+        "actions": {
+          "export": false,
+          "source": false,
+          "editor": false
+        }
+      }
+    }
+
+If you already have a Vega-Lite JSON spec that has embedded data or a
+non-realtive URL, you can create a widget from it via `from_spec()`
+by passing in the full JSON spec or a URL to a full JSON spec.
 
 ### Installation
 
@@ -38,7 +110,7 @@ packageVersion("vegalite")
 ```
 
 ```
-## [1] '0.1.0'
+## [1] '0.2.0'
 ```
 
 

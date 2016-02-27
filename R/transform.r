@@ -16,12 +16,21 @@ filter_null <- function(vl, setting=NULL) {
 #'
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
 #' @param field the field name in which to store the computed value.
-#' @param expr a tring containing an expression for the formula. Use the variable
+#' @param expr a string containing an expression for the formula. Use the variable
 #'        \code{"datum"} to refer to the current data object.
 #' @export
 calculate <- function(vl, field, expr) {
-  vl$x$transform$calculate <- c(vl$x$transform$calculate, list(field=field, expr=expr))
+
+  tmp <- data.frame(field=field, expr=expr, stringsAsFactors=FALSE)
+
+  if (length(vl$x$transform$calculate) == 0) {
+    vl$x$transform$calculate <- tmp
+  } else {
+     vl$x$transform$calculate <- rbind.data.frame(vl$x$transform$calculate, tmp)
+  }
+
   vl
+
 }
 
 #' Add a filter

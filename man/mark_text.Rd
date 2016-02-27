@@ -10,7 +10,7 @@ mark_text(vl, opacity = NULL)
 \item{opacity}{0.0-1.0}
 }
 \description{
-text mark represents each data point with a text instead of a point.
+A text mark represents each data point with a text instead of a point.
 }
 \references{
 \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}

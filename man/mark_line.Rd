@@ -27,7 +27,7 @@ interpolation method, please see D3’s line interpolation.}
 \item{opacity}{\code{0.0}-\code{1.0}}
 }
 \description{
-The line mark represents the data points stored in a field with a line
+A line mark represents the data points stored in a field with a line
 connecting all of these points. Unlike other marks except area that represents
 one data element per mark, one line mark represent multiple data element as
 a single line.

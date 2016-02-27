@@ -34,7 +34,7 @@ interpolation method, please see D3’s line interpolation.}
 \item{opacity}{\code{0.0}-\code{1.0}}
 }
 \description{
-area represent multiple data element as a single area shape.
+An area represent multiple data element as a single area shape.
 }
 \references{
 \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}

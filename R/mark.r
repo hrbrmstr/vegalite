@@ -1,6 +1,6 @@
 #' Bar mark
 #'
-#' The bar mark represents each data point as a rectangle, where the length is
+#' A bar mark represents each data point as a rectangle, where the length is
 #' mapped to a quantitative scale.
 #'
 #' @param vl Vega-Lite object
@@ -42,7 +42,7 @@ mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL, opacity=NULL) {
 
 #' Circle mark
 #'
-#' circle and square marks are similar to point mark, except that (1) the shape
+#' Circle and square marks are similar to point mark, except that (1) the shape
 #' value is always set to circle or square (2) they are filled by default.
 #'
 #' @param size The pixel area each the point. For example: in the case of circles,
@@ -65,7 +65,7 @@ mark_circle <- function(vl, size=NULL, opacity=NULL) {
 
 #' Square mark
 #'
-#' circle and square marks are similar to point mark, except that (1) the shape
+#' Circle and square marks are similar to point mark, except that (1) the shape
 #' value is always set to circle or square (2) they are filled by default.
 #'
 #' @param size The pixel area each the point. For example: in the case of circles,
@@ -82,7 +82,7 @@ mark_square <- function(vl, size=NULL, opacity=NULL) {
 
 #' Tick mark
 #'
-#' The tick mark represents each data point as a short line. This is a useful
+#' A tick mark represents each data point as a short line. This is a useful
 #' mark for displaying the distribution of values in a field.
 #'
 #' @param vl Vega-Lite object
@@ -113,7 +113,7 @@ mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1, opacity=NULL) {
 
 #' Line mark
 #'
-#' The line mark represents the data points stored in a field with a line
+#' A line mark represents the data points stored in a field with a line
 #' connecting all of these points. Unlike other marks except area that represents
 #' one data element per mark, one line mark represent multiple data element as
 #' a single line.
@@ -144,7 +144,7 @@ mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=N
 
 #' Area mark
 #'
-#' area represent multiple data element as a single area shape.
+#' An area represent multiple data element as a single area shape.
 #'
 #' @param vl Vega-Lite object
 #' @param orient the orientation of the axis. One of top or bottom for y and row
@@ -180,7 +180,7 @@ mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NUL
 
 #' Point mark
 #'
-#' point mark represents each data point with a symbol.
+#' A point mark represents each data point with a symbol.
 #'
 #' @param vl Vega-Lite object
 #' @param shape The symbol shape to use. One of \code{circle}, \code{square},
@@ -209,7 +209,7 @@ mark_point <- function(vl, shape="circle", size=NULL, opacity=NULL) {
 
 #' Text mark
 #'
-#' text mark represents each data point with a text instead of a point.
+#' A text mark represents each data point with a text instead of a point.
 #'
 #' @param opacity 0.0-1.0
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}

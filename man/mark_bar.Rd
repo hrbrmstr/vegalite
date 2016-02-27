@@ -27,7 +27,7 @@ the radius is determined in part by the square root of the size value.}
 \item{opacity}{\code{0.0}-\code{1.0}}
 }
 \description{
-The bar mark represents each data point as a rectangle, where the length is
+A bar mark represents each data point as a rectangle, where the length is
 mapped to a quantitative scale.
 }
 \examples{

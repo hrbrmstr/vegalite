@@ -4,22 +4,19 @@
 \alias{to_spec}
 \title{Convert a spec created with widget idioms to JSON}
 \usage{
-to_spec(vl)
+to_spec(vl, pretty = TRUE)
 }
 \arguments{
 \item{vl}{a Vega-Lite object}
+
+\item{pretty}{if \code{TRUE} (default) then a "pretty-printed" version of the spec
+will be returned. Use \code{FALSE} for a more compact version.}
 }
 \value{
 JSON spec
 }
 \description{
 Takes an htmlwidget object and turns it into a JSON Vega-Lite spec
-}
-\note{
-This won't work 100\% of the time yet. \code{calculate}d transforms
-      need to be in an array and that requires going back and tagging
-      all other single-element vectors with \code{unbox} which is just
-      tedious and best saved for a rainy day.
 }
 \examples{
 dat <- jsonlite::fromJSON('[

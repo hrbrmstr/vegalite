@@ -22,7 +22,7 @@ the radius is determined in part by the square root of the size value.}
 (See D3’s line interpolation.)}
 }
 \description{
-point mark represents each data point with a symbol.
+A point mark represents each data point with a symbol.
 }
 \examples{
 vegalite() \%>\%

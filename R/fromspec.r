@@ -52,11 +52,9 @@ from_spec <- function(spec, width=NULL, height=NULL,
 #'
 #' Takes an htmlwidget object and turns it into a JSON Vega-Lite spec
 #'
-#' @note This won't work 100\% of the time yet. \code{calculate}d transforms
-#'       need to be in an array and that requires going back and tagging
-#'       all other single-element vectors with \code{unbox} which is just
-#'       tedious and best saved for a rainy day.
 #' @param vl a Vega-Lite object
+#' @param pretty if \code{TRUE} (default) then a "pretty-printed" version of the spec
+#'        will be returned. Use \code{FALSE} for a more compact version.
 #' @return JSON spec
 #' @export
 #' @examples
@@ -73,6 +71,6 @@ from_spec <- function(spec, width=NULL, height=NULL,
 #'   mark_bar() -> chart
 #'
 #' to_spec(chart)
-to_spec <- function(vl) {
-  jsonlite::toJSON(vl$x, pretty=TRUE, auto_unbox=TRUE)
+to_spec <- function(vl, pretty=TRUE) {
+  jsonlite::toJSON(vl$x, pretty=FALSE, auto_unbox=TRUE)
 }

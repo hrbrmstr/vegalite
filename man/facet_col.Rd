@@ -6,7 +6,21 @@
 \usage{
 facet_col(vl, field, type, round = TRUE, padding = 16)
 }
+\arguments{
+\item{vl}{Vega-Lite object}
+
+\item{field}{single element character vector naming the column.}
+
+\item{type}{the encoded field’s type of measurement.}
+
+\item{round}{round values}
+
+\item{padding}{facet padding}
+}
 \description{
 Create a horizontal ribbon of panels
+}
+\references{
+\href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
 }
 

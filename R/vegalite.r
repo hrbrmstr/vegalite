@@ -23,7 +23,7 @@
 #'        \href{https://github.com/mbostock/d3/wiki/Formatting}{D3 number format pattern}).
 #'        Default: \code{s}
 #' @references \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
-#' @importFrom jsonlite fromJSON toJSON
+#' @importFrom jsonlite fromJSON toJSON unbox
 #' @name vegalite
 #' @rdname vegalite
 #' @export
