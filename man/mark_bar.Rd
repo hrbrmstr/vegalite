@@ -4,21 +4,32 @@
 \alias{mark_bar}
 \title{Bar mark}
 \usage{
-mark_bar(vl, orient = NULL, stack = NULL, size = NULL, opacity = NULL)
+mark_bar(vl, orient = NULL, stack = NULL, size = 30, opacity = NULL)
 }
 \arguments{
-\item{vl}{def}
+\item{vl}{Vega-Lite object}
 
-\item{orient}{def}
+\item{orient}{the orientation of the axis. One of top or bottom for y and row
+channels, and left or right for x and column channels. Default value:
+x axis is placed on the bottom, y axis is placed on the left, column”s
+x-axis is placed on the top, row”s y-axis is placed on the right.}
 
-\item{stack}{def}
+\item{stack}{stacking modes for bar and area marks. \code{zero} - stacking
+with baseline offset at zero value of the scale (for creating typical stacked
+bar and area chart). \code{normalize} - stacking with normalized domain (for
+creating normalized stacked bar and area chart). \code{center} - stacking
+with center baseline (for streamgraph). \code{none} - No-stacking. This will
+produces layered bar and area chart.}
 
-\item{size}{def}
+\item{size}{The pixel area each the point. For example: in the case of circles,
+the radius is determined in part by the square root of the size value.
+Default value: 30}
 
-\item{opacity}{0.0-1.0}
+\item{opacity}{\code{0.0}-\code{1.0}}
 }
 \description{
-Bar mark
+The bar mark represents each data point as a rectangle, where the length is
+mapped to a quantitative scale.
 }
 \examples{
 dat <- jsonlite::fromJSON('[

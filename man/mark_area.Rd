@@ -8,20 +8,33 @@ mark_area(vl, orient = NULL, stack = NULL, interpolate = NULL,
   tension = NULL, opacity = NULL)
 }
 \arguments{
-\item{vl}{def}
+\item{vl}{Vega-Lite object}
 
-\item{orient}{def}
+\item{orient}{the orientation of the axis. One of top or bottom for y and row
+channels, and left or right for x and column channels. Default value:
+x axis is placed on the bottom, y axis is placed on the left, column”s
+x-axis is placed on the top, row”s y-axis is placed on the right.}
 
-\item{stack}{def}
+\item{stack}{stacking modes for bar and area marks. \code{zero} - stacking
+with baseline offset at zero value of the scale (for creating typical stacked
+bar and area chart). \code{normalize} - stacking with normalized domain (for
+creating normalized stacked bar and area chart). \code{center} - stacking
+with center baseline (for streamgraph). \code{none} - No-stacking. This will
+produces layered bar and area chart.}
 
-\item{interpolate}{def}
+\item{interpolate}{The line interpolation method to use. One of \code{linear}
+\code{step-before}, \code{step-after}, \code{basis}, \code{basis-open},
+\code{basis-closed}, \code{bundle}, \code{cardinal}, \code{cardinal-open},
+\code{cardinal-closed}, \code{monotone}. For more information about each
+interpolation method, please see D3’s line interpolation.}
 
-\item{tension}{def}
+\item{tension}{Depending on the interpolation type, sets the tension parameter.
+(See D3’s line interpolation.)}
 
-\item{opacity}{0.0-1.0}
+\item{opacity}{\code{0.0}-\code{1.0}}
 }
 \description{
-Area mark
+area represent multiple data element as a single area shape.
 }
 \references{
 \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}

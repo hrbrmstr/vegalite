@@ -7,18 +7,23 @@
 mark_point(vl, shape = "circle", size = 30, opacity = NULL)
 }
 \arguments{
-\item{vl}{def}
+\item{vl}{Vega-Lite object}
 
-\item{shape}{def}
+\item{shape}{The symbol shape to use. One of \code{circle}, \code{square},
+\code{cross}, \code{diamond}, \code{triangle-up}, or \code{triangle-down}.
+Default value: \code{circle}.}
 
-\item{size}{def}
+\item{size}{The pixel area each the point. For example: in the case of circles,
+the radius is determined in part by the square root of the size value.
+Default value: 30.}
 
-\item{opacity}{0.0-1.0}
+\item{opacity}{\code{0.0}-\code{1.0}}
 
-\item{tension}{def}
+\item{tension}{Depending on the interpolation type, sets the tension parameter.
+(See D3’s line interpolation.)}
 }
 \description{
-Point mark
+point mark represents each data point with a symbol.
 }
 \examples{
 vegalite() \%>\%

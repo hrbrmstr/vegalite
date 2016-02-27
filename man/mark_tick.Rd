@@ -7,18 +7,24 @@
 mark_tick(vl, orient = NULL, size = NULL, thickness = 1, opacity = NULL)
 }
 \arguments{
-\item{vl}{def}
+\item{vl}{Vega-Lite object}
 
-\item{orient}{def}
+\item{orient}{the orientation of the axis. One of top or bottom for y and row
+channels, and left or right for x and column channels. Default value:
+x axis is placed on the bottom, y axis is placed on the left, column”s
+x-axis is placed on the top, row”s y-axis is placed on the right.}
 
-\item{size}{def}
+\item{size}{The pixel area each the point. For example: in the case of circles,
+the radius is determined in part by the square root of the size value.
+Default value: 30}
 
-\item{thickness}{def}
+\item{thickness}{Thickness of the tick mark. Default value: 1}
 
-\item{opacity}{0.0-1.0}
+\item{opacity}{\code{0.0}-\code{1.0}}
 }
 \description{
-Tick mark
+The tick mark represents each data point as a short line. This is a useful
+mark for displaying the distribution of values in a field.
 }
 \examples{
 vegalite() \%>\%

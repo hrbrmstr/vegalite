@@ -7,12 +7,15 @@
 mark_circle(vl, size = 30, opacity = NULL)
 }
 \arguments{
-\item{size}{def}
+\item{size}{The pixel area each the point. For example: in the case of circles,
+the radius is determined in part by the square root of the size value.
+Default value: 30}
 
-\item{opacity}{0.0-1.0}
+\item{opacity}{\code{0.0}-\code{1.0}}
 }
 \description{
-Circle mark
+circle and square marks are similar to point mark, except that (1) the shape
+value is always set to circle or square (2) they are filled by default.
 }
 \examples{
 vegalite() \%>\%
