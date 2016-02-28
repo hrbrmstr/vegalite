@@ -105,19 +105,20 @@ NULL
 #' @name %>%
 #' @rdname pipe
 #' @title magrittr forward-pipe operator
+#' @description pipe operator
 #' @export
 NULL
 
-#' @importFrom htmlwidgets JS
 #' @name JS
 #' @rdname JS
 #' @title Mark character strings as literal JavaScript code
+#' @description Mark character strings as literal JavaScript code
 #' @export
 NULL
 
-#' @importFrom htmlwidgets saveWidget
 #' @name saveWidget
 #' @rdname saveWidget
 #' @title Save a widget to an HTML file
+#' @description Save a widget to an HTML file
 #' @export
 NULL

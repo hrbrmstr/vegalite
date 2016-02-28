@@ -25,6 +25,11 @@ with the chart. (Default: \code{FALSE}.)}
 \item{editor}{if \code{TRUE} the \emph{"Open in editor"} link will be
 displayed with the cahrt. (Default: \code{FALSE}.)}
 
+\item{viewport_width, viewport_height}{height and width of the overall
+visualziation viewport. This is the overall area reserved for the
+plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
+instead but you will want to configure both when making faceted plots.}
+
 \item{background}{plot background color. If \code{NULL} the background will be transparent.}
 
 \item{time_format}{the default time format pattern for text and labels of
@@ -35,11 +40,6 @@ Default: \code{\%Y-\%m-\%d}}
 axes and legends (in the form of
 \href{https://github.com/mbostock/d3/wiki/Formatting}{D3 number format pattern}).
 Default: \code{s}}
-
-\item{viewport_widgth, viewport_height}{height and width of the overall
-visualziation viewport. This is the overall area reserved for the
-plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
-instead but you will want to configure both when making faceted plots.}
 }
 \description{
 Create and (optionally) visualize a Vega-Lite spec

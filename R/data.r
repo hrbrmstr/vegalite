@@ -4,6 +4,7 @@
 #' flexible enough to support embedded data or using external sources that
 #' are in JSON, CSV or TSV format.
 #'
+#' @param vl a Vega-Lite object
 #' @param source you can specify a (fully qualified) URL or an existing
 #'        \code{data.frame} or a reference to a local file. For the URL case,
 #'        the \code{url} component of \code{data} will be set. You can help
@@ -15,6 +16,7 @@
 #' @param format_type if \code{source} is a URL, this should be one of \code{json},
 #'        \code{csv} or \code{tsv}). It is not required and it is ignored if \code{source}
 #'        is not a URL.
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/data.html}{Vega-Lite Data spec}
 #' @export
 add_data <- function(vl, source, format_type=NULL) {

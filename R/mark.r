@@ -17,6 +17,7 @@
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
 #' @param opacity \code{0.0}-\code{1.0}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 #' @examples
@@ -45,9 +46,11 @@ mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL, opacity=NULL) {
 #' Circle and square marks are similar to point mark, except that (1) the shape
 #' value is always set to circle or square (2) they are filled by default.
 #'
+#' @param vl a Vega-Lite object
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
 #' @param opacity \code{0.0}-\code{1.0}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 #' @examples
@@ -68,9 +71,11 @@ mark_circle <- function(vl, size=NULL, opacity=NULL) {
 #' Circle and square marks are similar to point mark, except that (1) the shape
 #' value is always set to circle or square (2) they are filled by default.
 #'
+#' @param vl a Vega-Lite object
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
 #' @param opacity \code{0.0}-\code{1.0}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 mark_square <- function(vl, size=NULL, opacity=NULL) {
@@ -94,6 +99,7 @@ mark_square <- function(vl, size=NULL, opacity=NULL) {
 #'        the radius is determined in part by the square root of the size value.
 #' @param thickness Thickness of the tick mark. Default value: 1
 #' @param opacity \code{0.0}-\code{1.0}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 #' @examples
@@ -131,6 +137,7 @@ mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1, opacity=NULL) {
 #' @param tension Depending on the interpolation type, sets the tension parameter.
 #'        (See D3’s line interpolation.)
 #' @param opacity \code{0.0}-\code{1.0}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=NULL) {
@@ -165,6 +172,7 @@ mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=N
 #' @param tension Depending on the interpolation type, sets the tension parameter.
 #'        (See D3’s line interpolation.)
 #' @param opacity \code{0.0}-\code{1.0}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NULL,
@@ -188,10 +196,9 @@ mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NUL
 #'        Default value: \code{circle}.
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
-#' @param tension Depending on the interpolation type, sets the tension parameter.
-#'        (See D3’s line interpolation.)
 #' @param opacity \code{0.0}-\code{1.0}
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
+#' @encoding UTF-8
 #' @export
 #' @examples
 #' vegalite() %>%
@@ -211,12 +218,16 @@ mark_point <- function(vl, shape="circle", size=NULL, opacity=NULL) {
 #'
 #' A text mark represents each data point with a text instead of a point.
 #'
+#' @param vl Vega-Lite object
+#' @param size The pixel area each the point. For example: in the case of circles,
+#'        the radius is determined in part by the square root of the size value.
 #' @param opacity 0.0-1.0
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_text <- function(vl, opacity=NULL) {
+mark_text <- function(vl, size=NULL, opacity=NULL) {
   vl$x$mark <- "text"
+  if (!is.null(size))    vl$x$config$mark$size <- size
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
   return(vl)
 }
-

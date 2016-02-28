@@ -10,7 +10,7 @@
 #'        with the chart. (Default: \code{FALSE}.)
 #' @param editor if \code{TRUE} the \emph{"Open in editor"} link will be
 #'        displayed with the cahrt. (Default: \code{FALSE}.)
-#' @param viewport_widgth,viewport_height height and width of the overall
+#' @param viewport_width,viewport_height height and width of the overall
 #'        visualziation viewport. This is the overall area reserved for the
 #'        plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
 #'        instead but you will want to configure both when making faceted plots.
@@ -24,6 +24,8 @@
 #'        Default: \code{s}
 #' @references \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
 #' @importFrom jsonlite fromJSON toJSON unbox
+#' @import htmlwidgets
+#' @import htmltools
 #' @name vegalite
 #' @rdname vegalite
 #' @export

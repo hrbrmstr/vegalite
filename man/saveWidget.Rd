@@ -3,4 +3,7 @@
 \name{saveWidget}
 \alias{saveWidget}
 \title{Save a widget to an HTML file}
+\description{
+Save a widget to an HTML file
+}
 

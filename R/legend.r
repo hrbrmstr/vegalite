@@ -10,6 +10,7 @@
 #' @param short_time_labels whether month and day names should be abbreviated.
 #' @param value explicitly set the visible legend values.
 #' @param remove if \code{TRUE}, there will be no legend for this aesthetic.
+#' @encoding UTF-8
 #' @export
 legend_color <- function(vl, orient=NULL, title=NULL,
                          format=NULL, short_time_labels=NULL,
@@ -44,6 +45,7 @@ legend_color <- function(vl, orient=NULL, title=NULL,
 #' @param short_time_labels whether month and day names should be abbreviated.
 #' @param value explicitly set the visible legend values.
 #' @param remove if \code{TRUE}, there will be no legend for this aesthetic.
+#' @encoding UTF-8
 #' @export
 legend_size <- function(vl, orient=NULL, title=NULL,
                          format=NULL, short_time_labels=NULL,
@@ -78,6 +80,7 @@ legend_size <- function(vl, orient=NULL, title=NULL,
 #' @param short_time_labels whether month and day names should be abbreviated.
 #' @param value explicitly set the visible legend values.
 #' @param remove if \code{TRUE}, there will be no legend for this aesthetic.
+#' @encoding UTF-8
 #' @export
 legend_shape <- function(vl, orient=NULL, title=NULL,
                          format=NULL, short_time_labels=NULL,
@@ -99,5 +102,3 @@ legend_shape <- function(vl, orient=NULL, title=NULL,
   vl
 
 }
-
-

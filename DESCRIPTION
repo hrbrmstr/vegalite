@@ -1,7 +1,7 @@
 Package: vegalite
 Type: Package
 Title: Encode Visualizations with the 'Grammar of Graphics'-like 'Vega-Lite' Spec
-Version: 0.3.0.9000
+Version: 0.3.5.9000
 Date: 2016-02-27
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
@@ -10,6 +10,7 @@ Description: 'Vega-Lite' provides a higher-level grammar for visual analysis, ak
 URL: http://github.com/hrbrmstr/vegalite
 BugReports: https://github.com/hrbrmstr/vegalite/issues
 License: AGPL + file LICENSE
+Encodig: UTF-8
 Suggests:
     testthat
 Depends:
@@ -19,5 +20,6 @@ Imports:
     htmlwidgets,
     htmltools,
     magrittr,
-    digest
+    digest,
+    tools
 RoxygenNote: 5.0.1

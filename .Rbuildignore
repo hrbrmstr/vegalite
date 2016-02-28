@@ -1,9 +1,14 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
-^README\.*md$
+^README\.md$
+^README\.Rmd$
 ^README\.*html$
 ^NOTES\.*md$
 ^NOTES\.*html$
 ^inst/js/node_modules
 ^CONDUCT\.md$
+^gallery\.png$
+^README_files
+^vega\.png$
+^NEWS.md$

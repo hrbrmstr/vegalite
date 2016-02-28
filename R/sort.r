@@ -6,6 +6,7 @@
 #' @param field the field name to aggregate over.
 #' @param op a valid \href{http://vega.github.io/vega-lite/docs/sort.html#aggregate}{aggregation operator}.
 #' @param order either \code{ascending} or \code{descending}
+#' @encoding UTF-8
 #' @export
 sort_def <- function(field, op, order=c("ascending", "descending")) {
   if (is.null(field) | is.null(op) | is.null(order)) {

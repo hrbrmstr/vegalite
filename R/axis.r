@@ -20,6 +20,7 @@
 #' @param characterWidth,orient,format,remove
 #'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
 #' @export
 axis_x <- function(vl, axisWidth=NULL, layer=NULL, offset=NULL, grid=NULL, labels=TRUE,
@@ -85,6 +86,7 @@ axis_x <- function(vl, axisWidth=NULL, layer=NULL, offset=NULL, grid=NULL, label
 #' @param characterWidth,orient,format,remove
 #'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
 #' @export
 axis_y <- function(vl, axisWidth=NULL, layer=NULL, offset=NULL, grid=NULL, labels=TRUE,
@@ -149,6 +151,7 @@ axis_y <- function(vl, axisWidth=NULL, layer=NULL, offset=NULL, grid=NULL, label
 #' @param characterWidth,orient,format,remove
 #'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
 #' @export
 axis_facet_col <- function(vl, axisWidth=0, layer=NULL, offset=NULL, grid=FALSE, labels=TRUE,
@@ -209,6 +212,7 @@ axis_facet_col <- function(vl, axisWidth=0, layer=NULL, offset=NULL, grid=FALSE,
 #' @param characterWidth,orient,format,remove
 #'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
 #' @export
 axis_facet_row <- function(vl, axisWidth=0, layer=NULL, offset=NULL, grid=FALSE, labels=TRUE,

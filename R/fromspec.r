@@ -17,9 +17,11 @@
 #'        with the chart. (Default: \code{FALSE}.)
 #' @param editor if \code{TRUE} the \emph{"Open in editor"} link will be
 #'        displayed with the cahrt. (Default: \code{FALSE}.)
+#' @encoding UTF-8
 #' @export
-#' @examples
+#' @examples \dontrun{
 #' from_spec("http://rud.is/dl/embedded.js")
+#' }
 from_spec <- function(spec, width=NULL, height=NULL,
                       renderer=c("svg", "canvas"),
                       export=FALSE, source=FALSE, editor=FALSE) {
@@ -57,6 +59,7 @@ from_spec <- function(spec, width=NULL, height=NULL,
 #'        will be returned. Use \code{FALSE} for a more compact version.
 #' @return JSON spec
 #' @export
+#' @encoding UTF-8
 #' @examples
 #' dat <- jsonlite::fromJSON('[
 #'     {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
@@ -92,6 +95,7 @@ to_spec <- function(vl, pretty=TRUE) {
 #' @param element_id if you don't specify one, an id will be generated. This should
 #'        be descriptive, but short, and valid javascript & CSS identifier syntax as
 #'        is is appended to variable names.
+#' @encoding UTF-8
 #' @export
 embed_spec <- function(vl, element_id=generate_id()) {
 

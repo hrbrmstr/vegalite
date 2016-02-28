@@ -18,6 +18,7 @@
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
 encode_x <- function(vl, field, type="auto", aggregate=NULL, sort=NULL) {
@@ -57,6 +58,7 @@ encode_x <- function(vl, field, type="auto", aggregate=NULL, sort=NULL) {
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
+#' @encoding UTF-8
 #' @export
 encode_y <- function(vl, field, type="auto", aggregate=NULL, sort=NULL) {
 
@@ -90,7 +92,9 @@ encode_y <- function(vl, field, type="auto", aggregate=NULL, sort=NULL) {
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
+#' @param value scale value
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
+#' @encoding UTF-8
 #' @export
 #' @examples
 #' vegalite() %>%
@@ -137,9 +141,11 @@ encode_color <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=
 #' @param aggregate perform aggregaton on \code{field}. See
 #'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
+#' @param value scale value
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
+#' @encoding UTF-8
 #' @export
 #' @examples
 #' vegalite() %>%
@@ -179,6 +185,7 @@ encode_shape <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
 #' @param field single element character vector naming the column. Can be \code{*} is using
 #'        \code{aggregate}.
+#' @param value scale value
 #' @param type the encoded field’s type of measurement. This can be either a full type
 #'        name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
@@ -190,6 +197,7 @@ encode_shape <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
+#' @encoding UTF-8
 #' @export
 #' @examples
 #' vegalite() %>%
@@ -233,11 +241,13 @@ encode_size <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=N
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 #'        This property is case insensitive. If \code{auto} is used, the type will
 #'        be guessed (so you may want to actually specify it if you want consistency).
+#' @param value scale value
 #' @param aggregate perform aggregaton on \code{field}. See
 #'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
 encode_text <- function(vl, field, type, value=NULL, aggregate=NULL, sort=NULL) {
@@ -289,6 +299,7 @@ encode_text <- function(vl, field, type, value=NULL, aggregate=NULL, sort=NULL) 
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
 encode_detail <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
@@ -333,6 +344,7 @@ encode_detail <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
 encode_order <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
@@ -378,6 +390,7 @@ encode_order <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 #' @export
 encode_path <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {

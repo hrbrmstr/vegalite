@@ -3,4 +3,7 @@
 \name{JS}
 \alias{JS}
 \title{Mark character strings as literal JavaScript code}
+\description{
+Mark character strings as literal JavaScript code
+}
 

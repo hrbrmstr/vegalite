@@ -5,6 +5,7 @@
 #' @param type the encoded field’s type of measurement.
 #' @param round round values
 #' @param padding facet padding
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
 #' @export
 facet_col <- function(vl, field, type, round=TRUE, padding=16) {
@@ -20,6 +21,7 @@ facet_col <- function(vl, field, type, round=TRUE, padding=16) {
 #' @param type the encoded field’s type of measurement.
 #' @param round round values
 #' @param padding facet padding
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
 #' @export
 facet_row <- function(vl, field, type, round=TRUE, padding=16) {

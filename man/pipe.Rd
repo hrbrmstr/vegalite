@@ -3,4 +3,7 @@
 \name{\%>\%}
 \alias{\%>\%}
 \title{magrittr forward-pipe operator}
+\description{
+pipe operator
+}
 

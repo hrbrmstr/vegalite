@@ -12,6 +12,7 @@
 #' plot is called a cell. Cell configuration allows us to customize each individual
 #' single plot and each plot in a trellis plot.
 #'
+#' @param vl a Vega-Lite object
 #' @param width the width of the single plot or each plot in a trellis plot when
 #'        the visualization has continuous x-scale. (If the plot has ordinal x-scale, the
 #'        width is determined by the x-scale’s bandSize and the cardinality of the x-scale.
@@ -23,6 +24,7 @@
 #'        the height is determined by the bandSize and the cardinality of the y-scale. If the
 #'        plot does not have a field on y, the height is scale config’s bandSize.)
 #'        Default value: \code{200}
+#' @encoding UTF-8
 #' @references
 #'   \href{http://vega.github.io/vega-lite/docs/config.html#cell-config}{Vega-Lite Cell spec}
 #' @export
@@ -43,6 +45,7 @@ cell_size <- function(vl, width=200, height=200) {
 #' is called a cell. Cell configuration allows us to customize each individual
 #' single plot and each plot in a trellis plot.
 #'
+#' @param vl Vega-Lite object
 #' @param width,height width and height property of the cell configuration determine
 #'        the width of a visualization with a continuous x-scale and the height of
 #'        a visualization with a continuous y-scale respectively. Visit the
@@ -54,7 +57,8 @@ cell_size <- function(vl, width=200, height=200) {
 #' @param stroke_width stroke of the width in pixels
 #' @param stroke_dash an array of alternating stroke, space lengths for creating
 #'        dashed or dotted lines.
-#' @param the offset (in pixels) into which to begin drawing with the stroke dash array.
+#' @param stroke_dash_offset the offset (in pixels) into which to begin drawing with the stroke dash array.
+#' @encoding UTF-8
 #' @references
 #'   \href{http://vega.github.io/vega-lite/docs/config.html#facet-config}{Vega-Lite Facet spec}
 #' @export
@@ -83,6 +87,7 @@ facet_cell <- function(vl, width=200, height=200, fill=NULL, fill_opacity=NULL,
 #' @param grid_color color of the grid between facets.
 #' @param grid_opacity \code{0.0}-\code{1.0}
 #' @param grid_offset offset for grid between facets.
+#' @encoding UTF-8
 #' @references
 #'   \href{http://vega.github.io/vega-lite/docs/config.html#facet-config}{Vega-Lite Facet spec}
 #' @export

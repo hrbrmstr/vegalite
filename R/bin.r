@@ -17,6 +17,7 @@
 #'        (= 10/5), 5 (= 10/2), or 1 (= 10/(5*2)) might also satisfy the given
 #'         constraints.
 #' @param maxbins the maximum number of allowable bins.
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/bin.html}{Vega-Lite Binning}
 #' @export
 bin_x <- function(vl, min=NULL, max=NULL, base=NULL, step=NULL,
@@ -58,6 +59,7 @@ bin_x <- function(vl, min=NULL, max=NULL, base=NULL, step=NULL,
 #'        (= 10/5), 5 (= 10/2), or 1 (= 10/(5*2)) might also satisfy the given
 #'         constraints.
 #' @param maxbins the maximum number of allowable bins.
+#' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/bin.html}{Vega-Lite Binning}
 #' @export
 bin_y <- function(vl, min=NULL, max=NULL, base=NULL, step=NULL,
