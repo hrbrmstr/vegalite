@@ -473,7 +473,7 @@ scale_y_ordinal <- function(vl, band_size=NULL, padding=NULL) {
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_y_threshold <- function(vl,  domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
+scale_y_threshold <- function(vl, domain=NULL, range=NULL, clamp=NULL, nice=NULL, zero=NULL) {
   vl$x$encoding$y$scale <- list(type="threshold")
   if (!is.null(domain)) vl$x$encoding$y$scale$domain <- domain
   if (!is.null(range)) vl$x$encoding$y$scale$range <- range
@@ -543,7 +543,7 @@ scale_color_nominal <- function(vl, domain=NULL, range=NULL) {
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_color_sequential <- function(vl, domain, range) {
+scale_color_sequential <- function(vl, domain=NULL, range=NULL) {
   if (!is.null(domain)) vl$x$encoding$color$scale$domain <- domain
   if (!is.null(range)) vl$x$encoding$color$scale$range <- range
   vl
@@ -561,7 +561,7 @@ scale_color_sequential <- function(vl, domain, range) {
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
-scale_shape <- function(vl, domain, range) {
+scale_shape <- function(vl, domain=NULL, range=NULL) {
   if (!is.null(domain)) vl$x$encoding$color$scale$domain <- domain
   if (!is.null(range)) vl$x$encoding$color$scale$range <- range
   vl

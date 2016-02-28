@@ -52,7 +52,7 @@ cell_size <- function(vl, width=200, height=200) {
 #'        URL in the References section for more information.
 #' @param fill fill color
 #' @param fill_opacity \code{0.0}-\code{1.0}
-#' @param stroke storke color
+#' @param stroke stroke color
 #' @param stroke_opacity \code{0.0}-\code{1.0}
 #' @param stroke_width stroke of the width in pixels
 #' @param stroke_dash an array of alternating stroke, space lengths for creating

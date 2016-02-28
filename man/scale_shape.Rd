@@ -5,7 +5,7 @@
 \alias{scale_shape}
 \title{Shape Scale}
 \usage{
-scale_shape(vl, domain, range)
+scale_shape(vl, domain = NULL, range = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

@@ -21,7 +21,7 @@ URL in the References section for more information.}
 
 \item{fill_opacity}{\code{0.0}-\code{1.0}}
 
-\item{stroke}{storke color}
+\item{stroke}{stroke color}
 
 \item{stroke_opacity}{\code{0.0}-\code{1.0}}
 

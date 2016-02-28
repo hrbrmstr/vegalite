@@ -1,3 +1,6 @@
+## 0.4.0.9000
+* more config_ functions and better parameters for mark_'s
+
 ## 0.3.5.9000
 * passes CRAN checks (which cleans up alot of things)
 

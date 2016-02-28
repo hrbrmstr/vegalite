@@ -4,10 +4,14 @@
 #' mapped to a quantitative scale.
 #'
 #' @param vl Vega-Lite object
-#' @param orient the orientation of the axis. One of top or bottom for y and row
-#'        channels, and left or right for x and column channels. Default value:
-#'        x axis is placed on the bottom, y axis is placed on the left, column”s
-#'        x-axis is placed on the top, row”s y-axis is placed on the right.
+#' @param orient the orientation of a non-stacked bar, area, and line charts.
+#'        The value is either "horizontal", or "vertical" (default). For bar and
+#'        tick, this determines whether the size of the bar and tick should be
+#'        applied to x or y dimension. For area, this property determines the
+#'        orient property of the Vega output. For line, this property determines
+#'        the path order of the points in the line if path channel is not specified.
+#'        For stacked charts, this is always determined by the orientation of the stack;
+#'        therefore explicitly specified value will be ignored.
 #' @param stack stacking modes for bar and area marks. \code{zero} - stacking
 #'        with baseline offset at zero value of the scale (for creating typical stacked
 #'        bar and area chart). \code{normalize} - stacking with normalized domain (for
@@ -17,6 +21,12 @@
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
 #' @param opacity \code{0.0}-\code{1.0}
+#' @param filled whether the shape's color should be used as fill color instead of stroke color.
+#' @param color  color of the mark – either fill or stroke color based on the filled mark config.
+#' @param fill fill color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is true.
+#' @param stroke stroke color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is false.
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
@@ -32,12 +42,17 @@
 #'   encode_x("a", "ordinal") %>%
 #'   encode_y("b", "quantitative") %>%
 #'   mark_bar()
-mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL, opacity=NULL) {
+mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL, opacity=NULL,
+                     filled=NULL, color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "bar"
   if (!is.null(stack)) vl$x$config$mark$stacked <- stack
   if (!is.null(size)) vl$x$config$mark$barSize <- size
   if (!is.null(orient)) vl$x$config$mark$orient <- orient
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
+  if (!is.null(filled)) vl$x$config$mark$filled <- filled
+  if (!is.null(color)) vl$x$config$mark$color <- color
+  if (!is.null(fill)) vl$x$config$mark$fill <- fill
+  if (!is.null(stroke)) vl$x$config$mark$stroke <- stroke
   return(vl)
 }
 
@@ -50,6 +65,12 @@ mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL, opacity=NULL) {
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
 #' @param opacity \code{0.0}-\code{1.0}
+#' @param filled whether the shape's color should be used as fill color instead of stroke color.
+#' @param color  color of the mark – either fill or stroke color based on the filled mark config.
+#' @param fill fill color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is true.
+#' @param stroke stroke color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is false.
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
@@ -59,10 +80,15 @@ mark_bar <- function(vl, orient=NULL, stack=NULL, size=NULL, opacity=NULL) {
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%
 #'   mark_circle()
-mark_circle <- function(vl, size=NULL, opacity=NULL) {
+mark_circle <- function(vl, size=NULL, opacity=NULL,
+                     filled=NULL, color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "circle"
   vl$x$config$mark$size <- size
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
+  if (!is.null(filled)) vl$x$config$mark$filled <- filled
+  if (!is.null(color)) vl$x$config$mark$color <- color
+  if (!is.null(fill)) vl$x$config$mark$fill <- fill
+  if (!is.null(stroke)) vl$x$config$mark$stroke <- stroke
   return(vl)
 }
 
@@ -75,13 +101,24 @@ mark_circle <- function(vl, size=NULL, opacity=NULL) {
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
 #' @param opacity \code{0.0}-\code{1.0}
+#' @param filled whether the shape's color should be used as fill color instead of stroke color.
+#' @param color  color of the mark – either fill or stroke color based on the filled mark config.
+#' @param fill fill color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is true.
+#' @param stroke stroke color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is false.
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_square <- function(vl, size=NULL, opacity=NULL) {
+mark_square <- function(vl, size=NULL, opacity=NULL,
+                     filled=NULL, color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "square"
   vl$x$config$mark$size <- size
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
+  if (!is.null(filled)) vl$x$config$mark$filled <- filled
+  if (!is.null(color)) vl$x$config$mark$color <- color
+  if (!is.null(fill)) vl$x$config$mark$fill <- fill
+  if (!is.null(stroke)) vl$x$config$mark$stroke <- stroke
   return(vl)
 }
 
@@ -91,14 +128,23 @@ mark_square <- function(vl, size=NULL, opacity=NULL) {
 #' mark for displaying the distribution of values in a field.
 #'
 #' @param vl Vega-Lite object
-#' @param orient the orientation of the axis. One of top or bottom for y and row
-#'        channels, and left or right for x and column channels. Default value:
-#'        x axis is placed on the bottom, y axis is placed on the left, column”s
-#'        x-axis is placed on the top, row”s y-axis is placed on the right.
+#' @param orient the orientation of a non-stacked bar, area, and line charts.
+#'        The value is either "horizontal", or "vertical" (default). For bar and
+#'        tick, this determines whether the size of the bar and tick should be
+#'        applied to x or y dimension. For area, this property determines the
+#'        orient property of the Vega output. For line, this property determines
+#'        the path order of the points in the line if path channel is not specified.
+#'        For stacked charts, this is always determined by the orientation of the stack;
+#'        therefore explicitly specified value will be ignored.
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
 #' @param thickness Thickness of the tick mark. Default value: 1
 #' @param opacity \code{0.0}-\code{1.0}
+#' @param color  color of the mark – either fill or stroke color based on the filled mark config.
+#' @param fill fill color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is true.
+#' @param stroke stroke color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is false.
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
@@ -108,12 +154,16 @@ mark_square <- function(vl, size=NULL, opacity=NULL) {
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Cylinders", "ordinal") %>%
 #'   mark_tick()
-mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1, opacity=NULL) {
+mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1, opacity=NULL,
+                      color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "tick"
   vl$x$config$mark$tickThickness <- thickness
   if (!is.null(size)) vl$x$config$mark$tickSize <- size
   if (!is.null(orient)) vl$x$config$mark$orient <- orient
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
+  if (!is.null(color)) vl$x$config$mark$color <- color
+  if (!is.null(fill)) vl$x$config$mark$fill <- fill
+  if (!is.null(stroke)) vl$x$config$mark$stroke <- stroke
   return(vl)
 }
 
@@ -125,10 +175,14 @@ mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1, opacity=NULL) {
 #' a single line.
 #'
 #' @param vl Vega-Lite object
-#' @param orient the orientation of the axis. One of top or bottom for y and row
-#'        channels, and left or right for x and column channels. Default value:
-#'        x axis is placed on the bottom, y axis is placed on the left, column”s
-#'        x-axis is placed on the top, row”s y-axis is placed on the right.
+#' @param orient the orientation of a non-stacked bar, area, and line charts.
+#'        The value is either "horizontal", or "vertical" (default). For bar and
+#'        tick, this determines whether the size of the bar and tick should be
+#'        applied to x or y dimension. For area, this property determines the
+#'        orient property of the Vega output. For line, this property determines
+#'        the path order of the points in the line if path channel is not specified.
+#'        For stacked charts, this is always determined by the orientation of the stack;
+#'        therefore explicitly specified value will be ignored.
 #' @param interpolate The line interpolation method to use. One of \code{linear}
 #'         \code{step-before}, \code{step-after}, \code{basis}, \code{basis-open},
 #'         \code{basis-closed}, \code{bundle}, \code{cardinal}, \code{cardinal-open},
@@ -136,16 +190,25 @@ mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1, opacity=NULL) {
 #'         interpolation method, please see D3’s line interpolation.
 #' @param tension Depending on the interpolation type, sets the tension parameter.
 #'        (See D3’s line interpolation.)
+#' @param color  color of the mark – either fill or stroke color based on the filled mark config.
+#' @param fill fill color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is true.
+#' @param stroke stroke color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is false.
 #' @param opacity \code{0.0}-\code{1.0}
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=NULL) {
+mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=NULL,
+                      color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "line"
   if (!is.null(interpolate)) vl$x$config$mark$interpolate <- interpolate
   if (!is.null(tension)) vl$x$config$mark$tension <- tension
   if (!is.null(orient)) vl$x$config$mark$orient <- orient
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
+  if (!is.null(color)) vl$x$config$mark$color <- color
+  if (!is.null(fill)) vl$x$config$mark$fill <- fill
+  if (!is.null(stroke)) vl$x$config$mark$stroke <- stroke
   return(vl)
 }
 
@@ -154,10 +217,14 @@ mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=N
 #' An area represent multiple data element as a single area shape.
 #'
 #' @param vl Vega-Lite object
-#' @param orient the orientation of the axis. One of top or bottom for y and row
-#'        channels, and left or right for x and column channels. Default value:
-#'        x axis is placed on the bottom, y axis is placed on the left, column”s
-#'        x-axis is placed on the top, row”s y-axis is placed on the right.
+#' @param orient the orientation of a non-stacked bar, area, and line charts.
+#'        The value is either "horizontal", or "vertical" (default). For bar and
+#'        tick, this determines whether the size of the bar and tick should be
+#'        applied to x or y dimension. For area, this property determines the
+#'        orient property of the Vega output. For line, this property determines
+#'        the path order of the points in the line if path channel is not specified.
+#'        For stacked charts, this is always determined by the orientation of the stack;
+#'        therefore explicitly specified value will be ignored.
 #' @param stack stacking modes for bar and area marks. \code{zero} - stacking
 #'        with baseline offset at zero value of the scale (for creating typical stacked
 #'        bar and area chart). \code{normalize} - stacking with normalized domain (for
@@ -172,17 +239,27 @@ mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=N
 #' @param tension Depending on the interpolation type, sets the tension parameter.
 #'        (See D3’s line interpolation.)
 #' @param opacity \code{0.0}-\code{1.0}
+#' @param filled whether the shape's color should be used as fill color instead of stroke color.
+#' @param color  color of the mark – either fill or stroke color based on the filled mark config.
+#' @param fill fill color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is true.
+#' @param stroke stroke color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is false.
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
 mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NULL,
-                      opacity=NULL) {
+                      opacity=NULL, filled=NULL, color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "area"
   if (!is.null(stack)) vl$x$config$mark$stacked <- stack
   if (!is.null(interpolate)) vl$x$config$mark$interpolate <- interpolate
   if (!is.null(tension)) vl$x$config$mark$tension <- tension
   if (!is.null(orient)) vl$x$config$mark$orient <- orient
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
+  if (!is.null(filled)) vl$x$config$mark$filled <- filled
+  if (!is.null(color)) vl$x$config$mark$color <- color
+  if (!is.null(fill)) vl$x$config$mark$fill <- fill
+  if (!is.null(stroke)) vl$x$config$mark$stroke <- stroke
   return(vl)
 }
 
@@ -197,6 +274,12 @@ mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NUL
 #' @param size The pixel area each the point. For example: in the case of circles,
 #'        the radius is determined in part by the square root of the size value.
 #' @param opacity \code{0.0}-\code{1.0}
+#' @param filled whether the shape's color should be used as fill color instead of stroke color.
+#' @param color  color of the mark – either fill or stroke color based on the filled mark config.
+#' @param fill fill color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is true.
+#' @param stroke stroke color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is false.
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @encoding UTF-8
 #' @export
@@ -206,11 +289,16 @@ mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NUL
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%
 #'   mark_point()
-mark_point <- function(vl, shape="circle", size=NULL, opacity=NULL) {
+mark_point <- function(vl, shape="circle", size=NULL, opacity=NULL, filled=NULL,
+                       color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "point"
   vl$x$config$mark$shape <- shape
   vl$x$config$mark$size <- size
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
+  if (!is.null(filled)) vl$x$config$mark$filled <- filled
+  if (!is.null(color)) vl$x$config$mark$color <- color
+  if (!is.null(fill)) vl$x$config$mark$fill <- fill
+  if (!is.null(stroke)) vl$x$config$mark$stroke <- stroke
   return(vl)
 }
 
@@ -218,16 +306,21 @@ mark_point <- function(vl, shape="circle", size=NULL, opacity=NULL) {
 #'
 #' A text mark represents each data point with a text instead of a point.
 #'
-#' @param vl Vega-Lite object
-#' @param size The pixel area each the point. For example: in the case of circles,
-#'        the radius is determined in part by the square root of the size value.
-#' @param opacity 0.0-1.0
+#' @param vl a Vega-Lite object
+#' @param opacity \code{0.0}-\code{1.0}
+#' @param color  color of the mark – either fill or stroke color based on the filled mark config.
+#' @param fill fill color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is true.
+#' @param stroke stroke color. This config will be overridden by color channel’s
+#'        specified or mapped values if filled is false.
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
-mark_text <- function(vl, size=NULL, opacity=NULL) {
+mark_text <- function(vl, opacity=NULL, color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "text"
-  if (!is.null(size))    vl$x$config$mark$size <- size
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity
+  if (!is.null(color)) vl$x$config$mark$color <- color
+  if (!is.null(fill)) vl$x$config$mark$fill <- fill
+  if (!is.null(stroke)) vl$x$config$mark$stroke <- stroke
   return(vl)
 }

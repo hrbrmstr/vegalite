@@ -5,15 +5,20 @@
 \alias{mark_bar}
 \title{Bar mark}
 \usage{
-mark_bar(vl, orient = NULL, stack = NULL, size = NULL, opacity = NULL)
+mark_bar(vl, orient = NULL, stack = NULL, size = NULL, opacity = NULL,
+  filled = NULL, color = NULL, fill = NULL, stroke = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
 
-\item{orient}{the orientation of the axis. One of top or bottom for y and row
-channels, and left or right for x and column channels. Default value:
-x axis is placed on the bottom, y axis is placed on the left, column”s
-x-axis is placed on the top, row”s y-axis is placed on the right.}
+\item{orient}{the orientation of a non-stacked bar, area, and line charts.
+The value is either "horizontal", or "vertical" (default). For bar and
+tick, this determines whether the size of the bar and tick should be
+applied to x or y dimension. For area, this property determines the
+orient property of the Vega output. For line, this property determines
+the path order of the points in the line if path channel is not specified.
+For stacked charts, this is always determined by the orientation of the stack;
+therefore explicitly specified value will be ignored.}
 
 \item{stack}{stacking modes for bar and area marks. \code{zero} - stacking
 with baseline offset at zero value of the scale (for creating typical stacked
@@ -26,6 +31,16 @@ produces layered bar and area chart.}
 the radius is determined in part by the square root of the size value.}
 
 \item{opacity}{\code{0.0}-\code{1.0}}
+
+\item{filled}{whether the shape's color should be used as fill color instead of stroke color.}
+
+\item{color}{color of the mark – either fill or stroke color based on the filled mark config.}
+
+\item{fill}{fill color. This config will be overridden by color channel’s
+specified or mapped values if filled is true.}
+
+\item{stroke}{stroke color. This config will be overridden by color channel’s
+specified or mapped values if filled is false.}
 }
 \description{
 A bar mark represents each data point as a rectangle, where the length is

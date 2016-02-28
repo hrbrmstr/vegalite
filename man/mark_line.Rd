@@ -6,15 +6,19 @@
 \title{Line mark}
 \usage{
 mark_line(vl, orient = NULL, interpolate = NULL, tension = NULL,
-  opacity = NULL)
+  opacity = NULL, color = NULL, fill = NULL, stroke = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
 
-\item{orient}{the orientation of the axis. One of top or bottom for y and row
-channels, and left or right for x and column channels. Default value:
-x axis is placed on the bottom, y axis is placed on the left, column”s
-x-axis is placed on the top, row”s y-axis is placed on the right.}
+\item{orient}{the orientation of a non-stacked bar, area, and line charts.
+The value is either "horizontal", or "vertical" (default). For bar and
+tick, this determines whether the size of the bar and tick should be
+applied to x or y dimension. For area, this property determines the
+orient property of the Vega output. For line, this property determines
+the path order of the points in the line if path channel is not specified.
+For stacked charts, this is always determined by the orientation of the stack;
+therefore explicitly specified value will be ignored.}
 
 \item{interpolate}{The line interpolation method to use. One of \code{linear}
 \code{step-before}, \code{step-after}, \code{basis}, \code{basis-open},
@@ -26,6 +30,14 @@ interpolation method, please see D3’s line interpolation.}
 (See D3’s line interpolation.)}
 
 \item{opacity}{\code{0.0}-\code{1.0}}
+
+\item{color}{color of the mark – either fill or stroke color based on the filled mark config.}
+
+\item{fill}{fill color. This config will be overridden by color channel’s
+specified or mapped values if filled is true.}
+
+\item{stroke}{stroke color. This config will be overridden by color channel’s
+specified or mapped values if filled is false.}
 }
 \description{
 A line mark represents the data points stored in a field with a line

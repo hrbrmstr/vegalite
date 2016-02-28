@@ -5,7 +5,8 @@
 \alias{mark_point}
 \title{Point mark}
 \usage{
-mark_point(vl, shape = "circle", size = NULL, opacity = NULL)
+mark_point(vl, shape = "circle", size = NULL, opacity = NULL,
+  filled = NULL, color = NULL, fill = NULL, stroke = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
@@ -18,6 +19,16 @@ Default value: \code{circle}.}
 the radius is determined in part by the square root of the size value.}
 
 \item{opacity}{\code{0.0}-\code{1.0}}
+
+\item{filled}{whether the shape's color should be used as fill color instead of stroke color.}
+
+\item{color}{color of the mark – either fill or stroke color based on the filled mark config.}
+
+\item{fill}{fill color. This config will be overridden by color channel’s
+specified or mapped values if filled is true.}
+
+\item{stroke}{stroke color. This config will be overridden by color channel’s
+specified or mapped values if filled is false.}
 }
 \description{
 A point mark represents each data point with a symbol.

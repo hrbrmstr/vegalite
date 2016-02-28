@@ -5,7 +5,7 @@
 \alias{scale_color_sequential}
 \title{Sequential Color Scale}
 \usage{
-scale_color_sequential(vl, domain, range)
+scale_color_sequential(vl, domain = NULL, range = NULL)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
