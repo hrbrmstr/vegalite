@@ -1,3 +1,6 @@
+## 0.3.5.9000
+* passes CRAN checks (which cleans up alot of things)
+
 ## 0.3.0.9000
 * Legends, sorting, scales, order, detail
 
