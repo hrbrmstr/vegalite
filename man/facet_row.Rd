@@ -21,6 +21,9 @@ facet_row(vl, field, type, round = TRUE, padding = 16)
 \description{
 Create a vertical ribbon of panels
 }
+\examples{
+# see facet_col
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
 }

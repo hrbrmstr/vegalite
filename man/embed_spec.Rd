@@ -5,7 +5,7 @@
 \alias{embed_spec}
 \title{Scaffold HTML/JavaScript/CSS code from \code{vegalite}}
 \usage{
-embed_spec(vl, element_id = generate_id())
+embed_spec(vl, element_id = generate_id(), to_cb = FALSE)
 }
 \arguments{
 \item{vl}{a Vega-Lite object}
@@ -13,6 +13,8 @@ embed_spec(vl, element_id = generate_id())
 \item{element_id}{if you don't specify one, an id will be generated. This should
 be descriptive, but short, and valid javascript & CSS identifier syntax as
 is is appended to variable names.}
+
+\item{to_cb}{if \code{TRUE}, will copy the spec to the system clipboard. Default is \code{FALSE}.}
 }
 \description{
 Create minimal necessary HTML/JavaScript/CSS code to embed a
@@ -26,5 +28,20 @@ you will need to ensure each \code{element_id} is unique. Each Vega-Lite
 \code{div} is classed with \code{vldiv} so you can provide both a central style
 (say, \code{display:inline-block; margin-auto;}) and targeted ones that use the
 \code{div} \code{id}.
+}
+\examples{
+dat <- jsonlite::fromJSON('[
+    {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+    {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+    {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+  ]')
+
+vegalite() \%>\%
+  add_data(dat) \%>\%
+  encode_x("a", "ordinal") \%>\%
+  encode_y("b", "quantitative") \%>\%
+  mark_bar() -> chart
+
+embed_spec(chart)
 }
 

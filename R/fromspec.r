@@ -19,9 +19,8 @@
 #'        displayed with the cahrt. (Default: \code{FALSE}.)
 #' @encoding UTF-8
 #' @export
-#' @examples \dontrun{
-#' from_spec("http://rud.is/dl/embedded.js")
-#' }
+#' @examples
+#' from_spec("http://rud.is/dl/embedded.json")
 from_spec <- function(spec, width=NULL, height=NULL,
                       renderer=c("svg", "canvas"),
                       export=FALSE, source=FALSE, editor=FALSE) {
@@ -57,7 +56,9 @@ from_spec <- function(spec, width=NULL, height=NULL,
 #' @param vl a Vega-Lite object
 #' @param pretty if \code{TRUE} (default) then a "pretty-printed" version of the spec
 #'        will be returned. Use \code{FALSE} for a more compact version.
+#' @param to_cb if \code{TRUE}, will copy the spec to the system clipboard. Default is \code{FALSE}.
 #' @return JSON spec
+#' @importFrom clipr write_clip
 #' @export
 #' @encoding UTF-8
 #' @examples
@@ -74,8 +75,10 @@ from_spec <- function(spec, width=NULL, height=NULL,
 #'   mark_bar() -> chart
 #'
 #' to_spec(chart)
-to_spec <- function(vl, pretty=TRUE) {
-  jsonlite::toJSON(vl$x, pretty=pretty, auto_unbox=TRUE)
+to_spec <- function(vl, pretty=TRUE, to_cb=FALSE) {
+  tmp <- jsonlite::toJSON(vl$x, pretty=pretty, auto_unbox=TRUE)
+  if (to_cb) clipr::write_clip(tmp)
+  tmp
 }
 
 #' Scaffold HTML/JavaScript/CSS code from \code{vegalite}
@@ -95,9 +98,24 @@ to_spec <- function(vl, pretty=TRUE) {
 #' @param element_id if you don't specify one, an id will be generated. This should
 #'        be descriptive, but short, and valid javascript & CSS identifier syntax as
 #'        is is appended to variable names.
+#' @param to_cb if \code{TRUE}, will copy the spec to the system clipboard. Default is \code{FALSE}.
 #' @encoding UTF-8
 #' @export
-embed_spec <- function(vl, element_id=generate_id()) {
+#' @examples
+#' dat <- jsonlite::fromJSON('[
+#'     {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+#'     {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+#'     {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+#'   ]')
+#'
+#' vegalite() %>%
+#'   add_data(dat) %>%
+#'   encode_x("a", "ordinal") %>%
+#'   encode_y("b", "quantitative") %>%
+#'   mark_bar() -> chart
+#'
+#' embed_spec(chart)
+embed_spec <- function(vl, element_id=generate_id(), to_cb=FALSE) {
 
   template <- '<center><div id="%s" class="vldiv"></div></center>
 
@@ -109,9 +127,13 @@ var embedSpec_%s = { "mode": "vega-lite", "spec": spec_%s, "renderer": spec_%s.e
 vg.embed("#%s", embedSpec_%s, function(error, result) {});
 </script>'
 
-  sprintf(template,
+  tmp <- sprintf(template,
           element_id, element_id, to_spec(vl, pretty=FALSE),
           element_id, element_id, element_id, element_id, element_id, element_id)
+
+  if (to_cb) clipr::write_clip(tmp)
+
+  tmp
 
 }
 

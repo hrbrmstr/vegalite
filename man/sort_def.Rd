@@ -18,4 +18,11 @@ sort_def(field, op, order = c("ascending", "descending"))
 You can sort by aggregated value of another “sort” field by creating a
 sort field definition object. All three properties must be non-\code{NULL}.
 }
+\examples{
+vegalite() \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/cars.json") \%>\%
+  encode_x("Horsepower", type="quantitative", aggregate="mean") \%>\%
+  encode_y("Origin", "ordinal", sort=sort_def("Horsepower", "mean")) \%>\%
+  mark_bar()
+}
 

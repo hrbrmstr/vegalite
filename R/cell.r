@@ -28,6 +28,18 @@
 #' @references
 #'   \href{http://vega.github.io/vega-lite/docs/config.html#cell-config}{Vega-Lite Cell spec}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   cell_size(300, 200) %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
+#'   encode_x("date", "temporal") %>%
+#'   encode_y("count", "quantitative", aggregate="sum") %>%
+#'   encode_color("series", "nominal") %>%
+#'   scale_color_nominal(range="category20b") %>%
+#'   timeunit_x("yearmonth") %>%
+#'   scale_x_time(nice="month") %>%
+#'   axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+#'   mark_area()
 cell_size <- function(vl, width=200, height=200) {
 
   vl$x$config$cell$width <- width
@@ -91,7 +103,7 @@ facet_cell <- function(vl, width=200, height=200, fill=NULL, fill_opacity=NULL,
 #' @references
 #'   \href{http://vega.github.io/vega-lite/docs/config.html#facet-config}{Vega-Lite Facet spec}
 #' @export
-facet_grid <- function(vl, grid_color=NULL, grid_opacity=NULL, grid_offset=NULL) {
+grid_facet <- function(vl, grid_color=NULL, grid_opacity=NULL, grid_offset=NULL) {
 
   chnl <- "config"
   if (!is.null(grid_color))   vl$x[[chnl]]$facet$grid$gridColor <- grid_color

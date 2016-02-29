@@ -32,6 +32,23 @@ describe the data field encoded by the channel and its data type, or a constant
 value directly mapped to the mark properties. In addition, it can describe the
 mapped field’s transformation and properties for its scale and guide.
 }
+\note{
+right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
+      will eventually get smarter, but you are better off specifying it.
+}
+\examples{
+dat <- jsonlite::fromJSON('[
+    {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+    {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+    {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+  ]')
+
+vegalite() \%>\%
+  add_data(dat) \%>\%
+  encode_x("a", "ordinal") \%>\%
+  encode_y("b", "quantitative") \%>\%
+  mark_bar()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 }

@@ -26,6 +26,7 @@
 #' @importFrom jsonlite fromJSON toJSON unbox
 #' @import htmlwidgets
 #' @import htmltools
+#' @importFrom utils read.csv
 #' @name vegalite
 #' @rdname vegalite
 #' @export

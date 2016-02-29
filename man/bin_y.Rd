@@ -36,6 +36,16 @@ for an initial step size of 10, the method can check if bin sizes of 2
 The "bin" property is for grouping quantitative, continuous data values of a
 particular field into smaller number of “bins” (e.g., for a histogram).
 }
+\examples{
+vegalite() \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/movies.json") \%>\%
+  encode_x("IMDB_Rating", "quantitative") \%>\%
+  encode_y("Rotten_Tomatoes_Rating", "quantitative") \%>\%
+  encode_size("*", "quantitative", aggregate="count") \%>\%
+  bin_x(maxbins=10) \%>\%
+  bin_y(maxbins=10) \%>\%
+  mark_point()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/bin.html}{Vega-Lite Binning}
 }

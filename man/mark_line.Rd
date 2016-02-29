@@ -45,6 +45,17 @@ connecting all of these points. Unlike other marks except area that represents
 one data element per mark, one line mark represent multiple data element as
 a single line.
 }
+\examples{
+vegalite() \%>\%
+  cell_size(300, 300) \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/driving.json") \%>\%
+  encode_x("miles", "quantitative") \%>\%
+  encode_y("gas", "quantitative") \%>\%
+  encode_path("year", "temporal") \%>\%
+  scale_x_linear(zero=FALSE) \%>\%
+  scale_y_linear(zero=FALSE) \%>\%
+  mark_line()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 }

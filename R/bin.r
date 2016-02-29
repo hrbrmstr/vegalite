@@ -20,6 +20,15 @@
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/bin.html}{Vega-Lite Binning}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
+#'   encode_x("IMDB_Rating", "quantitative") %>%
+#'   encode_y("Rotten_Tomatoes_Rating", "quantitative") %>%
+#'   encode_size("*", "quantitative", aggregate="count") %>%
+#'   bin_x(maxbins=10) %>%
+#'   bin_y(maxbins=10) %>%
+#'   mark_point()
 bin_x <- function(vl, min=NULL, max=NULL, base=NULL, step=NULL,
                   steps=NULL, minstep=NULL, div=NULL, maxbins=NULL) {
 
@@ -62,6 +71,15 @@ bin_x <- function(vl, min=NULL, max=NULL, base=NULL, step=NULL,
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/bin.html}{Vega-Lite Binning}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
+#'   encode_x("IMDB_Rating", "quantitative") %>%
+#'   encode_y("Rotten_Tomatoes_Rating", "quantitative") %>%
+#'   encode_size("*", "quantitative", aggregate="count") %>%
+#'   bin_x(maxbins=10) %>%
+#'   bin_y(maxbins=10) %>%
+#'   mark_point()
 bin_y <- function(vl, min=NULL, max=NULL, base=NULL, step=NULL,
                   steps=NULL, minstep=NULL, div=NULL, maxbins=NULL) {
 

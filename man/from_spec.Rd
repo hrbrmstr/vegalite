@@ -34,8 +34,6 @@ renders it as an htmlwidget. Data should either be embedded or use a
 an absolute URL reference.
 }
 \examples{
-\dontrun{
-from_spec("http://rud.is/dl/embedded.js")
-}
+from_spec("http://rud.is/dl/embedded.json")
 }
 

@@ -30,6 +30,13 @@ specified or mapped values if filled is false.}
 Circle and square marks are similar to point mark, except that (1) the shape
 value is always set to circle or square (2) they are filled by default.
 }
+\examples{
+vegalite() \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/cars.json") \%>\%
+  encode_x("Horsepower", "quantitative") \%>\%
+  encode_y("Miles_per_Gallon", "quantitative") \%>\%
+  mark_square()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 }

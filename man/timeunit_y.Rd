@@ -20,6 +20,9 @@ periodic time units.}
 \description{
 How to encode y-axis time values
 }
+\examples{
+# see timeunit_y()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/timeunit.html}{Vega-Lite Time Unit}
 }

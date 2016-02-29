@@ -1,9 +1,8 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
-^README\.md$
+^README\.html$
 ^README\.Rmd$
-^README\.*html$
 ^NOTES\.*md$
 ^NOTES\.*html$
 ^inst/js/node_modules

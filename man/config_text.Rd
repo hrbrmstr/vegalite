@@ -7,7 +7,7 @@
 \usage{
 config_text(vl, angle = NULL, align = NULL, baseline = NULL, dx = NULL,
   dy = NULL, radius = NULL, theta = NULL, format = NULL,
-  short_time_labels = NULL)
+  short_time_labels = NULL, opacity = NULL)
 }
 \arguments{
 \item{vl}{a Vega-Lite object}

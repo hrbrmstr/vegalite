@@ -110,6 +110,12 @@ mark_circle <- function(vl, size=NULL, opacity=NULL,
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+#'   encode_x("Horsepower", "quantitative") %>%
+#'   encode_y("Miles_per_Gallon", "quantitative") %>%
+#'   mark_square()
 mark_square <- function(vl, size=NULL, opacity=NULL,
                      filled=NULL, color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "square"
@@ -199,6 +205,16 @@ mark_tick <- function(vl, orient=NULL, size=NULL, thickness=1, opacity=NULL,
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   cell_size(300, 300) %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/driving.json") %>%
+#'   encode_x("miles", "quantitative") %>%
+#'   encode_y("gas", "quantitative") %>%
+#'   encode_path("year", "temporal") %>%
+#'   scale_x_linear(zero=FALSE) %>%
+#'   scale_y_linear(zero=FALSE) %>%
+#'   mark_line()
 mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=NULL,
                       color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "line"
@@ -248,6 +264,18 @@ mark_line <- function(vl, orient=NULL, interpolate=NULL, tension=NULL, opacity=N
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   cell_size(300, 200) %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
+#'   encode_x("date", "temporal") %>%
+#'   encode_y("count", "quantitative", aggregate="sum") %>%
+#'   encode_color("series", "nominal") %>%
+#'   scale_color_nominal(range="category20b") %>%
+#'   timeunit_x("yearmonth") %>%
+#'   scale_x_time(nice="month") %>%
+#'   axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+#'   mark_area()
 mark_area <- function(vl, orient=NULL, stack=NULL, interpolate=NULL, tension=NULL,
                       opacity=NULL, filled=NULL, color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "area"
@@ -316,6 +344,16 @@ mark_point <- function(vl, shape="circle", size=NULL, opacity=NULL, filled=NULL,
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   cell_size(300, 200) %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+#'   encode_x("Horsepower", "quantitative") %>%
+#'   encode_y("Miles_per_Gallon", "quantitative") %>%
+#'   encode_color("Origin", "nominal") %>%
+#'   calculate("OriginInitial", "datum.Origin[0]") %>%
+#'   encode_text("OriginInitial", "nominal") %>%
+#'   mark_text()
 mark_text <- function(vl, opacity=NULL, color=NULL, fill=NULL, stroke=NULL) {
   vl$x$mark <- "text"
   if (!is.null(opacity)) vl$x$config$mark$opacity <- opacity

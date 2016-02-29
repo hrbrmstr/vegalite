@@ -35,6 +35,20 @@ group the lines and stacked areas by the field.\cr
 order channel sorts the layer order or stacking order (for stacked charts) of
 the marks while path channel sorts the order of data points in line marks.
 }
+\note{
+right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
+      will eventually get smarter, but you are better off specifying it.
+}
+\examples{
+vegalite() \%>\%
+  cell_size(200, 200) \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/cars.json") \%>\%
+  encode_x("Horsepower", "quantitative") \%>\%
+  encode_y("Miles_per_Gallon", "quantitative") \%>\%
+  encode_color("Origin", "nominal") \%>\%
+  encode_order("Origin", "ordinal", sort="descending") \%>\%
+  mark_point()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 }

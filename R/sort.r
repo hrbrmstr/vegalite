@@ -8,6 +8,12 @@
 #' @param order either \code{ascending} or \code{descending}
 #' @encoding UTF-8
 #' @export
+#' @examples
+#' vegalite() %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
+#'   encode_x("Horsepower", type="quantitative", aggregate="mean") %>%
+#'   encode_y("Origin", "ordinal", sort=sort_def("Horsepower", "mean")) %>%
+#'   mark_bar()
 sort_def <- function(field, op, order=c("ascending", "descending")) {
   if (is.null(field) | is.null(op) | is.null(order)) {
     message(paste0("One or more sort definition components is NULL. ",

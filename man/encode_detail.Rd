@@ -36,6 +36,19 @@ detail channel allows providing an additional grouping field (level) for
 grouping data in aggregation without mapping data to a specific visual
 channel.
 }
+\note{
+right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
+      will eventually get smarter, but you are better off specifying it.
+}
+\examples{
+vegalite() \%>\%
+  cell_size(200, 200) \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") \%>\%
+  encode_x("date", "temporal") \%>\%
+  encode_y("price", "quantitative") \%>\%
+  encode_detail("symbol", "nominal") \%>\%
+  mark_line()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 }

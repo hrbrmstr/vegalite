@@ -31,6 +31,10 @@ the result of a call to \code{\link{sort_def}}}
 \description{
 Encode shape "channel"
 }
+\note{
+right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
+      will eventually get smarter, but you are better off specifying it.
+}
 \examples{
 vegalite() \%>\%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") \%>\%

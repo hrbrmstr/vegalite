@@ -4,6 +4,7 @@
 #' @param opacity \code{0.0}-\code{1.0}
 #' @param fill_opacity \code{0.0}-\code{1.0}
 #' @param stroke_opacity \code{0.0}-\code{1.0}
+#' @encoding UTF-8
 #' @export
 config_opacity <- function(vl, opacity=NULL, fill_opacity=NULL, stroke_opacity=NULL) {
   if (!is.null(opacity))        vl$x$config$mark$opacity <- opacity
@@ -21,13 +22,16 @@ config_opacity <- function(vl, opacity=NULL, fill_opacity=NULL, stroke_opacity=N
 #' @param stroke_dash an array of alternating stroke, space lengths for creating
 #'        dashed or dotted lines.
 #' @param stroke_dash_offset the offset (in pixels) into which to begin drawing with the stroke dash array.
+#' @encoding UTF-8
 #' @export
 config_stroke <- function(vl, stroke=NULL, stroke_width=NULL,
-                          stroke_dash=NULL, stroke_dash_offset=NULL) {
+                          stroke_dash=NULL, stroke_dash_offset=NULL,
+                          stroke_opacity=NULL) {
   if (!is.null(stroke))             vl$x$config$mark$stroke <- stroke
   if (!is.null(stroke_width))       vl$x$config$mark$strokeWidth <- stroke_width
   if (!is.null(stroke_dash))        vl$x$config$mark$strokeEash <- stroke_dash
   if (!is.null(stroke_dash_offset)) vl$x$config$mark$strokeDashOffset <- stroke_dash_offset
+  if (!is.null(stroke_opacity)) vl$x$config$mark$strokeOpacity <- stroke_opacity
   vl
 }
 
@@ -39,6 +43,7 @@ config_stroke <- function(vl, stroke=NULL, stroke_width=NULL,
 #'        specified or mapped values if filled is true.
 #' @param stroke stroke color. This config will be overridden by color channel’s
 #'        specified or mapped values if filled is false.
+#' @encoding UTF-8
 #' @export
 config_color <- function(vl, color=NULL, fill=NULL, stroke=NULL) {
   if (!is.null(color)) vl$x$config$mark$color <- color
@@ -69,7 +74,7 @@ config_color <- function(vl, color=NULL, fill=NULL, stroke=NULL) {
 #' @export
 config_text <- function(vl, angle=NULL, align=NULL, baseline=NULL,
                       dx=NULL, dy=NULL, radius=NULL, theta=NULL,
-                      format=NULL, short_time_labels=NULL) {
+                      format=NULL, short_time_labels=NULL, opacity=NULL) {
 
   if (!is.null(angle))             vl$x$config$mark$angle <- angle
   if (!is.null(align))             vl$x$config$mark$align <- align
@@ -92,6 +97,7 @@ config_text <- function(vl, angle=NULL, align=NULL, baseline=NULL,
 #' @param font_size font size, in pixels. The default value is 10.
 #' @param font_style font style (e.g., italic).
 #' @param font_weight font weight (e.g., bold).
+#' @encoding UTF-8
 #' @export
 config_font <- function(vl, font=NULL, font_size=NULL, font_style=NULL, font_weight=NULL) {
   if (!is.null(font))        vl$x$config$mark$font <- font

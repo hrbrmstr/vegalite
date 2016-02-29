@@ -36,6 +36,21 @@ By default, line marks order their points in their paths by the field of
 channel x or y. However, to show a pattern of data change over time between x & y
 we use path channel to sort points in a paritcular order (e.g. by time).
 }
+\note{
+right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
+      will eventually get smarter, but you are better off specifying it.
+}
+\examples{
+vegalite() \%>\%
+  cell_size(300, 300) \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/driving.json") \%>\%
+  encode_x("miles", "quantitative") \%>\%
+  encode_y("gas", "quantitative") \%>\%
+  encode_path("year", "temporal") \%>\%
+  scale_x_linear(zero=FALSE) \%>\%
+  scale_y_linear(zero=FALSE) \%>\%
+  mark_line()
+}
 \references{
 \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
 }

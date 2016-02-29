@@ -5,13 +5,15 @@
 \alias{to_spec}
 \title{Convert a spec created with widget idioms to JSON}
 \usage{
-to_spec(vl, pretty = TRUE)
+to_spec(vl, pretty = TRUE, to_cb = FALSE)
 }
 \arguments{
 \item{vl}{a Vega-Lite object}
 
 \item{pretty}{if \code{TRUE} (default) then a "pretty-printed" version of the spec
 will be returned. Use \code{FALSE} for a more compact version.}
+
+\item{to_cb}{if \code{TRUE}, will copy the spec to the system clipboard. Default is \code{FALSE}.}
 }
 \value{
 JSON spec

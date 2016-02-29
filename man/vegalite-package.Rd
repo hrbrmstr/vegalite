@@ -5,12 +5,11 @@
 \alias{vegalite-package}
 \title{Create Vega-Lite specs using htmlwidget idioms}
 \description{
-Creation of Vega-Lite spec charts is 98\% feature complete. Sorting still
-needs to be implementd and many of the parameters to functions are only
-documented in TypeScript source code which will take a bit of time to
+Creation of Vega-Lite spec charts is virtually 100\% feature complete.
+Some of the parameters to functions are only documented in TypeScript
+source code which will take a bit of time to
 wade through. All the visualizations you find in the
-\href{http://vega.github.io/vega-lite/gallery.html}{Vega-Lite Gallery} work
-(but the last one just isn't sorted).\cr
+\href{http://vega.github.io/vega-lite/gallery.html}{Vega-Lite Gallery} work.
 \cr
 Functions also exist which enable creation of widgets from a JSON spec and
 turning a \code{vegalite} package created object into a JSON spec.
