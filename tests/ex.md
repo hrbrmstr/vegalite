@@ -26,8 +26,8 @@ vegalite(viewport_height=250) %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-2172" style="width:672px;height:250px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-2172">{"x":{"description":"","data":{"values":{"a":["A","B","C","D","E","F","G","H","I"],"b":[28,55,43,91,81,53,19,87,52]}},"mark":"bar","encoding":{"x":{"field":"a","type":"ordinal"},"y":{"field":"b","type":"quantitative"}},"config":{"cell":{"width":400,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-6085" style="width:672px;height:250px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-6085">{"x":{"description":"","data":{"values":{"a":["A","B","C","D","E","F","G","H","I"],"b":[28,55,43,91,81,53,19,87,52]}},"mark":"bar","encoding":{"x":{"field":"a","type":"ordinal"},"y":{"field":"b","type":"quantitative"}},"config":{"cell":{"width":400,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### point mark
 
@@ -41,8 +41,8 @@ vegalite() %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-1153" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-1153">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"}},"config":{"cell":{"width":400,"height":400},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-5366" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-5366">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"}},"config":{"cell":{"width":400,"height":400},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### cirlce mark
 
@@ -56,8 +56,8 @@ vegalite() %>%
   mark_circle()
 ```
 
-<!--html_preserve--><div id="htmlwidget-7127" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-7127">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"circle","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"}},"config":{"cell":{"width":400,"height":400}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-7193" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-7193">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"circle","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"}},"config":{"cell":{"width":400,"height":400}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### color and shape
 
@@ -73,8 +73,8 @@ vegalite() %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-6173" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-6173">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"},"color":{"field":"Origin","type":"nominal"},"shape":{"field":"Origin","type":"nominal"}},"config":{"cell":{"width":400,"height":400},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-2538" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-2538">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"},"color":{"field":"Origin","type":"nominal"},"shape":{"field":"Origin","type":"nominal"}},"config":{"cell":{"width":400,"height":400},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### size
 
@@ -89,8 +89,8 @@ vegalite() %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-5802" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-5802">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"},"size":{"field":"Acceleration","type":"quantitative"}},"config":{"cell":{"width":400,"height":400},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-6281" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-6281">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"},"size":{"field":"Acceleration","type":"quantitative"}},"config":{"cell":{"width":400,"height":400},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### filtered line
 
@@ -105,8 +105,8 @@ vegalite() %>%
   mark_line()
 ```
 
-<!--html_preserve--><div id="htmlwidget-6521" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-6521">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/stocks.csv"},"mark":"line","encoding":{"x":{"field":"date","type":"temporal"},"y":{"field":"price","type":"quantitative"}},"config":{"cell":{"width":400,"height":450}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.symbol==='GOOG'"}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-349" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-349">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/stocks.csv"},"mark":"line","encoding":{"x":{"field":"date","type":"temporal"},"y":{"field":"price","type":"quantitative"}},"config":{"cell":{"width":400,"height":450}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.symbol==='GOOG'"}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### ticks
 
@@ -120,8 +120,8 @@ vegalite(viewport_height=200) %>%
   mark_tick()
 ```
 
-<!--html_preserve--><div id="htmlwidget-8523" style="width:672px;height:200px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-8523">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"tick","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Cylinders","type":"ordinal"}},"config":{"cell":{"width":400,"height":200},"mark":{"tickThickness":1}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-5944" style="width:672px;height:200px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-5944">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"tick","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Cylinders","type":"ordinal"}},"config":{"cell":{"width":400,"height":200},"mark":{"tickThickness":1}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### multi-series line
 
@@ -136,8 +136,8 @@ vegalite(viewport_height=500) %>%
   mark_line()
 ```
 
-<!--html_preserve--><div id="htmlwidget-4341" style="width:672px;height:500px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-4341">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/stocks.csv"},"mark":"line","encoding":{"x":{"field":"date","type":"temporal"},"y":{"field":"price","type":"quantitative"},"color":{"field":"symbol","type":"nominal"}},"config":{"cell":{"width":400,"height":400}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-1581" style="width:672px;height:500px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-1581">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/stocks.csv"},"mark":"line","encoding":{"x":{"field":"date","type":"temporal"},"y":{"field":"price","type":"quantitative"},"color":{"field":"symbol","type":"nominal"}},"config":{"cell":{"width":400,"height":400}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### facet col
 
@@ -151,8 +151,8 @@ vegalite(viewport_height=350) %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-3623" style="width:672px;height:350px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-3623">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"point","encoding":{"x":{"field":"Worldwide_Gross","type":"quantitative"},"y":{"field":"US_DVD_Sales","type":"quantitative"},"column":{"field":"MPAA_Rating","type":"ordinal","scale":{"round":true,"padding":16}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-370" style="width:672px;height:350px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-370">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"point","encoding":{"x":{"field":"Worldwide_Gross","type":"quantitative"},"y":{"field":"US_DVD_Sales","type":"quantitative"},"column":{"field":"MPAA_Rating","type":"ordinal","scale":{"round":true,"padding":16}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### facet row
 
@@ -166,8 +166,8 @@ vegalite(viewport_height=1400) %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-1102" style="width:672px;height:1400px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-1102">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"point","encoding":{"x":{"field":"Worldwide_Gross","type":"quantitative"},"y":{"field":"US_DVD_Sales","type":"quantitative"},"row":{"field":"MPAA_Rating","type":"ordinal","scale":{"round":true,"padding":16}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-2644" style="width:672px;height:1400px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-2644">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"point","encoding":{"x":{"field":"Worldwide_Gross","type":"quantitative"},"y":{"field":"US_DVD_Sales","type":"quantitative"},"row":{"field":"MPAA_Rating","type":"ordinal","scale":{"round":true,"padding":16}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### facet both
 
@@ -182,8 +182,8 @@ vegalite(viewport_height=2900) %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-5181" style="width:672px;height:2900px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-5181">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"point","encoding":{"x":{"field":"Worldwide_Gross","type":"quantitative"},"y":{"field":"US_DVD_Sales","type":"quantitative"},"column":{"field":"MPAA_Rating","type":"ordinal","scale":{"round":true,"padding":16}},"row":{"field":"Major_Genre","type":"ordinal","scale":{"round":true,"padding":16}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-6595" style="width:672px;height:2900px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-6595">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"point","encoding":{"x":{"field":"Worldwide_Gross","type":"quantitative"},"y":{"field":"US_DVD_Sales","type":"quantitative"},"column":{"field":"MPAA_Rating","type":"ordinal","scale":{"round":true,"padding":16}},"row":{"field":"Major_Genre","type":"ordinal","scale":{"round":true,"padding":16}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### log scale
 
@@ -204,8 +204,8 @@ vegalite(viewport_height=300) %>%
   scale_y_log()
 ```
 
-<!--html_preserve--><div id="htmlwidget-5644" style="width:672px;height:300px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-5644">{"x":{"description":"","data":{"values":{"x":[0,1,2,3,4,5,6,7],"y":[1,10,100,1000,10000,100000,1000000,10000000]}},"mark":"point","encoding":{"x":{"field":"x","type":"quantitative"},"y":{"field":"y","type":"quantitative","scale":{"type":"log"}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-1552" style="width:672px;height:300px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-1552">{"x":{"description":"","data":{"values":{"x":[0,1,2,3,4,5,6,7],"y":[1,10,100,1000,10000,100000,1000000,10000000]}},"mark":"point","encoding":{"x":{"field":"x","type":"quantitative"},"y":{"field":"y","type":"quantitative","scale":{"type":"log"}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### aggregate bar chart
 
@@ -220,8 +220,8 @@ vegalite() %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-5490" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-5490">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"people","type":"quantitative","aggregate":"sum"},"y":{"field":"age","type":"ordinal","scale":{"bandSize":17}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.year == 2000"}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-8080" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-8080">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"people","type":"quantitative","aggregate":"sum"},"y":{"field":"age","type":"ordinal","scale":{"bandSize":17}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.year == 2000"}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### binned scatterplot
 
@@ -237,8 +237,8 @@ vegalite() %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-439" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-439">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"point","encoding":{"x":{"field":"IMDB_Rating","type":"quantitative","bin":{"maxbins":10}},"y":{"field":"Rotten_Tomatoes_Rating","type":"quantitative","bin":{"maxbins":10}},"size":{"field":"*","type":"quantitative","aggregate":"count"}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-8260" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-8260">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"point","encoding":{"x":{"field":"IMDB_Rating","type":"quantitative","bin":{"maxbins":10}},"y":{"field":"Rotten_Tomatoes_Rating","type":"quantitative","bin":{"maxbins":10}},"size":{"field":"*","type":"quantitative","aggregate":"count"}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### slope graph
 
@@ -253,8 +253,8 @@ vegalite() %>%
   mark_line()
 ```
 
-<!--html_preserve--><div id="htmlwidget-7327" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-7327">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/barley.json"},"mark":"line","encoding":{"x":{"field":"year","type":"ordinal","scale":{"bandSize":50,"padding":0.5}},"y":{"field":"yield","type":"quantitative","aggregate":"median"},"color":{"field":"site","type":"nominal"}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-4064" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-4064">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/barley.json"},"mark":"line","encoding":{"x":{"field":"year","type":"ordinal","scale":{"bandSize":50,"padding":0.5}},"y":{"field":"yield","type":"quantitative","aggregate":"median"},"color":{"field":"site","type":"nominal"}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### histogram
 
@@ -268,8 +268,8 @@ vegalite() %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-2313" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-2313">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"bar","encoding":{"x":{"field":"IMDB_Rating","type":"quantitative","bin":{"maxbins":10}},"y":{"field":"*","type":"quantitative","aggregate":"count"}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-9440" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-9440">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/movies.json"},"mark":"bar","encoding":{"x":{"field":"IMDB_Rating","type":"quantitative","bin":{"maxbins":10}},"y":{"field":"*","type":"quantitative","aggregate":"count"}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### stacked bar chart
 
@@ -286,8 +286,8 @@ vegalite() %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-8852" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-8852">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/seattle-weather.csv"},"mark":"bar","encoding":{"x":{"field":"date","type":"temporal","timeUnit":"month"},"y":{"field":"*","type":"quantitative","aggregate":"count"},"color":{"field":"weather","type":"nominal","scale":{"domain":["sun","fog","drizzle","rain","snow"],"range":["#e7ba52","#c7c7c7","#aec7e8","#1f77b4","#9467bd"]}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-8005" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-8005">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/seattle-weather.csv"},"mark":"bar","encoding":{"x":{"field":"date","type":"temporal","timeUnit":"month"},"y":{"field":"*","type":"quantitative","aggregate":"count"},"color":{"field":"weather","type":"nominal","scale":{"domain":["sun","fog","drizzle","rain","snow"],"range":["#e7ba52","#c7c7c7","#aec7e8","#1f77b4","#9467bd"]}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### horizontal stacked bar chart
 
@@ -301,8 +301,8 @@ vegalite() %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-3537" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-3537">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/barley.json"},"mark":"bar","encoding":{"x":{"field":"yield","type":"quantitative","aggregate":"sum"},"y":{"field":"variety","type":"nominal"},"color":{"field":"site","type":"nominal"}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-8825" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-8825">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/barley.json"},"mark":"bar","encoding":{"x":{"field":"yield","type":"quantitative","aggregate":"sum"},"y":{"field":"variety","type":"nominal"},"color":{"field":"site","type":"nominal"}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### stacked area chart
 
@@ -321,8 +321,8 @@ vegalite() %>%
   mark_area()
 ```
 
-<!--html_preserve--><div id="htmlwidget-8057" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-8057">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json"},"mark":"area","encoding":{"x":{"field":"date","type":"temporal","timeUnit":"yearmonth","scale":{"nice":"month"},"axis":{"axisWidth":0,"labels":true,"labelAngle":0,"labelMaxLength":25,"title":"","characterWidth":6,"format":"%Y"}},"y":{"field":"count","type":"quantitative","aggregate":"sum"},"color":{"field":"series","type":"nominal","scale":{"range":"category20b"}}},"config":{"cell":{"width":300,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-8231" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-8231">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json"},"mark":"area","encoding":{"x":{"field":"date","type":"temporal","timeUnit":"yearmonth","scale":{"nice":"month"},"axis":{"axisWidth":0,"labels":true,"labelAngle":0,"labelMaxLength":25,"title":"","characterWidth":6,"format":"%Y"}},"y":{"field":"count","type":"quantitative","aggregate":"sum"},"color":{"field":"series","type":"nominal","scale":{"range":"category20b"}}},"config":{"cell":{"width":300,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### streamgraph!
 
@@ -341,8 +341,8 @@ vegalite() %>%
   mark_area(interpolate="basis", stack="center")
 ```
 
-<!--html_preserve--><div id="htmlwidget-8977" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-8977">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json"},"mark":"area","encoding":{"x":{"field":"date","type":"temporal","timeUnit":"yearmonth","scale":{"nice":"month"},"axis":{"axisWidth":0,"labels":true,"labelAngle":0,"labelMaxLength":25,"title":"","characterWidth":6,"format":"%Y"}},"y":{"field":"count","type":"quantitative","aggregate":"sum"},"color":{"field":"series","type":"nominal","scale":{"range":"category20b"}}},"config":{"cell":{"width":300,"height":200},"mark":{"stacked":"center","interpolate":"basis"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-41" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-41">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json"},"mark":"area","encoding":{"x":{"field":"date","type":"temporal","timeUnit":"yearmonth","scale":{"nice":"month"},"axis":{"axisWidth":0,"labels":true,"labelAngle":0,"labelMaxLength":25,"title":"","characterWidth":6,"format":"%Y"}},"y":{"field":"count","type":"quantitative","aggregate":"sum"},"color":{"field":"series","type":"nominal","scale":{"range":"category20b"}}},"config":{"cell":{"width":300,"height":200},"mark":{"stacked":"center","interpolate":"basis"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### scatter text
 
@@ -359,8 +359,8 @@ vegalite() %>%
   mark_text()
 ```
 
-<!--html_preserve--><div id="htmlwidget-5765" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-5765">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"text","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"},"color":{"field":"Origin","type":"nominal"},"text":{"field":"OriginInitial","type":"nominal"}},"config":{"cell":{"width":300,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"calculate":{"field":["OriginInitial"],"expr":["datum.Origin[0]"]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-8966" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-8966">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"text","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"},"color":{"field":"Origin","type":"nominal"},"text":{"field":"OriginInitial","type":"nominal"}},"config":{"cell":{"width":300,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"calculate":{"field":["OriginInitial"],"expr":["datum.Origin[0]"]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### area chart
 
@@ -376,8 +376,8 @@ vegalite() %>%
   mark_area()
 ```
 
-<!--html_preserve--><div id="htmlwidget-3669" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-3669">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json"},"mark":"area","encoding":{"x":{"field":"date","type":"temporal","timeUnit":"yearmonth","axis":{"axisWidth":0,"labels":true,"labelAngle":0,"labelMaxLength":25,"title":"","characterWidth":6,"format":"%Y"}},"y":{"field":"count","type":"quantitative","aggregate":"sum"}},"config":{"cell":{"width":300,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-8953" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-8953">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json"},"mark":"area","encoding":{"x":{"field":"date","type":"temporal","timeUnit":"yearmonth","axis":{"axisWidth":0,"labels":true,"labelAngle":0,"labelMaxLength":25,"title":"","characterWidth":6,"format":"%Y"}},"y":{"field":"count","type":"quantitative","aggregate":"sum"}},"config":{"cell":{"width":300,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### grouped bar chart
 
@@ -400,8 +400,8 @@ vegalite() %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-644" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-644">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"gender","type":"nominal","scale":{"bandSize":6},"axis":false},"y":{"field":"people","type":"quantitative","aggregate":"sum","axis":{"grid":false,"labels":true,"labelMaxLength":25,"title":"population","characterWidth":6}},"color":{"field":"gender","type":"nominal","scale":{"range":["#EA98D2","#659CCA"]}},"column":{"field":"age","type":"ordinal","scale":{"round":true,"padding":4},"axis":{"axisWidth":1,"offset":-8,"grid":false,"labels":true,"labelMaxLength":25,"tickSize":0,"title":"","characterWidth":6,"orient":"bottom"}}},"config":{"facet":{"cell":{"width":200,"height":200,"strokeWidth":0}}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.year == 2000","calculate":{"field":["gender"],"expr":["datum.sex == 2 ? \"Female\" : \"Male\""]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-1769" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-1769">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"gender","type":"nominal","scale":{"bandSize":6},"axis":false},"y":{"field":"people","type":"quantitative","aggregate":"sum","axis":{"grid":false,"labels":true,"labelMaxLength":25,"title":"population","characterWidth":6}},"color":{"field":"gender","type":"nominal","scale":{"range":["#EA98D2","#659CCA"]}},"column":{"field":"age","type":"ordinal","scale":{"round":true,"padding":4},"axis":{"axisWidth":1,"offset":-8,"grid":false,"labels":true,"labelMaxLength":25,"tickSize":0,"title":"","characterWidth":6,"orient":"bottom"}}},"config":{"facet":{"cell":{"width":200,"height":200,"strokeWidth":0}}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.year == 2000","calculate":{"field":["gender"],"expr":["datum.sex == 2 ? \"Female\" : \"Male\""]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### normalized stacked bar chart
 
@@ -418,8 +418,8 @@ vegalite() %>%
   mark_bar(stack="normalize")
 ```
 
-<!--html_preserve--><div id="htmlwidget-4931" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-4931">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"age","type":"ordinal","scale":{"bandSize":17}},"y":{"field":"people","type":"quantitative","aggregate":"sum"},"color":{"field":"gender","type":"nominal","scale":{"range":["#EA98D2","#659CCA"]}}},"config":{"mark":{"stacked":"normalize"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"calculate":{"field":["gender"],"expr":["datum.sex == 2 ? \"Female\" : \"Male\""]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-4639" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-4639">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"age","type":"ordinal","scale":{"bandSize":17}},"y":{"field":"people","type":"quantitative","aggregate":"sum"},"color":{"field":"gender","type":"nominal","scale":{"range":["#EA98D2","#659CCA"]}}},"config":{"mark":{"stacked":"normalize"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"calculate":{"field":["gender"],"expr":["datum.sex == 2 ? \"Female\" : \"Male\""]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### normalized stacked bar chart
 
@@ -439,8 +439,8 @@ vegalite() %>%
   mark_area(stack="normalize")
 ```
 
-<!--html_preserve--><div id="htmlwidget-5257" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-5257">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json"},"mark":"area","encoding":{"x":{"field":"date","type":"temporal","scale":{"nice":"month"},"axis":{"axisWidth":0,"labels":true,"labelAngle":0,"labelMaxLength":25,"title":"","characterWidth":6,"format":"%Y"},"timeUnit":"yearmonth"},"y":{"field":"count","type":"quantitative","aggregate":"sum","axis":false},"color":{"field":"series","type":"nominal","scale":{"range":"category20b"}}},"config":{"cell":{"width":300,"height":300},"mark":{"stacked":"normalize"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-6675" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-6675">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json"},"mark":"area","encoding":{"x":{"field":"date","type":"temporal","scale":{"nice":"month"},"axis":{"axisWidth":0,"labels":true,"labelAngle":0,"labelMaxLength":25,"title":"","characterWidth":6,"format":"%Y"},"timeUnit":"yearmonth"},"y":{"field":"count","type":"quantitative","aggregate":"sum","axis":false},"color":{"field":"series","type":"nominal","scale":{"range":"category20b"}}},"config":{"cell":{"width":300,"height":300},"mark":{"stacked":"normalize"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### layered bar chart
 
@@ -459,8 +459,8 @@ vegalite() %>%
   mark_bar(opacity=0.6, stack="none")
 ```
 
-<!--html_preserve--><div id="htmlwidget-2309" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-2309">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"age","type":"ordinal","scale":{"bandSize":17}},"y":{"field":"people","type":"quantitative","aggregate":"sum","axis":{"labels":true,"labelMaxLength":25,"title":"Population","characterWidth":6}},"color":{"field":"gender","type":"nominal","scale":{"range":["#e377c2","#1f77b4"]}}},"config":{"mark":{"stacked":"none","opacity":0.6}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.year == 2000","calculate":{"field":["gender"],"expr":["datum.sex == 2 ? \"Female\" : \"Male\""]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-160" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-160">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"age","type":"ordinal","scale":{"bandSize":17}},"y":{"field":"people","type":"quantitative","aggregate":"sum","axis":{"labels":true,"labelMaxLength":25,"title":"Population","characterWidth":6}},"color":{"field":"gender","type":"nominal","scale":{"range":["#e377c2","#1f77b4"]}}},"config":{"mark":{"stacked":"none","opacity":0.6}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.year == 2000","calculate":{"field":["gender"],"expr":["datum.sex == 2 ? \"Female\" : \"Male\""]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### trellis bar chart
 
@@ -480,8 +480,8 @@ vegalite() %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-3410" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-3410">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"age","type":"ordinal","scale":{"bandSize":17}},"y":{"field":"people","type":"quantitative","aggregate":"sum","axis":{"labels":true,"labelMaxLength":25,"title":"Population","characterWidth":6}},"color":{"field":"gender","type":"nominal","scale":{"range":["#EA98D2","#659CCA"]}},"row":{"field":"gender","type":"nominal","scale":{"round":true,"padding":16}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.year == 2000","calculate":{"field":["gender"],"expr":["datum.sex == 2 ? \"Female\" : \"Male\""]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-448" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-448">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/population.json"},"mark":"bar","encoding":{"x":{"field":"age","type":"ordinal","scale":{"bandSize":17}},"y":{"field":"people","type":"quantitative","aggregate":"sum","axis":{"labels":true,"labelMaxLength":25,"title":"Population","characterWidth":6}},"color":{"field":"gender","type":"nominal","scale":{"range":["#EA98D2","#659CCA"]}},"row":{"field":"gender","type":"nominal","scale":{"round":true,"padding":16}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}},"transform":{"filter":"datum.year == 2000","calculate":{"field":["gender"],"expr":["datum.sex == 2 ? \"Female\" : \"Male\""]}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### trellis stacked bar chart
 
@@ -496,8 +496,8 @@ vegalite() %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-9102" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-9102">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/barley.json"},"mark":"bar","encoding":{"x":{"field":"yield","type":"quantitative","aggregate":"sum"},"y":{"field":"variety","type":"nominal"},"color":{"field":"site","type":"nominal"},"column":{"field":"year","type":"ordinal","scale":{"round":true,"padding":16}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-6060" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-6060">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/barley.json"},"mark":"bar","encoding":{"x":{"field":"yield","type":"quantitative","aggregate":"sum"},"y":{"field":"variety","type":"nominal"},"color":{"field":"site","type":"nominal"},"column":{"field":"year","type":"ordinal","scale":{"round":true,"padding":16}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### trellis histograms
 
@@ -513,8 +513,8 @@ vegalite(viewport_height=700) %>%
   mark_bar()
 ```
 
-<!--html_preserve--><div id="htmlwidget-8297" style="width:672px;height:700px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-8297">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"bar","encoding":{"x":{"field":"Horsepower","type":"quantitative","bin":{"maxbins":15}},"y":{"field":"*","type":"quantitative","aggregate":"count"},"color":{"field":"site","type":"nominal"},"row":{"field":"Origin","type":"nominal","scale":{"round":true,"padding":16}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-1894" style="width:672px;height:700px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-1894">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"bar","encoding":{"x":{"field":"Horsepower","type":"quantitative","bin":{"maxbins":15}},"y":{"field":"*","type":"quantitative","aggregate":"count"},"color":{"field":"site","type":"nominal"},"row":{"field":"Origin","type":"nominal","scale":{"round":true,"padding":16}}},"config":[],"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### becker's barley trellis plot
 
@@ -530,8 +530,8 @@ vegalite(viewport_height=1200) %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-6706" style="width:672px;height:1200px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-6706">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/barley.json"},"mark":"point","encoding":{"x":{"field":"yield","type":"quantitative","aggregate":"mean"},"y":{"field":"variety","type":"ordinal","sort":{"field":"yield","op":"mean","order":"ascending"},"scale":{"bandSize":12}},"color":{"field":"year","type":"nominal"},"row":{"field":"site","type":"ordinal","scale":{"round":true,"padding":16}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-7328" style="width:672px;height:1200px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-7328">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/barley.json"},"mark":"point","encoding":{"x":{"field":"yield","type":"quantitative","aggregate":"mean"},"y":{"field":"variety","type":"ordinal","sort":{"field":"yield","op":"mean","order":"ascending"},"scale":{"bandSize":12}},"color":{"field":"year","type":"nominal"},"row":{"field":"site","type":"ordinal","scale":{"round":true,"padding":16}}},"config":{"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### sorting line order
 
@@ -548,8 +548,8 @@ vegalite() %>%
   mark_line()
 ```
 
-<!--html_preserve--><div id="htmlwidget-9741" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-9741">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/driving.json"},"mark":"line","encoding":{"x":{"field":"miles","type":"quantitative","scale":{"zero":false}},"y":{"field":"gas","type":"quantitative","scale":{"zero":false}},"path":{"field":"year","type":"temporal"}},"config":{"cell":{"width":300,"height":300}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-5121" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-5121">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/driving.json"},"mark":"line","encoding":{"x":{"field":"miles","type":"quantitative","scale":{"zero":false}},"y":{"field":"gas","type":"quantitative","scale":{"zero":false}},"path":{"field":"year","type":"temporal"}},"config":{"cell":{"width":300,"height":300}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### sort layer scatterplot
 
@@ -565,8 +565,8 @@ vegalite() %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-9067" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-9067">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"},"color":{"field":"Origin","type":"nominal"},"order":{"field":"Origin","type":"ordinal","sort":"descending"}},"config":{"cell":{"width":200,"height":200},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-1601" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-1601">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative"},"y":{"field":"Miles_per_Gallon","type":"quantitative"},"color":{"field":"Origin","type":"nominal"},"order":{"field":"Origin","type":"ordinal","sort":"descending"}},"config":{"cell":{"width":200,"height":200},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### detail lines
 
@@ -581,8 +581,8 @@ vegalite() %>%
   mark_line()
 ```
 
-<!--html_preserve--><div id="htmlwidget-1808" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-1808">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/stocks.csv"},"mark":"line","encoding":{"x":{"field":"date","type":"temporal"},"y":{"field":"price","type":"quantitative"},"detail":{"field":"symbol","type":"nominal"}},"config":{"cell":{"width":200,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-552" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-552">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/stocks.csv"},"mark":"line","encoding":{"x":{"field":"date","type":"temporal"},"y":{"field":"price","type":"quantitative"},"detail":{"field":"symbol","type":"nominal"}},"config":{"cell":{"width":200,"height":200}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 ### detail points
 
@@ -597,12 +597,12 @@ vegalite() %>%
   mark_point()
 ```
 
-<!--html_preserve--><div id="htmlwidget-1015" style="width:672px;height:480px;" class="vegalite"></div>
-<script type="application/json" data-for="htmlwidget-1015">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative","aggregate":"mean"},"y":{"field":"Displacement","type":"quantitative","aggregate":"mean"},"detail":{"field":"Origin","type":"nominal"}},"config":{"cell":{"width":200,"height":200},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!--html_preserve--><div id="htmlwidget-8821" style="width:672px;height:480px;" class="vegalite"></div>
+<script type="application/json" data-for="htmlwidget-8821">{"x":{"description":"","data":{"url":"https://vega.github.io/vega-editor/app/data/cars.json"},"mark":"point","encoding":{"x":{"field":"Horsepower","type":"quantitative","aggregate":"mean"},"y":{"field":"Displacement","type":"quantitative","aggregate":"mean"},"detail":{"field":"Origin","type":"nominal"}},"config":{"cell":{"width":200,"height":200},"mark":{"shape":"circle"}},"embed":{"renderer":"svg","actions":{"export":false,"source":false,"editor":false}}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 
 ---
 title: "ex.r"
 author: "bob"
-date: "Sat Feb 27 20:11:21 2016"
+date: "Sun Feb 28 21:02:02 2016"
 ---
