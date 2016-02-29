@@ -14,7 +14,7 @@
 #'   encode_x("Horsepower", type="quantitative", aggregate="mean") %>%
 #'   encode_y("Origin", "ordinal", sort=sort_def("Horsepower", "mean")) %>%
 #'   mark_bar()
-sort_def <- function(field, op, order=c("ascending", "descending")) {
+sort_def <- function(field, op=NULL, order=c("ascending", "descending")) {
   if (is.null(field) | is.null(op) | is.null(order)) {
     message(paste0("One or more sort definition components is NULL. ",
                    "Reverting to 'ascending' basic sort", sep="", collapse=""))
