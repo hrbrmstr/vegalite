@@ -5,7 +5,7 @@
 \alias{sort_def}
 \title{Create a sort definition object}
 \usage{
-sort_def(field, op, order = c("ascending", "descending"))
+sort_def(field, op = NULL, order = c("ascending", "descending"))
 }
 \arguments{
 \item{field}{the field name to aggregate over.}
