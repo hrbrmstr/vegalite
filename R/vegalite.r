@@ -24,8 +24,8 @@
 #'        Default: \code{s}
 #' @references \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
 #' @importFrom jsonlite fromJSON toJSON unbox
-#' @import htmlwidgets
-#' @import htmltools
+#' @import htmlwidgets stats
+#' @importFrom htmltools tag div span
 #' @importFrom utils read.csv
 #' @name vegalite
 #' @rdname vegalite

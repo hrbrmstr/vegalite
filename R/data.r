@@ -6,8 +6,8 @@
 #'
 #' @param vl a Vega-Lite object
 #' @param source you can specify a (fully qualified) URL or an existing
-#'        \code{data.frame} or a reference to a local file. For the URL case,
-#'        the \code{url} component of \code{data} will be set. You can help
+#'        \code{data.frame} (or \code{ts}) object or a reference to a local file.
+#'        For the URL case, the \code{url} component of \code{data} will be set. You can help
 #'        Vega-Lite out by giving it a hint for the data type with \code{format_type}
 #'        but it is not required. For the local \code{data.frame} case it will embed
 #'        the data into the spec. For the case where a local file is specified, it
@@ -35,7 +35,11 @@ add_data <- function(vl, source, format_type=NULL) {
 
   if (inherits(source, "data.frame")) {
 
-    vl$x$data$values <- source
+    vl$x$data$values <- data.frame(source, stringsAsFactors=FALSE)
+
+  } else if (inherits(source, "ts")) {
+
+    vl$x$data$values <- as.data.frame(source, stringsAsFactors=FALSE)
 
   } else if (is_url(source)) {
 

@@ -73,6 +73,8 @@ If you already have a Vega-Lite JSON spec that has embedded data or a non-realti
 
 If you're good with HTML (etc) and want a more lightweight embedding options, you can also use `embed_spec` which will scaffold a minimum `div` + `script` source and embed a spec from a `vegalite` object.
 
+If you like the way Vega-Lite renders charts, you can also use them as static images in PDF knitted documents with the new `capture_widget` function.
+
 ### Installation
 
 
@@ -93,7 +95,7 @@ packageVersion("vegalite")
 ```
 
 ```
-## [1] '0.5.0.9000'
+## [1] '0.6.0.9000'
 ```
 
 

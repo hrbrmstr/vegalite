@@ -1,3 +1,7 @@
+## 0.6.0.9000
+* handles ts objects
+* ensures passed-in data.frame-like object is converted to a data.frame
+
 ## 0.5.1.9000
 * Widget to png for PDF use
 

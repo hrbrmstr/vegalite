@@ -100,6 +100,9 @@ by passing in the full JSON spec or a URL to a full JSON spec.
 If you're good with HTML (etc) and want a more lightweight embedding options, you
 can also use \code{\link{embed_spec}} which will scaffold a minimum \code{div} +
 \code{script} source and embed a spec from a \code{vegalite} object.
+
+If you like the way Vega-Lite renders charts, you can also use them as static
+images in PDF knitted documents with the new \code{capture_widget} function.
 }
 \author{
 Bob Rudis (@hrbrmstr)

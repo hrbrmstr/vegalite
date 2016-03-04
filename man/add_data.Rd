@@ -11,8 +11,8 @@ add_data(vl, source, format_type = NULL)
 \item{vl}{a Vega-Lite object}
 
 \item{source}{you can specify a (fully qualified) URL or an existing
-\code{data.frame} or a reference to a local file. For the URL case,
-the \code{url} component of \code{data} will be set. You can help
+\code{data.frame} (or \code{ts}) object or a reference to a local file.
+For the URL case, the \code{url} component of \code{data} will be set. You can help
 Vega-Lite out by giving it a hint for the data type with \code{format_type}
 but it is not required. For the local \code{data.frame} case it will embed
 the data into the spec. For the case where a local file is specified, it
