@@ -97,6 +97,8 @@
 #'
 #' If you like the way Vega-Lite renders charts, you can also use them as static
 #' images in PDF knitted documents with the new \code{capture_widget} function.
+#' (NOTE that as of this writing, you can just use the development version of
+#' \code{knitr} instead of this function.)
 #'
 #' @name vegalite-package
 #' @docType package
