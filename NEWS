@@ -1,3 +1,6 @@
+## 0.6.1.9000
+* changed the way `%>%` is exported
+
 ## 0.6.0.9000
 * handles ts objects
 * ensures passed-in data.frame-like object is converted to a data.frame

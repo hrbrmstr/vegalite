@@ -106,12 +106,8 @@
 NULL
 
 #' @importFrom magrittr %>%
-#' @name %>%
-#' @rdname pipe
-#' @title magrittr forward-pipe operator
-#' @description pipe operator
 #' @export
-NULL
+magrittr::`%>%`
 
 #' @name JS
 #' @rdname JS

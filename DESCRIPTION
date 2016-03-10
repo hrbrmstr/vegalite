@@ -1,7 +1,7 @@
 Package: vegalite
 Type: Package
 Title: Tools to Encode Visualizations with the 'Grammar of Graphics'-Like 'Vega-Lite' 'Spec'
-Version: 0.6.0.9000
+Version: 0.6.1.9000
 Date: 2016-02-28
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
