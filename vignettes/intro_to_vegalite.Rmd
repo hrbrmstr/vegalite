@@ -1,15 +1,26 @@
-#' ---
-#' title: "vegalite test"
-#' author: "@hrbrmstr"
-#' date: "2016-02-27"
-#' output: hrbrmrkdn::skeleton
-#' ---
+---
+title: "Introduction to vegalite"
+author: "Bob Rudis"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+`vegalite` is an R `htmlwidget` interface to the [Vega-Lite](https://vega.github.io/vega-lite/) JavaScript visualization library.
 
-#devtools::install_github("hrbrmstr/vegalite")
+What is "Vega" and why "-Lite"? Vega is _"a full declarative visualization grammar, suitable for expressive custom interactive visualization design and programmatic generation._"" Vega-Lite _"provides a higher-level grammar for visual analysis, comparable to ggplot or Tableau, that generates complete Vega specifications."_ Vega-Lite compiles to Vega and is more compact and accessible than Vega. Both are just JSON data files with a particular schema that let you encode the data, encodings and aesthetics for statistical charts.
+
+The following is a gallery of code & examples to help you get started with the package.
+
+```{r}
 library(vegalite)
+```
 
-#' ### bar mark
+### bar mark
 
+```{r}
 dat <- jsonlite::fromJSON('[
       {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
       {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
@@ -22,28 +33,34 @@ vegalite(viewport_height=250) %>%
   encode_x("a", "ordinal") %>%
   encode_y("b", "quantitative") %>%
   mark_bar()
+```
 
-#' ### point mark
+### point mark
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   cell_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
   mark_point()
+```
 
-#' ### cirlce mark
+### cirlce mark
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   cell_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
   mark_circle()
+```
 
-#' ### color and shape
+### color and shape
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   cell_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
@@ -51,38 +68,46 @@ vegalite() %>%
   encode_color("Origin", "nominal") %>%
   encode_shape("Origin", "nominal") %>%
   mark_point()
+```
 
-#' ### size
+### size
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   cell_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
   encode_size("Acceleration", "quantitative") %>%
   mark_point()
+```
 
-#' ### filtered line
+### filtered line
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=450) %>%
   cell_size(400, 450) %>%
   add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") %>%
   add_filter("datum.symbol==='GOOG'") %>%
   encode_x("date", "temporal") %>%
   encode_y("price", "quantitative") %>%
   mark_line()
+```
 
-#' ### ticks
+### ticks
 
+```{r}
 vegalite(viewport_height=200) %>%
   cell_size(400, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Cylinders", "ordinal") %>%
   mark_tick()
+```
 
-#' ### multi-series line
+### multi-series line
 
+```{r}
 vegalite(viewport_height=500) %>%
   cell_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") %>%
@@ -90,27 +115,33 @@ vegalite(viewport_height=500) %>%
   encode_y("price", "quantitative") %>%
   encode_color("symbol", "nominal") %>%
   mark_line()
+```
 
-#' ### facet col
+### facet col
 
+```{r}
 vegalite(viewport_height=350) %>%
   add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
   encode_x("Worldwide_Gross", "quantitative") %>%
   encode_y("US_DVD_Sales", "quantitative") %>%
   facet_col("MPAA_Rating", "ordinal") %>%
   mark_point()
+```
 
-#' ### facet row
+### facet row
 
+```{r}
 vegalite(viewport_height=1400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
   encode_x("Worldwide_Gross", "quantitative") %>%
   encode_y("US_DVD_Sales", "quantitative") %>%
   facet_row("MPAA_Rating", "ordinal") %>%
   mark_point()
+```
 
-#' ### facet both
+### facet both
 
+```{r}
 vegalite(viewport_height=2900) %>%
   add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
   encode_x("Worldwide_Gross", "quantitative") %>%
@@ -118,9 +149,11 @@ vegalite(viewport_height=2900) %>%
   facet_col("MPAA_Rating", "ordinal") %>%
   facet_row("Major_Genre", "ordinal") %>%
   mark_point()
+```
 
-#' ### log scale
+### log scale
 
+```{r}
 dat <- jsonlite::fromJSON('[
       {"x": 0, "y": 1}, {"x": 1, "y": 10},
       {"x": 2, "y": 100}, {"x": 3, "y": 1000},
@@ -134,20 +167,24 @@ vegalite(viewport_height=300) %>%
   encode_y("y", "quantitative") %>%
   mark_point() %>%
   scale_y_log()
+```
 
-#' ### aggregate bar chart
+### aggregate bar chart
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=500, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
   encode_x("people", "quantitative", aggregate="sum") %>%
   encode_y("age", "ordinal") %>%
   scale_y_ordinal(band_size=17) %>%
   add_filter("datum.year == 2000") %>%
   mark_bar()
+```
 
-#' ### binned scatterplot
+### binned scatterplot
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
   encode_x("IMDB_Rating", "quantitative") %>%
   encode_y("Rotten_Tomatoes_Rating", "quantitative") %>%
@@ -155,29 +192,35 @@ vegalite() %>%
   bin_x(maxbins=10) %>%
   bin_y(maxbins=10) %>%
   mark_point()
+```
 
-#' ### slope graph
+### slope graph
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=600) %>%
   add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
   encode_x("year", "ordinal") %>%
   encode_y("yield", "quantitative", aggregate="median") %>%
   encode_color("site", "nominal") %>%
   scale_x_ordinal(band_size=50, padding=0.5) %>%
   mark_line()
+```
 
-#' ### histogram
+### histogram
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/movies.json") %>%
   encode_x("IMDB_Rating", "quantitative") %>%
   encode_y("*", "quantitative", aggregate="count") %>%
   bin_x(maxbins=10) %>%
   mark_bar()
+```
 
-#' ### stacked bar chart
+### stacked bar chart
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/seattle-weather.csv") %>%
   encode_x("date", "temporal") %>%
   encode_y("*", "quantitative", aggregate="count") %>%
@@ -186,18 +229,22 @@ vegalite() %>%
                       range=c("#e7ba52","#c7c7c7","#aec7e8","#1f77b4","#9467bd")) %>%
   timeunit_x("month") %>%
   mark_bar()
+```
 
-#' ### horizontal stacked bar chart
+### horizontal stacked bar chart
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
   encode_x("yield", "quantitative", aggregate="sum") %>%
   encode_y("variety", "nominal") %>%
   encode_color("site", "nominal") %>%
   mark_bar()
+```
 
-#' ### stacked area chart
+### stacked area chart
 
+```{r}
 vegalite() %>%
   cell_size(300, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
@@ -209,9 +256,11 @@ vegalite() %>%
   scale_x_time(nice="month") %>%
   axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
   mark_area()
+```
 
-#' ### streamgraph!
+### streamgraph!
 
+```{r}
 vegalite() %>%
   cell_size(300, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
@@ -223,9 +272,11 @@ vegalite() %>%
   scale_x_time(nice="month") %>%
   axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
   mark_area(interpolate="basis", stack="center")
+```
 
-#' ### scatter text
+### scatter text
 
+```{r}
 vegalite() %>%
   cell_size(300, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
@@ -235,9 +286,11 @@ vegalite() %>%
   calculate("OriginInitial", "datum.Origin[0]") %>%
   encode_text("OriginInitial", "nominal") %>%
   mark_text()
+```
 
-#' ### area chart
+### area chart
 
+```{r}
 vegalite() %>%
   cell_size(300, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
@@ -246,10 +299,12 @@ vegalite() %>%
   axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
   encode_y("count", "quantitative", aggregate="sum") %>%
   mark_area()
+```
 
-#' ### grouped bar chart
+### grouped bar chart
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
   add_filter("datum.year == 2000") %>%
   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
@@ -264,10 +319,12 @@ vegalite() %>%
   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
   facet_cell(stroke_width=0) %>%
   mark_bar()
+```
 
-#' ### normalized stacked bar chart
+### normalized stacked bar chart
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
   encode_x("age", "ordinal") %>%
@@ -276,9 +333,11 @@ vegalite() %>%
   scale_x_ordinal(band_size=17) %>%
   scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
   mark_bar(stack="normalize")
+```
 
-#' ### normalized stacked bar chart
+### normalized stacked bar chart
 
+```{r}
 vegalite() %>%
   cell_size(300, 300) %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
@@ -291,10 +350,12 @@ vegalite() %>%
   axis_y(remove=TRUE) %>%
   timeunit_x("yearmonth") %>%
   mark_area(stack="normalize")
+```
 
-#' ### layered bar chart
+### layered bar chart
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
   add_filter("datum.year == 2000") %>%
   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
@@ -305,10 +366,12 @@ vegalite() %>%
   scale_color_nominal(range=c("#e377c2","#1f77b4")) %>%
   axis_y(title="Population") %>%
   mark_bar(opacity=0.6, stack="none")
+```
 
-#' ### trellis bar chart
+### trellis bar chart
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
   add_filter("datum.year == 2000") %>%
   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
@@ -320,19 +383,23 @@ vegalite() %>%
   scale_color_nominal(range=c("#EA98D2","#659CCA")) %>%
   axis_y(title="Population") %>%
   mark_bar()
+```
 
-#' ### trellis stacked bar chart
+### trellis stacked bar chart
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=400, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
   encode_x("yield", "quantitative", aggregate="sum") %>%
   encode_y("variety", "nominal") %>%
   encode_color("site", "nominal") %>%
   facet_col("year", "ordinal") %>%
   mark_bar()
+```
 
-#' ### trellis histograms
+### trellis histograms
 
+```{r}
 vegalite(viewport_height=700) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
@@ -341,9 +408,11 @@ vegalite(viewport_height=700) %>%
   facet_row("Origin", "nominal") %>%
   bin_x(maxbins=15) %>%
   mark_bar()
+```
 
-#' ### becker's barley trellis plot
+### becker's barley trellis plot
 
+```{r}
 vegalite(viewport_height=1200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/barley.json") %>%
   encode_x("yield", "quantitative", aggregate="mean") %>%
@@ -352,10 +421,12 @@ vegalite(viewport_height=1200) %>%
   facet_row("site", "ordinal") %>%
   scale_y_ordinal(band_size=12) %>%
   mark_point()
+```
 
-#' ### sorting line order
+### sorting line order
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=300, viewport_height=300) %>%
   cell_size(300, 300) %>%
   add_data("https://vega.github.io/vega-editor/app/data/driving.json") %>%
   encode_x("miles", "quantitative") %>%
@@ -364,10 +435,12 @@ vegalite() %>%
   scale_x_linear(zero=FALSE) %>%
   scale_y_linear(zero=FALSE) %>%
   mark_line()
+```
 
-#' ### sort layer scatterplot
+### sort layer scatterplot
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=200, viewport_height=200) %>%
   cell_size(200, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
@@ -375,19 +448,23 @@ vegalite() %>%
   encode_color("Origin", "nominal") %>%
   encode_order("Origin", "ordinal", sort="descending") %>%
   mark_point()
+```
 
-#' ### detail lines
+### detail lines
 
-vegalite() %>%
+```{r}
+vegalite(viewport_width=200, viewport_height=200) %>%
   cell_size(200, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") %>%
   encode_x("date", "temporal") %>%
   encode_y("price", "quantitative") %>%
   encode_detail("symbol", "nominal") %>%
   mark_line()
+```
 
-#' ### detail points
+### detail points
 
+```{r}
 vegalite() %>%
   cell_size(200, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
@@ -395,4 +472,4 @@ vegalite() %>%
   encode_y("Displacement", "quantitative", aggregate="mean") %>%
   encode_detail("Origin", "nominal") %>%
   mark_point()
-
+```

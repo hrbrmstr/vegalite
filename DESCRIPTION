@@ -16,7 +16,9 @@ BugReports: https://github.com/hrbrmstr/vegalite/issues
 License: AGPL + file LICENSE
 Encoding: UTF-8
 Suggests:
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 Depends:
     R (>= 3.0.0)
 Imports:
@@ -32,3 +34,4 @@ Imports:
     base64,
     stats
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr

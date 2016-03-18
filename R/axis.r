@@ -1,3 +1,5 @@
+vl <- wdgt_png_tf <- NULL
+
 #' General axis setttings (x-axis)
 #'
 #' Axes provide axis lines, ticks and labels to convey how a spatial range represents
