@@ -2,9 +2,15 @@ Package: vegalite
 Type: Package
 Title: Tools to Encode Visualizations with the 'Grammar of Graphics'-Like 'Vega-Lite' 'Spec'
 Version: 0.6.1
-Date: 2016-02-28
-Author: Bob Rudis (@hrbrmstr)
+Date: 2016-03-21
 Maintainer: Bob Rudis <bob@rudis.net>
+Authors@R: c(
+      person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
+      person("Kanit", "Wongsuphasawat,", comment = "Vega-Lite library", role = c("aut")),
+      person("Jeffrey", "Heer", comment = "Vega-Lite library", role = c("aut")),
+      person("Arvind", "Satyanarayan", comment = "Vega-Lite library", role = c("aut")),
+      person("Mike", "Bostock", comment = "D3 library", role = c("aut"))
+    )
 Description: The 'Vega-Lite' 'JavaScript' framework provides a higher-level grammar
     for visual analysis, akin to 'ggplot' or 'Tableau', that generates complete 'Vega'
     specifications. Functions exist which enable building a valid 'spec' from scratch
