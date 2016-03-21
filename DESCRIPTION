@@ -1,16 +1,16 @@
 Package: vegalite
 Type: Package
 Title: Tools to Encode Visualizations with the 'Grammar of Graphics'-Like 'Vega-Lite' 'Spec'
-Version: 0.6.1.9000
+Version: 0.6.1
 Date: 2016-02-28
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
-Description: 'Vega-Lite' provides a higher-level grammar for visual analysis, akin
-    to 'ggplot' or 'Tableau', that generates complete 'Vega' specifications. Functions
-    exist which enable building a valid 'spec' from scratch or importing a previously
-    'spec' file. Functions also exist to export 'spec' files and to generate code
-    which will enable plots to be embedded in properly configured web pages. The
-    default behavior is to generate an 'htmlwidget'.
+Description: The 'Vega-Lite' 'JavaScript' framework provides a higher-level grammar
+    for visual analysis, akin to 'ggplot' or 'Tableau', that generates complete 'Vega'
+    specifications. Functions exist which enable building a valid 'spec' from scratch
+    or importing a previously 'spec' file. Functions also exist to export 'spec' files
+    and to generate code which will enable plots to be embedded in properly configured
+    web pages. The default behavior is to generate an 'htmlwidget'.
 URL: http://github.com/hrbrmstr/vegalite
 BugReports: https://github.com/hrbrmstr/vegalite/issues
 License: AGPL + file LICENSE
@@ -23,7 +23,7 @@ Depends:
     R (>= 3.0.0)
 Imports:
     jsonlite,
-    htmlwidgets,
+    htmlwidgets (>= 0.6),
     htmltools,
     magrittr,
     digest,

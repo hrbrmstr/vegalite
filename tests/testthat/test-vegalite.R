@@ -1,4 +1,4 @@
-context("basic functionality")
+context("Widget structures created successfully")
 test_that("we can do something", {
 
   dat <- jsonlite::fromJSON('[
