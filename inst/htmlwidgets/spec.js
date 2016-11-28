@@ -23,6 +23,17 @@ HTMLWidgets.widget({
     }
   };
 
+
+    //add tooltip div
+    if (d3.select("#vis-tooltip").empty()) {
+      d3.select("body").append("div")
+        .attr("id", "vis-tooltip")
+        .attr("class", "vg-tooltip")
+
+    } else {
+      d3.select("#vis-tooltip").attr("class","vg-tooltip");
+    };
+
   vg.embed(el, embedSpec, function(error, result) {
     // Callback receiving the View instance and parsed Vega spec
     // result.view is the View, which resides under the '#vis' element
