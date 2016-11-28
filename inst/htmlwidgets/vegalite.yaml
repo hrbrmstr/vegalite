@@ -13,3 +13,11 @@ dependencies:
     - ./vega-lite.js
     - ./vega-embed.js
   version: 0.0.0
+- name: vega-tooltip
+  src: htmlwidgets/lib/vega-tooltip
+  script:
+    - ./vg-tooltip.min.js
+  style:
+    - ./vg-tooltip.css
+  version: 0.0.0
+
