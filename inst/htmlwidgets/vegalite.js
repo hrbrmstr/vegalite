@@ -1,11 +1,11 @@
 HTMLWidgets.widget({
-
   name: 'vegalite',
 
   type: 'output',
 
   initialize: function(el, width, height) {
-    return {};
+    return {
+    };
   },
 
   renderValue: function(el, x, instance) {
@@ -46,6 +46,7 @@ HTMLWidgets.widget({
   vg.embed(el, embedSpec, function(error, result) {
     // Callback receiving the View instance and parsed Vega spec
     // result.view is the View, which resides under the '#vis' element
+    console.log("hello")
     vl.tooltip(result.view, vlSpec)
   });
 

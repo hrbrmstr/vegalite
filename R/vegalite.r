@@ -75,5 +75,5 @@ vegalite <- function(description="", renderer=c("svg", "canvas"),
     height = viewport_height,
     package = 'vegalite'
   )
-
+  
 }

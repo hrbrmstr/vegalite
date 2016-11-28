@@ -118,7 +118,6 @@ to_spec <- function(vl, pretty=TRUE, to_cb=FALSE) {
 embed_spec <- function(vl, element_id=generate_id(), to_cb=FALSE) {
 
   template <- '<center><div id="%s" class="vldiv"></div></center>
-    <div id="vis-tooltip" class="vg-tooltip"></div>
     <script>
     var spec_%s = JSON.parse(\'%s\');
 
