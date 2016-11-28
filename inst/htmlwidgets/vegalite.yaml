@@ -17,6 +17,7 @@ dependencies:
   src: htmlwidgets/lib/vega-tooltip
   script:
     - ./vg-tooltip.min.js
+    - ./datalib.min.js
   style:
     - ./vg-tooltip.css
   version: 0.0.0
