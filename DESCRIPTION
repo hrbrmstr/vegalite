@@ -9,7 +9,9 @@ Authors@R: c(
       person("Kanit", "Wongsuphasawat,", comment = "Vega-Lite library", role = c("aut")),
       person("Jeffrey", "Heer", comment = "Vega-Lite library", role = c("aut")),
       person("Arvind", "Satyanarayan", comment = "Vega-Lite library", role = c("aut")),
-      person("Mike", "Bostock", comment = "D3 library", role = c("aut"))
+      person("Mike", "Bostock", comment = "D3 library", role = c("aut")),
+      person("Zening", email = "quzening@gmail.com", comment = "Tooltip Plugin for Vega-Lite (js)", role = c("aut")),
+      person("Jia",  email = "lujiacn@gmail.com", comment = "Wrap tooltip plugin to vegalite (R)", role= c("ctb"))
     )
 Description: The 'Vega-Lite' 'JavaScript' framework provides a higher-level grammar
     for visual analysis, akin to 'ggplot' or 'Tableau', that generates complete 'Vega'

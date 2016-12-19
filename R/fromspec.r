@@ -118,18 +118,19 @@ to_spec <- function(vl, pretty=TRUE, to_cb=FALSE) {
 embed_spec <- function(vl, element_id=generate_id(), to_cb=FALSE) {
 
   template <- '<center><div id="%s" class="vldiv"></div></center>
+    <script>
+    var spec_%s = JSON.parse(\'%s\');
 
-<script>
-var spec_%s = JSON.parse(\'%s\');
+    var embedSpec_%s = { "mode": "vega-lite", "spec": spec_%s, "renderer": spec_%s.embed.renderer, "actions": spec_%s.embed.actions };
 
-var embedSpec_%s = { "mode": "vega-lite", "spec": spec_%s, "renderer": spec_%s.embed.renderer, "actions": spec_%s.embed.actions };
-
-vg.embed("#%s", embedSpec_%s, function(error, result) {});
-</script>'
+    vg.embed("#%s", embedSpec_%s, function(error, result) {
+        vl.tooltip(result.view, spec_%s)
+    });
+    </script>'
 
   tmp <- sprintf(template,
           element_id, element_id, to_spec(vl, pretty=FALSE),
-          element_id, element_id, element_id, element_id, element_id, element_id)
+          element_id, element_id, element_id, element_id, element_id, element_id, element_id)
 
   if (to_cb) clipr::write_clip(tmp)
 

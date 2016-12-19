@@ -1,52 +1,63 @@
 HTMLWidgets.widget({
-
   name: 'vegalite',
 
   type: 'output',
 
   initialize: function(el, width, height) {
-    return {};
+    return {
+    };
   },
 
   renderValue: function(el, x, instance) {
 
-  // if embedded data, turn R data.frame into a usable structure
-  if (x.data.hasOwnProperty("values")) {
-    x.data.values = HTMLWidgets.dataframeToD3(x.data.values);
-  }
-
-  var vlSpec = {
-    "data" : x.data,
-    "mark" : x.mark,
-    "encoding" : x.encoding,
-    "config" : x.config
-  };
-
-  if (x.hasOwnProperty("transform")) {
-    if (x.transform.hasOwnProperty("calculate")) {
-      x.transform.calculate = HTMLWidgets.dataframeToD3(x.transform.calculate);
+    // if embedded data, turn R data.frame into a usable structure
+    if (x.data.hasOwnProperty("values")) {
+      x.data.values = HTMLWidgets.dataframeToD3(x.data.values);
     }
-    vlSpec.transform = x.transform;
-  }
 
-  //vls = vlSpec;
-  //par = x;
+    var vlSpec = {
+      "data" : x.data,
+      "mark" : x.mark,
+      "encoding" : x.encoding,
+      "config" : x.config
+    };
 
-  var embedSpec = {
-    "mode": "vega-lite",
-    "spec": vlSpec,
-    "renderer": x.embed.renderer,
-    "actions": {
-      "export": x.embed.actions.export,
-      "source": x.embed.actions.source,
-      "editor": x.embed.actions.editor
+    if (x.hasOwnProperty("transform")) {
+      if (x.transform.hasOwnProperty("calculate")) {
+        x.transform.calculate = HTMLWidgets.dataframeToD3(x.transform.calculate);
+      }
+      vlSpec.transform = x.transform;
     }
-  };
 
-  vg.embed(el, embedSpec, function(error, result) {
-    // Callback receiving the View instance and parsed Vega spec
-    // result.view is the View, which resides under the '#vis' element
-  });
+    //vls = vlSpec;
+    //par = x;
+
+    var embedSpec = {
+      "mode": "vega-lite",
+      "spec": vlSpec,
+      "renderer": x.embed.renderer,
+      "actions": {
+        "export": x.embed.actions.export,
+        "source": x.embed.actions.source,
+        "editor": x.embed.actions.editor
+      }
+    };
+
+    //add tooltip div
+    if (d3.select("#vis-tooltip").empty()) {
+      d3.select("body").append("div")
+        .attr("id", "vis-tooltip")
+        .attr("class", "vg-tooltip")
+
+    } else {
+      d3.select("#vis-tooltip").attr("class","vg-tooltip");
+    };
+
+    vg.embed(el, embedSpec, function(error, result) {
+      // Callback receiving the View instance and parsed Vega spec
+      // result.view is the View, which resides under the '#vis' element
+      vl.tooltip(result.view, vlSpec)
+    });
 
   },
 
