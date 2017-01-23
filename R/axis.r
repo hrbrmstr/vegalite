@@ -10,16 +10,22 @@ vl <- wdgt_png_tf <- NULL
 #' definition.
 #'
 #' @param vl Vega-Lite object
-#' @param axisWidth,layer,offset,grid,labels,labelAngle,labelAlign,labelBaseline
-#'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+#' @param axisColor,axisWidth,offset,orient,zindex
+#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#general}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param labelMaxLength,shortTimeLabels,subdivide,ticks,tickPadding,tickSize
-#'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+#' @param grid,gridColor,gridDash,gridOpacity,gridWidth
+#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param tickSizeMajor,tickSizeMinor,tickSizeEnd,title,titleOffset,titleMaxLength
-#'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+#' @param labels,format,labelAngle,labelMaxLength,shortTimeLabels
+#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param characterWidth,orient,format,remove
+#' @param subdivide,ticks,tickColor,tickLabelColor,tickLabelFont,tickLabelFontSize,tickPadding,tickSize,tickSizeMajor,tickSizeMinor,tickSizeEnd,tickWidth,values
+#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs} &
+#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
+#' @param title,titleColor,titleFont,titleFontWeight,titleFontSize,titleOffset,titleMaxLength,characterWidth
+#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#title}{axis docs} &
+#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
+#' @param remove
 #'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
 #' @encoding UTF-8
