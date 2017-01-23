@@ -47,41 +47,62 @@ vl <- wdgt_png_tf <- NULL
 #'   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
 #'   facet_cell(stroke_width=0) %>%
 #'   mark_bar()
-axis_x <- function(vl, axisWidth=NULL, layer=NULL, offset=NULL, grid=NULL, labels=TRUE,
-                   labelAngle=NULL, labelAlign=NULL, labelBaseline=NULL, labelMaxLength=25,
-                   shortTimeLabels=NULL, subdivide=NULL, ticks=NULL, tickPadding=NULL,
-                   tickSize=NULL, tickSizeMajor=NULL, tickSizeMinor=NULL, tickSizeEnd=NULL,
-                   title="", titleOffset=NULL, titleMaxLength=NULL, characterWidth=6,
-                   orient=NULL, format=NULL, remove=FALSE) {
+#'
+#'
+
+axis_x <- function(vl, axisColor=NULL, axisWidth=NULL, offset=NULL, orient=NULL,
+                   zindex=NULL, grid=NULL, gridColor=NULL, gridDash=NULL, gridOpacity=NULL,
+                   gridWidth=NULL, labels=TRUE, format=NULL, labelAngle=NULL, labelMaxLength=25,
+                   shortTimeLabels=NULL, subdivide=NULL, ticks=NULL, tickColor=NULL,
+                   tickLabelColor=NULL, tickLabelFont=NULL, tickLabelFontSize=NULL,
+                   tickPadding=NULL, tickSize=NULL, tickSizeMajor=NULL, tickSizeMinor=NULL,
+                   tickSizeEnd=NULL, tickWidth=NULL, values=NULL, title="", titleColor=NULL,
+                   titleFont=NULL, titleFontWeight=NULL, titleFontSize=NULL, titleOffset=NULL,
+                   titleMaxLength=NULL, characterWidth=6, remove=FALSE) {
 
   chnl <- "x"
 
   if (remove) {
     vl$x$encoding[[chnl]]$axis <- FALSE
   } else {
-    if (!is.null(axisWidth))       vl$x$encoding[[chnl]]$axis$axisWidth <- axisWidth
-    if (!is.null(layer))           vl$x$encoding[[chnl]]$axis$layer <- layer
-    if (!is.null(offset))          vl$x$encoding[[chnl]]$axis$offset <- offset
-    if (!is.null(grid))            vl$x$encoding[[chnl]]$axis$grid <- grid
-    if (!is.null(labels))          vl$x$encoding[[chnl]]$axis$labels <- labels
-    if (!is.null(labelAngle))      vl$x$encoding[[chnl]]$axis$labelAngle <- labelAngle
-    if (!is.null(labelAlign))      vl$x$encoding[[chnl]]$axis$labelAlign <- labelAlign
-    if (!is.null(labelBaseline))   vl$x$encoding[[chnl]]$axis$labelBaseline <- labelBaseline
-    if (!is.null(labelMaxLength))  vl$x$encoding[[chnl]]$axis$labelMaxLength <- labelMaxLength
-    if (!is.null(shortTimeLabels)) vl$x$encoding[[chnl]]$axis$shortTimeLabels <- shortTimeLabels
-    if (!is.null(subdivide))       vl$x$encoding[[chnl]]$axis$subdivide <- subdivide
-    if (!is.null(ticks))           vl$x$encoding[[chnl]]$axis$ticks <- ticks
-    if (!is.null(tickPadding))     vl$x$encoding[[chnl]]$axis$tickPadding <- tickPadding
-    if (!is.null(tickSize))        vl$x$encoding[[chnl]]$axis$tickSize <- tickSize
-    if (!is.null(tickSizeMajor))   vl$x$encoding[[chnl]]$axis$tickSizeMajor <- tickSizeMajor
-    if (!is.null(tickSizeMinor))   vl$x$encoding[[chnl]]$axis$tickSizeMinor <- tickSizeMinor
-    if (!is.null(tickSizeEnd))     vl$x$encoding[[chnl]]$axis$tickSizeEnd <- tickSizeEnd
-    if (!is.null(title))           vl$x$encoding[[chnl]]$axis$title <- title
-    if (!is.null(titleOffset))     vl$x$encoding[[chnl]]$axis$titleOffset <- titleOffset
-    if (!is.null(titleMaxLength))  vl$x$encoding[[chnl]]$axis$titleMaxLength <- titleMaxLength
-    if (!is.null(characterWidth))  vl$x$encoding[[chnl]]$axis$characterWidth <- characterWidth
-    if (!is.null(orient))          vl$x$encoding[[chnl]]$axis$orient <- orient
-    if (!is.null(format))          vl$x$encoding[[chnl]]$axis$format <- format
+    if (!is.null(axisColor))          vl$x$encoding[[chnl]]$axis$axisColor <- axisColor
+    if (!is.null(zindex))             vl$x$encoding[[chnl]]$axis$zindex <- zindex
+    if (!is.null(axisWidth))          vl$x$encoding[[chnl]]$axis$axisWidth <- axisWidth
+    if (!is.null(offset))             vl$x$encoding[[chnl]]$axis$offset <- offset
+    if (!is.null(grid))               vl$x$encoding[[chnl]]$axis$grid <- grid
+    if (!is.null(gridColor))          vl$x$encoding[[chnl]]$axis$gridColor <- gridColor
+    if (!is.null(gridDash))           vl$x$encoding[[chnl]]$axis$gridDash <- gridDash
+    if (!is.null(gridOpacity))        vl$x$encoding[[chnl]]$axis$gridOpacity <- gridOpacity
+    if (!is.null(gridWidth))          vl$x$encoding[[chnl]]$axis$gridWidth <- gridWidth
+    if (!is.null(labels))             vl$x$encoding[[chnl]]$axis$labels <- labels
+    if (!is.null(labelAngle))         vl$x$encoding[[chnl]]$axis$labelAngle <- labelAngle
+    if (!is.null(labelAlign))         vl$x$encoding[[chnl]]$axis$labelAlign <- labelAlign
+    if (!is.null(labelBaseline))      vl$x$encoding[[chnl]]$axis$labelBaseline <- labelBaseline
+    if (!is.null(labelMaxLength))     vl$x$encoding[[chnl]]$axis$labelMaxLength <- labelMaxLength
+    if (!is.null(shortTimeLabels))    vl$x$encoding[[chnl]]$axis$shortTimeLabels <- shortTimeLabels
+    if (!is.null(subdivide))          vl$x$encoding[[chnl]]$axis$subdivide <- subdivide
+    if (!is.null(ticks))              vl$x$encoding[[chnl]]$axis$ticks <- ticks
+    if (!is.null(tickColor))          vl$x$encoding[[chnl]]$axis$tickColor <- tickColor
+    if (!is.null(tickLabelColor))     vl$x$encoding[[chnl]]$axis$tickLabelColor <- tickLabelColor
+    if (!is.null(tickLabelFont))      vl$x$encoding[[chnl]]$axis$tickLabelFont <- tickLabelFont
+    if (!is.null(tickLabelFontSize))  vl$x$encoding[[chnl]]$axis$tickColor <- tickLabelFontSize
+    if (!is.null(tickWidth))          vl$x$encoding[[chnl]]$axis$tickWidth <- tickWidth
+    if (!is.null(tickPadding))        vl$x$encoding[[chnl]]$axis$tickPadding <- tickPadding
+    if (!is.null(tickSize))           vl$x$encoding[[chnl]]$axis$tickSize <- tickSize
+    if (!is.null(tickSizeMajor))      vl$x$encoding[[chnl]]$axis$tickSizeMajor <- tickSizeMajor
+    if (!is.null(tickSizeMinor))      vl$x$encoding[[chnl]]$axis$tickSizeMinor <- tickSizeMinor
+    if (!is.null(tickSizeEnd))        vl$x$encoding[[chnl]]$axis$tickSizeEnd <- tickSizeEnd
+    if (!is.null(values))             vl$x$encoding[[chnl]]$axis$values <- values
+    if (!is.null(title))              vl$x$encoding[[chnl]]$axis$title <- title
+    if (!is.null(titleColor))         vl$x$encoding[[chnl]]$axis$titleColor <- titleColor
+    if (!is.null(titleFont))          vl$x$encoding[[chnl]]$axis$titleFont <- titleFont
+    if (!is.null(titleFontWeight))    vl$x$encoding[[chnl]]$axis$titleFontWeight <- titleFontWeight
+    if (!is.null(titleFontSize))      vl$x$encoding[[chnl]]$axis$titleFontSize <- titleFontSize
+    if (!is.null(titleOffset))        vl$x$encoding[[chnl]]$axis$titleOffset <- titleOffset
+    if (!is.null(titleMaxLength))     vl$x$encoding[[chnl]]$axis$titleMaxLength <- titleMaxLength
+    if (!is.null(characterWidth))     vl$x$encoding[[chnl]]$axis$characterWidth <- characterWidth
+    if (!is.null(orient))             vl$x$encoding[[chnl]]$axis$orient <- orient
+    if (!is.null(format))             vl$x$encoding[[chnl]]$axis$format <- format
   }
 
   vl
