@@ -5,27 +5,27 @@
 \alias{axis_y}
 \title{General axis setttings (y-axis)}
 \usage{
-axis_y(vl, axisWidth = NULL, layer = NULL, offset = NULL, grid = NULL,
-  labels = TRUE, labelAngle = NULL, labelAlign = NULL,
-  labelBaseline = NULL, labelMaxLength = 25, shortTimeLabels = NULL,
-  subdivide = NULL, ticks = NULL, tickPadding = NULL, tickSize = NULL,
-  tickSizeMajor = NULL, tickSizeMinor = NULL, tickSizeEnd = NULL,
-  title = "", titleOffset = NULL, titleMaxLength = NULL,
-  characterWidth = 6, orient = NULL, format = NULL, remove = FALSE)
+axis_y(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
 
-\item{axisWidth, layer, offset, grid, labels, labelAngle, labelAlign, labelBaseline}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+\item{axisColor, axisWidth, offset, orient, zindex}{see \href{https://vega.github.io/vega-lite/docs/axis.html#general}{axis docs} &
 \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
 
-\item{labelMaxLength, shortTimeLabels, subdivide, ticks, tickPadding, tickSize}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+\item{grid, gridColor, gridDash, gridOpacity, gridWidth}{see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
 \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
 
-\item{tickSizeMajor, tickSizeMinor, tickSizeEnd, title, titleOffset, titleMaxLength}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+\item{labels, format, labelAngle, labelMaxLength, shortTimeLabels}{see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
 \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
 
-\item{characterWidth, orient, format, remove}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
+\item{subdivide, ticks, tickColor, tickLabelColor, tickLabelFont, tickLabelFontSize, tickPadding, tickSize, tickSizeMajor, tickSizeMinor, tickSizeEnd, tickWidth, values}{see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs} &
+\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+
+\item{title, titleColor, titleFont, titleFontWeight, titleFontSize, titleOffset, titleMaxLength, characterWidth}{see \href{https://vega.github.io/vega-lite/docs/axis.html#title}{axis docs} &
+\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+
+\item{remove}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
 \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
 }
 \description{
