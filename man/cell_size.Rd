@@ -5,7 +5,7 @@
 \alias{cell_size}
 \title{Add cell size to main Vega-Lite spec}
 \usage{
-cell_size(vl, width = 200, height = 200)
+cell_size(vl, width = 200, height = 200, facet = FALSE)
 }
 \arguments{
 \item{vl}{a Vega-Lite object}
@@ -22,6 +22,8 @@ the visualization has continuous y-scale. (If the visualization has ordinal y-sc
 the height is determined by the bandSize and the cardinality of the y-scale. If the
 plot does not have a field on y, the height is scale config’s bandSize.)
 Default value: \code{200}}
+
+\item{facet}{a boolean to determine whether this size refers to facet cells or not.}
 }
 \description{
 Short version: set this to control the height and with of a single plot panel.
