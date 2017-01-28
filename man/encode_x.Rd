@@ -5,7 +5,7 @@
 \alias{encode_x}
 \title{Encode x "channel"}
 \usage{
-encode_x(vl, field, type = "auto", aggregate = NULL, sort = NULL)
+encode_x(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}

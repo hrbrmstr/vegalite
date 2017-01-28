@@ -5,7 +5,7 @@
 \alias{encode_text}
 \title{Encode text "channel"}
 \usage{
-encode_text(vl, field, type, value = NULL, aggregate = NULL, sort = NULL)
+encode_text(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
