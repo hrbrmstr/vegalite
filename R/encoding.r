@@ -1,4 +1,4 @@
-#' Encode x "channel"
+#' Encode all "channels"
 #'
 #' Vega-Lite has many "encoding channels". Each channel definition object must
 #' describe the data field encoded by the channel and its data type, or a constant
@@ -6,6 +6,7 @@
 #' mapped field’s transformation and properties for its scale and guide.
 #'
 #' @param vl Vega-Lite object created by \code{\link{vegalite}}
+#' @param chnl a channel to encode like x, y, color, shape, size, text, detail, order, path
 #' @param field single element character vector naming the column. Can be \code{*} is using
 #'        \code{aggregate}.
 #' @param type the encoded field’s type of measurement. This can be either a full type
