@@ -5,24 +5,20 @@
 \alias{legend_color}
 \title{Legend settings (color)}
 \usage{
-legend_color(vl, orient = NULL, title = NULL, format = NULL,
-  short_time_labels = NULL, value = NULL, remove = FALSE)
+legend_color(vl, ...)
 }
 \arguments{
 \item{vl}{a Vega-Lite object}
 
-\item{orient}{the orientation of the legend. One of "left" or "right". This
-determines how the legend is positioned within the scene.}
+\item{orient, offset, values}{see \href{https://vega.github.io/vega-lite/docs/legend.html#general}{legend docs}}
 
 \item{title}{the title for the legend.}
 
-\item{format}{the formatting pattern for axis labels. This is D3’s number
-format pattern for quantitative axis and D3’s time format pattern
-for time axis.}
+\item{format, labelAlign, labelBaseline, labelColor, labelFont, labelFontSize, short_time_labels}{see \href{https://vega.github.io/vega-lite/docs/legend.html#labels}{legend docs}}
 
-\item{short_time_labels}{whether month and day names should be abbreviated.}
+\item{symbolColor, symbolShape, symbolSize, symbolStrokeWidth}{see \href{https://vega.github.io/vega-lite/docs/legend.html#symbols}{legend docs}}
 
-\item{value}{explicitly set the visible legend values.}
+\item{title, titleColor, titleFont, titleFontSize, titleFontWeight}{see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}}
 
 \item{remove}{if \code{TRUE}, there will be no legend for this aesthetic.}
 }
