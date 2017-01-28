@@ -37,7 +37,8 @@
 #'   encode_y("b", "quantitative") %>%
 #'   mark_bar()
 
-encode <- function(vl, chnl="x", field, type="auto", value=NULL, aggregate=NULL, sort=NULL) {
+encode <- function(vl, chnl="x", field, type="auto", value=NULL, aggregate=NULL,
+                   sort=NULL, padding=NULL, round=NULL) {
   if(is.null(field) & is.null(value)){
     # https://vega.github.io/vega-lite/docs/encoding.html#channels
     message('Each channel definition object must describe the "field" or "value".')
@@ -58,6 +59,8 @@ encode <- function(vl, chnl="x", field, type="auto", value=NULL, aggregate=NULL,
 
   if (!is.null(aggregate)) vl$x$encoding[[chnl]]$aggregate <- aggregate
   if (!is.null(sort)) vl$x$encoding[[chnl]]$sort <- sort
+  if (!is.null(round)) vl$x$encoding[[chnl]]$scale$round <- round
+  if (!is.null(padding)) vl$x$encoding[[chnl]]$scale$padding <- padding
 
   vl
 
@@ -175,7 +178,7 @@ encode_y <- function(vl, ...) {
 #'   encode_color("Origin", "nominal") %>%
 #'   encode_shape("Origin", "nominal") %>%
 #'   mark_point()
-encode_color <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=NULL) {
+encode_color <- function(vl, ...) {
   vl <- encode(vl, chnl="color", ...)
 
   vl
@@ -209,7 +212,7 @@ encode_color <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=
 #'   encode_color("Origin", "nominal") %>%
 #'   encode_shape("Origin", "nominal") %>%
 #'   mark_point()
-encode_shape <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=NULL) {
+encode_shape <- function(vl, ...) {
   vl <- encode(vl, chnl="shape", ...)
 
   vl
@@ -243,7 +246,7 @@ encode_shape <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%
 #'   encode_size("Acceleration", "quantitative") %>%
 #'   mark_point()
-encode_size <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=NULL) {
+encode_size <- function(vl, ...) {
   vl <- encode(vl, chnl="size", ...)
 
   vl
@@ -280,7 +283,7 @@ encode_size <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=N
 #'   calculate("OriginInitial", "datum.Origin[0]") %>%
 #'   encode_text("OriginInitial", "nominal") %>%
 #'   mark_text()
-encode_text <- function(vl, field, type, value=NULL, aggregate=NULL, sort=NULL) {
+encode_text <- function(vl, ...) {
   vl <- encode(vl, chnl="text", ...)
   vl
 }
@@ -322,7 +325,7 @@ encode_text <- function(vl, field, type, value=NULL, aggregate=NULL, sort=NULL) 
 #'   encode_y("price", "quantitative") %>%
 #'   encode_detail("symbol", "nominal") %>%
 #'   mark_line()
-encode_detail <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
+encode_detail <- function(vl, field=NULL, type="auto", value=NULL, ...) {
   if(is.null(field)){
     message('"detail" channel requires the use of "field"', call.=FALSE)
     return(vl)
@@ -374,7 +377,7 @@ encode_detail <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 #'   encode_color("Origin", "nominal") %>%
 #'   encode_order("Origin", "ordinal", sort="descending") %>%
 #'   mark_point()
-encode_order <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
+encode_order <- function(vl, field=NULL, type="auto", value=NULL, ...) {
   if(is.null(field)){
     message('"order" channel requires the use of "field"', call.=FALSE)
     return(vl)
@@ -428,7 +431,7 @@ encode_order <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 #'   scale_x_linear(zero=FALSE) %>%
 #'   scale_y_linear(zero=FALSE) %>%
 #'   mark_line()
-encode_path <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
+encode_path <- function(vl, field=NULL, type="auto", value=NULL, ...) {
   if(is.null(field)){
     message('"path" channel requires the use of "field"', call.=FALSE)
     return(vl)
@@ -440,5 +443,74 @@ encode_path <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 
   vl <- encode(vl, chnl="path", field=field, ...)
 
+  vl
+}
+
+
+#' Create a horizontal ribbon of panels
+#'
+#' @param vl Vega-Lite object
+#' @param field single element character vector naming the column.
+#' @param type the encoded field’s type of measurement.
+#' @param round round values
+#' @param padding facet padding
+#' @encoding UTF-8
+#' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
+#' @export
+#' @examples
+#' vegalite() %>%
+#'   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
+#'   add_filter("datum.year == 2000") %>%
+#'   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
+#'   encode_x("gender", "nominal") %>%
+#'   encode_y("people", "quantitative", aggregate="sum") %>%
+#'   encode_color("gender", "nominal") %>%
+#'   scale_x_ordinal(band_size=6) %>%
+#'   scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
+#'   facet_col("age", "ordinal", padding=4) %>%
+#'   axis_x(remove=TRUE) %>%
+#'   axis_y(title="population", grid=FALSE) %>%
+#'   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
+#'   facet_cell(stroke_width=0) %>%
+#'   mark_bar()
+facet_col <- function(vl, field=NULL, type='auto',
+                      round=TRUE, padding=16, value=NULL, ...) {
+  if(is.null(field)){
+    message('"column" channel requires the use of "field"', call.=FALSE)
+    return(vl)
+  }
+
+  if(!is.null(value)){
+    message('"value" is invalid for "column" channel, using "field"')
+  }
+
+  vl <- encode(vl, chnl='column', field=field, type=type, round=round, padding=padding, ...)
+  vl
+}
+
+#' Create a vertical ribbon of panels
+#'
+#' @param vl Vega-Lite object
+#' @param field single element character vector naming the column.
+#' @param type the encoded field’s type of measurement.
+#' @param round round values
+#' @param padding facet padding
+#' @encoding UTF-8
+#' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
+#' @export
+#' @examples
+#' # see facet_col
+facet_row <- function(vl, field=NULL, type='auto', round=TRUE, padding=16,
+                      value=NULL, ...) {
+  if(is.null(field)){
+    message('"column" channel requires the use of "field"', call.=FALSE)
+    return(vl)
+  }
+
+  if(!is.null(value)){
+    message('"value" is invalid for "column" channel, using "field"')
+  }
+
+  vl <- encode(vl, chnl='row', field=field, type=type, round=round, padding=padding, ...)
   vl
 }
