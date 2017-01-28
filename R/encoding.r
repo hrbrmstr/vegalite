@@ -324,7 +324,8 @@ encode_text <- function(vl, field, type, value=NULL, aggregate=NULL, sort=NULL) 
 #'   mark_line()
 encode_detail <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
   if(is.null(field)){
-    stop('"detail" channel requires the use of "field"', call.=FALSE)
+    message('"detail" channel requires the use of "field"', call.=FALSE)
+    return(vl)
   }
 
   if(!is.null(value)){
@@ -375,7 +376,8 @@ encode_detail <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 #'   mark_point()
 encode_order <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
   if(is.null(field)){
-    stop('"order" channel requires the use of "field"', call.=FALSE)
+    message('"order" channel requires the use of "field"', call.=FALSE)
+    return(vl)
   }
 
   if(!is.null(value)){
@@ -428,7 +430,8 @@ encode_order <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 #'   mark_line()
 encode_path <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
   if(is.null(field)){
-    stop('"path" channel requires the use of "field"', call.=FALSE)
+    message('"path" channel requires the use of "field"', call.=FALSE)
+    return(vl)
   }
 
   if(!is.null(value)){
