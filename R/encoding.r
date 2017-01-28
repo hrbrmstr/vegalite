@@ -335,7 +335,7 @@ encode_detail <- function(vl, field=NULL, type="auto", value=NULL, ...) {
     message('"value" is invalid for "detail" channel, using "field"')
   }
 
-  vl <- encode(vl, chnl="detail", field=field, ...)
+  vl <- encode(vl, chnl="detail", field=field, type=type, ...)
 
   vl
 }
