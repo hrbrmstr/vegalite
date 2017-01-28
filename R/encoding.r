@@ -36,22 +36,74 @@
 #'   encode_x("a", "ordinal") %>%
 #'   encode_y("b", "quantitative") %>%
 #'   mark_bar()
-encode_x <- function(vl, field, type="auto", aggregate=NULL, sort=NULL) {
 
-  type <- tolower(type)
-  if (type == "auto") type <- "quantitative"
-  if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-    message('"type" is not a valid value for this spec component. Ignoring.')
+encode <- function(vl, chnl="x", field, type="auto", value=NULL, aggregate=NULL, sort=NULL) {
+  if(is.null(field) & is.null(value)){
+    # https://vega.github.io/vega-lite/docs/encoding.html#channels
+    message('Each channel definition object must describe the "field" or "value".')
     return(vl)
   }
 
-  vl$x$encoding$x <- list(field=field, type=type)
+  if (!is.null(field)) {
+    type <- tolower(type)
+    if (type == "auto") type <- "quantitative"
+    if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
+      message('"type" is not a valid value for this spec component. Ignoring.')
+      return(vl)
+    }
+    vl$x$encoding[[chnl]] <- list(field=field, type=type)
+  } else {
+    vl$x$encoding[[chnl]] <- list(value=value)
+  }
 
-  if (!is.null(aggregate)) vl$x$encoding$x$aggregate <- aggregate
-  if (!is.null(sort)) vl$x$encoding$x$sort <- sort
+  if (!is.null(aggregate)) vl$x$encoding[[chnl]]$aggregate <- aggregate
+  if (!is.null(sort)) vl$x$encoding[[chnl]]$sort <- sort
 
   vl
 
+}
+
+#' Encode x "channel"
+#'
+#' Vega-Lite has many "encoding channels". Each channel definition object must
+#' describe the data field encoded by the channel and its data type, or a constant
+#' value directly mapped to the mark properties. In addition, it can describe the
+#' mapped field’s transformation and properties for its scale and guide.
+#'
+#' @param vl Vega-Lite object created by \code{\link{vegalite}}
+#' @param field single element character vector naming the column. Can be \code{*} is using
+#'        \code{aggregate}.
+#' @param type the encoded field’s type of measurement. This can be either a full type
+#'        name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
+#'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
+#'        This property is case insensitive. If \code{auto} is used, the type will
+#'        be guessed (so you may want to actually specify it if you want consistency).
+#' @param aggregate perform aggregaton on \code{field}. See
+#'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
+#'        more info on valid operations. Leave \code{NULL} for no aggregation.
+#' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
+#'        the result of a call to \code{\link{sort_def}}
+#' @encoding UTF-8
+#' @note right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
+#'       will eventually get smarter, but you are better off specifying it.
+#' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
+#' @export
+#' @examples
+#' dat <- jsonlite::fromJSON('[
+#'     {"a": "A","b": 28}, {"a": "B","b": 55}, {"a": "C","b": 43},
+#'     {"a": "D","b": 91}, {"a": "E","b": 81}, {"a": "F","b": 53},
+#'     {"a": "G","b": 19}, {"a": "H","b": 87}, {"a": "I","b": 52}
+#'   ]')
+#'
+#' vegalite() %>%
+#'   add_data(dat) %>%
+#'   encode_x("a", "ordinal") %>%
+#'   encode_y("b", "quantitative") %>%
+#'   mark_bar()
+encode_x <- function(vl, ...) {
+  vl <- encode(vl, chnl="x", ...)
+
+  vl
 }
 
 #' Encode y "channel"
@@ -89,22 +141,10 @@ encode_x <- function(vl, field, type="auto", aggregate=NULL, sort=NULL) {
 #'   encode_x("a", "ordinal") %>%
 #'   encode_y("b", "quantitative") %>%
 #'   mark_bar()
-encode_y <- function(vl, field, type="auto", aggregate=NULL, sort=NULL) {
-
-  type <- tolower(type)
-  if (type == "auto") type <- "quantitative"
-  if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-    message('"type" is not a valid value for this spec component. Ignoring.')
-    return(vl)
-  }
-
-  vl$x$encoding$y <- list(field=field, type=type)
-
-  if (!is.null(aggregate)) vl$x$encoding$y$aggregate <- aggregate
-  if (!is.null(sort)) vl$x$encoding$y$sort <- sort
+encode_y <- function(vl, ...) {
+  vl <- encode(vl, chnl="y", ...)
 
   vl
-
 }
 
 #' Encode color "channel"
@@ -136,28 +176,9 @@ encode_y <- function(vl, field, type="auto", aggregate=NULL, sort=NULL) {
 #'   encode_shape("Origin", "nominal") %>%
 #'   mark_point()
 encode_color <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=NULL) {
-
-  if (is.null(field) & is.null(value)) {
-    stop('Either "field" or "value" must be specified', call.=FALSE)
-  }
-
-  if (!is.null(field)) {
-    type <- tolower(type)
-    if (type == "auto") type <- "quantitative"
-    if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-      message('"type" is not a valid value for this spec component. Ignoring.')
-      return(vl)
-    }
-    vl$x$encoding$color <- list(field=field, type=type)
-  } else {
-    vl$x$encoding$color <- list(value=value)
-  }
-
-  if (!is.null(aggregate)) vl$x$encoding$color$aggregate <- aggregate
-  if (!is.null(sort)) vl$x$encoding$color$sort <- sort
+  vl <- encode(vl, chnl="color", ...)
 
   vl
-
 }
 
 #' Encode shape "channel"
@@ -189,28 +210,9 @@ encode_color <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=
 #'   encode_shape("Origin", "nominal") %>%
 #'   mark_point()
 encode_shape <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=NULL) {
-
-  if (is.null(field) & is.null(value)) {
-    stop('Either "field" or "value" must be specified', call.=FALSE)
-  }
-
-  if (!is.null(field)) {
-    type <- tolower(type)
-    if (type == "auto") type <- "quantitative"
-    if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-      message('"type" is not a valid value for this spec component. Ignoring.')
-      return(vl)
-    }
-    vl$x$encoding$shape <- list(field=field, type=type)
-  } else {
-    vl$x$encoding$shape <- list(value=value)
-  }
-
-  if (!is.null(aggregate)) vl$x$encoding$shape$aggregate <- aggregate
-  if (!is.null(sort)) vl$x$encoding$shape$sort <- sort
+  vl <- encode(vl, chnl="shape", ...)
 
   vl
-
 }
 
 #' Encode size "channel"
@@ -242,28 +244,9 @@ encode_shape <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=
 #'   encode_size("Acceleration", "quantitative") %>%
 #'   mark_point()
 encode_size <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=NULL) {
-
-  if (is.null(field) & is.null(value)) {
-    stop('Either "field" or "value" must be specified', call.=FALSE)
-  }
-
-  if (!is.null(field)) {
-    type <- tolower(type)
-    if (type == "auto") type <- "quantitative"
-    if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-      message('"type" is not a valid value for this spec component. Ignoring.')
-      return(vl)
-    }
-    vl$x$encoding$size <- list(field=field, type=type)
-  } else {
-    vl$x$encoding$size <- list(value=value)
-  }
-
-  if (!is.null(aggregate)) vl$x$encoding$size$aggregate <- aggregate
-  if (!is.null(sort)) vl$x$encoding$size$sort <- sort
+  vl <- encode(vl, chnl="size", ...)
 
   vl
-
 }
 
 #' Encode text "channel"
@@ -298,28 +281,8 @@ encode_size <- function(vl, field=NULL, type, value=NULL, aggregate=NULL, sort=N
 #'   encode_text("OriginInitial", "nominal") %>%
 #'   mark_text()
 encode_text <- function(vl, field, type, value=NULL, aggregate=NULL, sort=NULL) {
-
-  if (is.null(field) & is.null(value)) {
-    stop('Either "field" or "value" must be specified', call.=FALSE)
-  }
-
-  if (!is.null(field)) {
-    type <- tolower(type)
-    if (type == "auto") type <- "quantitative"
-    if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-      message('"type" is not a valid value for this spec component. Ignoring.')
-      return(vl)
-    }
-    vl$x$encoding$text <- list(field=field, type=type)
-  } else {
-    vl$x$encoding$text <- list(value=value)
-  }
-
-  if (!is.null(aggregate)) vl$x$encoding$text$aggregate <- aggregate
-  if (!is.null(sort)) vl$x$encoding$text$sort <- sort
-
+  vl <- encode(vl, chnl="text", ...)
   vl
-
 }
 
 #' Encode detail "channel"
@@ -360,22 +323,17 @@ encode_text <- function(vl, field, type, value=NULL, aggregate=NULL, sort=NULL) 
 #'   encode_detail("symbol", "nominal") %>%
 #'   mark_line()
 encode_detail <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
-
-  type <- tolower(type)
-  if (type == "auto") type <- "quantitative"
-  if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-    message('"type" is not a valid value for this spec component. Ignoring.')
-    return(vl)
+  if(is.null(field)){
+    stop('"detail" channel requires the use of "field"', call.=FALSE)
   }
 
-  if (is.null(field)) { stop('"field" must be specified', call.=FALSE) }
+  if(!is.null(value)){
+    message('"value" is invalid for "detail" channel, using "field"')
+  }
 
-  vl$x$encoding$detail <- list(field=field, type=type)
-  if (!is.null(aggregate)) vl$x$encoding$detail$aggregate <- aggregate
-  if (!is.null(sort)) vl$x$encoding$order$sort <- sort
+  vl <- encode(vl, chnl="detail", field=field, ...)
 
   vl
-
 }
 
 #' Encode detail "order"
@@ -416,22 +374,17 @@ encode_detail <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 #'   encode_order("Origin", "ordinal", sort="descending") %>%
 #'   mark_point()
 encode_order <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
-
-  type <- tolower(type)
-  if (type == "auto") type <- "quantitative"
-  if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-    message('"type" is not a valid value for this spec component. Ignoring.')
-    return(vl)
+  if(is.null(field)){
+    stop('"order" channel requires the use of "field"', call.=FALSE)
   }
 
-  if (!is.null(aggregate)) vl$x$encoding$text$aggregate <- aggregate
-  if (is.null(field)) { stop('"field" must be specified', call.=FALSE) }
+  if(!is.null(value)){
+    message('"value" is invalid for "order" channel, using "field"')
+  }
 
-  vl$x$encoding$order <- list(field=field, type=type)
-  if (!is.null(sort)) vl$x$encoding$order$sort <- sort
+  vl <- encode(vl, chnl="order", field=field, ...)
 
   vl
-
 }
 
 #' Encode detail "path"
@@ -474,20 +427,15 @@ encode_order <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
 #'   scale_y_linear(zero=FALSE) %>%
 #'   mark_line()
 encode_path <- function(vl, field=NULL, type, aggregate=NULL, sort=NULL) {
-
-  type <- tolower(type)
-  if (type == "auto") type <- "quantitative"
-  if (!type %in% c("quantitative", "temporal", "ordinal", "nominal", "q", "t", "o", "n")) {
-    message('"type" is not a valid value for this spec component. Ignoring.')
-    return(vl)
+  if(is.null(field)){
+    stop('"path" channel requires the use of "field"', call.=FALSE)
   }
 
-  if (!is.null(aggregate)) vl$x$encoding$path$aggregate <- aggregate
-  if (is.null(field)) { stop('"field" must be specified', call.=FALSE) }
+  if(!is.null(value)){
+    message('"value" is invalid for "path" channel, using "field"')
+  }
 
-  vl$x$encoding$path <- list(field=field, type=type)
-  if (!is.null(sort)) vl$x$encoding$path$sort <- sort
+  vl <- encode(vl, chnl="path", field=field, ...)
 
   vl
-
 }
