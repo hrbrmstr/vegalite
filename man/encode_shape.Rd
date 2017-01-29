@@ -5,8 +5,7 @@
 \alias{encode_shape}
 \title{Encode shape "channel"}
 \usage{
-encode_shape(vl, field = NULL, type, value = NULL, aggregate = NULL,
-  sort = NULL)
+encode_shape(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
@@ -19,11 +18,11 @@ or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
 
-\item{value}{scale value}
-
 \item{aggregate}{perform aggregaton on \code{field}. See
 \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
 more info on valid operations. Leave \code{NULL} for no aggregation.}
+
+\item{value}{scale value}
 
 \item{sort}{either one of \code{ascending}, \code{descending} or (for ordinal scales)
 the result of a call to \code{\link{sort_def}}}

@@ -5,7 +5,7 @@
 \alias{encode_order}
 \title{Encode detail "order"}
 \usage{
-encode_order(vl, field = NULL, type, aggregate = NULL, sort = NULL)
+encode_order(vl, field = NULL, type = "auto", value = NULL, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}

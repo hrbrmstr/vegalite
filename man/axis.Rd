@@ -8,15 +8,15 @@
 axis(vl, chnl = "x", axisColor = NULL, axisWidth = NULL, offset = NULL,
   orient = NULL, zindex = NULL, grid = NULL, gridColor = NULL,
   gridDash = NULL, gridOpacity = NULL, gridWidth = NULL, labels = TRUE,
-  format = NULL, labelAngle = NULL, labelMaxLength = 25,
-  shortTimeLabels = NULL, subdivide = NULL, ticks = NULL,
-  tickColor = NULL, tickLabelColor = NULL, tickLabelFont = NULL,
-  tickLabelFontSize = NULL, tickPadding = NULL, tickSize = NULL,
-  tickSizeMajor = NULL, tickSizeMinor = NULL, tickSizeEnd = NULL,
-  tickWidth = NULL, values = NULL, title = "", titleColor = NULL,
-  titleFont = NULL, titleFontWeight = NULL, titleFontSize = NULL,
-  titleOffset = NULL, titleMaxLength = NULL, characterWidth = 6,
-  remove = FALSE)
+  format = NULL, labelAngle = NULL, labelAlign = NULL,
+  labelBaseline = NULL, labelMaxLength = 25, shortTimeLabels = NULL,
+  subdivide = NULL, ticks = NULL, tickColor = NULL,
+  tickLabelColor = NULL, tickLabelFont = NULL, tickLabelFontSize = NULL,
+  tickPadding = NULL, tickSize = NULL, tickSizeMajor = NULL,
+  tickSizeMinor = NULL, tickSizeEnd = NULL, tickWidth = NULL,
+  values = NULL, title = "", titleColor = NULL, titleFont = NULL,
+  titleFontWeight = NULL, titleFontSize = NULL, titleOffset = NULL,
+  titleMaxLength = NULL, characterWidth = 6, remove = FALSE)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

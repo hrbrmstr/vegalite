@@ -5,7 +5,7 @@
 \alias{encode_detail}
 \title{Encode detail "channel"}
 \usage{
-encode_detail(vl, field = NULL, type, aggregate = NULL, sort = NULL)
+encode_detail(vl, field = NULL, type = "auto", value = NULL, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}

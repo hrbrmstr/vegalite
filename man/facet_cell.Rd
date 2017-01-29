@@ -5,9 +5,7 @@
 \alias{facet_cell}
 \title{Facet cell aesthetics}
 \usage{
-facet_cell(vl, width = 200, height = 200, fill = NULL,
-  fill_opacity = NULL, stroke = NULL, stroke_opacity = NULL,
-  stroke_width = NULL, stroke_dash = NULL, stroke_dash_offset = NULL)
+facet_cell(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
@@ -16,6 +14,8 @@ facet_cell(vl, width = 200, height = 200, fill = NULL,
 the width of a visualization with a continuous x-scale and the height of
 a visualization with a continuous y-scale respectively. Visit the
 URL in the References section for more information.}
+
+\item{clip}{\code{FALSE} by default, whether the view should be clipped.}
 
 \item{fill}{fill color}
 

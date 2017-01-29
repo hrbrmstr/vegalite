@@ -5,8 +5,7 @@
 \alias{encode_size}
 \title{Encode size "channel"}
 \usage{
-encode_size(vl, field = NULL, type, value = NULL, aggregate = NULL,
-  sort = NULL)
+encode_size(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
@@ -14,13 +13,13 @@ encode_size(vl, field = NULL, type, value = NULL, aggregate = NULL,
 \item{field}{single element character vector naming the column. Can be \code{*} is using
 \code{aggregate}.}
 
+\item{value}{scale value}
+
 \item{type}{the encoded field’s type of measurement. This can be either a full type
 name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
 or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
-
-\item{value}{scale value}
 
 \item{aggregate}{perform aggregaton on \code{field}. See
 \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for

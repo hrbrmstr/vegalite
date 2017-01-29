@@ -5,8 +5,7 @@
 \alias{bin_y}
 \title{Group continuous data values (y-axis)}
 \usage{
-bin_y(vl, min = NULL, max = NULL, base = NULL, step = NULL,
-  steps = NULL, minstep = NULL, div = NULL, maxbins = NULL)
+bin_y(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
