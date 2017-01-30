@@ -3,6 +3,9 @@
 \encoding{UTF-8}
 \name{legend}
 \alias{legend}
+\alias{legend_color}
+\alias{legend_shape}
+\alias{legend_size}
 \title{Legend settings (all)}
 \usage{
 legend(vl, chnl = "color", orient = NULL, offset = NULL, values = NULL,
@@ -12,6 +15,12 @@ legend(vl, chnl = "color", orient = NULL, offset = NULL, values = NULL,
   symbolSize = NULL, symbolStrokeWidth = NULL, title = NULL,
   titleColor = NULL, titleFont = NULL, titleFontSize = NULL,
   titleFontWeight = NULL, remove = FALSE)
+
+legend_color(vl, ...)
+
+legend_size(vl, ...)
+
+legend_shape(vl, ...)
 }
 \arguments{
 \item{vl}{a Vega-Lite object}

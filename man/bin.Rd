@@ -3,10 +3,16 @@
 \encoding{UTF-8}
 \name{bin}
 \alias{bin}
+\alias{bin_x}
+\alias{bin_y}
 \title{Group continuous data values (all)}
 \usage{
 bin(vl, chnl = "x", min = NULL, max = NULL, base = NULL, step = NULL,
   steps = NULL, minstep = NULL, div = NULL, maxbins = NULL)
+
+bin_x(vl, ...)
+
+bin_y(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

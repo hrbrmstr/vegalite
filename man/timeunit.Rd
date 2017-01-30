@@ -2,9 +2,15 @@
 % Please edit documentation in R/time.r
 \name{timeunit}
 \alias{timeunit}
+\alias{timeunit_x}
+\alias{timeunit_y}
 \title{How to encode time values}
 \usage{
 timeunit(vl, chnl = "x", unit)
+
+timeunit_x(vl, unit)
+
+timeunit_y(vl, unit)
 }
 \arguments{
 \item{vl}{Vega-Lite object}

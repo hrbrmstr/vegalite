@@ -52,60 +52,21 @@ legend <- function(vl, chnl="color", orient=NULL, offset=NULL, values=NULL,
 }
 
 
-#' Legend settings (color)
-#'
-#' @param vl a Vega-Lite object
-#' @param orient,offset,values
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#general}{legend docs}
-#' @param title the title for the legend.
-#' @param format,labelAlign,labelBaseline,labelColor,labelFont,labelFontSize,short_time_labels
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#labels}{legend docs}
-#' @param symbolColor,symbolShape,symbolSize,symbolStrokeWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#symbols}{legend docs}
-#' @param title,titleColor,titleFont,titleFontSize,titleFontWeight
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}
-#' @param remove if \code{TRUE}, there will be no legend for this aesthetic.
-#' @encoding UTF-8
+#' @rdname legend
 #' @export
 legend_color <- function(vl, ...) {
   vl <- legend(vl, chnl="color", ...)
   vl
 }
 
-#' Legend settings (size)
-#'
-#' @param vl a Vega-Lite object
-#' @param orient,offset,values
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#general}{legend docs}
-#' @param title the title for the legend.
-#' @param format,labelAlign,labelBaseline,labelColor,labelFont,labelFontSize,short_time_labels
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#labels}{legend docs}
-#' @param symbolColor,symbolShape,symbolSize,symbolStrokeWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#symbols}{legend docs}
-#' @param title,titleColor,titleFont,titleFontSize,titleFontWeight
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}
-#' @param remove if \code{TRUE}, there will be no legend for this aesthetic.
-#' @encoding UTF-8
+#' @rdname legend
 #' @export
 legend_size <- function(vl, ...) {
   vl <- legend(vl, chnl="size", ...)
   vl
 }
 
-#' Legend settings (shape)
-#'
-#' @param vl a Vega-Lite object
-#' @param orient,offset,values
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#general}{legend docs}
-#' @param title the title for the legend.
-#' @param format,labelAlign,labelBaseline,labelColor,labelFont,labelFontSize,short_time_labels
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#labels}{legend docs}
-#' @param symbolColor,symbolShape,symbolSize,symbolStrokeWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#symbols}{legend docs}
-#' @param title,titleColor,titleFont,titleFontSize,titleFontWeight
-#'        see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}
-#' @param remove if \code{TRUE}, there will be no legend for this aesthetic.
-#' @encoding UTF-8
+#' @rdname legend
 #' @export
 legend_shape <- function(vl, ...) {
   vl <- legend(vl, chnl="shape", ...)

@@ -3,10 +3,42 @@
 \encoding{UTF-8}
 \name{encode}
 \alias{encode}
+\alias{encode_color}
+\alias{encode_order}
+\alias{encode_path}
+\alias{encode_shape}
+\alias{encode_size}
+\alias{encode_text}
+\alias{encode_x}
+\alias{encode_y}
+\alias{facet_col}
+\alias{facet_row}
 \title{Encode all "channels"}
 \usage{
 encode(vl, chnl = "x", field, type = "auto", value = NULL,
   aggregate = NULL, sort = NULL, padding = NULL, round = NULL)
+
+encode_x(vl, ...)
+
+encode_y(vl, ...)
+
+encode_color(vl, ...)
+
+encode_shape(vl, ...)
+
+encode_size(vl, ...)
+
+encode_text(vl, ...)
+
+encode_order(vl, field = NULL, type = "auto", value = NULL, ...)
+
+encode_path(vl, field = NULL, type = "auto", value = NULL, ...)
+
+facet_col(vl, field = NULL, type = "auto", round = TRUE, padding = 16,
+  value = NULL, ...)
+
+facet_row(vl, field = NULL, type = "auto", round = TRUE, padding = 16,
+  value = NULL, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
@@ -22,18 +54,30 @@ or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
 
-\item{aggregate}{perform aggregaton on \code{field}. See
+\item{aggregate}{perform aggregation on \code{field}. See
 \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
 more info on valid operations. Leave \code{NULL} for no aggregation.}
 
 \item{sort}{either one of \code{ascending}, \code{descending} or (for ordinal scales)
 the result of a call to \code{\link{sort_def}}}
+
+\item{padding}{facet padding}
+
+\item{round}{round values}
+
+\item{round}{round values}
+
+\item{padding}{facet padding}
 }
 \description{
 Vega-Lite has many "encoding channels". Each channel definition object must
 describe the data field encoded by the channel and its data type, or a constant
 value directly mapped to the mark properties. In addition, it can describe the
 mapped field’s transformation and properties for its scale and guide.
+
+Create a horizontal ribbon of panels
+
+Create a vertical ribbon of panels
 }
 \note{
 right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
@@ -51,8 +95,27 @@ vegalite() \%>\%
   encode_x("a", "ordinal") \%>\%
   encode_y("b", "quantitative") \%>\%
   mark_bar()
+vegalite() \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/population.json") \%>\%
+  add_filter("datum.year == 2000") \%>\%
+  calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') \%>\%
+  encode_x("gender", "nominal") \%>\%
+  encode_y("people", "quantitative", aggregate="sum") \%>\%
+  encode_color("gender", "nominal") \%>\%
+  scale_x_ordinal(band_size=6) \%>\%
+  scale_color_nominal(range=c("#EA98D2", "#659CCA")) \%>\%
+  facet_col("age", "ordinal", padding=4) \%>\%
+  axis_x(remove=TRUE) \%>\%
+  axis_y(title="population", grid=FALSE) \%>\%
+  axis_facet_col(orient="bottom", axisWidth=1, offset=-8) \%>\%
+  facet_cell(stroke_width=0) \%>\%
+  mark_bar()
 }
 \references{
 \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
+
+\href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
+
+\href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
 }
 
