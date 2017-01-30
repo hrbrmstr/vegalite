@@ -115,14 +115,14 @@ axes <- function(vl, chnl = "x", axisColor=NULL, axisWidth=NULL, offset=NULL, or
 #' @rdname axes
 #' @export
 axis_x <- function(vl, ...) {
-  vl <- axis(vl, chnl = "x", ...)
+  vl <- axes(vl, chnl = "x", ...)
   vl
 }
 
 #' @rdname axes
 #' @export
 axis_y <- function(vl, ...) {
-  vl <- axis(vl, chnl = "y", ...)
+  vl <- axes(vl, chnl = "y", ...)
   vl
 }
 
@@ -146,7 +146,7 @@ axis_y <- function(vl, ...) {
 #'   mark_bar()
 
 axis_facet_col <- function(vl, ...) {
-  vl <- axis(vl, chnl = "column", ...)
+  vl <- axes(vl, chnl = "column", ...)
   vl
 }
 
@@ -154,6 +154,6 @@ axis_facet_col <- function(vl, ...) {
 #' @rdname axes
 #' @export
 axis_facet_row <- function(vl, ...) {
-  vl <- axis(vl, chnl = "row", ...)
+  vl <- axes(vl, chnl = "row", ...)
   vl
 }
