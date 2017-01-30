@@ -4,6 +4,7 @@
 \name{encode}
 \alias{encode}
 \alias{encode_color}
+\alias{encode_detail}
 \alias{encode_order}
 \alias{encode_path}
 \alias{encode_shape}
@@ -30,6 +31,8 @@ encode_size(vl, ...)
 
 encode_text(vl, ...)
 
+encode_detail(vl, field = NULL, type = "auto", value = NULL, ...)
+
 encode_order(vl, field = NULL, type = "auto", value = NULL, ...)
 
 encode_path(vl, field = NULL, type = "auto", value = NULL, ...)
@@ -54,6 +57,8 @@ or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}
 This property is case insensitive. If \code{auto} is used, the type will
 be guessed (so you may want to actually specify it if you want consistency).}
 
+\item{value}{if \code{field} is not specified, a constant value in visual domain.}
+
 \item{aggregate}{perform aggregation on \code{field}. See
 \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
 more info on valid operations. Leave \code{NULL} for no aggregation.}
@@ -64,16 +69,22 @@ the result of a call to \code{\link{sort_def}}}
 \item{padding}{facet padding}
 
 \item{round}{round values}
-
-\item{round}{round values}
-
-\item{padding}{facet padding}
 }
 \description{
 Vega-Lite has many "encoding channels". Each channel definition object must
 describe the data field encoded by the channel and its data type, or a constant
 value directly mapped to the mark properties. In addition, it can describe the
 mapped field’s transformation and properties for its scale and guide.
+
+Grouping data is another important operation in visualizing data. For
+aggregated plots, all encoded fields without aggregate functions are used as
+grouping fields in the aggregation (similar to fields in GROUP BY in SQL).
+For line and area marks, mapping a data field to color or shape channel will
+group the lines and stacked areas by the field.\cr
+\cr
+detail channel allows providing an additional grouping field (level) for
+grouping data in aggregation without mapping data to a specific visual
+channel.
 
 Create a horizontal ribbon of panels
 
@@ -95,6 +106,13 @@ vegalite() \%>\%
   encode_x("a", "ordinal") \%>\%
   encode_y("b", "quantitative") \%>\%
   mark_bar()
+vegalite() \%>\%
+  cell_size(200, 200) \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") \%>\%
+  encode_x("date", "temporal") \%>\%
+  encode_y("price", "quantitative") \%>\%
+  encode_detail("symbol", "nominal") \%>\%
+  mark_line()
 vegalite() \%>\%
   add_data("https://vega.github.io/vega-editor/app/data/population.json") \%>\%
   add_filter("datum.year == 2000") \%>\%

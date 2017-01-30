@@ -14,6 +14,7 @@
 #'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
 #'        This property is case insensitive. If \code{auto} is used, the type will
 #'        be guessed (so you may want to actually specify it if you want consistency).
+#' @param value if \code{field} is not specified, a constant value in visual domain.
 #' @param aggregate perform aggregation on \code{field}. See
 #'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
@@ -127,22 +128,7 @@ encode_text <- function(vl, ...) {
 #' grouping data in aggregation without mapping data to a specific visual
 #' channel.
 #'
-#' @param vl Vega-Lite object created by \code{\link{vegalite}}
-#' @param field single element character vector naming the column
-#' @param type the encoded field’s type of measurement. This can be either a full type
-#'        name (\code{quantitative}, \code{temporal}, \code{ordinal}, and \code{nominal})
-#'        or an initial character of the type name (\code{Q}, \code{T}, \code{O}, \code{N}).
-#'        This property is case insensitive. If \code{auto} is used, the type will
-#'        be guessed (so you may want to actually specify it if you want consistency).
-#' @param aggregate perform aggregaton on \code{field}. See
-#'        \href{http://vega.github.io/vega-lite/docs/aggregate.html}{Supported Aggregation Options} for
-#'        more info on valid operations. Leave \code{NULL} for no aggregation.
-#' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
-#'        the result of a call to \code{\link{sort_def}}
-#' @encoding UTF-8
-#' @note right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
-#'       will eventually get smarter, but you are better off specifying it.
-#' @references \href{http://vega.github.io/vega-lite/docs/encoding.html}{Vega-Lite Encoding spec}
+#' @rdname encode
 #' @export
 #' @examples
 #' vegalite() %>%
@@ -242,9 +228,7 @@ facet_col <- function(vl, field=NULL, type='auto',
 
 #' Create a vertical ribbon of panels
 #'
-#' @inheritParams encode
-#' @param round round values
-#' @param padding facet padding
+#' @inheritParams facet_col
 #' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
 #' @rdname encode
 #' @export

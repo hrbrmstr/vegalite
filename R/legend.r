@@ -4,7 +4,6 @@
 #' @param chnl a channel, by default vegalite creates legends for color, size, and shape
 #' @param orient,offset,values
 #'        see \href{https://vega.github.io/vega-lite/docs/legend.html#general}{legend docs}
-#' @param title the title for the legend.
 #' @param format,labelAlign,labelBaseline,labelColor,labelFont,labelFontSize,short_time_labels
 #'        see \href{https://vega.github.io/vega-lite/docs/legend.html#labels}{legend docs}
 #' @param symbolColor,symbolShape,symbolSize,symbolStrokeWidth

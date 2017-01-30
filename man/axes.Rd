@@ -41,7 +41,7 @@ axis_facet_row(vl, ...)
 \item{grid, gridColor, gridDash, gridOpacity, gridWidth}{see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
 \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
 
-\item{labels, format, labelAngle, labelMaxLength, shortTimeLabels}{see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
+\item{labels, format, labelAngle, labelAlign, labelBaseline, labelMaxLength, shortTimeLabels}{see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
 \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
 
 \item{subdivide, ticks, tickColor, tickLabelColor, tickLabelFont, tickLabelFontSize, tickPadding, tickSize, tickSizeMajor, tickSizeMinor, tickSizeEnd, tickWidth, values}{see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs} &

@@ -33,11 +33,9 @@ legend_shape(vl, ...)
 
 \item{symbolColor, symbolShape, symbolSize, symbolStrokeWidth}{see \href{https://vega.github.io/vega-lite/docs/legend.html#symbols}{legend docs}}
 
-\item{title}{the title for the legend.}
+\item{title, titleColor, titleFont, titleFontSize, titleFontWeight}{see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}}
 
 \item{remove}{if \code{TRUE}, there will be no legend for this aesthetic.}
-
-\item{title, titleColor, titleFont, titleFontSize, titleFontWeight}{see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}}
 }
 \description{
 Legend settings (all)
