@@ -151,7 +151,7 @@ vegalite() \%>\%
   mark_text()
 }
 \references{
-\href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
-            \href{https://vega.github.io/vega-lite/docs/config.html#mark-config}
+\href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec},
+\href{https://vega.github.io/vega-lite/docs/config.html#mark-config}{Vega-Lite config.mark spec}
 }
 

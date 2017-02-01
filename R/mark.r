@@ -34,8 +34,8 @@
 #' @param tickThickness the thickness of ticks.
 #' @rdname mark
 #' @encoding UTF-8
-#' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
-#'             \href{https://vega.github.io/vega-lite/docs/config.html#mark-config}
+#' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec},
+#' \href{https://vega.github.io/vega-lite/docs/config.html#mark-config}{Vega-Lite config.mark spec}
 #' @export
 #' @examples
 #' dat <- jsonlite::fromJSON('[
