@@ -66,7 +66,7 @@ legend_size <- function(vl, ...) {
   vl
 }
 
-#' @rdname legend
+#' @rdname legend_vl
 #' @export
 legend_shape <- function(vl, ...) {
   vl <- legend_vl(vl, chnl="shape", ...)
