@@ -14,12 +14,13 @@
 #' @encoding UTF-8
 #' @export
 
-legend <- function(vl, chnl="color", orient=NULL, offset=NULL, values=NULL,
-                   format=NULL, labelAlign=NULL, labelBaseline=NULL, labelColor=NULL,
-                   labelFont=NULL, labelFontSize=NULL, short_time_labels=NULL,
-                   symbolColor=NULL, symbolShape=NULL, symbolSize=NULL, symbolStrokeWidth=NULL,
-                   title=NULL, titleColor=NULL, titleFont=NULL, titleFontSize=NULL,
-                   titleFontWeight=NULL, remove=FALSE) {
+legend_vl <- function(vl, chnl="color", orient=NULL, offset=NULL, values=NULL,
+                      format=NULL, labelAlign=NULL, labelBaseline=NULL,
+                      labelColor=NULL, labelFont=NULL, labelFontSize=NULL,
+                      short_time_labels=NULL, symbolColor=NULL,
+                      symbolShape=NULL, symbolSize=NULL, symbolStrokeWidth=NULL,
+                      title=NULL, titleColor=NULL, titleFont=NULL,
+                      titleFontSize=NULL, titleFontWeight=NULL, remove=FALSE) {
 
 
   if (remove) {
@@ -51,23 +52,23 @@ legend <- function(vl, chnl="color", orient=NULL, offset=NULL, values=NULL,
 }
 
 
-#' @rdname legend
+#' @rdname legend_vl
 #' @export
 legend_color <- function(vl, ...) {
-  vl <- legend(vl, chnl="color", ...)
+  vl <- legend_vl(vl, chnl="color", ...)
   vl
 }
 
-#' @rdname legend
+#' @rdname legend_vl
 #' @export
 legend_size <- function(vl, ...) {
-  vl <- legend(vl, chnl="size", ...)
+  vl <- legend_vl(vl, chnl="size", ...)
   vl
 }
 
 #' @rdname legend
 #' @export
 legend_shape <- function(vl, ...) {
-  vl <- legend(vl, chnl="shape", ...)
+  vl <- legend_vl(vl, chnl="shape", ...)
   vl
 }
