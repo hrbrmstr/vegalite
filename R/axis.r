@@ -2,14 +2,14 @@ vl <- wdgt_png_tf <- NULL
 
 #' General axis settings (all)
 #'
-#' Axes provide axis lines, ticks and labels to convey how a spatial range represents
+#' axis_vl provide axis lines, ticks and labels to convey how a spatial range represents
 #' a data range. Simply put, axes visualize scales. \cr
 #' \cr
 #' By default, Vega-Lite automatically creates axes for x, y, row, and column channels
 #' when they are encoded. Axis can be customized via the axis property of a channel
 #' definition. \cr
 #' \cr
-#' The axes function works with all possible channels, but axis_x, axis_y, axis_facet_row
+#' The axis_vl function works with all possible channels, but axis_x, axis_y, axis_facet_row
 #' and axis_facet_col are offered as conveniences.
 #'
 #' @param vl Vega-Lite object
@@ -54,16 +54,19 @@ vl <- wdgt_png_tf <- NULL
 #'   mark_bar()
 #'
 
-axes <- function(vl, chnl = "x", axisColor=NULL, axisWidth=NULL, offset=NULL, orient=NULL,
-                 zindex=NULL, grid=NULL, gridColor=NULL, gridDash=NULL, gridOpacity=NULL,
-                 gridWidth=NULL, labels=TRUE, format=NULL, labelAngle=NULL, labelAlign=NULL,
-                 labelBaseline=NULL, labelMaxLength=25, shortTimeLabels=NULL, subdivide=NULL,
-                 ticks=NULL, tickColor=NULL, tickLabelColor=NULL, tickLabelFont=NULL,
-                 tickLabelFontSize=NULL, tickPadding=NULL, tickSize=NULL, tickSizeMajor=NULL,
-                 tickSizeMinor=NULL, tickSizeEnd=NULL, tickWidth=NULL, values=NULL,
-                 title="", titleColor=NULL, titleFont=NULL, titleFontWeight=NULL,
-                 titleFontSize=NULL, titleOffset=NULL, titleMaxLength=NULL,
-                 characterWidth=6, remove=FALSE) {
+axis_vl <- function(vl, chnl = "x", axisColor=NULL, axisWidth=NULL, offset=NULL,
+                    orient=NULL, zindex=NULL, grid=NULL, gridColor=NULL,
+                    gridDash=NULL, gridOpacity=NULL, gridWidth=NULL,
+                    labels=TRUE, format=NULL, labelAngle=NULL, labelAlign=NULL,
+                    labelBaseline=NULL, labelMaxLength=25, shortTimeLabels=NULL,
+                    subdivide=NULL, ticks=NULL, tickColor=NULL,
+                    tickLabelColor=NULL, tickLabelFont=NULL,
+                    tickLabelFontSize=NULL, tickPadding=NULL, tickSize=NULL,
+                    tickSizeMajor=NULL, tickSizeMinor=NULL, tickSizeEnd=NULL,
+                    tickWidth=NULL, values=NULL, title="", titleColor=NULL,
+                    titleFont=NULL, titleFontWeight=NULL, titleFontSize=NULL,
+                    titleOffset=NULL, titleMaxLength=NULL, characterWidth=6,
+                    remove=FALSE) {
 
   if (remove) {
     vl$x$encoding[[chnl]]$axis <- FALSE
@@ -112,21 +115,21 @@ axes <- function(vl, chnl = "x", axisColor=NULL, axisWidth=NULL, offset=NULL, or
 
 }
 
-#' @rdname axes
+#' @rdname axis_vl
 #' @export
 axis_x <- function(vl, ...) {
-  vl <- axes(vl, chnl = "x", ...)
+  vl <- axis_vl(vl, chnl = "x", ...)
   vl
 }
 
-#' @rdname axes
+#' @rdname axis_vl
 #' @export
 axis_y <- function(vl, ...) {
-  vl <- axes(vl, chnl = "y", ...)
+  vl <- axis_vl(vl, chnl = "y", ...)
   vl
 }
 
-#' @rdname axes
+#' @rdname axis_vl
 #' @export
 #' @examples
 #' vegalite() %>%
@@ -146,14 +149,14 @@ axis_y <- function(vl, ...) {
 #'   mark_bar()
 
 axis_facet_col <- function(vl, ...) {
-  vl <- axes(vl, chnl = "column", ...)
+  vl <- axis_vl(vl, chnl = "column", ...)
   vl
 }
 
 
-#' @rdname axes
+#' @rdname axis_vl
 #' @export
 axis_facet_row <- function(vl, ...) {
-  vl <- axes(vl, chnl = "row", ...)
+  vl <- axis_vl(vl, chnl = "row", ...)
   vl
 }
