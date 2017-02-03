@@ -3,12 +3,18 @@
 \encoding{UTF-8}
 \name{cell_config}
 \alias{cell_config}
+\alias{cell_size}
+\alias{facet_cell}
 \title{Cell aesthetics}
 \usage{
 cell_config(vl, width = 200, height = 200, clip = FALSE, fill = NULL,
   fill_opacity = NULL, stroke = NULL, stroke_opacity = NULL,
   stroke_width = NULL, stroke_dash = NULL, stroke_dash_offset = NULL,
   facet = FALSE)
+
+cell_size(vl, width = 200, height = 200, facet = FALSE)
+
+facet_cell(vl, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
@@ -46,8 +52,29 @@ plot, which contains multiple plots. Each plot in either a single plot or a
 trellis plot is called a cell. Cell configuration allows us to customize each
 individual single plot and each plot in a trellis plot. Use facet=TRUE to
 apply the cell configuration to facets.
+
+At its core, a Vega-Lite specification describes a single plot. When a facet
+channel is added, the visualization is faceted into a trellis plot, which
+contains multiple plots. Each plot in either a single plot or a trellis plot
+is called a cell. Cell configuration allows us to customize each individual
+single plot and each plot in a trellis plot.
+}
+\examples{
+vegalite() \%>\%
+  cell_size(300, 200) \%>\%
+  add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") \%>\%
+  encode_x("date", "temporal") \%>\%
+  encode_y("count", "quantitative", aggregate="sum") \%>\%
+  encode_color("series", "nominal") \%>\%
+  scale_color_nominal(range="category20b") \%>\%
+  timeunit_x("yearmonth") \%>\%
+  scale_x_time(nice="month") \%>\%
+  axis_x(axisWidth=0, format="\%Y", labelAngle=0) \%>\%
+  mark_area()
 }
 \references{
 \href{http://vega.github.io/vega-lite/docs/config.html#cell-config}{Vega-Lite Cell spec}
+
+\href{http://vega.github.io/vega-lite/docs/config.html#facet-config}{Vega-Lite Facet spec}
 }
 

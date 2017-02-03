@@ -2,14 +2,14 @@ vl <- wdgt_png_tf <- NULL
 
 #' General axis settings (all)
 #'
-#' Axes provide axis lines, ticks and labels to convey how a spatial range represents
+#' axis_vl provide axis lines, ticks and labels to convey how a spatial range represents
 #' a data range. Simply put, axes visualize scales. \cr
 #' \cr
 #' By default, Vega-Lite automatically creates axes for x, y, row, and column channels
 #' when they are encoded. Axis can be customized via the axis property of a channel
 #' definition. \cr
 #' \cr
-#' The axes function works with all possible channels, but axis_x, axis_y, axis_facet_row
+#' The axis_vl function works with all possible channels, but axis_x, axis_y, axis_facet_row
 #' and axis_facet_col are offered as conveniences.
 #'
 #' @param vl Vega-Lite object
@@ -21,7 +21,7 @@ vl <- wdgt_png_tf <- NULL
 #' @param grid,gridColor,gridDash,gridOpacity,gridWidth
 #'        see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param labels,format,labelAngle,labelMaxLength,shortTimeLabels
+#' @param labels,format,labelAngle,labelAlign,labelBaseline,labelMaxLength,shortTimeLabels
 #'        see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
 #'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
 #' @param subdivide,ticks,tickColor,tickLabelColor,tickLabelFont,tickLabelFontSize,tickPadding,tickSize,tickSizeMajor,tickSizeMinor,tickSizeEnd,tickWidth,values
@@ -54,16 +54,19 @@ vl <- wdgt_png_tf <- NULL
 #'   mark_bar()
 #'
 
-axis <- function(vl, chnl = "x", axisColor=NULL, axisWidth=NULL, offset=NULL, orient=NULL,
-                 zindex=NULL, grid=NULL, gridColor=NULL, gridDash=NULL, gridOpacity=NULL,
-                 gridWidth=NULL, labels=TRUE, format=NULL, labelAngle=NULL, labelAlign=NULL,
-                 labelBaseline=NULL, labelMaxLength=25, shortTimeLabels=NULL, subdivide=NULL,
-                 ticks=NULL, tickColor=NULL, tickLabelColor=NULL, tickLabelFont=NULL,
-                 tickLabelFontSize=NULL, tickPadding=NULL, tickSize=NULL, tickSizeMajor=NULL,
-                 tickSizeMinor=NULL, tickSizeEnd=NULL, tickWidth=NULL, values=NULL,
-                 title="", titleColor=NULL, titleFont=NULL, titleFontWeight=NULL,
-                 titleFontSize=NULL, titleOffset=NULL, titleMaxLength=NULL,
-                 characterWidth=6, remove=FALSE) {
+axis_vl <- function(vl, chnl = "x", axisColor=NULL, axisWidth=NULL, offset=NULL,
+                    orient=NULL, zindex=NULL, grid=NULL, gridColor=NULL,
+                    gridDash=NULL, gridOpacity=NULL, gridWidth=NULL,
+                    labels=TRUE, format=NULL, labelAngle=NULL, labelAlign=NULL,
+                    labelBaseline=NULL, labelMaxLength=25, shortTimeLabels=NULL,
+                    subdivide=NULL, ticks=NULL, tickColor=NULL,
+                    tickLabelColor=NULL, tickLabelFont=NULL,
+                    tickLabelFontSize=NULL, tickPadding=NULL, tickSize=NULL,
+                    tickSizeMajor=NULL, tickSizeMinor=NULL, tickSizeEnd=NULL,
+                    tickWidth=NULL, values=NULL, title="", titleColor=NULL,
+                    titleFont=NULL, titleFontWeight=NULL, titleFontSize=NULL,
+                    titleOffset=NULL, titleMaxLength=NULL, characterWidth=6,
+                    remove=FALSE) {
 
   if (remove) {
     vl$x$encoding[[chnl]]$axis <- FALSE
@@ -112,145 +115,21 @@ axis <- function(vl, chnl = "x", axisColor=NULL, axisWidth=NULL, offset=NULL, or
 
 }
 
-
-#' General axis setttings (x-axis)
-#'
-#' Axes provide axis lines, ticks and labels to convey how a spatial range represents
-#' a data range. Simply put, axes visualize scales. \cr
-#' \cr
-#' By default, Vega-Lite automatically creates axes for x, y, row, and column channels
-#' when they are encoded. Axis can be customized via the axis property of a channel
-#' definition.
-#'
-#' @param vl Vega-Lite object
-#' @param axisColor,axisWidth,offset,orient,zindex
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#general}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param grid,gridColor,gridDash,gridOpacity,gridWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param labels,format,labelAngle,labelMaxLength,shortTimeLabels
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param subdivide,ticks,tickColor,tickLabelColor,tickLabelFont,tickLabelFontSize,tickPadding,tickSize,tickSizeMajor,tickSizeMinor,tickSizeEnd,tickWidth,values
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param title,titleColor,titleFont,titleFontWeight,titleFontSize,titleOffset,titleMaxLength,characterWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#title}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param remove
-#'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @encoding UTF-8
-#' @references \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
+#' @rdname axis_vl
 #' @export
-#' @examples
-#' vegalite() %>%
-#'   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
-#'   add_filter("datum.year == 2000") %>%
-#'   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
-#'   encode_x("gender", "nominal") %>%
-#'   encode_y("people", "quantitative", aggregate="sum") %>%
-#'   encode_color("gender", "nominal") %>%
-#'   scale_x_ordinal(band_size=6) %>%
-#'   scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
-#'   facet_col("age", "ordinal", padding=4) %>%
-#'   axis_x(remove=TRUE) %>%
-#'   axis_y(title="population", grid=FALSE) %>%
-#'   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
-#'   facet_cell(stroke_width=0) %>%
-#'   mark_bar()
-#'
-#'
-
 axis_x <- function(vl, ...) {
-  vl <- axis(vl, chnl = "x", ...)
+  vl <- axis_vl(vl, chnl = "x", ...)
   vl
 }
 
-#' General axis setttings (y-axis)
-#'
-#' Axes provide axis lines, ticks and labels to convey how a spatial range represents
-#' a data range. Simply put, axes visualize scales. \cr
-#' \cr
-#' By default, Vega-Lite automatically creates axes for x, y, row, and column channels
-#' when they are encoded. Axis can be customized via the axis property of a channel
-#' definition.
-#'
-#' @param vl Vega-Lite object
-#' @param axisColor,axisWidth,offset,orient,zindex
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#general}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param grid,gridColor,gridDash,gridOpacity,gridWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param labels,format,labelAngle,labelMaxLength,shortTimeLabels
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param subdivide,ticks,tickColor,tickLabelColor,tickLabelFont,tickLabelFontSize,tickPadding,tickSize,tickSizeMajor,tickSizeMinor,tickSizeEnd,tickWidth,values
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param title,titleColor,titleFont,titleFontWeight,titleFontSize,titleOffset,titleMaxLength,characterWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#title}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param remove
-#'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @encoding UTF-8
-#' @references \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
+#' @rdname axis_vl
 #' @export
-#' @examples
-#' vegalite() %>%
-#'   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
-#'   add_filter("datum.year == 2000") %>%
-#'   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
-#'   encode_x("gender", "nominal") %>%
-#'   encode_y("people", "quantitative", aggregate="sum") %>%
-#'   encode_color("gender", "nominal") %>%
-#'   scale_x_ordinal(band_size=6) %>%
-#'   scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
-#'   facet_col("age", "ordinal", padding=4) %>%
-#'   axis_x(remove=TRUE) %>%
-#'   axis_y(title="population", grid=FALSE) %>%
-#'   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
-#'   facet_cell(stroke_width=0) %>%
-#'   mark_bar()
-
 axis_y <- function(vl, ...) {
-  vl <- axis(vl, chnl = "y", ...)
+  vl <- axis_vl(vl, chnl = "y", ...)
   vl
 }
 
-#' General axis setttings (column facet)
-#'
-#' Axes provide axis lines, ticks and labels to convey how a spatial range represents
-#' a data range. Simply put, axes visualize scales. \cr
-#' \cr
-#' By default, Vega-Lite automatically creates axes for x, y, row, and column channels
-#' when they are encoded. Axis can be customized via the axis property of a channel
-#' definition.
-#'
-#' @param vl Vega-Lite object
-#' @param axisColor,axisWidth,offset,orient,zindex
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#general}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param grid,gridColor,gridDash,gridOpacity,gridWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param labels,format,labelAngle,labelMaxLength,shortTimeLabels
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param subdivide,ticks,tickColor,tickLabelColor,tickLabelFont,tickLabelFontSize,tickPadding,tickSize,tickSizeMajor,tickSizeMinor,tickSizeEnd,tickWidth,values
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param title,titleColor,titleFont,titleFontWeight,titleFontSize,titleOffset,titleMaxLength,characterWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#title}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param remove
-#'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @encoding UTF-8
-#' @references \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
+#' @rdname axis_vl
 #' @export
 #' @examples
 #' vegalite() %>%
@@ -270,44 +149,14 @@ axis_y <- function(vl, ...) {
 #'   mark_bar()
 
 axis_facet_col <- function(vl, ...) {
-  vl <- axis(vl, chnl = "column", ...)
+  vl <- axis_vl(vl, chnl = "column", ...)
   vl
 }
 
 
-#' General axis setttings (row facets)
-#'
-#' Axes provide axis lines, ticks and labels to convey how a spatial range represents
-#' a data range. Simply put, axes visualize scales. \cr
-#' \cr
-#' By default, Vega-Lite automatically creates axes for x, y, row, and column channels
-#' when they are encoded. Axis can be customized via the axis property of a channel
-#' definition.
-#'
-#' @param vl Vega-Lite object
-#' @param axisColor,axisWidth,offset,orient,zindex
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#general}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param grid,gridColor,gridDash,gridOpacity,gridWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param labels,format,labelAngle,labelMaxLength,shortTimeLabels
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param subdivide,ticks,tickColor,tickLabelColor,tickLabelFont,tickLabelFontSize,tickPadding,tickSize,tickSizeMajor,tickSizeMinor,tickSizeEnd,tickWidth,values
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param title,titleColor,titleFont,titleFontWeight,titleFontSize,titleOffset,titleMaxLength,characterWidth
-#'        see \href{https://vega.github.io/vega-lite/docs/axis.html#title}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @param remove
-#'        see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
-#'        \href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}
-#' @encoding UTF-8
-#' @references \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
+#' @rdname axis_vl
 #' @export
-
 axis_facet_row <- function(vl, ...) {
-  vl <- axis(vl, chnl = "row", ...)
+  vl <- axis_vl(vl, chnl = "row", ...)
   vl
 }
