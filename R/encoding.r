@@ -39,7 +39,7 @@
 #'   encode_y("b", "quantitative") %>%
 #'   mark_bar()
 
-encode <- function(vl, chnl="x", field, type="auto", value=NULL, aggregate=NULL,
+encode <- function(vl, chnl="x", field=NULL, type="auto", value=NULL, aggregate=NULL,
                    sort=NULL, padding=NULL, round=NULL) {
   if(is.null(field) & is.null(value)){
     # https://vega.github.io/vega-lite/docs/encoding.html#channels

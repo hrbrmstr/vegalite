@@ -1,3 +1,10 @@
+## 0.7.0
+* Updates vega-lite to final version before vega-lite 2
+* Refactors each of the functions to have a general form like mark() that the specific forms, like mark_point() call. This means that new options can be added in one place and not in each iteration of the same function.
+* All new arguments have been added.
+* Documentation for all the new arguments.
+* Light test coverage based on the vega*.json examples.
+
 ## 0.6.1.9000
 * changed the way `%>%` is exported
 
