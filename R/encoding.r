@@ -39,8 +39,8 @@
 #'   encode_y("b", "quantitative") %>%
 #'   mark_bar()
 
-encode <- function(vl, chnl="x", field=NULL, type="auto", value=NULL, aggregate=NULL,
-                   sort=NULL, padding=NULL, round=NULL) {
+encode_vl <- function(vl, chnl="x", field=NULL, type="auto", value=NULL,
+                      aggregate=NULL, sort=NULL, padding=NULL, round=NULL) {
   if(is.null(field) & is.null(value)){
     # https://vega.github.io/vega-lite/docs/encoding.html#channels
     message('Each channel definition object must describe the "field" or "value".')
@@ -71,7 +71,7 @@ encode <- function(vl, chnl="x", field=NULL, type="auto", value=NULL, aggregate=
 #' @rdname encode
 #' @export
 encode_x <- function(vl, ...) {
-  vl <- encode(vl, chnl="x", ...)
+  vl <- encode_vl(vl, chnl="x", ...)
 
   vl
 }
@@ -80,7 +80,7 @@ encode_x <- function(vl, ...) {
 #' @export
 
 encode_y <- function(vl, ...) {
-  vl <- encode(vl, chnl="y", ...)
+  vl <- encode_vl(vl, chnl="y", ...)
 
   vl
 }
@@ -88,7 +88,7 @@ encode_y <- function(vl, ...) {
 #' @rdname encode
 #' @export
 encode_color <- function(vl, ...) {
-  vl <- encode(vl, chnl="color", ...)
+  vl <- encode_vl(vl, chnl="color", ...)
 
   vl
 }
@@ -96,7 +96,7 @@ encode_color <- function(vl, ...) {
 #' @rdname encode
 #' @export
 encode_shape <- function(vl, ...) {
-  vl <- encode(vl, chnl="shape", ...)
+  vl <- encode_vl(vl, chnl="shape", ...)
 
   vl
 }
@@ -104,7 +104,7 @@ encode_shape <- function(vl, ...) {
 #' @rdname encode
 #' @export
 encode_size <- function(vl, ...) {
-  vl <- encode(vl, chnl="size", ...)
+  vl <- encode_vl(vl, chnl="size", ...)
 
   vl
 }
@@ -112,7 +112,7 @@ encode_size <- function(vl, ...) {
 #' @rdname encode
 #' @export
 encode_text <- function(vl, ...) {
-  vl <- encode(vl, chnl="text", ...)
+  vl <- encode_vl(vl, chnl="text", ...)
   vl
 }
 
@@ -148,7 +148,7 @@ encode_detail <- function(vl, field=NULL, type="auto", value=NULL, ...) {
     message('"value" is invalid for "detail" channel, using "field"')
   }
 
-  vl <- encode(vl, chnl="detail", field=field, type=type, ...)
+  vl <- encode_vl(vl, chnl="detail", field=field, type=type, ...)
 
   vl
 }
@@ -165,7 +165,7 @@ encode_order <- function(vl, field=NULL, type="auto", value=NULL, ...) {
     message('"value" is invalid for "order" channel, using "field"')
   }
 
-  vl <- encode(vl, chnl="order", field=field, ...)
+  vl <- encode_vl(vl, chnl="order", field=field, ...)
 
   vl
 }
@@ -182,7 +182,7 @@ encode_path <- function(vl, field=NULL, type="auto", value=NULL, ...) {
     message('"value" is invalid for "path" channel, using "field"')
   }
 
-  vl <- encode(vl, chnl="path", field=field, ...)
+  vl <- encode_vl(vl, chnl="path", field=field, ...)
 
   vl
 }
@@ -222,7 +222,8 @@ facet_col <- function(vl, field=NULL, type='auto',
     message('"value" is invalid for "column" channel, using "field"')
   }
 
-  vl <- encode(vl, chnl='column', field=field, type=type, round=round, padding=padding, ...)
+  vl <- encode_vl(vl, chnl='column', field=field, type=type, round=round,
+                  padding=padding, ...)
   vl
 }
 
@@ -243,6 +244,7 @@ facet_row <- function(vl, field=NULL, type='auto', round=TRUE, padding=16,
     message('"value" is invalid for "column" channel, using "field"')
   }
 
-  vl <- encode(vl, chnl='row', field=field, type=type, round=round, padding=padding, ...)
+  vl <- encode_vl(vl, chnl='row', field=field, type=type, round=round,
+                  padding=padding, ...)
   vl
 }

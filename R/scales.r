@@ -64,70 +64,70 @@ scale_vl <- function(vl, chnl="x", type="linear", domain=NULL, range=NULL,
 
 #' @rdname scale_vl
 #' @export
-scale_x_linear <- function(vl, ...) {
+scale_x_linear_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="linear", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_linear <- function(vl, ...) {
+scale_y_linear_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="linear", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_x_pow <- function(vl, ...) {
+scale_x_pow_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="pow", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_pow <- function(vl, ...) {
+scale_y_pow_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="pow", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_x_sqrt <- function(vl, ...) {
+scale_x_sqrt_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="sqrt", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_sqrt <- function(vl, ...) {
+scale_y_sqrt_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="sqrt", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_x_log <- function(vl, ...) {
+scale_x_log_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="log", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_log <- function(vl, ...) {
+scale_y_log_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="log", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_x_quantize <- function(vl, ...) {
+scale_x_quantize_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="quantize", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_quantize <- function(vl, ...) {
+scale_y_quantize_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="quantize", ...)
   vl
 }
@@ -135,14 +135,14 @@ scale_y_quantize <- function(vl, ...) {
 
 #' @rdname scale_vl
 #' @export
-scale_x_quantile <- function(vl, ...) {
+scale_x_quantile_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="quantile", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_quantile <- function(vl, ...) {
+scale_y_quantile_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="quantile", ...)
   vl
 }
@@ -165,56 +165,56 @@ scale_y_quantile <- function(vl, ...) {
 #'   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
 #'   facet_cell(stroke_width=0) %>%
 #'   mark_bar()
-scale_x_ordinal <- function(vl, ...) {
+scale_x_ordinal_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="ordinal", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_ordinal <- function(vl, ...) {
+scale_y_ordinal_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="ordinal", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_x_threshold <- function(vl, ...) {
+scale_x_threshold_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="threshold", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_threshold <- function(vl, ...) {
+scale_y_threshold_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="threshold", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_x_time <- function(vl, ...) {
+scale_x_time_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="x", type="time", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_y_time <- function(vl, ...) {
+scale_y_time_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="y", type="time", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_color_nominal <- function(vl, ...) {
+scale_color_nominal_vl <- function(vl, ...) {
   vl <- scale_vl(vl, chnl="color", type="ordinal", ...)
   vl
 }
 
 #' @rdname scale_vl
 #' @export
-scale_color_sequential <- function(vl, type="ordinal", range=NULL, ...) {
+scale_color_sequential_vl <- function(vl, type="ordinal", range=NULL, ...) {
   if (length(range)!=2) {
     message('Vega-lite only supports sequential color interpolation between two values.')
     return(vl)
@@ -226,7 +226,7 @@ scale_color_sequential <- function(vl, type="ordinal", range=NULL, ...) {
 
 #' @rdname scale_vl
 #' @export
-scale_shape <- function(vl, range=NULL, ...) {
+scale_shape_vl <- function(vl, range=NULL, ...) {
   shapes <- c("circle", "cross", "diamond", "square", "triangle-down",
               "triangle-up")
   if (!all(range %in% shapes)) {

@@ -31,7 +31,7 @@
 #'   bin_y(maxbins=10) %>%
 #'   mark_point()
 
-bin <- function(vl, chnl="x", min=NULL, max=NULL, base=NULL, step=NULL,
+bin_vl <- function(vl, chnl="x", min=NULL, max=NULL, base=NULL, step=NULL,
                 steps=NULL, minstep=NULL, div=NULL, maxbins=NULL) {
 
   if (!is.null(min))     vl$x$encoding[[chnl]]$bin$min <- min
@@ -53,13 +53,13 @@ bin <- function(vl, chnl="x", min=NULL, max=NULL, base=NULL, step=NULL,
 #' @rdname bin
 #' @export
 bin_x <- function(vl, ...) {
-  vl <- bin(vl, chnl="x", ...)
+  vl <- bin_vl(vl, chnl="x", ...)
   vl
 }
 
 #' @rdname bin
 #' @export
 bin_y <- function(vl, ...) {
-  vl <- bin(vl, chnl="y", ...)
+  vl <- bin_vl(vl, chnl="y", ...)
   vl
 }

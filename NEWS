@@ -1,3 +1,7 @@
+## 0.7.1
+* Adds _vl to places where vegalite is likely to collide with other common
+name spaces.
+
 ## 0.7.0
 * Updates vega-lite to final version before vega-lite 2
 * Refactors each of the functions to have a general form like mark() that the specific forms, like mark_point() call. This means that new options can be added in one place and not in each iteration of the same function.

@@ -1,8 +1,7 @@
 Package: vegalite
 Type: Package
 Title: Tools to Encode Visualizations with the 'Grammar of Graphics'-Like 'Vega-Lite' 'Spec'
-Version: 0.7.0
-Date: 2017-02-27
+Version: 0.7.1
 Maintainer: Bob Rudis <bob@rudis.net>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
