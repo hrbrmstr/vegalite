@@ -50,14 +50,14 @@ bin_vl <- function(vl, chnl="x", min=NULL, max=NULL, base=NULL, step=NULL,
 }
 
 
-#' @rdname bin
+#' @rdname bin_vl
 #' @export
 bin_x <- function(vl, ...) {
   vl <- bin_vl(vl, chnl="x", ...)
   vl
 }
 
-#' @rdname bin
+#' @rdname bin_vl
 #' @export
 bin_y <- function(vl, ...) {
   vl <- bin_vl(vl, chnl="y", ...)
