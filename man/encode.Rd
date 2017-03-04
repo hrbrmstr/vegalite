@@ -10,13 +10,14 @@
 \alias{encode_shape}
 \alias{encode_size}
 \alias{encode_text}
+\alias{encode_vl}
 \alias{encode_x}
 \alias{encode_y}
 \alias{facet_col}
 \alias{facet_row}
 \title{Encode all "channels"}
 \usage{
-encode(vl, chnl = "x", field, type = "auto", value = NULL,
+encode_vl(vl, chnl = "x", field = NULL, type = "auto", value = NULL,
   aggregate = NULL, sort = NULL, padding = NULL, round = NULL)
 
 encode_x(vl, ...)

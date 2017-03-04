@@ -2,75 +2,75 @@
 % Please edit documentation in R/scales.r
 \encoding{UTF-8}
 \name{scale_vl}
-\alias{scale_color_nominal}
-\alias{scale_color_sequential}
-\alias{scale_shape}
+\alias{scale_color_nominal_vl}
+\alias{scale_color_sequential_vl}
+\alias{scale_shape_vl}
 \alias{scale_vl}
-\alias{scale_x_linear}
-\alias{scale_x_log}
-\alias{scale_x_ordinal}
-\alias{scale_x_pow}
-\alias{scale_x_quantile}
-\alias{scale_x_quantize}
-\alias{scale_x_sqrt}
-\alias{scale_x_threshold}
-\alias{scale_x_time}
-\alias{scale_y_linear}
-\alias{scale_y_log}
-\alias{scale_y_ordinal}
-\alias{scale_y_pow}
-\alias{scale_y_quantile}
-\alias{scale_y_quantize}
-\alias{scale_y_sqrt}
-\alias{scale_y_threshold}
-\alias{scale_y_time}
+\alias{scale_x_linear_vl}
+\alias{scale_x_log_vl}
+\alias{scale_x_ordinal_vl}
+\alias{scale_x_pow_vl}
+\alias{scale_x_quantile_vl}
+\alias{scale_x_quantize_vl}
+\alias{scale_x_sqrt_vl}
+\alias{scale_x_threshold_vl}
+\alias{scale_x_time_vl}
+\alias{scale_y_linear_vl}
+\alias{scale_y_log_vl}
+\alias{scale_y_ordinal_vl}
+\alias{scale_y_pow_vl}
+\alias{scale_y_quantile_vl}
+\alias{scale_y_quantize_vl}
+\alias{scale_y_sqrt_vl}
+\alias{scale_y_threshold_vl}
+\alias{scale_y_time_vl}
 \title{Vega-Lite Scales}
 \usage{
 scale_vl(vl, chnl = "x", type = "linear", domain = NULL, range = NULL,
   round = NULL, clamp = NULL, exponent = NULL, nice = NULL,
   zero = NULL, useRawDomain = NULL, band_size = NULL, padding = NULL)
 
-scale_x_linear(vl, ...)
+scale_x_linear_vl(vl, ...)
 
-scale_y_linear(vl, ...)
+scale_y_linear_vl(vl, ...)
 
-scale_x_pow(vl, ...)
+scale_x_pow_vl(vl, ...)
 
-scale_y_pow(vl, ...)
+scale_y_pow_vl(vl, ...)
 
-scale_x_sqrt(vl, ...)
+scale_x_sqrt_vl(vl, ...)
 
-scale_y_sqrt(vl, ...)
+scale_y_sqrt_vl(vl, ...)
 
-scale_x_log(vl, ...)
+scale_x_log_vl(vl, ...)
 
-scale_y_log(vl, ...)
+scale_y_log_vl(vl, ...)
 
-scale_x_quantize(vl, ...)
+scale_x_quantize_vl(vl, ...)
 
-scale_y_quantize(vl, ...)
+scale_y_quantize_vl(vl, ...)
 
-scale_x_quantile(vl, ...)
+scale_x_quantile_vl(vl, ...)
 
-scale_y_quantile(vl, ...)
+scale_y_quantile_vl(vl, ...)
 
-scale_x_ordinal(vl, ...)
+scale_x_ordinal_vl(vl, ...)
 
-scale_y_ordinal(vl, ...)
+scale_y_ordinal_vl(vl, ...)
 
-scale_x_threshold(vl, ...)
+scale_x_threshold_vl(vl, ...)
 
-scale_y_threshold(vl, ...)
+scale_y_threshold_vl(vl, ...)
 
-scale_x_time(vl, ...)
+scale_x_time_vl(vl, ...)
 
-scale_y_time(vl, ...)
+scale_y_time_vl(vl, ...)
 
-scale_color_nominal(vl, ...)
+scale_color_nominal_vl(vl, ...)
 
-scale_color_sequential(vl, type = "ordinal", range = NULL, ...)
+scale_color_sequential_vl(vl, type = "ordinal", range = NULL, ...)
 
-scale_shape(vl, range = NULL, ...)
+scale_shape_vl(vl, range = NULL, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
