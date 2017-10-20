@@ -46,7 +46,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
   mark_point()
 ```
 
-### cirlce mark
+### circle mark
 
 ```{r}
 vegalite(viewport_width=400, viewport_height=400) %>%
