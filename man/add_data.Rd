@@ -44,4 +44,3 @@ vegalite() \%>\%
 \references{
 \href{http://vega.github.io/vega-lite/docs/data.html}{Vega-Lite Data spec}
 }
-

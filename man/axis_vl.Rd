@@ -2,11 +2,11 @@
 % Please edit documentation in R/axis.r
 \encoding{UTF-8}
 \name{axis_vl}
-\alias{axis_facet_col}
-\alias{axis_facet_row}
 \alias{axis_vl}
 \alias{axis_x}
 \alias{axis_y}
+\alias{axis_facet_col}
+\alias{axis_facet_row}
 \title{General axis settings (all)}
 \usage{
 axis_vl(vl, chnl = "x", axisColor = NULL, axisWidth = NULL,
@@ -101,4 +101,3 @@ vegalite() \%>\%
 \references{
 \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
 }
-

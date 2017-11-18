@@ -6,8 +6,8 @@
 \usage{
 vegalite(description = "", renderer = c("svg", "canvas"), export = FALSE,
   source = FALSE, editor = FALSE, viewport_width = NULL,
-  viewport_height = NULL, background = NULL, time_format = NULL,
-  number_format = NULL)
+  viewport_height = NULL, padding = NULL, autosize = NULL,
+  background = NULL, time_format = NULL, number_format = NULL)
 }
 \arguments{
 \item{description}{a single element character vector that provides a description of
@@ -60,4 +60,3 @@ vegalite() \%>\%
 \references{
 \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
 }
-

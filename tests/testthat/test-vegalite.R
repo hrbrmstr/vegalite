@@ -19,7 +19,7 @@ test_that("we can do something", {
                                   "preRenderHook", "jsHooks")))
 
   expect_that(names(vl$x), equals(c("description", "data", "mark",
-                                    "encoding", "config", "embed")))
+                                    "encoding", "config","transform","embed")))
 
 })
 

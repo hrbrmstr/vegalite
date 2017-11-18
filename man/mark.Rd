@@ -3,14 +3,14 @@
 \encoding{UTF-8}
 \name{mark}
 \alias{mark}
-\alias{mark_area}
 \alias{mark_bar}
 \alias{mark_circle}
-\alias{mark_line}
-\alias{mark_point}
 \alias{mark_square}
-\alias{mark_text}
 \alias{mark_tick}
+\alias{mark_line}
+\alias{mark_area}
+\alias{mark_point}
+\alias{mark_text}
 \title{Mark}
 \usage{
 mark(vl, mark = "circle", filled = NULL, color = NULL, fill = NULL,
@@ -154,4 +154,3 @@ vegalite() \%>\%
 \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec},
 \href{https://vega.github.io/vega-lite/docs/config.html#mark-config}{Vega-Lite config.mark spec}
 }
-

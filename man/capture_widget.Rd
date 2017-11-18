@@ -60,4 +60,3 @@ vegalite(viewport_width=350, viewport_height=250) \%>\%
 capture_widget(vl, "inline", 250, 350)
 }
 }
-

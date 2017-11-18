@@ -3,16 +3,15 @@
 \encoding{UTF-8}
 \name{encode}
 \alias{encode}
-\alias{encode_color}
-\alias{encode_detail}
-\alias{encode_order}
-\alias{encode_path}
-\alias{encode_shape}
-\alias{encode_size}
-\alias{encode_text}
 \alias{encode_vl}
 \alias{encode_x}
 \alias{encode_y}
+\alias{encode_color}
+\alias{encode_shape}
+\alias{encode_size}
+\alias{encode_text}
+\alias{encode_detail}
+\alias{encode_order}
 \alias{facet_col}
 \alias{facet_row}
 \title{Encode all "channels"}
@@ -35,8 +34,6 @@ encode_text(vl, ...)
 encode_detail(vl, field = NULL, type = "auto", value = NULL, ...)
 
 encode_order(vl, field = NULL, type = "auto", value = NULL, ...)
-
-encode_path(vl, field = NULL, type = "auto", value = NULL, ...)
 
 facet_col(vl, field = NULL, type = "auto", round = TRUE, padding = 16,
   value = NULL, ...)
@@ -137,4 +134,3 @@ vegalite() \%>\%
 
 \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
 }
-

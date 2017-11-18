@@ -20,4 +20,3 @@ config_opacity(vl, opacity = NULL, fill_opacity = NULL,
 \description{
 Opacity config
 }
-

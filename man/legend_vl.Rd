@@ -2,10 +2,10 @@
 % Please edit documentation in R/legend.r
 \encoding{UTF-8}
 \name{legend_vl}
-\alias{legend_color}
-\alias{legend_shape}
-\alias{legend_size}
 \alias{legend_vl}
+\alias{legend_color}
+\alias{legend_size}
+\alias{legend_shape}
 \title{Legend settings (all)}
 \usage{
 legend_vl(vl, chnl = "color", orient = NULL, offset = NULL,
@@ -40,4 +40,3 @@ legend_shape(vl, ...)
 \description{
 Legend settings (all)
 }
-

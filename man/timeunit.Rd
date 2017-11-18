@@ -45,4 +45,3 @@ vegalite() \%>\%
 \references{
 \href{http://vega.github.io/vega-lite/docs/timeunit.html}{Vega-Lite Time Unit}
 }
-

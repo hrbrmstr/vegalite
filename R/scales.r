@@ -38,25 +38,33 @@
 #' @references \href{http://vega.github.io/vega-lite/docs/scale.html}{Vega-Lite Scales spec}
 #' @export
 scale_vl <- function(vl, chnl="x", type="linear", domain=NULL, range=NULL,
-                     round=NULL, clamp=NULL, exponent=NULL, nice=NULL,
-                     zero=NULL, useRawDomain=NULL, band_size=NULL, padding=NULL) {
+                     scheme = NULL, round=NULL, clamp=NULL, exponent=NULL,
+                     base = NULL, nice=NULL, zero=NULL, useRawDomain=NULL, band_size=NULL,
+                     padding=NULL, interpolate = NULL) {
 
   vl$x$encoding[[chnl]]$scale$type <- type
 
-  if(type == "pow" & !is.null(exponent)) vl$x$encoding[[chnl]]$scale$exponent <- exponent
+  if (type == "pow" & !is.null(exponent))
+    vl$x$encoding[[chnl]]$scale$exponent <- exponent
 
   if (type == "ordinal") {
     if (!is.null(band_size))      vl$x$encoding[[chnl]]$scale$bandSize <- band_size
     if (!is.null(padding))       vl$x$encoding[[chnl]]$scale$padding <- padding
   }
 
+  if (type == "log" & !is.null(base)){
+    vl$x$encoding[[chnl]]$scale$base <- base
+  }
+
   if (!is.null(domain))        vl$x$encoding[[chnl]]$scale$domain <- domain
+  if (!is.null(scheme))         vl$x$encoding[[chnl]]$scale$scheme <- scheme
   if (!is.null(range))         vl$x$encoding[[chnl]]$scale$range <- range
   if (!is.null(clamp))         vl$x$encoding[[chnl]]$scale$clamp <- clamp
 
   if (!is.null(nice))          vl$x$encoding[[chnl]]$scale$nice <- nice
   if (!is.null(zero))          vl$x$encoding[[chnl]]$scale$zero <- zero
   if (!is.null(useRawDomain))  vl$x$encoding[[chnl]]$scale$useRawDomain <- useRawDomain
+  if (!is.null(interpolate))  vl$x$encoding[[chnl]]$scale$interpolate <- interpolate
 
   vl
 }

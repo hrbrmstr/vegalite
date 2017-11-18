@@ -44,4 +44,3 @@ vegalite() \%>\%
 
 embed_spec(chart)
 }
-

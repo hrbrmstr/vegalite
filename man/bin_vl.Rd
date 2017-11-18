@@ -58,4 +58,3 @@ vegalite() \%>\%
 \references{
 \href{http://vega.github.io/vega-lite/docs/bin.html}{Vega-Lite Binning}
 }
-

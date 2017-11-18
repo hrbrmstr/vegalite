@@ -25,4 +25,3 @@ vegalite() \%>\%
   encode_y("Origin", "ordinal", sort=sort_def("Horsepower", "mean")) \%>\%
   mark_bar()
 }
-

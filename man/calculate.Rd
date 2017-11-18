@@ -34,4 +34,3 @@ vegalite() \%>\%
   facet_cell(stroke_width=0) \%>\%
   mark_bar()
 }
-

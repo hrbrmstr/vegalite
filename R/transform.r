@@ -37,14 +37,10 @@ filter_null <- function(vl, setting=NULL) {
 #'   mark_bar()
 calculate <- function(vl, field, expr) {
 
-  tmp <- data.frame(field=field, expr=expr, stringsAsFactors=FALSE)
 
-  if (length(vl$x$transform$calculate) == 0) {
-    vl$x$transform$calculate <- tmp
-  } else {
-     vl$x$transform$calculate <- rbind.data.frame(vl$x$transform$calculate, tmp)
-  }
-
+  new_calculate <- list(list("calculate" = expr,
+                             "as" = field))
+  vl$x$transform <- append(vl$x$transform, new_calculate)
   vl
 
 }
@@ -75,6 +71,8 @@ calculate <- function(vl, field, expr) {
 #'   facet_cell(stroke_width=0) %>%
 #'   mark_bar()
 add_filter <- function(vl, expr) {
-   vl$x$transform$filter <- expr
-   vl
+
+  new_filter <- list(list("filter" = expr))
+  vl$x$transform <- append(vl$x$transform, new_filter)
+  vl
 }

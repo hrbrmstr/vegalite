@@ -77,4 +77,3 @@ vegalite() \%>\%
 
 \href{http://vega.github.io/vega-lite/docs/config.html#facet-config}{Vega-Lite Facet spec}
 }
-

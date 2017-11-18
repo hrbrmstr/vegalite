@@ -36,4 +36,3 @@ an absolute URL reference.
 \examples{
 from_spec("http://rud.is/dl/embedded.json")
 }
-

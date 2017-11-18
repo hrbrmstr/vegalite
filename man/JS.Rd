@@ -6,4 +6,3 @@
 \description{
 Mark character strings as literal JavaScript code
 }
-

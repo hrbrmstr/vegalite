@@ -109,4 +109,3 @@ images in PDF knitted documents with the new \code{capture_widget} function.
 \author{
 Bob Rudis (@hrbrmstr)
 }
-

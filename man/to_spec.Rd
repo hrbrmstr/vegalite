@@ -36,4 +36,3 @@ vegalite() \%>\%
 
 to_spec(chart)
 }
-

@@ -6,7 +6,7 @@ For better examples, [take a look here](http://rud.is/projects/vegalite01.html).
 
 There's also a [blog post](http://rud.is/b/2016/02/27/create-vega-lite-specs-widgets-with-the-vegalite-package/) describing this in a bit more detail.
 
-Creation of Vega-Lite spec charts is virtually 100% feature complete. Many of the parameters to functions are only documented in TypeScript source code which will take a bit of time to wade through. All the visualizations you find in the [Vega-Lite Gallery](http://vega.github.io/vega-lite/examples/) work.
+Creation of Vega-Lite spec charts is virtually 100% feature complete. Many of the parameters to functions are only documented in TypeScript source code which will take a bit of time to wade through. All the visualizations you find in the [Vega-Lite Gallery](https://vega.github.io/vega-lite/examples/) work.
 
 Functions also exist which enable creation of widgets from a JSON spec and turning a `vegalite` package created object into a JSON spec.
 
@@ -95,7 +95,7 @@ packageVersion("vegalite")
 ```
 
 ```
-## [1] '0.6.1.9000'
+## [1] '0.7.1'
 ```
 
 

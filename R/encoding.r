@@ -170,22 +170,6 @@ encode_order <- function(vl, field=NULL, type="auto", value=NULL, ...) {
   vl
 }
 
-#' @rdname encode
-#' @export
-encode_path <- function(vl, field=NULL, type="auto", value=NULL, ...) {
-  if(is.null(field)){
-    message('"path" channel requires the use of "field"', call.=FALSE)
-    return(vl)
-  }
-
-  if(!is.null(value)){
-    message('"value" is invalid for "path" channel, using "field"')
-  }
-
-  vl <- encode_vl(vl, chnl="path", field=field, ...)
-
-  vl
-}
 
 
 #' Create a horizontal ribbon of panels

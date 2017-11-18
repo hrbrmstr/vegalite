@@ -35,4 +35,3 @@ vegalite(viewport_height=200, viewport_width=200) \%>\%
   facet_cell(stroke_width=0) \%>\%
   mark_bar()
 }
-

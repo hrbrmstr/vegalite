@@ -19,18 +19,14 @@ HTMLWidgets.widget({
       "data" : x.data,
       "mark" : x.mark,
       "encoding" : x.encoding,
-      "config" : x.config
+      "config" : x.config,
+      "transform" : x.transform
     };
 
-    if (x.hasOwnProperty("transform")) {
-      if (x.transform.hasOwnProperty("calculate")) {
-        x.transform.calculate = HTMLWidgets.dataframeToD3(x.transform.calculate);
-      }
-      vlSpec.transform = x.transform;
-    }
+    //if (x.hasOwnProperty("transform")) {
+    //  vlSpec.transform = x.transform;
+    //}
 
-    //vls = vlSpec;
-    //par = x;
 
     var embedSpec = {
       "mode": "vega-lite",

@@ -45,6 +45,7 @@
 vegalite <- function(description="", renderer=c("svg", "canvas"),
                      export=FALSE, source=FALSE, editor=FALSE,
                      viewport_width=NULL, viewport_height=NULL,
+                     padding = NULL, autosize = NULL,
                      background=NULL, time_format=NULL, number_format=NULL) {
 
   # forward options using x
@@ -54,15 +55,20 @@ vegalite <- function(description="", renderer=c("svg", "canvas"),
     mark = list(),
     encoding = list(),
     config = list(),
+    transform = list(),
     embed = list(renderer=renderer[1],
                  actions=list(export=export,
                               source=source,
                               editor=editor))
   )
 
-  if (!is.null(viewport_width) & !is.null(viewport_height)) {
-    params$config$viewport <- c(viewport_width, viewport_height)
+  if (!is.null(padding)){
+    params$config$padding <- padding
   }
+  if (!is.null(autosize)){
+    params$config$autosize <- autosize
+  }
+
   if (!is.null(background)) { params$config$background <- background }
   if (!is.null(time_format)) { params$config$timeFormat <- time_format }
   if (!is.null(number_format)) { params$config$numberFormat <- number_format }
@@ -75,5 +81,5 @@ vegalite <- function(description="", renderer=c("svg", "canvas"),
     height = viewport_height,
     package = 'vegalite'
   )
-  
+
 }
