@@ -12,9 +12,10 @@ HTMLWidgets.widget({
 
   par = x;
 
+  vlSpec <- JSON.parse(x.spec);
+
   var embedSpec = {
     "mode": "vega-lite",
-    "spec": JSON.parse(x.spec),
     "renderer": x.renderer,
     "actions": {
       "export": x.export,
@@ -24,22 +25,12 @@ HTMLWidgets.widget({
   };
 
 
-    //add tooltip div
-    if (d3.select("#vis-tooltip").empty()) {
-      d3.select("body").append("div")
-        .attr("id", "vis-tooltip")
-        .attr("class", "vg-tooltip");
+  vegaEmbed(el, vlSpec, embedSpec).then(function(result) {
+      // Callback receiving the View instance and parsed Vega spec
+      // result.view is the View, which resides under the '#vis' element
+      vegaTooltip.vegaLite(result.view, vlSpec);
+    }).catch(console.error);
 
-    } else {
-      d3.select("#vis-tooltip").attr("class","vg-tooltip");
-    }
-
-  vg.embed(el, embedSpec, function(error, result) {
-    // Callback receiving the View instance and parsed Vega spec
-    // result.view is the View, which resides under the '#vis' element
-    // added by Jia for vg tooltip
-    vl.tooltip(result.view, JSON.parse(x.spec));
-  });
 
   },
 
