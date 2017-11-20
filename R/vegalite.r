@@ -10,10 +10,6 @@
 #'        with the chart. (Default: \code{FALSE}.)
 #' @param editor if \code{TRUE} the \emph{"Open in editor"} link will be
 #'        displayed with the cahrt. (Default: \code{FALSE}.)
-#' @param viewport_width,viewport_height height and width of the overall
-#'        visualziation viewport. This is the overall area reserved for the
-#'        plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
-#'        instead but you will want to configure both when making faceted plots.
 #' @param background plot background color. If \code{NULL} the background will be transparent.
 #' @param time_format the default time format pattern for text and labels of
 #'        axes and legends (in the form of \href{https://github.com/mbostock/d3/wiki/Time-Formatting}{D3 time format pattern}).
@@ -22,6 +18,10 @@
 #'        axes and legends (in the form of
 #'        \href{https://github.com/mbostock/d3/wiki/Formatting}{D3 number format pattern}).
 #'        Default: \code{s}
+#' @param autosize sizing setting (\href{https://vega.github.io/vega-lite/docs/size.html#autosize}{autosize})
+#' @param padding single number to be applied to all sides, or list
+#' specifying padding on each side, e.g list("top" = 5, "bottom" = 3,
+#' "left" = 2, "right" = 2). Unit is pixels.
 #' @references \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
 #' @importFrom jsonlite fromJSON toJSON unbox
 #' @import htmlwidgets stats
@@ -44,7 +44,7 @@
 #'   mark_bar()
 vegalite <- function(description="", renderer=c("svg", "canvas"),
                      export=FALSE, source=FALSE, editor=FALSE,
-                     viewport_width=NULL, viewport_height=NULL,
+                     sizingPolicty = htmlwidgets::sizingPolicy(),
                      padding = NULL, autosize = NULL,
                      background=NULL, time_format=NULL, number_format=NULL) {
 
@@ -77,8 +77,7 @@ vegalite <- function(description="", renderer=c("svg", "canvas"),
   htmlwidgets::createWidget(
     name = 'vegalite',
     x = params,
-    width = viewport_width,
-    height = viewport_height,
+    sizingPolicy = sizingPolicy,
     package = 'vegalite'
   )
 
