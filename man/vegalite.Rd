@@ -7,7 +7,7 @@
 vegalite(description = "", renderer = c("svg", "canvas"), export = FALSE,
   source = FALSE, editor = FALSE, viewport_width = NULL,
   viewport_height = NULL, padding = NULL, autosize = NULL,
-  background = NULL, time_format = NULL, number_format = NULL)
+  background = NULL, time_format = NULL, number_format = NULL, ...)
 }
 \arguments{
 \item{description}{a single element character vector that provides a description of
@@ -29,6 +29,12 @@ displayed with the cahrt. (Default: \code{FALSE}.)}
 visualziation viewport. This is the overall area reserved for the
 plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
 instead but you will want to configure both when making faceted plots.}
+
+\item{padding}{single number to be applied to all sides, or list
+specifying padding on each side, e.g list("top" = 5, "bottom" = 3,
+"left" = 2, "right" = 2). Unit is pixels.}
+
+\item{autosize}{sizing setting (\href{https://vega.github.io/vega-lite/docs/size.html#autosize}{autosize})}
 
 \item{background}{plot background color. If \code{NULL} the background will be transparent.}
 

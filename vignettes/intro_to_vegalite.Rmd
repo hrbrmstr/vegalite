@@ -8,6 +8,11 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(fig.width = 6, fig.height = 4)
+```
+
 `vegalite` is an R `htmlwidget` interface to the [Vega-Lite](https://vega.github.io/vega-lite/) JavaScript visualization library.
 
 What is "Vega" and why "-Lite"? Vega is _"a full declarative visualization grammar, suitable for expressive custom interactive visualization design and programmatic generation._"" Vega-Lite _"provides a higher-level grammar for visual analysis, comparable to ggplot or Tableau, that generates complete Vega specifications."_ Vega-Lite compiles to Vega and is more compact and accessible than Vega. Both are just JSON data files with a particular schema that let you encode the data, encodings and aesthetics for statistical charts.
@@ -28,7 +33,7 @@ dat <- jsonlite::fromJSON('[
     ]')
 
 vegalite(viewport_height=250) %>%
-  cell_size(400, 200) %>%
+  view_size(400, 200) %>%
   add_data(dat) %>%
   encode_x("a", "ordinal") %>%
   encode_y("b", "quantitative") %>%
@@ -39,7 +44,7 @@ vegalite(viewport_height=250) %>%
 
 ```{r}
 vegalite(viewport_width=400, viewport_height=400) %>%
-  cell_size(400, 400) %>%
+  view_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
@@ -50,7 +55,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
 
 ```{r}
 vegalite(viewport_width=400, viewport_height=400) %>%
-  cell_size(400, 400) %>%
+  view_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
@@ -61,7 +66,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
 
 ```{r}
 vegalite(viewport_width=400, viewport_height=400) %>%
-  cell_size(400, 400) %>%
+  view_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
@@ -74,7 +79,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
 
 ```{r}
 vegalite(viewport_width=400, viewport_height=400) %>%
-  cell_size(400, 400) %>%
+  view_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
@@ -86,7 +91,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
 
 ```{r}
 vegalite(viewport_width=400, viewport_height=450) %>%
-  cell_size(400, 450) %>%
+  view_size(400, 450) %>%
   add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") %>%
   add_filter("datum.symbol==='GOOG'") %>%
   encode_x("date", "temporal") %>%
@@ -98,7 +103,7 @@ vegalite(viewport_width=400, viewport_height=450) %>%
 
 ```{r}
 vegalite(viewport_height=200) %>%
-  cell_size(400, 200) %>%
+  view_size(400, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Cylinders", "ordinal") %>%
@@ -109,7 +114,7 @@ vegalite(viewport_height=200) %>%
 
 ```{r}
 vegalite(viewport_height=500) %>%
-  cell_size(400, 400) %>%
+  view_size(400, 400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") %>%
   encode_x("date", "temporal") %>%
   encode_y("price", "quantitative") %>%
@@ -246,7 +251,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
 
 ```{r}
 vegalite() %>%
-  cell_size(300, 200) %>%
+  view_size(300, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
   encode_x("date", "temporal") %>%
   encode_y("count", "quantitative", aggregate="sum") %>%
@@ -262,7 +267,7 @@ vegalite() %>%
 
 ```{r}
 vegalite() %>%
-  cell_size(300, 200) %>%
+  view_size(300, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
   encode_x("date", "temporal") %>%
   encode_y("count", "quantitative", aggregate="sum") %>%
@@ -278,7 +283,7 @@ vegalite() %>%
 
 ```{r}
 vegalite() %>%
-  cell_size(300, 200) %>%
+  view_size(300, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
@@ -292,7 +297,7 @@ vegalite() %>%
 
 ```{r}
 vegalite() %>%
-  cell_size(300, 200) %>%
+  view_size(300, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
   encode_x("date", "temporal") %>%
   timeunit_x("yearmonth") %>%
@@ -317,7 +322,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
   axis_x(remove=TRUE) %>%
   axis_y(title="population", grid=FALSE) %>%
   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
-  facet_cell(stroke_width=0) %>%
+  view_config(stroke_width=0) %>%
   mark_bar()
 ```
 
@@ -339,7 +344,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
 
 ```{r}
 vegalite() %>%
-  cell_size(300, 300) %>%
+  view_size(300, 300) %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
   encode_x("date", "temporal") %>%
   encode_y("count", "quantitative", aggregate="sum") %>%
@@ -427,7 +432,7 @@ vegalite(viewport_height=1200) %>%
 
 ```{r}
 vegalite(viewport_width=300, viewport_height=300) %>%
-  cell_size(300, 300) %>%
+  view_size(300, 300) %>%
   add_data("https://vega.github.io/vega-editor/app/data/driving.json") %>%
   encode_x("miles", "quantitative") %>%
   encode_y("gas", "quantitative") %>%
@@ -441,7 +446,7 @@ vegalite(viewport_width=300, viewport_height=300) %>%
 
 ```{r}
 vegalite(viewport_width=200, viewport_height=200) %>%
-  cell_size(200, 200) %>%
+  view_size(200, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative") %>%
   encode_y("Miles_per_Gallon", "quantitative") %>%
@@ -454,7 +459,7 @@ vegalite(viewport_width=200, viewport_height=200) %>%
 
 ```{r}
 vegalite(viewport_width=200, viewport_height=200) %>%
-  cell_size(200, 200) %>%
+  view_size(200, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") %>%
   encode_x("date", "temporal") %>%
   encode_y("price", "quantitative") %>%
@@ -466,7 +471,7 @@ vegalite(viewport_width=200, viewport_height=200) %>%
 
 ```{r}
 vegalite() %>%
-  cell_size(200, 200) %>%
+  view_size(200, 200) %>%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
   encode_x("Horsepower", "quantitative", aggregate="mean") %>%
   encode_y("Displacement", "quantitative", aggregate="mean") %>%

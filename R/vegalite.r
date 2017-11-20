@@ -11,6 +11,10 @@
 #' @param editor if \code{TRUE} the \emph{"Open in editor"} link will be
 #'        displayed with the cahrt. (Default: \code{FALSE}.)
 #' @param background plot background color. If \code{NULL} the background will be transparent.
+#' @param viewport_width,viewport_height height and width of the overall
+#'        visualziation viewport. This is the overall area reserved for the
+#'        plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
+#'        instead but you will want to configure both when making faceted plots.
 #' @param time_format the default time format pattern for text and labels of
 #'        axes and legends (in the form of \href{https://github.com/mbostock/d3/wiki/Time-Formatting}{D3 time format pattern}).
 #'        Default: \code{\%Y-\%m-\%d}
@@ -44,9 +48,10 @@
 #'   mark_bar()
 vegalite <- function(description="", renderer=c("svg", "canvas"),
                      export=FALSE, source=FALSE, editor=FALSE,
-                     sizingPolicty = htmlwidgets::sizingPolicy(),
+                     viewport_width=NULL, viewport_height=NULL,
                      padding = NULL, autosize = NULL,
-                     background=NULL, time_format=NULL, number_format=NULL) {
+                     background=NULL, time_format=NULL, number_format=NULL,
+                     ...) {
 
   # forward options using x
   params <- list(
@@ -73,11 +78,19 @@ vegalite <- function(description="", renderer=c("svg", "canvas"),
   if (!is.null(time_format)) { params$config$timeFormat <- time_format }
   if (!is.null(number_format)) { params$config$numberFormat <- number_format }
 
+  if (!is.null(viewport_width) || !is.null(viewport_height)){
+    size_policy <- htmlwidgets::sizingPolicy(defaultWidth = viewport_width,
+                                             defaultHeight = viewport_height,
+                                             knitr.figure = FALSE)
+  } else{
+    size_policy <- htmlwidgets::sizingPolicy()
+  }
+
   # create widget
   htmlwidgets::createWidget(
     name = 'vegalite',
     x = params,
-    sizingPolicy = sizingPolicy,
+    sizingPolicy = size_policy,
     package = 'vegalite'
   )
 
