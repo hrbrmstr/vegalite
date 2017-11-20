@@ -40,7 +40,8 @@
 #'   mark_bar()
 
 encode_vl <- function(vl, chnl="x", field=NULL, type="auto", value=NULL,
-                      aggregate=NULL, sort=NULL, padding=NULL, round=NULL) {
+                      aggregate=NULL, sort=NULL, padding=NULL, round=NULL,
+                      stack = NULL) {
   if(is.null(field) & is.null(value)){
     # https://vega.github.io/vega-lite/docs/encoding.html#channels
     message('Each channel definition object must describe the "field" or "value".')
@@ -63,6 +64,7 @@ encode_vl <- function(vl, chnl="x", field=NULL, type="auto", value=NULL,
   if (!is.null(sort)) vl$x$encoding[[chnl]]$sort <- sort
   if (!is.null(round)) vl$x$encoding[[chnl]]$scale$round <- round
   if (!is.null(padding)) vl$x$encoding[[chnl]]$scale$padding <- padding
+  if (!is.null(stack) && chnl %in% c("x","y")) vl$x$encoding[[chnl]]$stack <- stack
 
   vl
 

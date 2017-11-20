@@ -49,9 +49,7 @@ geoms in ggplot2.}
 
 \item{strokeWidth, strokeDash, strokeDashOffset}{see \href{https://vega.github.io/vega-lite/docs/config.html#stroke-style}{config.mark stroke docs}}
 
-\item{stacked}{applicable only to bar and area \code{mark},
-"zero" (baseline offset at zero for stacked bar or area),
-"normalized", "center" (streamgraph), or "none".}
+\item{stacked}{Defunct; Use in \code{\link{encode_x}} or \code{\link{encode_y}}}
 
 \item{interpolate, tension}{for line and area \code{mark}, the line interpolation method.
 value for interpolate can be "linear", "step-before", "step-after",

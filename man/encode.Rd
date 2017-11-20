@@ -17,7 +17,8 @@
 \title{Encode all "channels"}
 \usage{
 encode_vl(vl, chnl = "x", field = NULL, type = "auto", value = NULL,
-  aggregate = NULL, sort = NULL, padding = NULL, round = NULL)
+  aggregate = NULL, sort = NULL, padding = NULL, round = NULL,
+  stack = NULL)
 
 encode_x(vl, ...)
 

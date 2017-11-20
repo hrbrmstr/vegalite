@@ -10,9 +10,7 @@
 #' @param filled,color,fill,stroke see \href{https://vega.github.io/vega-lite/docs/config.html#color}{config.mark color docs}
 #' @param opacity,fillOpacity,strokeOpacity see \href{https://vega.github.io/vega-lite/docs/config.html#opacity}{config.mark opacity docs}
 #' @param strokeWidth,strokeDash,strokeDashOffset see \href{https://vega.github.io/vega-lite/docs/config.html#stroke-style}{config.mark stroke docs}
-#' @param stacked applicable only to bar and area \code{mark},
-#'        "zero" (baseline offset at zero for stacked bar or area),
-#'        "normalized", "center" (streamgraph), or "none".
+#' @param stacked Defunct; Use in \code{\link{encode_x}} or \code{\link{encode_y}}
 #' @param interpolate,tension for line and area \code{mark}, the line interpolation method.
 #'        value for interpolate can be "linear", "step-before", "step-after",
 #'        "basis", "basis-open", "basis-closed", "bundle", "cardinal",
@@ -70,7 +68,10 @@ mark <- function(vl, mark="circle", filled=NULL, color=NULL, fill=NULL,
   if (!is.null(strokeDashOffset)) vl$x$config$mark$strokeDashOffset <- strokeDashOffset
 
   if (mark %in% c("bar", "area")) {
-    if (!is.null(stacked))        vl$x$config$mark$stacked <- stacked
+    if (!is.null(stacked)) {
+      warning("stacked argument in mark will be ignored.",
+              "Use in encode_* instead")
+    }
   }
 
   if (mark %in% c("line", "area")){
