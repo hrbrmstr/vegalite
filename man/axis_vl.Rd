@@ -73,7 +73,7 @@ vegalite() \%>\%
   encode_x("gender", "nominal") \%>\%
   encode_y("people", "quantitative", aggregate="sum") \%>\%
   encode_color("gender", "nominal") \%>\%
-  scale_x_ordinal(band_size=6) \%>\%
+  scale_x_ordinal(range_step=6) \%>\%
   scale_color_nominal(range=c("#EA98D2", "#659CCA")) \%>\%
   facet_col("age", "ordinal", padding=4) \%>\%
   axis_x(remove=TRUE) \%>\%
@@ -89,7 +89,7 @@ vegalite() \%>\%
   encode_x("gender", "nominal") \%>\%
   encode_y("people", "quantitative", aggregate="sum") \%>\%
   encode_color("gender", "nominal") \%>\%
-  scale_x_ordinal(band_size=6) \%>\%
+  scale_x_ordinal(range_step=6) \%>\%
   scale_color_nominal(range=c("#EA98D2", "#659CCA")) \%>\%
   facet_col("age", "ordinal", padding=4) \%>\%
   axis_x(remove=TRUE) \%>\%

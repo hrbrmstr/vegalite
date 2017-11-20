@@ -29,7 +29,8 @@
 scale_vl(vl, chnl = "x", type = "linear", domain = NULL, range = NULL,
   scheme = NULL, round = NULL, clamp = NULL, exponent = NULL,
   base = NULL, nice = NULL, zero = NULL, useRawDomain = NULL,
-  band_size = NULL, padding = NULL, interpolate = NULL)
+  band_size = NULL, range_step = NULL, padding = NULL,
+  interpolate = NULL)
 
 scale_x_linear_vl(vl, ...)
 
@@ -108,7 +109,9 @@ scale domain. Default value: true if the quantitative field is not binned.}
 \item{useRawDomain}{If true, set scale domain to the raw data domain. If
 false, use the aggregated data domain for scale.}
 
-\item{band_size}{Width for each x or y ordinal band. This can be an integer
+\item{band_size}{Deprecated -- use range_step instead.}
+
+\item{range_step}{Width for each x or y ordinal band. This can be an integer
 value or a string "fit". For "fit", the band size will be
 automatically adjusted to fit the scale for the specified width
 (for x-axis) or height (for y-axis).}
@@ -131,7 +134,7 @@ vegalite() \%>\%
   encode_x("gender", "nominal") \%>\%
   encode_y("people", "quantitative", aggregate="sum") \%>\%
   encode_color("gender", "nominal") \%>\%
-  scale_x_ordinal(band_size=6) \%>\%
+  scale_x_ordinal(range_step=6) \%>\%
   scale_color_nominal(range=c("#EA98D2", "#659CCA")) \%>\%
   facet_col("age", "ordinal", padding=4) \%>\%
   axis_x(remove=TRUE) \%>\%

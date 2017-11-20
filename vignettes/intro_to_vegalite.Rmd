@@ -181,7 +181,7 @@ vegalite(viewport_width=500, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
   encode_x("people", "quantitative", aggregate="sum") %>%
   encode_y("age", "ordinal") %>%
-  scale_y_ordinal_vl(band_size=17) %>%
+  scale_y_ordinal_vl(range_step=17) %>%
   add_filter("datum.year == 2000") %>%
   mark_bar()
 ```
@@ -207,7 +207,7 @@ vegalite(viewport_width=400, viewport_height=600) %>%
   encode_x("year", "ordinal") %>%
   encode_y("yield", "quantitative", aggregate="median") %>%
   encode_color("site", "nominal") %>%
-  scale_x_ordinal_vl(band_size=50, padding=0.5) %>%
+  scale_x_ordinal_vl(range_step=50, padding=0.5) %>%
   mark_line()
 ```
 
@@ -309,14 +309,14 @@ vegalite() %>%
 ### grouped bar chart
 
 ```{r}
-vegalite(viewport_width=400, viewport_height=400) %>%
+vegalite(viewport_width=600, viewport_height=400) %>%
   add_data("https://vega.github.io/vega-editor/app/data/population.json") %>%
   add_filter("datum.year == 2000") %>%
   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
   encode_x("gender", "nominal") %>%
   encode_y("people", "quantitative", aggregate="sum") %>%
   encode_color("gender", "nominal") %>%
-  scale_x_ordinal_vl(band_size=6) %>%
+  scale_x_ordinal_vl(range_step = 8) %>%
   scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) %>%
   facet_col("age", "ordinal", padding=4) %>%
   axis_x(remove=TRUE) %>%
@@ -335,7 +335,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
   encode_x("age", "ordinal") %>%
   encode_y("people", "quantitative", aggregate="sum", stack="normalize") %>%
   encode_color("gender", "nominal") %>%
-  scale_x_ordinal_vl(band_size=17) %>%
+  scale_x_ordinal_vl(range_step=17) %>%
   scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) %>%
   mark_bar()
 ```
@@ -367,7 +367,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
   encode_x("age", "ordinal") %>%
   encode_y("people", "quantitative", aggregate="sum", stack="none") %>%
   encode_color("gender", "nominal") %>%
-  scale_x_ordinal_vl(band_size=17) %>%
+  scale_x_ordinal_vl(range_step=17) %>%
   scale_color_nominal_vl(range=c("#e377c2","#1f77b4")) %>%
   axis_y(title="Population") %>%
   mark_bar(opacity=0.6)
@@ -384,7 +384,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
   encode_y("people", "quantitative", aggregate="sum") %>%
   encode_color("gender", "nominal") %>%
   facet_row("gender", "nominal") %>%
-  scale_x_ordinal_vl(band_size=17) %>%
+  scale_x_ordinal_vl(range_step=17) %>%
   scale_color_nominal_vl(range=c("#EA98D2","#659CCA")) %>%
   axis_y(title="Population") %>%
   mark_bar()
@@ -424,7 +424,7 @@ vegalite(viewport_height=1200) %>%
   encode_y("variety", "ordinal", sort=sort_def("yield", "mean")) %>%
   encode_color("year", "nominal") %>%
   facet_row("site", "ordinal") %>%
-  scale_y_ordinal_vl(band_size=12) %>%
+  scale_y_ordinal_vl(range_step=12) %>%
   mark_point()
 ```
 

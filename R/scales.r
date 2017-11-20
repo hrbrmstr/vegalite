@@ -23,7 +23,8 @@
 #'        scale domain. Default value: true if the quantitative field is not binned.
 #' @param useRawDomain If true, set scale domain to the raw data domain. If
 #'        false, use the aggregated data domain for scale.
-#' @param band_size Width for each x or y ordinal band. This can be an integer
+#' @param band_size Deprecated -- use range_step instead.
+#' @param range_step Width for each x or y ordinal band. This can be an integer
 #'        value or a string "fit". For "fit", the band size will be
 #'        automatically adjusted to fit the scale for the specified width
 #'        (for x-axis) or height (for y-axis).
@@ -39,7 +40,8 @@
 #' @export
 scale_vl <- function(vl, chnl="x", type="linear", domain=NULL, range=NULL,
                      scheme = NULL, round=NULL, clamp=NULL, exponent=NULL,
-                     base = NULL, nice=NULL, zero=NULL, useRawDomain=NULL, band_size=NULL,
+                     base = NULL, nice=NULL, zero=NULL, useRawDomain=NULL,
+                     band_size=NULL, range_step = NULL,
                      padding=NULL, interpolate = NULL) {
 
   vl$x$encoding[[chnl]]$scale$type <- type
@@ -48,7 +50,12 @@ scale_vl <- function(vl, chnl="x", type="linear", domain=NULL, range=NULL,
     vl$x$encoding[[chnl]]$scale$exponent <- exponent
 
   if (type == "ordinal") {
-    if (!is.null(band_size))      vl$x$encoding[[chnl]]$scale$bandSize <- band_size
+    if (!is.null(band_size)) {
+      warning("band_size is deprecated; use range_step instead")
+      if (is.null(range_step))
+        vl$x$encoding[[chnl]]$scale$rangeStep <- band_size
+    }
+    if (!is.null(range_step))    vl$x$encoding[[chnl]]$scale$rangeStep <- range_step
     if (!is.null(padding))       vl$x$encoding[[chnl]]$scale$padding <- padding
   }
 
@@ -165,7 +172,7 @@ scale_y_quantile_vl <- function(vl, ...) {
 #'   encode_x("gender", "nominal") %>%
 #'   encode_y("people", "quantitative", aggregate="sum") %>%
 #'   encode_color("gender", "nominal") %>%
-#'   scale_x_ordinal(band_size=6) %>%
+#'   scale_x_ordinal(range_step=6) %>%
 #'   scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
 #'   facet_col("age", "ordinal", padding=4) %>%
 #'   axis_x(remove=TRUE) %>%
