@@ -69,7 +69,7 @@ axis_vl <- function(vl, chnl = "x", axisColor=NULL, axisWidth=NULL, offset=NULL,
                     remove=FALSE) {
 
   if (remove) {
-    vl$x$encoding[[chnl]]$axis <- FALSE
+    vl$x$encoding[[chnl]]$axis <- NA
   } else {
     if (!is.null(axisColor))          vl$x$encoding[[chnl]]$axis$axisColor <- axisColor
     if (!is.null(zindex))             vl$x$encoding[[chnl]]$axis$zindex <- zindex
