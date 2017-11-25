@@ -36,11 +36,9 @@ encode_detail(vl, field = NULL, type = "auto", value = NULL, ...)
 
 encode_order(vl, field = NULL, type = "auto", value = NULL, ...)
 
-facet_col(vl, field = NULL, type = "auto", round = TRUE, padding = 16,
-  value = NULL, ...)
+facet_col(vl, field = NULL, type = "auto", value = NULL, ...)
 
-facet_row(vl, field = NULL, type = "auto", round = TRUE, padding = 16,
-  value = NULL, ...)
+facet_row(vl, field = NULL, type = "auto", value = NULL, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}

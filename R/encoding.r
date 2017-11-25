@@ -64,6 +64,8 @@ encode_vl <- function(vl, chnl="x", field=NULL, type="auto", value=NULL,
   if (!is.null(sort)) vl$x$encoding[[chnl]]$sort <- sort
   if (!is.null(round)) vl$x$encoding[[chnl]]$scale$round <- round
   if (!is.null(padding)) vl$x$encoding[[chnl]]$scale$padding <- padding
+
+  if (stack == "none") stack <- NA
   if (!is.null(stack) && chnl %in% c("x","y")) vl$x$encoding[[chnl]]$stack <- stack
 
   vl
@@ -198,28 +200,6 @@ encode_order <- function(vl, field=NULL, type="auto", value=NULL, ...) {
 #'   facet_cell(stroke_width=0) %>%
 #'   mark_bar()
 facet_col <- function(vl, field=NULL, type='auto',
-                      round=TRUE, padding=16, value=NULL, ...) {
-  if(is.null(field)){
-    message('"column" channel requires the use of "field"', call.=FALSE)
-    return(vl)
-  }
-
-  if(!is.null(value)){
-    message('"value" is invalid for "column" channel, using "field"')
-  }
-
-  vl <- encode_vl(vl, chnl='column', field=field, type=type, round=round,
-                  padding=padding, ...)
-  vl
-}
-
-#' Create a vertical ribbon of panels
-#'
-#' @inheritParams facet_col
-#' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
-#' @rdname encode
-#' @export
-facet_row <- function(vl, field=NULL, type='auto', round=TRUE, padding=16,
                       value=NULL, ...) {
   if(is.null(field)){
     message('"column" channel requires the use of "field"', call.=FALSE)
@@ -230,7 +210,27 @@ facet_row <- function(vl, field=NULL, type='auto', round=TRUE, padding=16,
     message('"value" is invalid for "column" channel, using "field"')
   }
 
-  vl <- encode_vl(vl, chnl='row', field=field, type=type, round=round,
-                  padding=padding, ...)
+  vl <- encode_vl(vl, chnl='column', field=field, type=type, ...)
+  vl
+}
+
+#' Create a vertical ribbon of panels
+#'
+#' @inheritParams facet_col
+#' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
+#' @rdname encode
+#' @export
+facet_row <- function(vl, field=NULL, type='auto',
+                      value=NULL, ...) {
+  if(is.null(field)){
+    message('"column" channel requires the use of "field"', call.=FALSE)
+    return(vl)
+  }
+
+  if(!is.null(value)){
+    message('"value" is invalid for "column" channel, using "field"')
+  }
+
+  vl <- encode_vl(vl, chnl='row', field=field, type=type, ...)
   vl
 }
