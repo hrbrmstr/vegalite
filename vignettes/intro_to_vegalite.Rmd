@@ -259,7 +259,7 @@ vegalite() %>%
   scale_color_nominal_vl(scheme="category20b") %>%
   timeunit_x("yearmonth") %>%
   scale_x_time_vl(nice="month") %>%
-  axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+  axis_x(format="%Y", labelAngle=0) %>%
   mark_area()
 ```
 
@@ -275,7 +275,7 @@ vegalite() %>%
   scale_color_nominal_vl(scheme="category20b") %>%
   timeunit_x("yearmonth") %>%
   scale_x_time_vl(nice="month") %>%
-  axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+  axis_x(format="%Y", labelAngle=0) %>%
   mark_area(interpolate="basis")
 ```
 
@@ -301,7 +301,7 @@ vegalite() %>%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
   encode_x("date", "temporal") %>%
   timeunit_x("yearmonth") %>%
-  axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+  axis_x(format="%Y", labelAngle=0) %>%
   encode_y("count", "quantitative", aggregate="sum") %>%
   mark_area()
 ```
@@ -318,10 +318,9 @@ vegalite(viewport_width=600, viewport_height=400) %>%
   encode_color("gender", "nominal") %>%
   scale_x_ordinal_vl(range_step = 8) %>%
   scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) %>%
-  facet_col("age", "ordinal", padding=4) %>%
+  facet_col("age", "ordinal") %>%
   axis_x(remove=TRUE) %>%
   axis_y(title="population", grid=FALSE) %>%
-  axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
   view_config(stroke_width=0) %>%
   mark_bar()
 ```
@@ -351,7 +350,7 @@ vegalite() %>%
   encode_color("series", "nominal") %>%
   scale_x_time_vl(nice="month") %>%
   scale_color_nominal_vl(scheme="category20b") %>%
-  axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+  axis_x(format="%Y", labelAngle=0) %>%
   axis_y(remove=TRUE) %>%
   timeunit_x("yearmonth") %>%
   mark_area()
@@ -365,7 +364,7 @@ vegalite(viewport_width=400, viewport_height=400) %>%
   add_filter("datum.year == 2000") %>%
   calculate("gender", 'datum.sex == 2 ? "Female" : "Male"') %>%
   encode_x("age", "ordinal") %>%
-  encode_y("people", "quantitative", aggregate="sum", stack="none") %>%
+  encode_y("people", "quantitative", aggregate="sum", stack=NA) %>%
   encode_color("gender", "nominal") %>%
   scale_x_ordinal_vl(range_step=17) %>%
   scale_color_nominal_vl(range=c("#e377c2","#1f77b4")) %>%
