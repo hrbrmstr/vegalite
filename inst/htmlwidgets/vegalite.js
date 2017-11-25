@@ -19,13 +19,12 @@ HTMLWidgets.widget({
       "data" : x.data,
       "mark" : x.mark,
       "encoding" : x.encoding,
-      "config" : x.config,
       "transform" : x.transform
     };
 
-    //if (x.hasOwnProperty("transform")) {
-    //  vlSpec.transform = x.transform;
-    //}
+    if (x.hasOwnProperty("config")) {
+      vlSpec.config = x.config;
+    }
 
 
     var embedSpec = {
