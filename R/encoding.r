@@ -65,7 +65,7 @@ encode_vl <- function(vl, chnl="x", field=NULL, type="auto", value=NULL,
   if (!is.null(round)) vl$x$encoding[[chnl]]$scale$round <- round
   if (!is.null(padding)) vl$x$encoding[[chnl]]$scale$padding <- padding
 
-  if (stack == "none") stack <- NA
+  if (!is.null(stack) && !is.na(stack) && stack == "none") stack <- NA
   if (!is.null(stack) && chnl %in% c("x","y")) vl$x$encoding[[chnl]]$stack <- stack
 
   vl
