@@ -27,7 +27,7 @@ displayed with the cahrt. (Default: \code{FALSE}.)}
 
 \item{viewport_width, viewport_height}{height and width of the overall
 visualziation viewport. This is the overall area reserved for the
-plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
+plot. You can leave these \code{NULL} and use \code{\link{view_size}}
 instead but you will want to configure both when making faceted plots.}
 
 \item{padding}{single number to be applied to all sides, or list
@@ -46,6 +46,8 @@ Default: \code{\%Y-\%m-\%d}}
 axes and legends (in the form of
 \href{https://github.com/mbostock/d3/wiki/Formatting}{D3 number format pattern}).
 Default: \code{s}}
+
+\item{...}{additional arguments}
 }
 \description{
 Create and (optionally) visualize a Vega-Lite spec

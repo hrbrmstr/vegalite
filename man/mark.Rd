@@ -76,6 +76,8 @@ therefore explicitly specified value will be ignored.}
 \item{tickSize}{the size of ticks}
 
 \item{tickThickness}{the thickness of ticks.}
+
+\item{...}{additional arguments passed to mark}
 }
 \description{
 A bar mark represents each data point as a rectangle, where the length is
@@ -114,24 +116,24 @@ vegalite() \%>\%
   encode_y("Cylinders", "ordinal") \%>\%
   mark_tick()
 vegalite() \%>\%
-  cell_size(300, 300) \%>\%
+  view_size(300, 300) \%>\%
   add_data("https://vega.github.io/vega-editor/app/data/driving.json") \%>\%
   encode_x("miles", "quantitative") \%>\%
   encode_y("gas", "quantitative") \%>\%
-  encode_path("year", "temporal") \%>\%
-  scale_x_linear(zero=FALSE) \%>\%
-  scale_y_linear(zero=FALSE) \%>\%
+  encode_order("year", "temporal") \%>\%
+  scale_x_linear_vl(zero=FALSE) \%>\%
+  scale_y_linear_vl(zero=FALSE) \%>\%
   mark_line()
 vegalite() \%>\%
-  cell_size(300, 200) \%>\%
+  view_size(300, 200) \%>\%
   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") \%>\%
   encode_x("date", "temporal") \%>\%
   encode_y("count", "quantitative", aggregate="sum") \%>\%
   encode_color("series", "nominal") \%>\%
-  scale_color_nominal(range="category20b") \%>\%
+  scale_color_nominal_vl(scheme="category20b") \%>\%
   timeunit_x("yearmonth") \%>\%
-  scale_x_time(nice="month") \%>\%
-  axis_x(axisWidth=0, format="\%Y", labelAngle=0) \%>\%
+  scale_x_time_vl(nice="month") \%>\%
+  axis_x(format="\%Y", labelAngle=0) \%>\%
   mark_area()
 vegalite() \%>\%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") \%>\%
@@ -139,7 +141,7 @@ vegalite() \%>\%
   encode_y("Miles_per_Gallon", "quantitative") \%>\%
   mark_point()
 vegalite() \%>\%
-  cell_size(300, 200) \%>\%
+  view_size(300, 200) \%>\%
   add_data("https://vega.github.io/vega-editor/app/data/cars.json") \%>\%
   encode_x("Horsepower", "quantitative") \%>\%
   encode_y("Miles_per_Gallon", "quantitative") \%>\%

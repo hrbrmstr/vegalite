@@ -37,13 +37,12 @@ vl <- wdgt_png_tf <- NULL
 #'   encode_x("gender", "nominal") %>%
 #'   encode_y("people", "quantitative", aggregate="sum") %>%
 #'   encode_color("gender", "nominal") %>%
-#'   scale_x_ordinal(range_step=6) %>%
-#'   scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
+#'   scale_x_ordinal_vl(range_step=8) %>%
+#'   scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) %>%
 #'   facet_col("age", "ordinal", padding=4) %>%
 #'   axis_x(remove=TRUE) %>%
 #'   axis_y(title="population", grid=FALSE) %>%
-#'   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
-#'   facet_cell(stroke_width=0) %>%
+#'   view_config(stroke_width=0) %>%
 #'   mark_bar()
 #'
 
@@ -124,13 +123,12 @@ axis_y <- function(vl, ...) {
 #'   encode_x("gender", "nominal") %>%
 #'   encode_y("people", "quantitative", aggregate="sum") %>%
 #'   encode_color("gender", "nominal") %>%
-#'   scale_x_ordinal(range_step=6) %>%
-#'   scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
+#'   scale_x_ordinal_vl(range_step=8) %>%
+#'   scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) %>%
 #'   facet_col("age", "ordinal", padding=4) %>%
 #'   axis_x(remove=TRUE) %>%
 #'   axis_y(title="population", grid=FALSE) %>%
-#'   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
-#'   facet_cell(stroke_width=0) %>%
+#'   view_config(stroke_width=0) %>%
 #'   mark_bar()
 
 axis_facet_col <- function(vl, ...) {

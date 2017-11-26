@@ -19,6 +19,14 @@ grid_facet(vl, grid_color = NULL, grid_opacity = NULL, grid_offset = NULL)
 \arguments{
 \item{vl}{Vega-Lite object}
 
+\item{...}{additional arguments to pass to cell_config}
+
+\item{width}{width of cell}
+
+\item{height}{height of cell}
+
+\item{facet}{if facetting}
+
 \item{grid_color}{color of the grid between facets.}
 
 \item{grid_opacity}{\code{0.0}-\code{1.0}}

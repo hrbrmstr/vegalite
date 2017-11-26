@@ -8,3 +8,4 @@ src/*.dll
 inst/doc
 .DS_Store
 .V8history
+vignettes/.build.timestamp

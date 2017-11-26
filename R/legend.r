@@ -11,6 +11,7 @@
 #' @param title,titleColor,titleFont,titleFontSize,titleFontWeight
 #'        see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}
 #' @param remove if \code{TRUE}, there will be no legend for this aesthetic.
+#' @param ... additional arguments to pass to legend_vl
 #' @encoding UTF-8
 #' @export
 

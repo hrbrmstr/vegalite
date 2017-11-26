@@ -89,6 +89,8 @@ Vega-Lite automatically determines appropriate range based on the scale’s
 channel and type, but range property can be provided to customize range
 values.}
 
+\item{scheme}{color scheme to use}
+
 \item{round}{If true, rounds numeric output values to integers.}
 
 \item{clamp}{if true, values that exceed the data domain are clamped to either
@@ -98,6 +100,8 @@ config (true by default) Supported Types: only linear, pow, sqrt, and log}
 \item{exponent}{in the "pow" scale only, expresses each range value y as a power
 (exponential) function of the domain value x: y = mx^k + b where k is
  \code{exponent}}
+
+\item{base}{log base to use for log scale}
 
 \item{nice}{If true, modifies the scale domain to use a more human-friendly
 number range (e.g., 7 instead of 6.96). Default value: true only for
@@ -122,6 +126,11 @@ last point will be offset from the minimum and maximum value by half
 the distance between points. (See D3’s
 \href{https://github.com/mbostock/d3/wiki/Ordinal-Scales#ordinal_rangePoints}{ordinalRangePoints()}
 for illustration.)}
+
+\item{interpolate}{interpolation method to use for ranges. Legal values
+include rgb, hsl, hsl-long, lab, hcl, hcl-long, cubehelix and cubehelix-long}
+
+\item{...}{additional arguments to pass to scale_vl}
 }
 \description{
 Vega-Lite Scales
@@ -134,13 +143,12 @@ vegalite() \%>\%
   encode_x("gender", "nominal") \%>\%
   encode_y("people", "quantitative", aggregate="sum") \%>\%
   encode_color("gender", "nominal") \%>\%
-  scale_x_ordinal(range_step=6) \%>\%
-  scale_color_nominal(range=c("#EA98D2", "#659CCA")) \%>\%
-  facet_col("age", "ordinal", padding=4) \%>\%
+  scale_x_ordinal_vl(range_step=8) \%>\%
+  scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) \%>\%
+  facet_col("age", "ordinal") \%>\%
   axis_x(remove=TRUE) \%>\%
   axis_y(title="population", grid=FALSE) \%>\%
-  axis_facet_col(orient="bottom", axisWidth=1, offset=-8) \%>\%
-  facet_cell(stroke_width=0) \%>\%
+  view_config(stroke_width=0) \%>\%
   mark_bar()
 }
 \references{

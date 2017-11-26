@@ -30,6 +30,7 @@
 #' @param size for point, circle or square \code{mark}, the pixel area of a point.
 #' @param tickSize the size of ticks
 #' @param tickThickness the thickness of ticks.
+#' @param ... additional arguments passed to mark
 #' @rdname mark
 #' @encoding UTF-8
 #' @references \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec},
@@ -157,13 +158,13 @@ mark_tick <- function(vl, ...){
 #' @export
 #' @examples
 #' vegalite() %>%
-#'   cell_size(300, 300) %>%
+#'   view_size(300, 300) %>%
 #'   add_data("https://vega.github.io/vega-editor/app/data/driving.json") %>%
 #'   encode_x("miles", "quantitative") %>%
 #'   encode_y("gas", "quantitative") %>%
-#'   encode_path("year", "temporal") %>%
-#'   scale_x_linear(zero=FALSE) %>%
-#'   scale_y_linear(zero=FALSE) %>%
+#'   encode_order("year", "temporal") %>%
+#'   scale_x_linear_vl(zero=FALSE) %>%
+#'   scale_y_linear_vl(zero=FALSE) %>%
 #'   mark_line()
 mark_line <- function(vl, ...) {
   vl <- mark(vl, mark="line", ...)
@@ -174,15 +175,15 @@ mark_line <- function(vl, ...) {
 #' @export
 #' @examples
 #' vegalite() %>%
-#'   cell_size(300, 200) %>%
+#'   view_size(300, 200) %>%
 #'   add_data("https://vega.github.io/vega-editor/app/data/unemployment-across-industries.json") %>%
 #'   encode_x("date", "temporal") %>%
 #'   encode_y("count", "quantitative", aggregate="sum") %>%
 #'   encode_color("series", "nominal") %>%
-#'   scale_color_nominal(range="category20b") %>%
+#'   scale_color_nominal_vl(scheme="category20b") %>%
 #'   timeunit_x("yearmonth") %>%
-#'   scale_x_time(nice="month") %>%
-#'   axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+#'   scale_x_time_vl(nice="month") %>%
+#'   axis_x(format="%Y", labelAngle=0) %>%
 #'   mark_area()
 mark_area <- function(vl, ...) {
   vl <- mark(vl, mark="area", ...)
@@ -206,7 +207,7 @@ mark_point <- function(vl, ...) {
 #' @export
 #' @examples
 #' vegalite() %>%
-#'   cell_size(300, 200) %>%
+#'   view_size(300, 200) %>%
 #'   add_data("https://vega.github.io/vega-editor/app/data/cars.json") %>%
 #'   encode_x("Horsepower", "quantitative") %>%
 #'   encode_y("Miles_per_Gallon", "quantitative") %>%

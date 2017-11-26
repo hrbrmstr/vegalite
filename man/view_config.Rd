@@ -53,10 +53,10 @@ vegalite() \%>\%
   encode_x("date", "temporal") \%>\%
   encode_y("count", "quantitative", aggregate="sum") \%>\%
   encode_color("series", "nominal") \%>\%
-  scale_color_nominal(range="category20b") \%>\%
+  scale_color_nominal_vl(scheme="category20b") \%>\%
   timeunit_x("yearmonth") \%>\%
-  scale_x_time(nice="month") \%>\%
-  axis_x(axisWidth=0, format="\%Y", labelAngle=0) \%>\%
+  scale_x_time_vl(nice="month") \%>\%
+  axis_x(format="\%Y", labelAngle=0) \%>\%
   mark_area()
 }
 \references{

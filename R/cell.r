@@ -68,10 +68,10 @@ cell_config <- function(vl,...){
 #'   encode_x("date", "temporal") %>%
 #'   encode_y("count", "quantitative", aggregate="sum") %>%
 #'   encode_color("series", "nominal") %>%
-#'   scale_color_nominal(range="category20b") %>%
+#'   scale_color_nominal_vl(scheme="category20b") %>%
 #'   timeunit_x("yearmonth") %>%
-#'   scale_x_time(nice="month") %>%
-#'   axis_x(axisWidth=0, format="%Y", labelAngle=0) %>%
+#'   scale_x_time_vl(nice="month") %>%
+#'   axis_x(format="%Y", labelAngle=0) %>%
 #'   mark_area()
 view_size <- function(vl, width=200, height=200) {
   vl <- view_config(vl, width=width, height=height)
@@ -104,9 +104,13 @@ facet_cell <- function(vl, ...) {
 #'
 #' @md
 #' @param vl Vega-Lite object
+#' @param width width of cell
+#' @param height height of cell
+#' @param facet if facetting
 #' @param grid_color color of the grid between facets.
 #' @param grid_opacity \code{0.0}-\code{1.0}
 #' @param grid_offset offset for grid between facets.
+#' @param ... additional arguments to pass to cell_config
 #' @encoding UTF-8
 #' @rdname deprecated-cell
 #' @references

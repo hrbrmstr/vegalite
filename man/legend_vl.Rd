@@ -36,6 +36,8 @@ legend_shape(vl, ...)
 \item{title, titleColor, titleFont, titleFontSize, titleFontWeight}{see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}}
 
 \item{remove}{if \code{TRUE}, there will be no legend for this aesthetic.}
+
+\item{...}{additional arguments to pass to legend_vl}
 }
 \description{
 Legend settings (all)
