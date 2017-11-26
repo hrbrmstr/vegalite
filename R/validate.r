@@ -43,7 +43,7 @@ validate_vl <- function(vl, message = TRUE){
   zschema_js <- system.file('htmlwidgets',
                             'lib',
                             'z-schema',
-                            'ZSchema-browser.js',
+                            'ZSchema-browser-min.js',
                             package = 'vegalite')
   ct$source(zschema_js)
   ct$eval("var validator = new ZSchema();")
