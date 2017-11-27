@@ -10,9 +10,8 @@ HTMLWidgets.widget({
 
   renderValue: function(el, x, instance) {
 
-  par = x;
 
-  vlSpec <- JSON.parse(x.spec);
+  var vlSpec = JSON.parse(x.spec);
 
   var embedSpec = {
     "mode": "vega-lite",

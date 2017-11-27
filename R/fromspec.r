@@ -7,7 +7,8 @@
 #' renders it as an htmlwidget. Data should either be embedded or use a
 #' an absolute URL reference.
 #'
-#' @param spec URL to a Vega-Lite JSON file or the JSON text of a spec
+#' @param spec URL to a Vega-Lite JSON file, the JSON text of a spec, or the
+#' file path for a json spec
 #' @param width,height widget width/height
 #' @param renderer the renderer to use for the view. One of \code{canvas} or
 #'        \code{svg} (the default)
@@ -25,14 +26,18 @@ from_spec <- function(spec, width=NULL, height=NULL,
                       renderer=c("svg", "canvas"),
                       export=FALSE, source=FALSE, editor=FALSE) {
 
-  if (is_url(spec)) { spec <- readLines(spec, warn=FALSE) }
+  if (is_url(spec)) {
+    spec <- readLines(spec, warn=FALSE)
+  } else if (file.exists(spec)){
+    spec <- readLines(spec, warn=FALSE)
+  }
 
   spec <- paste0(spec, collapse="", sep="")
 
   # forward options using x
   params <- list(
     spec=spec,
-    renderer=renderer[1],
+    renderer=match.arg(renderer),
     export=export,
     source=source,
     editor=editor

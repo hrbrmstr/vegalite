@@ -9,7 +9,8 @@ from_spec(spec, width = NULL, height = NULL, renderer = c("svg",
   "canvas"), export = FALSE, source = FALSE, editor = FALSE)
 }
 \arguments{
-\item{spec}{URL to a Vega-Lite JSON file or the JSON text of a spec}
+\item{spec}{URL to a Vega-Lite JSON file, the JSON text of a spec, or the
+file path for a json spec}
 
 \item{width, height}{widget width/height}
 

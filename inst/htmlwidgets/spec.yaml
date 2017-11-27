@@ -9,7 +9,7 @@ dependencies:
 - name: vega-lite
   src: htmlwidgets/lib/vega-lite
   script:
-    - ./vega-lite.js
+    - ./vega-lite.min.js
   version: 2.0.1
 - name: vega-embed
   src: htmlwidgets/lib/vega-embed

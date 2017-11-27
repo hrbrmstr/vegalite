@@ -1,6 +1,6 @@
 ## 2.0.0.9999
 * Initial support for vega-lite 2.0
-* Updates Javascript libraries for upgrade to vega-lite 2.0. New versions of vega-lite, vega, vega-embed, vega-tooltip.
+* Updates Javascript libraries for upgrade to vega-lite 2.0. New versions of vega-lite, vega, vega-embed, vega-tooltip. Remove separate D3 library because not necessary.
 * Add z-schema javascript library and a function validate_vl that checks whether schema is valid vega-lite2. Updates tests to use validate_vl.
 * Updates to to_spec and embed_spec to give valid spec for vega-lite2
 * Deprecate axis_facet_row and axis_facet_col because behaviour currently un-supported by vega-lite 2.
