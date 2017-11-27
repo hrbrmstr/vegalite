@@ -1,6 +1,7 @@
 ## 2.0.0.9999
 * Initial support for vega-lite 2.0
 * Updates Javascript libraries for upgrade to vega-lite 2.0. New versions of vega-lite, vega, vega-embed, vega-tooltip. Remove separate D3 library because not necessary.
+* Updates spec.js and vegalite.js to match new api for vega-embed and vega-tooltip.
 * Add z-schema javascript library and a function validate_vl that checks whether schema is valid vega-lite2. Updates tests to use validate_vl.
 * Updates to to_spec and embed_spec to give valid spec for vega-lite2
 * Deprecate axis_facet_row and axis_facet_col because behaviour currently un-supported by vega-lite 2.
@@ -8,7 +9,7 @@
 * band_size argument now named range_step, to match vega-lite 2 naming
 * cell_size and cell_config deprecated in favor of view_size and view_config to better match new naming of field in vega-lite 2
 * grid_facet deprecated because there is no longer a facet field in config in vega-lite 2
-* Bug fixes to capture_widget (some internal variable names were wrong)
+* Bug fixes to capture_widget
 
 
 ## 0.7.1
