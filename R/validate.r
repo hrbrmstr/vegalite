@@ -3,7 +3,6 @@
 #' Validate the Vega-Lite widget against the schema
 #' @md
 #' @param vl Vega-Lite object
-#' @param message if invalid, print message?
 #'
 #' @return `TRUE` if valid, `FALSE` if not
 #' @export
@@ -22,7 +21,7 @@
 #'   mark_bar()
 #'
 #' validate_vl(vl)
-validate_vl <- function(vl, message = TRUE){
+validate_vl <- function(vl){
 
   if (!requireNamespace("V8")) {
     stop("V8 package required for validate_vl function.\n",
@@ -51,12 +50,9 @@ validate_vl <- function(vl, message = TRUE){
   valid <- ct$call("validator.validate",spec,vlschema)
 
   if (!valid) {
-    if (message) {
-      err <- ct$call("validator.getLastErrors")
-      message(err)
-    }
-    return(FALSE)
-  } else {
-    return(TRUE)
+    err <- ct$call("validator.getLastErrors")
+    attr(valid,"problems") <- err
   }
+
+  return(valid)
 }

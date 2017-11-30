@@ -4,12 +4,10 @@
 \alias{validate_vl}
 \title{validate_vl}
 \usage{
-validate_vl(vl, message = TRUE)
+validate_vl(vl)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
-
-\item{message}{if invalid, print message?}
 }
 \value{
 \code{TRUE} if valid, \code{FALSE} if not
