@@ -4,16 +4,22 @@
 \alias{validate_vl}
 \title{validate_vl}
 \usage{
-validate_vl(vl)
+validate_vl(vl, verbose = TRUE)
 }
 \arguments{
 \item{vl}{Vega-Lite object}
+
+\item{verbose}{\code{TRUE} or \code{FALSE} -- should error reason be added as "errors"
+attribute in case of invalid schema}
 }
 \value{
 \code{TRUE} if valid, \code{FALSE} if not
 }
 \description{
 Validate the Vega-Lite widget against the schema
+}
+\details{
+Use of this function requires jsonvalidate package to be installed.
 }
 \examples{
 dat <- jsonlite::fromJSON('[

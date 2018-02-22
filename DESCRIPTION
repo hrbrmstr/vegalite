@@ -28,7 +28,7 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    V8
+    jsonvalidate
 Depends:
     R (>= 3.0.0)
 Imports:

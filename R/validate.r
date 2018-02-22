@@ -3,6 +3,10 @@
 #' Validate the Vega-Lite widget against the schema
 #' @md
 #' @param vl Vega-Lite object
+#' @param verbose `TRUE` or `FALSE` -- should error reason be added as "errors"
+#' attribute in case of invalid schema
+#'
+#' @details Use of this function requires jsonvalidate package to be installed.
 #'
 #' @return `TRUE` if valid, `FALSE` if not
 #' @export
@@ -21,38 +25,21 @@
 #'   mark_bar()
 #'
 #' validate_vl(vl)
-validate_vl <- function(vl){
+validate_vl <- function(vl, verbose = TRUE){
 
-  if (!requireNamespace("V8")) {
-    stop("V8 package required for validate_vl function.\n",
-         "Please install V8 and try again.")
+  if (!requireNamespace("jsonvalidate")) {
+    stop("jsonvalidate required for validate_vl function.\n",
+         "Please install jsonvalidate and try again.")
   }
 
-  spec <- vl$x
-  spec$embed <- NULL
+  spec <- to_spec(vl)
+
   schemafile <- system.file('htmlwidgets',
                             'lib',
                             'vega-lite',
                             'vega-lite-schema.json',
                             package = 'vegalite')
-  vlschema <- jsonlite::read_json(schemafile)
 
-  # V8
-  ct <- V8::v8()
-  zschema_js <- system.file('htmlwidgets',
-                            'lib',
-                            'z-schema',
-                            'ZSchema-browser-min.js',
-                            package = 'vegalite')
-  ct$source(zschema_js)
-  ct$eval("var validator = new ZSchema();")
-  ct$eval("var errors")
-  valid <- ct$call("validator.validate",spec,vlschema)
+  jsonvalidate::json_validate(spec, schemafile, verbose = verbose)
 
-  if (!valid) {
-    err <- ct$call("validator.getLastErrors")
-    attr(valid,"problems") <- err
-  }
-
-  return(valid)
 }
