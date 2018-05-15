@@ -1,23 +1,25 @@
 dependencies:
-- name: d3
-  src: htmlwidgets/lib/d3
-  script: ./d3.min.js
-  version: 3.5.3
 - name: vega
   src: htmlwidgets/lib/vega
-  script: ./vega.js
-  version: 0.0.0
+  script:
+    - ./symbol.min.js
+    - ./promise.min.js
+    - ./vega.js
+  version: 3.0.7
 - name: vega-lite
   src: htmlwidgets/lib/vega-lite
   script:
-    - ./vega-lite.js
+    - ./vega-lite.min.js
+  version: 2.0.1
+- name: vega-embed
+  src: htmlwidgets/lib/vega-embed
+  script:
     - ./vega-embed.js
-  version: 0.0.0
+  version: 3.0.0
 - name: vega-tooltip
   src: htmlwidgets/lib/vega-tooltip
   script:
-    - ./vg-tooltip.min.js
-    - ./datalib.min.js
+    - ./vega-tooltip.min.js
   style:
-    - ./vg-tooltip.css
-  version: 0.0.0
+    - ./vega-tooltip.min.css
+  version: 0.4.4

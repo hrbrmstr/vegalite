@@ -52,20 +52,19 @@ capture_widget <- function(wdgt,
 
   wdgt_html_tf <- tempfile(fileext=".html")
 
-  htmlwidgets::saveWidget(vl, wdgt_html_tf)
+  htmlwidgets::saveWidget(wdgt, wdgt_html_tf)
 
   webshot::webshot(url=sprintf("file://%s", wdgt_html_tf),
-                   selector="#htmlwidget_container",
-                   file=wdgt_png_tf,
+                   file=png_render_path,
                    vwidth=width, vheight=height)
 
   # done with HTML
   unlink(wdgt_html_tf)
 
-  switch(match.arg(output, c("path", "markdown", "html", "inline")),
+  switch(match.arg(output),
              `path`=png_render_path,
          `markdown`=sprintf("![widget](file://%s)", png_render_path),
              `html`=sprintf("<img src='file://%s'/>", png_render_path),
-           `inline`=base64::img(wdgt_png_tf))
+           `inline`=base64::img(png_render_path))
 
 }

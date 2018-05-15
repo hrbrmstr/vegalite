@@ -20,6 +20,9 @@
 #'        more info on valid operations. Leave \code{NULL} for no aggregation.
 #' @param sort either one of \code{ascending}, \code{descending} or (for ordinal scales)
 #'        the result of a call to \code{\link{sort_def}}
+#' @param stack how to stack values, in case mark is bar or area. Should be
+#'     "zero","center","normalize", or "none" or NA.
+#' @param ... additional arguments to pass to encode_vl
 #' @encoding UTF-8
 #' @note right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It
 #'       will eventually get smarter, but you are better off specifying it.
@@ -40,7 +43,8 @@
 #'   mark_bar()
 
 encode_vl <- function(vl, chnl="x", field=NULL, type="auto", value=NULL,
-                      aggregate=NULL, sort=NULL, padding=NULL, round=NULL) {
+                      aggregate=NULL, sort=NULL, padding=NULL, round=NULL,
+                      stack = NULL) {
   if(is.null(field) & is.null(value)){
     # https://vega.github.io/vega-lite/docs/encoding.html#channels
     message('Each channel definition object must describe the "field" or "value".')
@@ -63,6 +67,9 @@ encode_vl <- function(vl, chnl="x", field=NULL, type="auto", value=NULL,
   if (!is.null(sort)) vl$x$encoding[[chnl]]$sort <- sort
   if (!is.null(round)) vl$x$encoding[[chnl]]$scale$round <- round
   if (!is.null(padding)) vl$x$encoding[[chnl]]$scale$padding <- padding
+
+  if (!is.null(stack) && !is.na(stack) && stack == "none") stack <- NA
+  if (!is.null(stack) && chnl %in% c("x","y")) vl$x$encoding[[chnl]]$stack <- stack
 
   vl
 
@@ -132,7 +139,7 @@ encode_text <- function(vl, ...) {
 #' @export
 #' @examples
 #' vegalite() %>%
-#'   cell_size(200, 200) %>%
+#'   view_size(200, 200) %>%
 #'   add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") %>%
 #'   encode_x("date", "temporal") %>%
 #'   encode_y("price", "quantitative") %>%
@@ -173,20 +180,11 @@ encode_order <- function(vl, field=NULL, type="auto", value=NULL, ...) {
 #' @rdname encode
 #' @export
 encode_path <- function(vl, field=NULL, type="auto", value=NULL, ...) {
-  if(is.null(field)){
-    message('"path" channel requires the use of "field"', call.=FALSE)
-    return(vl)
-  }
+  .Deprecated("encode_order",
+              msg = "encode_path is deprecated; use encode_order instead")
 
-  if(!is.null(value)){
-    message('"value" is invalid for "path" channel, using "field"')
-  }
-
-  vl <- encode_vl(vl, chnl="path", field=field, ...)
-
-  vl
+  encode_order(vl, field = field, type = type, value = value, ...)
 }
-
 
 #' Create a horizontal ribbon of panels
 #' @inheritParams encode
@@ -203,37 +201,14 @@ encode_path <- function(vl, field=NULL, type="auto", value=NULL, ...) {
 #'   encode_x("gender", "nominal") %>%
 #'   encode_y("people", "quantitative", aggregate="sum") %>%
 #'   encode_color("gender", "nominal") %>%
-#'   scale_x_ordinal(band_size=6) %>%
-#'   scale_color_nominal(range=c("#EA98D2", "#659CCA")) %>%
-#'   facet_col("age", "ordinal", padding=4) %>%
+#'   scale_x_ordinal_vl(range_step=8) %>%
+#'   scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) %>%
+#'   facet_col("age", "ordinal") %>%
 #'   axis_x(remove=TRUE) %>%
 #'   axis_y(title="population", grid=FALSE) %>%
-#'   axis_facet_col(orient="bottom", axisWidth=1, offset=-8) %>%
-#'   facet_cell(stroke_width=0) %>%
+#'   view_config(stroke_width=0) %>%
 #'   mark_bar()
 facet_col <- function(vl, field=NULL, type='auto',
-                      round=TRUE, padding=16, value=NULL, ...) {
-  if(is.null(field)){
-    message('"column" channel requires the use of "field"', call.=FALSE)
-    return(vl)
-  }
-
-  if(!is.null(value)){
-    message('"value" is invalid for "column" channel, using "field"')
-  }
-
-  vl <- encode_vl(vl, chnl='column', field=field, type=type, round=round,
-                  padding=padding, ...)
-  vl
-}
-
-#' Create a vertical ribbon of panels
-#'
-#' @inheritParams facet_col
-#' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
-#' @rdname encode
-#' @export
-facet_row <- function(vl, field=NULL, type='auto', round=TRUE, padding=16,
                       value=NULL, ...) {
   if(is.null(field)){
     message('"column" channel requires the use of "field"', call.=FALSE)
@@ -244,7 +219,27 @@ facet_row <- function(vl, field=NULL, type='auto', round=TRUE, padding=16,
     message('"value" is invalid for "column" channel, using "field"')
   }
 
-  vl <- encode_vl(vl, chnl='row', field=field, type=type, round=round,
-                  padding=padding, ...)
+  vl <- encode_vl(vl, chnl='column', field=field, type=type, ...)
+  vl
+}
+
+#' Create a vertical ribbon of panels
+#'
+#' @inheritParams facet_col
+#' @references \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
+#' @rdname encode
+#' @export
+facet_row <- function(vl, field=NULL, type='auto',
+                      value=NULL, ...) {
+  if(is.null(field)){
+    message('"column" channel requires the use of "field"', call.=FALSE)
+    return(vl)
+  }
+
+  if(!is.null(value)){
+    message('"value" is invalid for "column" channel, using "field"')
+  }
+
+  vl <- encode_vl(vl, chnl='row', field=field, type=type, ...)
   vl
 }

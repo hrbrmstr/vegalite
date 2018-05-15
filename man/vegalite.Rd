@@ -6,8 +6,8 @@
 \usage{
 vegalite(description = "", renderer = c("svg", "canvas"), export = FALSE,
   source = FALSE, editor = FALSE, viewport_width = NULL,
-  viewport_height = NULL, background = NULL, time_format = NULL,
-  number_format = NULL)
+  viewport_height = NULL, padding = NULL, autosize = NULL,
+  background = NULL, time_format = NULL, number_format = NULL, ...)
 }
 \arguments{
 \item{description}{a single element character vector that provides a description of
@@ -27,8 +27,14 @@ displayed with the cahrt. (Default: \code{FALSE}.)}
 
 \item{viewport_width, viewport_height}{height and width of the overall
 visualziation viewport. This is the overall area reserved for the
-plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
+plot. You can leave these \code{NULL} and use \code{\link{view_size}}
 instead but you will want to configure both when making faceted plots.}
+
+\item{padding}{single number to be applied to all sides, or list
+specifying padding on each side, e.g list("top" = 5, "bottom" = 3,
+"left" = 2, "right" = 2). Unit is pixels.}
+
+\item{autosize}{sizing setting (\href{https://vega.github.io/vega-lite/docs/size.html#autosize}{autosize})}
 
 \item{background}{plot background color. If \code{NULL} the background will be transparent.}
 
@@ -40,6 +46,8 @@ Default: \code{\%Y-\%m-\%d}}
 axes and legends (in the form of
 \href{https://github.com/mbostock/d3/wiki/Formatting}{D3 number format pattern}).
 Default: \code{s}}
+
+\item{...}{additional arguments}
 }
 \description{
 Create and (optionally) visualize a Vega-Lite spec
@@ -60,4 +68,3 @@ vegalite() \%>\%
 \references{
 \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
 }
-

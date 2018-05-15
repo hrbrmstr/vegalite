@@ -21,4 +21,3 @@ specified or mapped values if filled is false.}
 \description{
 Color config
 }
-

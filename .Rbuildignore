@@ -13,3 +13,4 @@
 ^NEWS\.md$
 ^webshot\.png$
 ^cran-comments\.md$
+^.V8history$

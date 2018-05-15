@@ -10,11 +10,11 @@
 #'        with the chart. (Default: \code{FALSE}.)
 #' @param editor if \code{TRUE} the \emph{"Open in editor"} link will be
 #'        displayed with the cahrt. (Default: \code{FALSE}.)
+#' @param background plot background color. If \code{NULL} the background will be transparent.
 #' @param viewport_width,viewport_height height and width of the overall
 #'        visualziation viewport. This is the overall area reserved for the
-#'        plot. You can leave these \code{NULL} and use \code{\link{cell_size}}
+#'        plot. You can leave these \code{NULL} and use \code{\link{view_size}}
 #'        instead but you will want to configure both when making faceted plots.
-#' @param background plot background color. If \code{NULL} the background will be transparent.
 #' @param time_format the default time format pattern for text and labels of
 #'        axes and legends (in the form of \href{https://github.com/mbostock/d3/wiki/Time-Formatting}{D3 time format pattern}).
 #'        Default: \code{\%Y-\%m-\%d}
@@ -22,6 +22,11 @@
 #'        axes and legends (in the form of
 #'        \href{https://github.com/mbostock/d3/wiki/Formatting}{D3 number format pattern}).
 #'        Default: \code{s}
+#' @param autosize sizing setting (\href{https://vega.github.io/vega-lite/docs/size.html#autosize}{autosize})
+#' @param padding single number to be applied to all sides, or list
+#' specifying padding on each side, e.g list("top" = 5, "bottom" = 3,
+#' "left" = 2, "right" = 2). Unit is pixels.
+#' @param ... additional arguments
 #' @references \href{http://vega.github.io/vega-lite/docs/config.html#top-level-config}{Vega-Lite top-level config}
 #' @importFrom jsonlite fromJSON toJSON unbox
 #' @import htmlwidgets stats
@@ -45,7 +50,9 @@
 vegalite <- function(description="", renderer=c("svg", "canvas"),
                      export=FALSE, source=FALSE, editor=FALSE,
                      viewport_width=NULL, viewport_height=NULL,
-                     background=NULL, time_format=NULL, number_format=NULL) {
+                     padding = NULL, autosize = NULL,
+                     background=NULL, time_format=NULL, number_format=NULL,
+                     ...) {
 
   # forward options using x
   params <- list(
@@ -53,27 +60,39 @@ vegalite <- function(description="", renderer=c("svg", "canvas"),
     data = list(),
     mark = list(),
     encoding = list(),
-    config = list(),
-    embed = list(renderer=renderer[1],
+    transform = list(),
+    embed = list("mode"="vega-lite",
+                 renderer=renderer[1],
                  actions=list(export=export,
                               source=source,
                               editor=editor))
   )
 
-  if (!is.null(viewport_width) & !is.null(viewport_height)) {
-    params$config$viewport <- c(viewport_width, viewport_height)
+  if (!is.null(padding)){
+    params$config$padding <- padding
   }
+  if (!is.null(autosize)){
+    params$config$autosize <- autosize
+  }
+
   if (!is.null(background)) { params$config$background <- background }
   if (!is.null(time_format)) { params$config$timeFormat <- time_format }
   if (!is.null(number_format)) { params$config$numberFormat <- number_format }
+
+  if (!is.null(viewport_width) || !is.null(viewport_height)){
+    size_policy <- htmlwidgets::sizingPolicy(defaultWidth = viewport_width,
+                                             defaultHeight = viewport_height,
+                                             knitr.figure = FALSE)
+  } else{
+    size_policy <- htmlwidgets::sizingPolicy()
+  }
 
   # create widget
   htmlwidgets::createWidget(
     name = 'vegalite',
     x = params,
-    width = viewport_width,
-    height = viewport_height,
+    sizingPolicy = size_policy,
     package = 'vegalite'
   )
-  
+
 }

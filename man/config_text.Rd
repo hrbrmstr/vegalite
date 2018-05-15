@@ -42,4 +42,3 @@ Text config
 \references{
 \href{http://vega.github.io/vega-lite/docs/mark.html}{Vega-Lite Mark spec}
 }
-

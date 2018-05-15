@@ -3,22 +3,23 @@
 \encoding{UTF-8}
 \name{encode}
 \alias{encode}
-\alias{encode_color}
-\alias{encode_detail}
-\alias{encode_order}
-\alias{encode_path}
-\alias{encode_shape}
-\alias{encode_size}
-\alias{encode_text}
 \alias{encode_vl}
 \alias{encode_x}
 \alias{encode_y}
+\alias{encode_color}
+\alias{encode_shape}
+\alias{encode_size}
+\alias{encode_text}
+\alias{encode_detail}
+\alias{encode_order}
+\alias{encode_path}
 \alias{facet_col}
 \alias{facet_row}
 \title{Encode all "channels"}
 \usage{
 encode_vl(vl, chnl = "x", field = NULL, type = "auto", value = NULL,
-  aggregate = NULL, sort = NULL, padding = NULL, round = NULL)
+  aggregate = NULL, sort = NULL, padding = NULL, round = NULL,
+  stack = NULL)
 
 encode_x(vl, ...)
 
@@ -38,11 +39,9 @@ encode_order(vl, field = NULL, type = "auto", value = NULL, ...)
 
 encode_path(vl, field = NULL, type = "auto", value = NULL, ...)
 
-facet_col(vl, field = NULL, type = "auto", round = TRUE, padding = 16,
-  value = NULL, ...)
+facet_col(vl, field = NULL, type = "auto", value = NULL, ...)
 
-facet_row(vl, field = NULL, type = "auto", round = TRUE, padding = 16,
-  value = NULL, ...)
+facet_row(vl, field = NULL, type = "auto", value = NULL, ...)
 }
 \arguments{
 \item{vl}{Vega-Lite object created by \code{\link{vegalite}}}
@@ -70,6 +69,11 @@ the result of a call to \code{\link{sort_def}}}
 \item{padding}{facet padding}
 
 \item{round}{round values}
+
+\item{stack}{how to stack values, in case mark is bar or area. Should be
+"zero","center","normalize", or "none" or NA.}
+
+\item{...}{additional arguments to pass to encode_vl}
 }
 \description{
 Vega-Lite has many "encoding channels". Each channel definition object must
@@ -108,7 +112,7 @@ vegalite() \%>\%
   encode_y("b", "quantitative") \%>\%
   mark_bar()
 vegalite() \%>\%
-  cell_size(200, 200) \%>\%
+  view_size(200, 200) \%>\%
   add_data("https://vega.github.io/vega-editor/app/data/stocks.csv") \%>\%
   encode_x("date", "temporal") \%>\%
   encode_y("price", "quantitative") \%>\%
@@ -121,13 +125,12 @@ vegalite() \%>\%
   encode_x("gender", "nominal") \%>\%
   encode_y("people", "quantitative", aggregate="sum") \%>\%
   encode_color("gender", "nominal") \%>\%
-  scale_x_ordinal(band_size=6) \%>\%
-  scale_color_nominal(range=c("#EA98D2", "#659CCA")) \%>\%
-  facet_col("age", "ordinal", padding=4) \%>\%
+  scale_x_ordinal_vl(range_step=8) \%>\%
+  scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) \%>\%
+  facet_col("age", "ordinal") \%>\%
   axis_x(remove=TRUE) \%>\%
   axis_y(title="population", grid=FALSE) \%>\%
-  axis_facet_col(orient="bottom", axisWidth=1, offset=-8) \%>\%
-  facet_cell(stroke_width=0) \%>\%
+  view_config(stroke_width=0) \%>\%
   mark_bar()
 }
 \references{
@@ -137,4 +140,3 @@ vegalite() \%>\%
 
 \href{http://vega.github.io/vega-lite/docs/facet.html}{Vega-Lite Faceting}
 }
-

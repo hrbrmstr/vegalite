@@ -40,6 +40,8 @@ for an initial step size of 10, the method can check if bin sizes of 2
  constraints.}
 
 \item{maxbins}{the maximum number of allowable bins.}
+
+\item{...}{additional arguments passed to bin_vl}
 }
 \description{
 The "bin" property is for grouping quantitative, continuous data values of a
@@ -58,4 +60,3 @@ vegalite() \%>\%
 \references{
 \href{http://vega.github.io/vega-lite/docs/bin.html}{Vega-Lite Binning}
 }
-

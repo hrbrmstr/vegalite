@@ -2,26 +2,19 @@
 % Please edit documentation in R/axis.r
 \encoding{UTF-8}
 \name{axis_vl}
-\alias{axis_facet_col}
-\alias{axis_facet_row}
 \alias{axis_vl}
 \alias{axis_x}
 \alias{axis_y}
+\alias{axis_facet_col}
+\alias{axis_facet_row}
 \title{General axis settings (all)}
 \usage{
-axis_vl(vl, chnl = "x", axisColor = NULL, axisWidth = NULL,
-  offset = NULL, orient = NULL, zindex = NULL, grid = NULL,
-  gridColor = NULL, gridDash = NULL, gridOpacity = NULL,
-  gridWidth = NULL, labels = TRUE, format = NULL, labelAngle = NULL,
-  labelAlign = NULL, labelBaseline = NULL, labelMaxLength = 25,
-  shortTimeLabels = NULL, subdivide = NULL, ticks = NULL,
-  tickColor = NULL, tickLabelColor = NULL, tickLabelFont = NULL,
-  tickLabelFontSize = NULL, tickPadding = NULL, tickSize = NULL,
-  tickSizeMajor = NULL, tickSizeMinor = NULL, tickSizeEnd = NULL,
-  tickWidth = NULL, values = NULL, title = "", titleColor = NULL,
-  titleFont = NULL, titleFontWeight = NULL, titleFontSize = NULL,
-  titleOffset = NULL, titleMaxLength = NULL, characterWidth = 6,
-  remove = FALSE)
+axis_vl(vl, chnl = "x", domain = NULL, grid = NULL, maxExtent = NULL,
+  minExtent = NULL, orient = NULL, offset = NULL, position = NULL,
+  zindex = NULL, format = NULL, labels = NULL, labelAngle = NULL,
+  labelOverlap = NULL, labelPadding = NULL, ticks = NULL,
+  tickCount = NULL, tickSize = NULL, values = NULL, title = NULL,
+  titleMaxLength = NULL, titlePadding = NULL, remove = FALSE, ...)
 
 axis_x(vl, ...)
 
@@ -36,23 +29,17 @@ axis_facet_row(vl, ...)
 
 \item{chnl}{x, y, column, or row}
 
-\item{axisColor, axisWidth, offset, orient, zindex}{see \href{https://vega.github.io/vega-lite/docs/axis.html#general}{axis docs} &
-\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+\item{domain, grid, maxExtent, minExtent, orient, offset, position, zindex}{see \href{https://vega.github.io/vega-lite/docs/axis.html#general}{axis docs}}
 
-\item{grid, gridColor, gridDash, gridOpacity, gridWidth}{see \href{https://vega.github.io/vega-lite/docs/axis.html#grid}{axis docs} &
-\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+\item{format, labels, labelAngle, labelOverlap, labelPadding}{see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs}}
 
-\item{labels, format, labelAngle, labelAlign, labelBaseline, labelMaxLength, shortTimeLabels}{see \href{https://vega.github.io/vega-lite/docs/axis.html#labels}{axis docs} &
-\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+\item{ticks, tickCount, tickSize, values}{see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs}}
 
-\item{subdivide, ticks, tickColor, tickLabelColor, tickLabelFont, tickLabelFontSize, tickPadding, tickSize, tickSizeMajor, tickSizeMinor, tickSizeEnd, tickWidth, values}{see \href{https://vega.github.io/vega-lite/docs/axis.html#ticks}{axis docs} &
-\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+\item{title, titleMaxLength, titlePadding}{see \href{https://vega.github.io/vega-lite/docs/axis.html#title}{axis docs}}
 
-\item{title, titleColor, titleFont, titleFontWeight, titleFontSize, titleOffset, titleMaxLength, characterWidth}{see \href{https://vega.github.io/vega-lite/docs/axis.html#title}{axis docs} &
-\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+\item{remove}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs}}
 
-\item{remove}{see \href{http://vega.github.io/vega-lite/docs/axis.html}{axis docs} &
-\href{https://github.com/vega/vega-lite/blob/master/src/axis.ts}{axis base config}}
+\item{...}{deprecated arguments}
 }
 \description{
 axis_vl provide axis lines, ticks and labels to convey how a spatial range represents
@@ -73,13 +60,12 @@ vegalite() \%>\%
   encode_x("gender", "nominal") \%>\%
   encode_y("people", "quantitative", aggregate="sum") \%>\%
   encode_color("gender", "nominal") \%>\%
-  scale_x_ordinal(band_size=6) \%>\%
-  scale_color_nominal(range=c("#EA98D2", "#659CCA")) \%>\%
+  scale_x_ordinal_vl(range_step=8) \%>\%
+  scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) \%>\%
   facet_col("age", "ordinal", padding=4) \%>\%
   axis_x(remove=TRUE) \%>\%
   axis_y(title="population", grid=FALSE) \%>\%
-  axis_facet_col(orient="bottom", axisWidth=1, offset=-8) \%>\%
-  facet_cell(stroke_width=0) \%>\%
+  view_config(stroke_width=0) \%>\%
   mark_bar()
 
 vegalite() \%>\%
@@ -89,16 +75,14 @@ vegalite() \%>\%
   encode_x("gender", "nominal") \%>\%
   encode_y("people", "quantitative", aggregate="sum") \%>\%
   encode_color("gender", "nominal") \%>\%
-  scale_x_ordinal(band_size=6) \%>\%
-  scale_color_nominal(range=c("#EA98D2", "#659CCA")) \%>\%
+  scale_x_ordinal_vl(range_step=8) \%>\%
+  scale_color_nominal_vl(range=c("#EA98D2", "#659CCA")) \%>\%
   facet_col("age", "ordinal", padding=4) \%>\%
   axis_x(remove=TRUE) \%>\%
   axis_y(title="population", grid=FALSE) \%>\%
-  axis_facet_col(orient="bottom", axisWidth=1, offset=-8) \%>\%
-  facet_cell(stroke_width=0) \%>\%
+  view_config(stroke_width=0) \%>\%
   mark_bar()
 }
 \references{
 \href{http://vega.github.io/vega-lite/docs/axis.html}{Vega-List Axis spec}
 }
-

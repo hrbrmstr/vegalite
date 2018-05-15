@@ -25,4 +25,3 @@ dashed or dotted lines.}
 \description{
 Stroke config
 }
-

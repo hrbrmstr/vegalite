@@ -22,4 +22,3 @@ config_font(vl, font = NULL, font_size = NULL, font_style = NULL,
 \description{
 Font config
 }
-

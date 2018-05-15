@@ -8,7 +8,7 @@ test_that("we can do something", {
     ]')
 
   vegalite(viewport_height=250) %>%
-    cell_size(400, 200) %>%
+    view_size(400, 200) %>%
     add_data(dat) %>%
     encode_x("a", "ordinal") %>%
     encode_y("b", "quantitative") %>%
@@ -19,7 +19,8 @@ test_that("we can do something", {
                                   "preRenderHook", "jsHooks")))
 
   expect_that(names(vl$x), equals(c("description", "data", "mark",
-                                    "encoding", "config", "embed")))
+                                    "encoding", "transform","embed","config")))
+  expect_true(validate_vl(vl))
 
 })
 
@@ -45,6 +46,7 @@ test_that("vega1 can be created correctly", {
   expect_equal(ex1_dat, vl1$x$data$values)
   expect_equal(ex1$mark, vl1$x$mark)
   expect_equal(ex1$encoding, vl1$x$encoding)
+  expect_true(validate_vl(vl1))
 })
 
 test_that("vega2 can be created correctly", {
@@ -59,6 +61,7 @@ test_that("vega2 can be created correctly", {
   expect_equal(vl2$x$data$url, ex2$data$url)
   expect_equal(ex2$mark, vl2$x$mark)
   expect_equal(ex2$encoding, vl2$x$encoding)
+  expect_true(validate_vl(vl2))
 })
 
 test_that("vega3 can be created correctly", {
@@ -72,6 +75,7 @@ test_that("vega3 can be created correctly", {
   expect_equal(ex3$data$url, vl3$x$data$url)
   expect_equal(ex3$mark, vl3$x$mark)
   expect_equal(ex3$encoding, vl3$x$encoding)
+  expect_true(validate_vl(vl3))
 })
 
 
@@ -90,6 +94,7 @@ test_that("vega4 can be created correctly", {
   expect_equal(ex4$data$url, vl4$x$data$url)
   expect_equal(ex4$mark, vl4$x$mark)
   expect_equal(ex4$encoding, vl4$x$encoding)
+  expect_true(validate_vl(vl4))
 })
 
 test_that("vega5 can be created correctly", {
@@ -106,6 +111,7 @@ test_that("vega5 can be created correctly", {
   expect_equal(ex5$data$url, vl5$x$data$url)
   expect_equal(ex5$mark, vl5$x$mark)
   expect_equal(ex5$encoding, vl5$x$encoding)
+  expect_true(validate_vl(vl5))
 })
 
 test_that("vega6 can be created correctly", {
@@ -121,6 +127,7 @@ test_that("vega6 can be created correctly", {
   expect_equal(ex6$data$url, vl6$x$data$url)
   expect_equal(ex6$mark, vl6$x$mark)
   expect_equal(ex6$encoding, vl6$x$encoding)
+  expect_true(validate_vl(vl6))
 })
 
 test_that("vega7 can be created correctly", {
@@ -136,6 +143,7 @@ test_that("vega7 can be created correctly", {
   expect_equal(ex7$data$url, vl7$x$data$url)
   expect_equal(ex7$mark, vl7$x$mark)
   expect_equal(ex7$encoding, vl7$x$encoding)
+  expect_true(validate_vl(vl7))
 })
 
 test_that("vega9 can be created correctly", {
@@ -153,4 +161,5 @@ test_that("vega9 can be created correctly", {
   expect_equal(ex9$data, vl9$x$data)
   expect_equal(ex9$mark, vl9$x$mark)
   expect_equal(ex9$encoding, vl9$x$encoding)
+  expect_true(validate_vl(vl9))
 })

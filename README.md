@@ -6,11 +6,11 @@ For better examples, [take a look here](http://rud.is/projects/vegalite01.html).
 
 There's also a [blog post](http://rud.is/b/2016/02/27/create-vega-lite-specs-widgets-with-the-vegalite-package/) describing this in a bit more detail.
 
-Creation of Vega-Lite spec charts is virtually 100% feature complete. Many of the parameters to functions are only documented in TypeScript source code which will take a bit of time to wade through. All the visualizations you find in the [Vega-Lite Gallery](http://vega.github.io/vega-lite/examples/) work.
+The vegalite package has been updated to Vega-Lite 2.0, but is not yet 100% feature-complete.
 
-Functions also exist which enable creation of widgets from a JSON spec and turning a `vegalite` package created object into a JSON spec.
+In addition to functions for making a Vega-Lite based htmlwidget, functions also exist which enable creation of widgets from a JSON spec and turning a `vegalite` package created object into a JSON spec.
 
-You start by calling `vegalite()` which allows you to setup core configuration options, including whether you want to display links to show the source and export the visualization. You can also set the background here and the `viewport_width` and `viewport_height`. Those are very important as they control the height and width of the widget and also the overall area for the chart. This does _not_ set the height/width of the actual chart. That is done with `cell_size()`.
+You start by calling `vegalite()` which allows you to setup core configuration options, including whether you want to display links to show the source and export the visualization. You can also set the background here and the `viewport_width` and `viewport_height`. Those are very important as they control the height and width of the widget and also the overall area for the chart. This does _not_ set the height/width of the actual chart. That is done with `view_size()`.
 
 Once you instantiate the widget, you need to `add_data()` which can be `data.frame`, local CSV, TSV or JSON file (that convert to `data.frame`s) or a non-realive URL (wich will not be read and converted but will remain a URL in the Vega-Lite spec.
 
@@ -95,7 +95,7 @@ packageVersion("vegalite")
 ```
 
 ```
-## [1] '0.6.1.9000'
+## [1] '2.0.0.9999'
 ```
 
 

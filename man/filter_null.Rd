@@ -16,4 +16,3 @@ filtered. If \code{FALSE}, all data items are included.}
 \description{
 Whether to filter null values from the data.
 }
-

@@ -15,7 +15,7 @@
 #' here and the \code{viewport_width} and \code{viewport_height}. Those are
 #' very important as they control the height and width of the widget and also
 #' the overall area for the chart. This does \emph{not} set the height/width
-#' of the actual chart. That is done with \code{cell_size()}.
+#' of the actual chart. That is done with \code{vieew_size()}.
 #'
 #' Once you instantiate the widget, you need to \code{add_data()} which can
 #' be \code{data.frame}, local CSV, TSV or JSON file (that convert to
@@ -72,15 +72,6 @@
 #'     "y": {
 #'       "field": "b",
 #'       "type": "quantitative"
-#'     }
-#'   },
-#'   "config": [],
-#'   "embed": {
-#'     "renderer": "svg",
-#'     "actions": {
-#'       "export": false,
-#'       "source": false,
-#'       "editor": false
 #'     }
 #'   }
 #' }

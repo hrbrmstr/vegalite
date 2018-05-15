@@ -2,10 +2,10 @@
 % Please edit documentation in R/legend.r
 \encoding{UTF-8}
 \name{legend_vl}
-\alias{legend_color}
-\alias{legend_shape}
-\alias{legend_size}
 \alias{legend_vl}
+\alias{legend_color}
+\alias{legend_size}
+\alias{legend_shape}
 \title{Legend settings (all)}
 \usage{
 legend_vl(vl, chnl = "color", orient = NULL, offset = NULL,
@@ -36,8 +36,9 @@ legend_shape(vl, ...)
 \item{title, titleColor, titleFont, titleFontSize, titleFontWeight}{see \href{https://vega.github.io/vega-lite/docs/legend.html#title}{legend docs}}
 
 \item{remove}{if \code{TRUE}, there will be no legend for this aesthetic.}
+
+\item{...}{additional arguments to pass to legend_vl}
 }
 \description{
 Legend settings (all)
 }
-

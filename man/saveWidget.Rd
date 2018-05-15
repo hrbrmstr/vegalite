@@ -6,4 +6,3 @@
 \description{
 Save a widget to an HTML file
 }
-

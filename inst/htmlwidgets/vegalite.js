@@ -19,22 +19,16 @@ HTMLWidgets.widget({
       "data" : x.data,
       "mark" : x.mark,
       "encoding" : x.encoding,
-      "config" : x.config
+      "transform" : x.transform
     };
 
-    if (x.hasOwnProperty("transform")) {
-      if (x.transform.hasOwnProperty("calculate")) {
-        x.transform.calculate = HTMLWidgets.dataframeToD3(x.transform.calculate);
-      }
-      vlSpec.transform = x.transform;
+    if (x.hasOwnProperty("config")) {
+      vlSpec.config = x.config;
     }
 
-    //vls = vlSpec;
-    //par = x;
 
     var embedSpec = {
       "mode": "vega-lite",
-      "spec": vlSpec,
       "renderer": x.embed.renderer,
       "actions": {
         "export": x.embed.actions.export,
@@ -43,21 +37,12 @@ HTMLWidgets.widget({
       }
     };
 
-    //add tooltip div
-    if (d3.select("#vis-tooltip").empty()) {
-      d3.select("body").append("div")
-        .attr("id", "vis-tooltip")
-        .attr("class", "vg-tooltip")
 
-    } else {
-      d3.select("#vis-tooltip").attr("class","vg-tooltip");
-    };
-
-    vg.embed(el, embedSpec, function(error, result) {
+    vegaEmbed(el, vlSpec, embedSpec).then(function(result) {
       // Callback receiving the View instance and parsed Vega spec
       // result.view is the View, which resides under the '#vis' element
-      vl.tooltip(result.view, vlSpec)
-    });
+      vegaTooltip.vegaLite(result.view, vlSpec);
+    }).catch(console.error);
 
   },
 

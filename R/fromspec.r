@@ -7,7 +7,8 @@
 #' renders it as an htmlwidget. Data should either be embedded or use a
 #' an absolute URL reference.
 #'
-#' @param spec URL to a Vega-Lite JSON file or the JSON text of a spec
+#' @param spec URL to a Vega-Lite JSON file, the JSON text of a spec, or the
+#' file path for a json spec
 #' @param width,height widget width/height
 #' @param renderer the renderer to use for the view. One of \code{canvas} or
 #'        \code{svg} (the default)
@@ -25,14 +26,18 @@ from_spec <- function(spec, width=NULL, height=NULL,
                       renderer=c("svg", "canvas"),
                       export=FALSE, source=FALSE, editor=FALSE) {
 
-  if (is_url(spec)) { spec <- readLines(spec, warn=FALSE) }
+  if (is_url(spec)) {
+    spec <- readLines(spec, warn=FALSE)
+  } else if (file.exists(spec)){
+    spec <- readLines(spec, warn=FALSE)
+  }
 
   spec <- paste0(spec, collapse="", sep="")
 
   # forward options using x
   params <- list(
     spec=spec,
-    renderer=renderer[1],
+    renderer=match.arg(renderer),
     export=export,
     source=source,
     editor=editor
@@ -47,6 +52,18 @@ from_spec <- function(spec, width=NULL, height=NULL,
     package = 'vegalite'
   )
 
+}
+
+
+# Function adapted from dataframeToD3 function from timevis package from Dean Attali
+# Convert a data.frame to a list of lists (the data format that vegalite uses)
+dataframeToD3 <- function(df) {
+  if (missing(df) || is.null(df)) {
+    return(list())
+  }
+  stopifnot(is.data.frame(df))
+  row.names(df) <- NULL
+  apply(df, 1, function(row) as.list(row[!is.na(row)]))
 }
 
 #' Convert a spec created with widget idioms to JSON
@@ -76,7 +93,11 @@ from_spec <- function(spec, width=NULL, height=NULL,
 #'
 #' to_spec(chart)
 to_spec <- function(vl, pretty=TRUE, to_cb=FALSE) {
-  tmp <- jsonlite::toJSON(vl$x, pretty=pretty, auto_unbox=TRUE)
+  spec <- vl$x
+  spec$embed <- NULL
+  if ("values" %in% names(spec$data))
+    spec$data$values <- dataframeToD3(spec$data$values)
+  tmp <- jsonlite::toJSON(spec, pretty=pretty, auto_unbox=TRUE)
   if (to_cb) clipr::write_clip(tmp)
   tmp
 }
@@ -121,16 +142,17 @@ embed_spec <- function(vl, element_id=generate_id(), to_cb=FALSE) {
     <script>
     var spec_%s = JSON.parse(\'%s\');
 
-    var embedSpec_%s = { "mode": "vega-lite", "spec": spec_%s, "renderer": spec_%s.embed.renderer, "actions": spec_%s.embed.actions };
+    var embedSpec_%s = JSON.parse(\'%s\');
 
-    vg.embed("#%s", embedSpec_%s, function(error, result) {
-        vl.tooltip(result.view, spec_%s)
-    });
+    vegaEmbed("#%s", spec_%s, embedSpec_%s).then(function(result) {
+        vegaTooltip.vegaLite(result.view, spec_%s);
+    }).catch(console.error);
     </script>'
 
+  emb <- jsonlite::toJSON(vl$x$embed)
   tmp <- sprintf(template,
-          element_id, element_id, to_spec(vl, pretty=FALSE),
-          element_id, element_id, element_id, element_id, element_id, element_id, element_id)
+          element_id, element_id, to_spec(vl, pretty=FALSE), element_id, emb,
+          element_id, element_id, element_id, element_id)
 
   if (to_cb) clipr::write_clip(tmp)
 
