@@ -73,9 +73,7 @@ dataframeToD3 <- function(df) {
 #' @param vl a Vega-Lite object
 #' @param pretty if \code{TRUE} (default) then a "pretty-printed" version of the spec
 #'        will be returned. Use \code{FALSE} for a more compact version.
-#' @param to_cb if \code{TRUE}, will copy the spec to the system clipboard. Default is \code{FALSE}.
 #' @return JSON spec
-#' @importFrom clipr write_clip
 #' @export
 #' @encoding UTF-8
 #' @examples
@@ -92,13 +90,13 @@ dataframeToD3 <- function(df) {
 #'   mark_bar() -> chart
 #'
 #' to_spec(chart)
-to_spec <- function(vl, pretty=TRUE, to_cb=FALSE) {
+to_spec <- function(vl, pretty=TRUE) {
+  to_cb <- FALSE
   spec <- vl$x
   spec$embed <- NULL
   if ("values" %in% names(spec$data))
     spec$data$values <- dataframeToD3(spec$data$values)
   tmp <- jsonlite::toJSON(spec, pretty=pretty, auto_unbox=TRUE)
-  if (to_cb) clipr::write_clip(tmp)
   tmp
 }
 
@@ -153,8 +151,6 @@ embed_spec <- function(vl, element_id=generate_id(), to_cb=FALSE) {
   tmp <- sprintf(template,
           element_id, element_id, to_spec(vl, pretty=FALSE), element_id, emb,
           element_id, element_id, element_id, element_id)
-
-  if (to_cb) clipr::write_clip(tmp)
 
   tmp
 

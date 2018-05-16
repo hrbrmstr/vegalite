@@ -13,7 +13,6 @@
 #'        the width of a visualization with a continuous x-scale and the height of
 #'        a visualization with a continuous y-scale respectively. Visit the
 #'        URL in the References section for more information.
-#' @param clip \code{FALSE} by default, whether the view should be clipped.
 #' @param fill fill color
 #' @param fill_opacity \code{0.0}-\code{1.0}
 #' @param stroke stroke color
@@ -27,10 +26,13 @@
 #'   \href{http://vega.github.io/vega-lite/docs/config.html#view-config}{Vega-Lite view spec}
 #' @export
 
-view_config <- function(vl, width=200, height=200, clip=FALSE, fill=NULL,
+view_config <- function(vl, width=200, height=200, fill=NULL,
                         fill_opacity=NULL,stroke=NULL, stroke_opacity=NULL,
                         stroke_width=NULL, stroke_dash=NULL,
                         stroke_dash_offset=NULL) {
+
+
+  clip <- FALSE
 
   view <- list()
 

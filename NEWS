@@ -1,4 +1,4 @@
-## 2.0.0.9999
+## 2.0.0
 * Initial support for vega-lite 2.0
 * Updates Javascript libraries for upgrade to vega-lite 2.0. New versions of vega-lite, vega, vega-embed, vega-tooltip. Remove separate D3 library because not necessary.
 * Updates spec.js and vegalite.js to match new api for vega-embed and vega-tooltip.

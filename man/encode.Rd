@@ -90,10 +90,6 @@ group the lines and stacked areas by the field.\cr
 detail channel allows providing an additional grouping field (level) for
 grouping data in aggregation without mapping data to a specific visual
 channel.
-
-Create a horizontal ribbon of panels
-
-Create a vertical ribbon of panels
 }
 \note{
 right now, \code{type} == "\code{auto}" just assume "\code{quantitative}". It

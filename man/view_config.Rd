@@ -6,7 +6,7 @@
 \alias{view_size}
 \title{view aesthetics}
 \usage{
-view_config(vl, width = 200, height = 200, clip = FALSE, fill = NULL,
+view_config(vl, width = 200, height = 200, fill = NULL,
   fill_opacity = NULL, stroke = NULL, stroke_opacity = NULL,
   stroke_width = NULL, stroke_dash = NULL, stroke_dash_offset = NULL)
 
@@ -19,8 +19,6 @@ view_size(vl, width = 200, height = 200)
 the width of a visualization with a continuous x-scale and the height of
 a visualization with a continuous y-scale respectively. Visit the
 URL in the References section for more information.}
-
-\item{clip}{\code{FALSE} by default, whether the view should be clipped.}
 
 \item{fill}{fill color}
 

@@ -1,18 +1,18 @@
 Package: vegalite
 Type: Package
 Title: Tools to Encode Visualizations with the 'Grammar of Graphics'-Like 'Vega-Lite' 'Spec'
-Version: 2.0.0.9999
-Maintainer: Bob Rudis <bob@rudis.net>
+Version: 2.0.0
+Maintainer: Bob Rudis <bob@rud.is>
 Authors@R: c(
-      person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
+      person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5670-2640")),
       person("Kanit", "Wongsuphasawat,", comment = "Vega-Lite library", role = c("aut")),
       person("Jeffrey", "Heer", comment = "Vega-Lite library", role = c("aut")),
       person("Arvind", "Satyanarayan", comment = "Vega-Lite library", role = c("aut")),
       person("Mike", "Bostock", comment = "D3 library", role = c("aut")),
       person("Zening", email = "quzening@gmail.com", comment = "Tooltip Plugin for Vega-Lite (js)", role = c("aut")),
-      person("Jia",  email = "lujiacn@gmail.com", comment = "Wrap tooltip plugin to vegalite (R)", role= c("ctb")),
-      person("Jason", "Becker", "jason@jbecker.co", comment = "Refactor, tests", role= c("ctb")),
-      person("Alicia", "Schep", "aschep@gmail.com", comment = "Por to vegalite 2", role= c("ctb"))
+      person("Jia", email = "lujiacn@gmail.com", comment = "Wrap tooltip plugin to vegalite (R)", role= c("ctb")),
+      person("Jason", "Becker", email = "jason@jbecker.co", comment = "Refactor, tests", role= c("aut", "ctb")),
+      person("Alicia", "Schep", email = "aschep@gmail.com", comment = "Port to vegalite 2", role= c("aut", "ctb"))
     )
 Description: The 'Vega-Lite' 'JavaScript' framework provides a higher-level grammar
     for visual analysis, akin to 'ggplot' or 'Tableau', that generates complete 'Vega'
@@ -38,10 +38,9 @@ Imports:
     magrittr,
     digest,
     tools,
-    clipr,
     utils,
     webshot,
     base64,
     stats
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000
 VignetteBuilder: knitr
