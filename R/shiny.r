@@ -17,3 +17,18 @@ renderVegalite <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, vegaliteOutput, env, quoted = TRUE)
 }
+
+#' @rdname vegaliteOutput
+#' @export
+vegaliteSpecOutput <- function(outputId, width = "100%", height = "400px") {
+  htmlwidgets::shinyWidgetOutput(outputId, name = "spec", width, height, package = "vegalite")
+}
+
+#' @rdname renderVegalite
+#' @export
+renderVegaliteSpec <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) {
+    expr <- substitute(expr)
+  }
+  htmlwidgets::shinyRenderWidget(expr, vegaliteSpecOutput, env, quoted = TRUE)
+}

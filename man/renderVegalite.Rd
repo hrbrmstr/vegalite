@@ -2,9 +2,12 @@
 % Please edit documentation in R/shiny.r
 \name{renderVegalite}
 \alias{renderVegalite}
+\alias{renderVegaliteSpec}
 \title{Widget render function for use in Shiny}
 \usage{
 renderVegalite(expr, env = parent.frame(), quoted = FALSE)
+
+renderVegaliteSpec(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
 \item{expr}{expr to render}
