@@ -2,9 +2,12 @@
 % Please edit documentation in R/shiny.r
 \name{vegaliteOutput}
 \alias{vegaliteOutput}
+\alias{vegaliteSpecOutput}
 \title{Widget output function for use in Shiny}
 \usage{
 vegaliteOutput(outputId, width = "100\%", height = "400px")
+
+vegaliteSpecOutput(outputId, width = "100\%", height = "400px")
 }
 \arguments{
 \item{outputId}{widget output id}
